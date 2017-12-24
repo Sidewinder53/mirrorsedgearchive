@@ -1,0 +1,36 @@
+#content {
+	margin-top: 4vh;
+	margin-bottom: 4vh;
+}
+
+.card {
+	margin-bottom: 2vh;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+#overview, #hero_text, .navbar {
+	opacity: 0;
+}
+
+.card {
+	border-width: 0px;
+}
+
+#hero {
+	animation-name: main;
+	animation-duration: 0.5s;
+}
+
+@keyframes main {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}		
+}
+}

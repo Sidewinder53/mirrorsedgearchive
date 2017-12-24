@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<title>Mirror's Edge Catalyst | Project Doomsday</title>
+	<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date; ga('create', 'UA-90834610-1', 'auto'); ga('send', 'pageview');</script>	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container">
+		<a class="navbar-brand" href="../">The Mirror's Edge Archive</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="../">Home</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Projects
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="../development_vs_release">Development vs. Release</a>
+					<a class="dropdown-item" href="../project_graffiti">Player Tag Generator</a>
+					<a class="dropdown-item disabled" href="#">News broadcasts</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Archives
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="../archive">Main Archive</a>
+					<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
+					<a class="dropdown-item active" href="#">Forums</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#contactmodal" data-toggle="modal" data-target="#contactmodal">Contact</a>
+			</li>
+			</ul>
+			<ul class="nav navbar-nav ml-auto justify-content-end">
+			<li class="nav-item">
+				<a class="nav-link" href="#submitmodal" data-toggle="modal" data-target="#submitmodal">Submit a file</a>
+			</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div class="container" id="readonlynotice">
+	<div id="readonlyalert" class="alert alert-primary alert-dismissible fade show" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<!--Please note that this is a <b>read-only</b> copy of the forums. You won't be able to sign-in, answer posts or create new topics.-->
+		Sorry, but the live preview is not yet available on this server. In the meantime, please use our mirror at <a href="https://mirrorsedge.azurewebsites.net/project_doomsday/">mirrorsedge.azurewebsites.net</a>. Thank you!
+	</div>
+</div>
+
+	<!--<iframe frameBorder="0" src="storage/forums.mirrorsedge.com/index.html"></iframe>-->
+
+<div class="container" id="content">
+	
+	
+<div class="alert alert-secondary" role="alert">
+	Did you know that you can download your own copy of the forums? Grab it right <a href="https://my.mixtape.moe/zhjxdy.7z" class="alert-link">here</a>.
+	<hr>
+	Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved.<br>
+	All trademarks and registered trademarks are the property of their respective owners.<br>
+	This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise.
+</div>	
+
+<div class="modal fade" id="contactmodal" tabindex="-1" role="dialog" aria-labelledby="ContactModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="ContactModalLabel">Contact</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			General inquires should be sent to this email address:<br><br><div style="text-align: center"><a href="mailto:xtramaniagamer@outlook.com">xtramaniagamer@outlook.com</a></div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Got it!</button>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="submitmodal" tabindex="-1" role="dialog" aria-labelledby="SubmitModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="SubmitModalLabel">Submit a file</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			Sorry, but this feature is not available yet. If you'd like to submit files manually, please mail them to<br><br><div style="text-align: center"><a href="mailto:xtramaniagamer@outlook.com">xtramaniagamer@outlook.com</a></div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Got it!</button>
+		</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js" integrity="sha384-3C51VYzyLN6W+IdxzwqCdGDQUOJfaRbPH2h6z97sB+sD4nZ4FCymhVZFvHMGN2ZE" crossorigin="anonymous"></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script src="index.js"></script>
+</html>

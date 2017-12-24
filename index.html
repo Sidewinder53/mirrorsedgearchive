@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>The (unofficial) Mirror's Edge Archive</title>
+	<meta name="description" content="A huge collection of Mirror's Edge content." />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="resources/css/index.css" type="text/css"/>
+	<script src="resources/js/index.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container">
+		<a class="navbar-brand" href="#">The Mirror's Edge Archive</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Projects
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="development_vs_release">Development vs. Release</a>
+					<a class="dropdown-item" href="project_graffiti">Player Tag Generator</a>
+					<a class="dropdown-item disabled" href="#">News broadcasts</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Archives
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="archive">Main Archive</a>
+					<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
+					<a class="dropdown-item" href="project_doomsday">Forums</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#contactmodal" data-toggle="modal" data-target="#contactmodal">Contact</a>
+			</li>
+			</ul>
+			<ul class="nav navbar-nav ml-auto justify-content-end">
+			<li class="nav-item">
+				<a class="nav-link" href="#submitmodal" data-toggle="modal" data-target="#submitmodal">Submit a file</a>
+			</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container" id="content">
+	<noscript><div class="alert alert-danger" role="alert"><strong>This site requires JavaScript and cookies to be enabled.</strong> Disabling external content will compromise the user experience.</div></noscript>
+	<div class="row">
+		<div class="col-sm">
+			<div class="card">
+				<video id="hero" class="card-img-top" autoplay muted playsinline>
+					<source src="resources/video/homepage.webm" type="video/webm">
+					<source src="resources/video/homepage.mp4" type="video/mp4">
+				</video>
+				<div id="heroSlides" class="carousel slide d-none" data-ride="carousel" data-interval="10000">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<picture class="d-block w-100">
+								<source srcset="resources/img/hero_img_1.webp" type="image/webp">
+								<source srcset="resources/img/hero_img_1.jpg" type="image/jpeg"> 
+								<img src="resources/img/hero_img_1.jpg">
+							</picture>
+						</div>
+						<div class="carousel-item">
+							<picture class="d-block w-100">
+								<source srcset="resources/img/hero_img_2.webp" type="image/webp">
+								<source srcset="resources/img/hero_img_2.jpg" type="image/jpeg"> 
+								<img src="resources/img/hero_img_2.jpg">
+							</picture>
+						</div>
+						<div class="carousel-item">
+							<picture class="d-block w-100">
+								<source srcset="resources/img/hero_img_3.webp" type="image/webp">
+								<source srcset="resources/img/hero_img_3.jpg" type="image/jpeg"> 
+								<img src="resources/img/hero_img_3.jpg">
+							</picture>
+						</div>
+					</div>
+				</div>
+				<div id="hero_text" class="card-body">
+					<p class="card-text">
+						This archive is maintained by <a href="https://reddit.com/u/xtramaniagamer">/u/xtramaniagamer</a> and <a href="https://reddit.com/u/mirrorsedgefan">/u/mirrorsedgefan</a>.
+						We have spent many hundreds, if not thousands, of hours on both games and are highly dedicated fans of the franchise. Over time, we have collected a lot of unique content that may only exist here, as it has been removed from other sites or has never even been published on the Internet. That's why we decided to create this website, hosting some of the most extraordinary content you will find about the Mirror's Edge franchise. We have also created a few fun projects, check them out!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="overview">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item active">Archive</li>
+		</ol>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="card">
+					<img class="card-img-top" src="resources/img/archive.png" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">The Mirror's Edge Archive</h5>
+						<p class="card-text">A huge collection of high-quality photos, videos and other resources from both Mirror's Edge games.</p>
+						<a href="archive" class="btn btn-primary">Check it out!</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+					<img class="card-img-top" src="resources/img/internetarchive.png" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">The Mirror's Edge Archive</h5>
+						<p class="card-text">The things we deem most important! Special editions of Mirror's Edge games and the most crucial bits of our archive.</p>
+						<a href="https://archive.org/details/@sidewinder51" class="btn btn-primary">Check it out!</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+					<img class="card-img-top" src="resources/img/forums.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Mirror's Edge Forums <span class="badge badge-primary">Mirror</span></h5>
+						<p class="card-text">EA closed the Mirror's Edge forums in September 2017, we have taken the liberty of creating a full backup of it.</p>
+						<a href="project_doomsday" class="btn btn-primary">Check it out!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a name="projects" href="#">Home</a></li>
+			<li class="breadcrumb-item active">Projects</li>
+		</ol>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="card">
+					<img class="card-img-top" src="resources/img/comparison.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Development vs. Release <span class="badge badge-success">Interactive</span></h5>
+						<p class="card-text">A comparison of how Mirror's Edge looked during development vs. today!</p>
+						<a href="development_vs_release/" class="btn btn-primary">Check it out!</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+					<img class="card-img-top" src="resources/img/graffiti.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Player Tag Generator <span class="badge badge-success">Interactive</span></h5>
+						<p class="card-text">Build your own Player Tag and download the result in up to 2K image quality!</p>
+						<a href="project_graffiti/" class="btn btn-primary">Check it out!</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+					<img class="card-img-top" src="resources/img/news.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">News broadcasts <span class="badge badge-secondary">Coming soon</span></h5>
+						<p class="card-text">We have extracted all news broadcasts from the city of glass!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert alert-dark" role="alert">
+				This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. This site does not generate any revenue.
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="contactmodal" tabindex="-1" role="dialog" aria-labelledby="ContactModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="ContactModalLabel">Contact</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			General inquires should be sent to this email address:<br><br><div style="text-align: center"><a href="mailto:xtramaniagamer@outlook.com">xtramaniagamer@outlook.com</a></div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Got it!</button>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="submitmodal" tabindex="-1" role="dialog" aria-labelledby="SubmitModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="SubmitModalLabel">Submit a file</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			Sorry, but this feature is not available yet. If you'd like to submit files manually, please mail them to<br><br><div style="text-align: center"><a href="mailto:xtramaniagamer@outlook.com">xtramaniagamer@outlook.com</a></div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Got it!</button>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date; ga('create', 'UA-90834610-1', 'auto'); ga('send', 'pageview');</script>
+</body>
+</html>

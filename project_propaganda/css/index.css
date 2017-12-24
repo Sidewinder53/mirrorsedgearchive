@@ -1,0 +1,103 @@
+h1{
+	text-align: center;
+	margin-bottom: 0em;
+}
+.codeblock{
+	margin-top:15px;
+	border:1px solid black;
+	background: #ddd;
+}
+#caption{
+	font-size: 1em;
+	color:#222;
+	margin-bottom: 3em;
+}
+#author{
+	font-size: 0.9em;
+	color:#4F4F4F;
+	margin-bottom: 3em;
+}
+#legal{
+	font-size: 0.9em;
+	color:#4F4F4F;
+}
+a{
+	color:#4F4F4F;
+}
+p{
+	margin: auto;
+	text-align: center;
+}
+#mainDiv{
+	padding: 10px;
+	width:90%;
+	max-width:1200px;
+	margin:auto;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-width: 1px;
+	background-color: #ffffff;
+	background-image: url("/img/robot.png");
+}
+body{
+	font-family: 'Open Sans',sans-serif;
+	margin: 0;
+	padding: 0;
+	background-image: url("http://i.imgur.com/fmPPoDZ.jpg") ;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:cover
+}
+table{
+	max-width: inherit;
+	text-align: center;
+}
+video {
+	width: 100%;
+    
+}
+#introduction{
+	text-align: justify;
+}
+#videoList{
+	width: 20%;
+	display: inline-block;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#videoContainer{
+	width: 79%;
+	position: relative;
+	display: inline-block;
+	vertical-align:top;
+}
+.videoChapter{
+	font-weight: bold;
+}
+.videoListEntry{
+	padding-bottom: 3px;
+	padding-top: 3px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+#videoHelp{
+	margin: auto;
+}
+#videoImage{
+	width: 100%;
+}
+@media only screen and (max-width: 1080px) {
+	#videoContainer{
+		margin-top: 3%;
+		margin-bottom: 3%;
+		width: 100%;
+	}
+	#videoList{
+		width: 100%;
+	}
+}

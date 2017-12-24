@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+	<meta charset="UTF-8">
+	<!--<meta property="og:image" content="http://mirrorsedge.azurewebsites.net/project_propaganda/thumbnail.jpg" />-->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>Mirror's Edge™ Catalyst | Project Propaganda</title>
+	<!--<script src="../js/ga.js"></script>-->
+	<script src="js/showVideo.js"></script>
+</head>
+<body>
+	<div id="mainDiv" >
+		<!--<h1>Mirror's Edge™ Catalyst | Project Propaganda</h1><br>-->
+		<h1>Project Propaganda | WORK IN PROGRESS</h1><br>
+		<p id="author">A gallery created by <a href="https://reddit.com/u/mirrorsedgefan">/u/mirrorsedgefan</a>, <a href="https://www.reddit.com/user/youngnaf">/u/YoungNAF</a> and <a href="https://reddit.com/u/xtramaniagamer">/u/xtramaniagamer</a>.</p>
+		<p id="introduction">This game includes a lot of interesting video messages and news broadcasts from <b>Gabriel Kruger</b> (CEO of KrugerSec), <b>Aurore Lupain-Tanner</b> (newscaster for Glass Daily News) and <b>Rebecca Thane</b> (Leader of Black November), establishing the lore in much more detail than the average player would ever notice.<br><br>The footage below was screen-recorded in 1080p with 60 FPS in the best quality available. It turned out, that extracting the video is a rather complicated task that we couldn't accomplish, due to the nature of how video files are stored in the Frostbite engine. However, thanks to <a href="http://cinetools.xyz/games/">Matti Hietanen's camera tool</a>, we were able to create an almost borderless recording of all videos.</p>
+		<br><br>
+		<div id="videoList">
+			<p class="videoChapter">Juvie</p>
+			<p class="videoListEntry" id="video1" onclick="showVideo(1)">g.zxq.co</p>
+			<p class="videoChapter">Post Release</p>
+			<p class="videoListEntry" id="video2" onclick="showVideo(2)">safe.moe</p>
+			<p class="videoListEntry" id="video3" onclick="showVideo(3)">mixtape.moe</p>
+			<p class="videoListEntry" id="video4" onclick="showVideo(4)">archive.org</p>
+			<p class="videoChapter">Post Savant</p>
+			<p class="videoListEntry" id="video5" onclick="showVideo(5)">aww.moe (Private)</p>
+			<p class="videoListEntry" id="video6" onclick="showVideo(6)">Video 6</p>
+			<p class="videoListEntry" id="video7" onclick="showVideo(7)">Video 7</p>
+			<p class="videoChapter">Post Benefactor</p>
+			<p class="videoListEntry" id="video8" onclick="showVideo(8)">Video 8</p>
+			<p class="videoChapter">Post Flytrap</p>
+			<p class="videoListEntry" id="video9" onclick="showVideo(9)">Video 9</p>
+			<p class="videoChapter">Post Vive La Resistance</p>
+			<p class="videoListEntry" id="video10" onclick="showVideo(10)">Video 10</p>
+			<p class="videoListEntry" id="video11" onclick="showVideo(11)">Video 11</p>
+			<p class="videoListEntry" id="video12" onclick="showVideo(12)">Video 12</p>
+			<p class="videoChapter">Post Kingdom</p>
+			<p class="videoListEntry" id="video13" onclick="showVideo(13)">Video 13</p>
+			<p class="videoListEntry" id="video14" onclick="showVideo(14)">Video 14</p>
+			<p class="videoListEntry" id="video15" onclick="showVideo(15)">Video 15</p>
+			<p class="videoChapter">Post Family Matters</p>
+			<p class="videoListEntry" id="video16" onclick="showVideo(16)">Video 16</p>
+			<p class="videoListEntry" id="video17" onclick="showVideo(17)">Video 17</p>
+			<p class="videoChapter">Post The Shard</p>
+			<p class="videoListEntry" id="video18" onclick="showVideo(18)">Video 18</p>
+		</div>
+		<div id="videoContainer">
+			<video id="videoPlayer" controls style="display: none;">
+				<source id="videoFile" src="" type="video/mp4"></source>
+				<track id="videoTrack" kind="subtitles" label="English subtitles" src="" srclang="en" default ></track>
+			</video>
+			<p id="videoHelp"><img id="videoImage" src="https://vgy.me/RVA8Q6.jpg"></img><br><br>To start, select a video from the list. Subtitles are available and can be toggled in the player.<noscript><b>JavaScript is required.</b></noscript></p>
+		</div>
+		<br><p id="legal">Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved.<br>All trademarks and registered trademarks are the property of their respective owners.</p>
+	</div>
+</body>
+</html>
