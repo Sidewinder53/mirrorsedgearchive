@@ -377,7 +377,7 @@ $("#generateButton").click(function() {
 		console.log($em);
 
 		request = $.ajax({
-			url: "https://mirrorsedgearchive.ga/project_graffiti/generate.php",
+			url: "https://mirrorsedgearchive.de/project_graffiti/generate.php",
 			type: "post",
 			data: {emblem: $selected_emblem_path, frame: $selected_frame_path, background: $selected_background_path, bgX: $bgX, bgY: $bgY, em: $em, unused: $include_random_assets, version: "2"},
 			success: function (msg) {

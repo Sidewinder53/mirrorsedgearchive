@@ -3,7 +3,7 @@
 $ref = $_SERVER['HTTP_REFERER'];
 $refData = parse_url($ref);
 
-if($refData['host'] !== 'mirrorsedgearchive.ga') {
+if($refData['host'] !== 'mirrorsedgearchive.de') {
 	die("Unauthorized request");
 	exit();
 }
@@ -54,7 +54,7 @@ if ($version < "2") {
 	die("deprecated");
 }
 
-$ch = curl_init('https://mirrorsedgearchive.ga/project_graffiti/a7e93kdfn0uztu8r6/mectagmaker.php');
+$ch = curl_init('https://mirrorsedgearchive.de/project_graffiti/a7e93kdfn0uztu8r6/mectagmaker.php');
 
 $post = [
 	'emblem'		=> $emblem,
