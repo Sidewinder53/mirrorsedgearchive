@@ -3,16 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/forums.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>		
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" integrity="sha384-NWR7tyUSPWhdW2+LEk+AIUBeuaYSuSVqWnAOkUTZzeMZA5IFw/SzFcpkUnDCjnu8" crossorigin="anonymous">
 	<title>Mirror's Edge Catalyst | Project Doomsday</title>
 	<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date; ga('create', 'UA-90834610-1', 'auto'); ga('send', 'pageview');</script>	
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container">
-		<a class="navbar-brand" href="../">The Mirror's Edge Archive</a>
+		<a class="navbar-brand" href="/">The Mirror's Edge Archive</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -54,29 +55,22 @@
 	</div>
 </nav>
 
-
-<div class="container" id="readonlynotice">
-	<div id="readonlyalert" class="alert alert-primary alert-dismissible fade show" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-		<!--Please note that this is a <b>read-only</b> copy of the forums. You won't be able to sign-in, answer posts or create new topics.-->
-		Sorry, but the live preview is not yet available on this server. In the meantime, please use our mirror at <a href="https://mirrorsedge.azurewebsites.net/project_doomsday/">mirrorsedge.azurewebsites.net</a>. Thank you!
+<div id="background">
+	<div class="container" id="content">
+		<div id="buttons">
+			<div class="row justify-content-center">
+				<div class="col-">
+					<a href="https://forums.mirrorsedgearchive.de/forums.mirrorsedge.com/" class="btn btn-primary btn-lg btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-">
+					<a href="https://forums.mirrorsedgearchive.de/full_backup.7z" class="btn btn-primary btn-lg btn-danger mdi mdi-download " role="button" data-toggle="tooltip" data-placement="right" title=".7z-file - 31,0 MB">&nbsp;Download</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-
-	<!--<iframe frameBorder="0" src="storage/forums.mirrorsedge.com/index.html"></iframe>-->
-
-<div class="container" id="content">
-	
-	
-<div class="alert alert-secondary" role="alert">
-	Did you know that you can download your own copy of the forums? Grab it right <a href="https://my.mixtape.moe/zhjxdy.7z" class="alert-link">here</a>.
-	<hr>
-	Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved.<br>
-	All trademarks and registered trademarks are the property of their respective owners.<br>
-	This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise.
-</div>	
 
 <div class="modal fade" id="contactmodal" tabindex="-1" role="dialog" aria-labelledby="ContactModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -103,5 +97,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js" integrity="sha384-3C51VYzyLN6W+IdxzwqCdGDQUOJfaRbPH2h6z97sB+sD4nZ4FCymhVZFvHMGN2ZE" crossorigin="anonymous"></script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-<script src="index.js"></script>
+<script src="/resources/js/forums.js"></script>
 </html>

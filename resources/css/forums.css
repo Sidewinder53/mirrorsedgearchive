@@ -1,0 +1,31 @@
+.alert {
+	margin-top: 1.5vh;
+}
+
+body, html {
+	height: 100%;
+}
+
+#background {
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 56px);
+	background-image: url("/resources/img/forums_mockup.jpg");
+    background-repeat: no-repeat;
+    background-position: top center; 
+    background-size: 100%;
+}
+
+#buttons {
+	margin-top: 20%;
+}
+
+#content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.row {
+	margin-top: 1em;
+}
