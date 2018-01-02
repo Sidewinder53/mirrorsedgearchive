@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>The (unofficial) Mirror's Edge™ Archive</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>		
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>	
 	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" integrity="sha384-NWR7tyUSPWhdW2+LEk+AIUBeuaYSuSVqWnAOkUTZzeMZA5IFw/SzFcpkUnDCjnu8" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/credits.css" type="text/css"/>
 </head>
@@ -18,22 +18,34 @@
   <source src="/resources/audio/hymn.ogg" type="audio/ogg">
 </audio>
 <canvas id='map'></canvas>
-<nav id="home" class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top">
+<div class="character_display" id="cd_me">
+	<picture>
+		<source srcset="/resources/img/credits/faith_me.webp" type="image/webp">
+		<img src="/resources/img/credits/faith_me.jpg">
+	</picture>
+</div>
+<div class="character_display" id="cd_mec">
+	<picture>
+		<source srcset="/resources/img/credits/faith_mec.webp" type="image/webp">
+		<img src="/resources/img/credits/faith_mec.jpg">
+	</picture>
+</div>
+<nav id="home" class="navbar navbar-expand-lg navbar-dark bg-dark me-nav-area">
 	<div class="container">
-		<a class="navbar-brand" href="/">The Mirror's Edge Archive</a>
+		<a class="navbar-brand" href="#">The Mirror's Edge Archive</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="/">Home</a>
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle" href="/" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Projects
 				</a>
-				<div class="dropdown-menu">
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
 					<a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
 					<a class="dropdown-item" href="/project_graffiti">Player Tag Generator</a>
 					<a class="dropdown-item disabled" href="#">News broadcasts</a>
@@ -43,14 +55,14 @@
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Archives
 				</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Main Archive</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
+					<a class="dropdown-item" href="/archive">Main Archive</a>
 					<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
 					<a class="dropdown-item" href="/project_doomsday">Forums</a>
 				</div>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="/credits">Credits</a>
+				<a class="nav-link active" href="#">Credits</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#contactmodal" data-toggle="modal" data-target="#contactmodal">Contact</a>
@@ -58,82 +70,85 @@
 			</ul>
 			<ul class="nav navbar-nav ml-auto justify-content-end">
 			<li class="nav-item">
-				<a class="nav-link" href="/contribute" data-toggle="modal" data-target="#submitmodal">Submit a file</a>
+				<a class="nav-link" href="/contribute">Submit a file</a>
 			</li>
 			</ul>
 		</div>
 	</div>
 </nav>
 		
-<nav id="navbar-credits" class="navbar sticky-top navbar-light bg-light">
+<nav id="navbar-credits" class="navbar sticky-top navbar-light bg-light navbar-expand-lg">
 	<div class="container">
-	<ul class="nav nav-pills">
-		<a class="nav-link nav-click mdi mdi-home" id="home_nav" href="#home"></a>
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mirror's Edge (2008)</a>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" id="me_dice_nav" href="#me_dice">DICE Studio</a>
-				<a class="dropdown-item" id="me_va_nav" href="#me_va">Voice Actors</a>
-				<a class="dropdown-item" id="me_ea_nav" href="#me_ea">EA Studio</a>
-			</div>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link nav-click" href="#mec_desc">Mirror's Edge Catalyst (2016)</a>
+	<ul class="nav nav-pills mr-auto">
+		<a class="nav-link int-nav mdi mdi-home me-nav-area" id="home_nav" href="#home"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#int-navbar-content" aria-controls="int-navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="int-navbar-content">
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Development Team</a>
+				<a class="nav-link dropdown-toggle me-nav-area" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mirror's Edge (2008)</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#mec_devt_directorst">Directors Team</a>
-					<a class="dropdown-item" href="#mec_devt_leadst">Directors Team</a>
-					<a class="dropdown-item" href="#mec_devt_gamet">Game Team</a>
-					<a class="dropdown-item" href="#mec_devt_softeng">Software Engineers</a>
-					<a class="dropdown-item" href="#mec_devt_artists">Artists</a>
-					<a class="dropdown-item" href="#mec_devt_conceptartists">Concept Artists</a>
-					<a class="dropdown-item" href="#mec_devt_2dart">2D Art</a>
-					<a class="dropdown-item" href="#mec_devt_anim">Animators</a>
-					<a class="dropdown-item" href="#mec_devt_audio">Audio</a>
-					<a class="dropdown-item" href="#mec_devt_localization">Localization</a>
-					<a class="dropdown-item" href="#mec_devt_qa">DICE QA</a>
-					<a class="dropdown-item" href="#mec_devt_qe">DICE QE</a>
-					<a class="dropdown-item" href="#mec_devt_pmqa">DICE Project Management QA</a>
-					<a class="dropdown-item" href="#mec_devt_babies">Product Babies</a>
-					<a class="dropdown-item" href="#mec_devt_thanks">Thanks</a>
-					<a class="dropdown-item" href="#mec_devt_additional">Music</a>
-					<a class="dropdown-item" href="#mec_devt_specialthanks">Special Thanks</a>
-					<a class="dropdown-item" href="#mec_devt_companion">The Beat Companion App</a>
-					<a class="dropdown-item" href="#mec_devt_mediat">Media Team</a>
+					<a class="dropdown-item int-nav me-nav-area" id="me_dice_nav" href="#me_dice">DICE Studio</a>
+					<a class="dropdown-item int-nav me-nav-area" id="me_va_nav" href="#me_va">Voice Actors</a>
+					<a class="dropdown-item int-nav me-nav-area" id="me_ea_nav" href="#me_ea">EA Studio</a>
 				</div>
 			</li>
-		</li>
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">DICE</a>
-			<div class="dropdown-menu">
-				<h6 class="dropdown-header">DICE Studio</h6>
-				<a class="dropdown-item" href="#mec_dice_studio">Management</a>
-				<a class="dropdown-item" href="#mec_dice_it">IT</a>
-				<h6 class="dropdown-header">DICE Operations</h6>
-				<a class="dropdown-item" href="#mec_diceops">Management</a>
-			</div>
-		</li>
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Others</a>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#mec_ghost">Ghost Games Support Pod</a>
-				<a class="dropdown-item" href="#mec_ea_marketing">EA Marketing</a>
-				<a class="dropdown-item" href="#mec_pulse">Pulse</a>
-				<a class="dropdown-item" href="#mec_others">Others</a>
-			</div>
-		</li>
-	<!--<div role="separator" class="dropdown-divider"></div>-->
-	</ul>
-</div>
+			<li class="nav-item">
+				<a class="nav-link int-nav" href="#mec_desc">Mirror's Edge Catalyst (2016)</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Development Team</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item int-nav" href="#mec_devt_directorst">Directors Team</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_leadst">Directors Team</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_gamet">Game Team</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_softeng">Software Engineers</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_artists">Artists</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_conceptartists">Concept Artists</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_2dart">2D Art</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_anim">Animators</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_audio">Audio</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_localization">Localization</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_qa">DICE QA</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_qe">DICE QE</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_pmqa">DICE Project Management QA</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_babies">Product Babies</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_thanks">Thanks</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_additional">Music</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_specialthanks">Special Thanks</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_companion">The Beat Companion App</a>
+						<a class="dropdown-item int-nav" href="#mec_devt_mediat">Media Team</a>
+					</div>
+				</li>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">DICE</a>
+				<div class="dropdown-menu">
+					<h6 class="dropdown-header">DICE Studio</h6>
+					<a class="dropdown-item int-nav" href="#mec_dice_studio">Management</a>
+					<a class="dropdown-item int-nav" href="#mec_dice_it">IT</a>
+					<h6 class="dropdown-header">DICE Operations</h6>
+					<a class="dropdown-item int-nav" href="#mec_diceops">Management</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Others</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item int-nav" href="#mec_ghost">Ghost Games Support Pod</a>
+					<a class="dropdown-item int-nav" href="#mec_ea_marketing">EA Marketing</a>
+					<a class="dropdown-item int-nav" href="#mec_pulse">Pulse</a>
+					<a class="dropdown-item int-nav" href="#mec_others">Others</a>
+				</div>
+			</li>
+		<!--<div role="separator" class="dropdown-divider"></div>-->
+		</ul>
+		</div>
+	</div>
 </nav>
 <div id="bg">
 <div class="container" id="content">
-	<div class="alert alert-warning" role="alert">
-		<h4 class="alert-heading mdi mdi-alert">&nbsp;Work in progress!</h4>
-		<p>This page is working in progress and will be progressively updated.</p>
-	</div>
-	<blockquote id="thank_you" class="blockquote"><p class="mb-0">The Mirror's Edge franchise is the result of truly astonishing work by smart, talented and dedicated people. We appreciate the time, effort and sweat put into this product and would like to thank the developers for their memorable work on behalf of the Mirror's Edge community. Without you, we would never have met Faith.</p><footer class="blockquote-footer">The Mirror's Edge Archive team</footer></blockquote>
+	<blockquote id="thank_you" class="blockquote"><p class="mb-0">The Mirror's Edge franchise is the result of truly astonishing work by creative, talented and dedicated developers. We appreciate the time, effort and sweat put into this product and would like to express our gratitude to the creators for their memorable work on behalf of the Mirror's Edge community. Without you, we would <i>never</i> have met Faith.</p><footer class="blockquote-footer">The Mirror's Edge Archive team</footer></blockquote>
+
+	<div id="touch_device_notice"></div>
 
 	<h1>Mirror's Edge&nbsp;<small class="text-muted">2008</small></h1>
 	<p class="lead">
@@ -146,7 +161,7 @@
 	</tr>
 	<tr>
 		<td>Senior&nbsp;Producer</td>
-		<td>Owen O'Brien</td>
+		<td><mark title="Worked on Mirror's Edge, was thanked in Mirror's Edge Catalyst.">Owen O'Brien</mark></td>
 	</tr>
 	<tr>
 		<td>Senior&nbsp;Development&nbsp;Director</td>
@@ -166,7 +181,7 @@
 	</tr>
 	<tr>
 		<td>Technical&nbsp;Director</td>
-		<td>Per-Olof Romell</td>
+		<td><mark title="Worked on both games in different roles">Per-Olof Romell</mark></td>
 	</tr>
 	<tr>
 		<td>Technical&nbsp;Art&nbsp;Director</td>
@@ -174,7 +189,7 @@
 	</tr>
 	<tr>
 		<td>Audio&nbsp;Director</td>
-		<td>Magnus Walterstad</td>
+		<td><mark title="Worked on both games in different roles">Magnus Walterstad</mark></td>
 	</tr>
 	<tr>
 		<td>Development&nbsp;Directors</td>
@@ -190,11 +205,11 @@
 	</tr>
 	<tr>
 		<td>Animators</td>
-		<td>Björn Humbe, Jesper Skoog, Erik Åström, Tor Sigurdson</td>
+		<td>Björn Humbe, <mark title="Worked on both games in the same role">Jesper Skoog</mark>, <mark title="Worked on both games in different roles">Erik Åström</mark>, Tor Sigurdson</td>
 	</tr>
 	<tr>
 		<td>3D&nbsp;Artists</td>
-		<td>Andreas Fougner Ezelius, Nilo Kaboteh, Lars Mårtensson</td>
+		<td>Andreas Fougner Ezelius, Nilo Kaboteh, <mark title="Worked on both games in the same role">Lars Mårtensson</mark></td>
 	</tr>
 	<tr>
 		<td>Character&nbsp;Artist</td>
@@ -202,7 +217,7 @@
 	</tr>
 	<tr>
 		<td>Concept&nbsp;Artists</td>
-		<td>Pierre Hanna, Mattias Häggström</td>
+		<td>Pierre Hanna, <mark title="Worked on both games in different roles">Mattias Häggström</mark></td>
 	</tr>
 	<tr>
 		<td>Effects&nbsp;Artist</td>
@@ -358,7 +373,7 @@
 	</tr>
 	<tr>
 		<td>Soundtrack&nbsp;Composed&nbsp;by</td>
-		<td>Magnus Birgersson</td>
+		<td><mark title="Worked on both games in the same role">Magnus Birgersson</mark></td>
 	</tr>
 	<tr>
 		<td>Soundtrack&nbsp;Performed&nbsp;by</td>
@@ -825,7 +840,7 @@
 	</tr>
 	<tr>
 		<td>Animation&nbsp;Director</td>
-		<td>Erik Söderholm</td>
+		<td><mark title="Worked on both games in different roles">Erik Söderholm</mark></td>
 	</tr>
 	<tr>
 		<td>UX&nbsp;&#x26;&nbsp;Social&nbsp;Play Producer</td>
@@ -941,7 +956,7 @@
 	</tr>
 	<tr>
 		<td>3D&nbsp;Artists</td>
-		<td>Alexandros Sideras, André Boström, Daniel Rocque-Bengtsson, David Ljungstedt, Kaori Kato, Lars Mårtensson, Laurens Corijn, Martin Henriksson, Saman Mahmoudi, Sofia Jakobsson, Sokol Mehmeti</td>
+		<td>Alexandros Sideras, André Boström, Daniel Rocque-Bengtsson, David Ljungstedt, Kaori Kato, <mark title="Worked on both games in the same role">Lars Mårtensson</mark>, Laurens Corijn, Martin Henriksson, Saman Mahmoudi, Sofia Jakobsson, Sokol Mehmeti</td>
 	</tr>
 	<tr>
 		<td>Lead&nbsp;Lighting&nbsp;Artist</td>
@@ -966,7 +981,7 @@
 	</tr>
 	<tr>
 		<td>Director&nbsp;of&nbsp;Photography</td>
-		<td>Mattias Häggström</td>
+		<td><mark title="Worked on both games in different roles">Mattias Häggström</mark></td>
 	</tr>
 	<tr>
 		<td>Lead&nbsp;Concept&nbsp;Artist</td>
@@ -992,7 +1007,7 @@
 	</tr>
 	<tr>
 		<td>Animators</td>
-		<td>Andrea Kozakova, Awed Haller, Emil Nilsson, Gabriel Flamm, Jesper Skoog, Kristoffer Bjömör, Sean Diehl</td>
+		<td>Andrea Kozakova, Awed Haller, Emil Nilsson, Gabriel Flamm, <mark title="Worked on both games in the same role">Jesper Skoog</mark>, Kristoffer Bjömör, Sean Diehl</td>
 	</tr>
 	<tr>
 		<td>Technical&nbsp;Animator</td>
@@ -1005,7 +1020,7 @@
 	</tr>
 	<tr>
 		<td>Senior&nbsp;Audio&nbsp;Designers</td>
-		<td>Magnus Walterstad, Olof Strömqvist</td>
+		<td><mark title="Worked on both games in different roles">Magnus Walterstad</mark>, Olof Strömqvist</td>
 	</tr>
 	<tr>
 		<td>Audio&nbsp;Designers</td>
@@ -1115,11 +1130,11 @@
 	</tr>
 	<tr>
 		<td>Produced&nbsp;by</td>
-		<td>Magnus Birgersson, Magnus Walterstad</td>
+		<td><mark title="Worked on both games in the same role">Magnus Birgersson</mark>, <mark title="Worked on both games in different roles">Magnus Walterstad</mark></td>
 	</tr>
 	<tr>
 		<td>&#x27;Warning&nbsp;Call&#x27;</td>
-		<td>Performed&nbsp;by&nbsp;CHVRCHES, Iain Andrew Cook (Writer), Martin Clifford Doherty (Writer), Lauren Eve Mayberry (Writer), Magnus Birgersson (Writer), Published&nbsp;by&nbsp;Universal PolyGram Int. Publishing Inc., on&nbsp;behalf&nbsp;of&nbsp;Universal Music Publishing Ltd., Electronic&nbsp;Arts&nbsp;Music [ASCAP], Administered&nbsp;by&nbsp;Nettwerk One Music [Canada] Ltd., CHVRCHES&nbsp;appear&nbsp;courtesy of Glassnote Entertainment Group LLC, Virgin&nbsp;Records&nbsp;Limited, Universal&nbsp;Music&nbsp;GmbH, Hostess&nbsp;KK, Liberator&nbsp;Music</td>
+		<td>Performed&nbsp;by&nbsp;CHVRCHES, Iain Andrew Cook (Writer), Martin Clifford Doherty (Writer), Lauren Eve Mayberry (Writer), <mark title="Worked on both games in the same role">Magnus Birgersson</mark> (Writer), Published&nbsp;by&nbsp;Universal PolyGram Int. Publishing Inc., on&nbsp;behalf&nbsp;of&nbsp;Universal Music Publishing Ltd., Electronic&nbsp;Arts&nbsp;Music [ASCAP], Administered&nbsp;by&nbsp;Nettwerk One Music [Canada] Ltd., CHVRCHES&nbsp;appear&nbsp;courtesy of Glassnote Entertainment Group LLC, Virgin&nbsp;Records&nbsp;Limited, Universal&nbsp;Music&nbsp;GmbH, Hostess&nbsp;KK, Liberator&nbsp;Music</td>
 	</tr>
 	<tr>
 		<th colspan=2 id="mec_devt_additional">
@@ -1185,7 +1200,7 @@
 	</tr>
 	<tr>
 		<td>Special&nbsp;Thanks</td>
-		<td>Crille Forsberg, David Worsham, Joakim Grundwall, Johannes Deligiannis, Jonas Åberg, Owen O'Brien, Pierre Niedhardt, Red&nbsp;Pipe, Tom Olsson, Emily Clark, Fiona Cribben, Carl-Magnus Nordin</td>
+		<td>Crille Forsberg, David Worsham, Joakim Grundwall, Johannes Deligiannis, Jonas Åberg, <mark title="Worked on Mirror's Edge, was thanked in Mirror's Edge Catalyst.">Owen O'Brien</mark>, Pierre Niedhardt, Red&nbsp;Pipe, Tom Olsson, Emily Clark, Fiona Cribben, Carl-Magnus Nordin</td>
 	</tr>
 	<tr>
 		<th colspan=2 id="mec_devt_companion">
@@ -1245,7 +1260,7 @@
 	</tr>
 	<tr>
 		<td>Studio&nbsp;Director&nbsp;of&nbsp;Technology</td>
-		<td>Per-Olof Romeil</td>
+		<td><mark title="Worked on both games">Per-Olof Romell</mark></td>
 	</tr>
 	<tr>
 		<td>Studio&nbsp;Director&nbsp;of&nbsp;Art</td>
@@ -2622,9 +2637,20 @@
 </picture>
 <p class="text-right" style="color: #8c8c8c;">© 2016 Electronic Arts, created by <a href="http://nickshardlow.com">Nick Shardlow</a>
 
-
+<div id="links">
+	<div class="row justify-content-center">
+		<h5>Official social media channels</h5>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-"><a class="btn btn-lg btn-light mdi mdi-web" href="http://www.mirrorsedge.com/" role="button"></a></div>
+		<div class="col-"><a class="btn btn-lg btn-light mdi mdi-youtube-play" href="https://www.youtube.com/user/MirrorsEdgeTheGame" role="button"></a></div>
+		<div class="col-"><a class="btn btn-lg btn-light mdi mdi-facebook" href="https://www.facebook.com/mirrorsedge" role="button"></a></div>
+		<div class="col-"><a class="btn btn-lg btn-light mdi mdi-twitter" href="https://twitter.com/mirrorsedge" role="button"></a></div>
+		<div class="col-"><a class="btn btn-lg btn-light mdi mdi-instagram" href="https://instagram.com/mirrorsedgethegame/" role="button"></a></div>
+	</div>
+</div>
 <div class="alert alert-dark" role="alert">
-		This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. Mirror's Edge and Mirror's Edge Catalyst were created by <a href="/credits">these people</a>. No profit is made by operating this site.
+		This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. No profit is made by operating this site.
 </div>
 
 </div>
@@ -2653,6 +2679,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 <script src="/resources/js/credits.js"></script>
+<script src="/resources/js/jquery.easing.1.3.js"></script>
 <script src="/resources/js/pagemap-0.4.0.min.js"></script>
 </body>
 </html>
