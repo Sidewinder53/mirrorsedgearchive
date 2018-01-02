@@ -11,6 +11,10 @@ body {
 .art_space > img{ width: 100%; }
 .dropdown { z-index: 9999; }
 #bg {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
 	background-image: url("/resources/img/credits/faith_mec.jpg");
 	background-position: left bottom;
 	background-size: 0;
