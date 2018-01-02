@@ -3,8 +3,20 @@
 	margin-bottom: 4vh;
 }
 
-.card {
-	margin-bottom: 2vh;
+#media_copyright {
+	line-height: 0px;
+	text-align: right;
+	color: #8c8c8c;
+	background-color: unset;
+	border: none;
+}
+
+#media_copyright a:link {
+	color: #4c4c4c;
+}
+
+#hero_text {
+	padding-top: 0.5rem;
 }
 
 img {
@@ -12,12 +24,13 @@ img {
 	height: auto;
 }
 
-#overview, #hero_text, .navbar {
+#overview, #hero_text, #media_copyright, .navbar {
 	opacity: 0;
 }
 
 .card {
 	border-width: 0px;
+	margin-bottom: 2vh;
 }
 
 #hero {

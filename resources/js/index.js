@@ -16,5 +16,6 @@ $(document).ready(function(){
 	$('video').on('ended',function(){
 		$("#hero").addClass("d-none");
 		$("#heroSlides").removeClass("d-none");
+		$("#media_copyright").fadeTo( "slow" , 1);
 	});
 });

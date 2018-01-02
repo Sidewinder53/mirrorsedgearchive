@@ -1,0 +1,54 @@
+body {
+	background-image: url("/resources/img/credits/faith_me.jpg");
+	background-position: left bottom;
+	background-size: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#thank_you { margin-top: 4em; margin-bottom: 4em; }
+#mec_table, .alert { margin-top: 2em; }
+.art_space > img{ width: 100%; }
+.dropdown { z-index: 9999; }
+#bg {
+	background-image: url("/resources/img/credits/faith_mec.jpg");
+	background-position: left bottom;
+	background-size: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+body::-webkit-scrollbar { 
+    display: none; 
+}
+
+body {
+	-ms-overflow-style: none;
+}
+
+tr {
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+#map {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 200px;
+    height: calc(100% - 56px);
+    z-index: 100;
+}
+
+@media (max-width: 1800px) {
+	body, #bg {
+		background-image: none;
+	}
+}
+
+@media (max-width: 1200px) {
+	#map{
+		visibility: hidden;
+	}
+
+}
