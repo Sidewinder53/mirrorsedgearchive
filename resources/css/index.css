@@ -24,6 +24,7 @@ img {
 	height: auto;
 }
 
+
 #overview, #hero_text, #media_copyright, .navbar {
 	opacity: 0;
 }
