@@ -88,7 +88,7 @@ $("#closeIntro").click(function() {
 });
 
 $( ".nav-item" ).click(function() {
-	window.scrollTo(0, 128);
+	window.scrollTo(0, 0);
 });
 
 var wrap = $("#wrap");

@@ -1,20 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111731968-1"></script>
-	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-111731968-1');</script>
 	<meta charset="UTF-8">
-	<meta property="og:image" content="https://mirrorsedge.azurewebsites.net/project_graffiti/thumb.jpg" />	
+	<meta property="og:image" content="https://mirrorsedgearchive.de/project_graffiti/thumb.jpg" />	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>		
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.1.0/nouislider.min.css" integrity="sha256-2K003H0jZA9S0f2CtcQ0zIYD65lfKdAA00qtDCPIMV0=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.css" integrity="sha256-9fDoj4QsTQj0X7U6T9oLzybDWYftbTH1UHl85DwrRWo=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css" integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
 	<link rel="stylesheet" href="css/image-picker.css">
 	<link rel="stylesheet" href="css/index.css">
 	<script src="js/image-picker.js" type="text/javascript"></script>
 	<script src="js/magic.js" type="text/javascript"></script>
 	<title>Mirror's Edge Catalyst | Project Graffiti</title>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111731968-1"></script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-111731968-1');</script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +30,7 @@
 				<a class="nav-link" href="/">Home</a>
 			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Projects
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -63,12 +64,26 @@
 		</div>
 	</div>
 </nav>
+<nav id="navbar-credits" class="navbar sticky-top navbar-light bg-light navbar-expand-lg">
+	<div class="container">
+		<ul class="nav nav-pills mx-auto">
+			<li class="nav-item">
+				<a class="nav-link active mdi mdi-shape" id="emblem-tab" data-toggle="tab" href="#emblemtabcontent" role="tab" aria-controls="emblem" aria-expanded="true">&nbsp;Emblem</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link mdi mdi-image-filter-frames" id="frame-tab" data-toggle="tab" href="#frametabcontent" role="tab" aria-controls="frame">&nbsp;Frame</a>
+			</li>
+			<li class="nav-item">
+					<a class="nav-link mdi mdi-image" id="background-tab" data-toggle="tab" href="#backgroundtabcontent" role="tab" aria-controls="background">&nbsp;Background</a>
+			</li>
+			<li class="nav-item">
+					<a class="nav-link mdi mdi-auto-fix" id="jumpToGeneratorButton" href="#" data-toggle="tab" role="tab" aria-controls="background">&nbsp;Finish your tag!</a>
+			</li>
+		</ul>
+	</div>
+</nav>
 
 <div class="container" id="content" >
-
-<div class="alert alert-warning" role="alert">
-  <b>This project is under renovation.</b> Full functionality is expected to be restored in February 2018. We apologize for the inconvenience.
-</div>
 
 <div class="collapse" id="collapseIntro">
 
@@ -78,12 +93,16 @@
 			<h6 class="card-subtitle mb-2 text-muted">Welcome, to the most versatile...</h6>
 			<h2 class="card-title">Mirror's Edge Catalyst - Player Tag Generator</h2>
 			<p class="card-text">We created this because we believe that these pieces of art deserve to be shown off in its full resolution outside of the game, too. Feel free to play around with it. Generate a new profile picture for yourself to use around the web, or perhaps a wallpaper. Need some inspiration for a new runner tag in the game? Be sure to try out all the options, or let the random generator choose for you!</p>
-			<button id="closeIntro" type="button" class="btn btn-primary btn-lg introCenter">Let's start</button>
-			<div class="col- justify-content-center introCenter">
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="skipIntroCookie">
-					<label class="custom-control-label" for="skipIntroCookie">Skip this page next time</label>
+			<div class=" " id="skipIntro">
+				<div class="justify-content-center row">
+					<button id="closeIntro" type="button" class="btn btn-primary btn-lg">Let's start</button>
 				</div>
+				<div class="justify-content-center row">
+					<div id="skipIntroCheckArea" class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="skipIntroCookie">
+						<label class="custom-control-label" for="skipIntroCookie">Skip this page next time</label>
+					</div>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -91,21 +110,6 @@
 </div>
 
 <div class="collapse" id="collapseGenerator">
-
-	<ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-		<li class="nav-item">
-			<a class="nav-link active" id="emblem-tab" data-toggle="tab" href="#emblemtabcontent" role="tab" aria-controls="emblem" aria-expanded="true">1. Emblem</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" id="frame-tab" data-toggle="tab" href="#frametabcontent" role="tab" aria-controls="frame">2. Frame</a>
-		</li>
-		<li class="nav-item">
-				<a class="nav-link" id="background-tab" data-toggle="tab" href="#backgroundtabcontent" role="tab" aria-controls="background">3. Background</a>
-		</li>
-		<li class="nav-item">
-				<a class="nav-link" id="jumpToGeneratorButton" href="#" data-toggle="tab" role="tab" aria-controls="background">4. Finish your tag!</a>
-		</li>
-	</ul>
 
 	<div class="tab-content" id="generatorTabContent">
 	<div class="tab-pane fade show active" role="tabpanel" id="emblemtabcontent">
@@ -346,58 +350,70 @@
 	</div>
 
 <div id="finishcard" class="card mar-top2-bot1">
-	<div class="card-header"><div class="row"><div class="col">Step 4: Finish your Tag!</div><div class"col"><button id="show_advanced" type="button" class="btn btn-outline-primary btn-sm">Toggle advanced settings</button></div></div></div>
+	<div class="card-header d-flex justify-content-between">
+		<div>
+			Step 4: Finish your Tag!
+		</div>
+		<div>
+			<button id="show_advanced" type="button" class="btn btn-outline-primary btn-sm mdi mdi-tune">&nbsp;Toggle advanced settings</button>
+		</div>
+	</div>
 		<div class="collapse" id="collapseAdvancedSettings">
 		<div id="sizearea" class="row">
 			<div id="sizeconfig" class="col">
 				<ul class="list-group list-group-flush">
 				<li class="list-group-item">
-				<div class="row align-items-center">
+				<div class="row ">
 					<div class="col">
 						Background X:<div class="sizeslider" id="bgXslider"></div>
 					</div>
 					<div class="col-sm-auto">
-						<div class="input-group ">
+						<div class="input-group">
 							<input id="bgXvalue" class="form-control sizecfginput" type="number" value="1024" min="64" max="2048" required>
-							<span class="input-group-addon">px</span>
+							<div class="input-group-append">
+								<span class="input-group-text">px</span>
+							</div>
 						</div>
 					</div>
 				</div>
 				</li>
 				<li class="list-group-item">
-				<div class="row align-items-center">
+				<div class="row ">
 					<div class="col">
 						Background Y:<div class="sizeslider" id="bgYslider"></div>
 					</div>
 					<div class="col-sm-auto">
-						<div class="input-group ">
+						<div class="input-group">
 							<input id="bgYvalue" class="form-control sizecfginput" type="number" value="1024" min="64" max="2048" required>
-							<span class="input-group-addon">px</span>
+							<div class="input-group-append">
+								<span class="input-group-text">px</span>
+							</div>
 						</div>
 					</div>
 				</div>
 				</li>
 				<li class="list-group-item">
-				<div class="row align-items-center">
+				<div class="row ">
 					<div class="col">
 						Emblem X and Y:<div class="sizeslider" id="emslider"></div>
 					</div>
 					<div class="col-sm-auto">
 						<div class="input-group">
 							<input id="emvalue" class="form-control sizecfginput" type="number" value="256" min="64" max="512" required>
-							<span class="input-group-addon">px</span>
+							<div class="input-group-append">
+								<span class="input-group-text">px</span>
+							</div>
 						</div>
 					</div>
 				</div>
 				</li>
 				<li class="list-group-item">
-				<div class="row align-items-center">
+				<div class="row ">
 					<div class="col">
-					<label class="custom-control custom-checkbox">
-						<input id="random_unused" type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Include 'unused' and 'special' assets in random selection</span>
-						</label>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="random_unused">
+							<label class="custom-control-label" for="random_unused">Include 'unused' and 'special' assets in random selection</label>
+						</div>
 					</div>
 				</div>
 				</li>
@@ -448,7 +464,7 @@
 					</div>
 				</div>
 			</div>
-		<button id="generateButton" type="button" class="btn btn-primary btn-lg btn-block" data-badge="inline" data-sitekey="6LfCqh4UAAAAAOcJDIrdhxh4pSd3WJo6MjeQbV1X" data-callback='generatePlayerTag'>Generate my Tag!</button>
+		<button id="generateButton" type="button" class="btn btn-primary btn-lg btn-block mdi mdi-auto-fix">&nbsp;Generate my Tag!</button>
 		<!-- Debug buttons
 		<button class="btn btn-light btn-lg btn-block" id="debugButton">Debug collapse & progress modal</button>
 		<button class="btn btn-light btn-lg btn-block" id="debugErrorButton">Debug error modal</button>
@@ -508,10 +524,11 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="StallUserLabel">Generating your personal tag!</h5>
+			<h5 class="modal-title mdi mdi-auto-fix" id="StallUserLabel">&nbsp;Generating your personal tag!</h5>
 		</div>
 		<div class="modal-body">
 			This process might take up to 60 seconds. Please wait...<br><br>
+			<h3 style="text-align: center;"><i class="mdi mdi-shape"></i>&nbsp;<i class="mdi mdi-plus"></i>&nbsp;<i class="mdi mdi-image-filter-frames"></i>&nbsp;<i class="mdi mdi-plus"></i>&nbsp;<i class="mdi mdi-image"></i>&nbsp;<i class="mdi mdi-chevron-right"></i>&nbsp;<i class="mdi mdi-creation"></i></h3>
 			<div class="progress">
 				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
 			</div>
@@ -538,10 +555,10 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="StallUserLabel">This WebApp is not up-to-date.</h5>
+			<h5 class="modal-title" id="StallUserLabel">This application is not up-to-date.</h5>
 		</div>
 		<div class="modal-body">
-			We are sorry, the image generation progress could not be completed. We noticed that you are running an outdated version of this WebApp. Please reload by pressing Ctrl + F5 or just do a simple reload on your mobile device.<br><small class="text-muted">That’s all we know.</small>
+			We are sorry, the image generation progress could not be completed. We noticed that you are running an outdated version of this web application. Please reload by pressing Ctrl + F5 or just do a simple reload on your mobile device.<br><small class="text-muted">That’s all we know.</small>
 		</div>
 		</div>
 	</div>
@@ -561,9 +578,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.1.0/nouislider.min.js" integrity="sha384-g9OC8M/MYCh7a8M8OvLsW8yV/TXeTcCznZRa0i4XquKXes2t3OWWNsQEXe7y7r10" crossorigin="anonymous"></script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.min.js" integrity="sha256-oj880/QiddQHkKfC9iOmsu+Hu5V4KCHfS3RY3RaZdZc=" crossorigin="anonymous"></script><script async src='https://www.google-analytics.com/analytics.js'></script>
 <script src="js/wNumb.js"></script>
 </html>
