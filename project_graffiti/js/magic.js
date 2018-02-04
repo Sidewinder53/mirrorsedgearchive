@@ -84,11 +84,16 @@ $("#closeIntro").click(function() {
 	}
 	$('#collapseIntro').collapse('hide');
 	$('#collapseGenerator').collapse('show');
+	$('#emblem-tab').removeClass('disabled');
+	$('#frame-tab').removeClass('disabled');
+	$('#background-tab').removeClass('disabled');
+	$('#jumpToGeneratorButton').removeClass('disabled');
+	$('#emblem-tab').addClass('active');
 	window.scrollTo(0, 0);
 });
 
 $( ".nav-item" ).click(function() {
-	window.scrollTo(0, 0);
+	window.scrollTo(0, 56);
 });
 
 var wrap = $("#wrap");
