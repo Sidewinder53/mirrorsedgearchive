@@ -3,6 +3,11 @@ $( document ).ready(function() {
 	if (Cookies.get('skipIntro')=='true') {
 		$('#collapseIntro').collapse('hide');
 		$('#collapseGenerator').collapse('show');
+		$('#emblem-tab').removeClass('disabled');
+		$('#frame-tab').removeClass('disabled');
+		$('#background-tab').removeClass('disabled');
+		$('#jumpToGeneratorButton').removeClass('disabled');
+		$('#emblem-tab').addClass('active');
 	} else {
 		$('#collapseIntro').collapse('show');
 	}
