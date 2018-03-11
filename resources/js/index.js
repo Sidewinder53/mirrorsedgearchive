@@ -7,12 +7,16 @@ $(document).ready(function(){
 	}
 	setTimeout(function(){
 		if(($("#hero").get(0).paused) == true) {
-			$("#hero").css("opacity", "0");
+			//$("#hero").css("opacity", "0");
 			//$("#hero").attr( 'poster', 'resources/img/homepage_banner.jpg');
-			$("#hero_text, #overview, .navbar, #hero").fadeTo( "slow" , 1);
+			$("#hero_text, #overview, .navbar").fadeTo( "slow" , 1);
 			$(".card").css("border-width", "1px");
 		}
-	}, 750);
+	}, 1000);
+	setTimeout(function(){
+		$("#faithHeroText").css('height', '5em');
+	}, 1500);
+
 	$("#hero").on("timeupdate", function(event){
 		if(this.currentTime >= 1.5 && skipped == 'false') {
 			$("#hero_text, #overview, .navbar").fadeTo( "slow" , 1);
@@ -21,6 +25,7 @@ $(document).ready(function(){
 		}
 	});
 	$('video').on('ended',function(){
+		$("#heroSlides").carousel(0);
 		$("#hero").addClass("d-none");
 		$("#heroSlides").removeClass("d-none");
 		$("#media_copyright").fadeTo( "slow" , 1);

@@ -17,7 +17,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container">
-		<a class="navbar-brand" href="#">The Mirror's Edge Archive</a>
+		<div id="brand-area">
+			<a class="navbar-brand" href="#">The Mirror's Edge Archive</a>
+			<span title="Yup, this is our new page." id="beta-stamp">BETA</span>
+		</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -62,54 +65,64 @@
 	</div>
 </nav>
 
+<div id="faithHero">
+	<img src="resources/img/faithHero.png" alt="">
+	<div id="faithHeroText">
+		<h1 class="display-1">Meet Faith.</h1>
+		<p class="lead">She keeps this project running.</p>
+	</div>
+</div>
+
 <div class="container" id="content">
 	<noscript><div class="alert alert-danger" role="alert"><strong>This site requires JavaScript and cookies to be enabled.</strong> Disabling external content will compromise the user experience.</div></noscript>
 	<div class="row">
-		<div class="col-sm">
+		<div class="col">
 			<div class="card">
-				<video id="hero" class="card-img-top" poster="data:image/webp;base64,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" autoplay muted playsinline>
-					<source src="resources/video/homepage.webm" type="video/webm">
-					<source src="resources/video/homepage.mp4" type="video/mp4">
-				</video>
-				<div id="heroSlides" class="carousel slide d-none" data-ride="carousel" data-interval="10000">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<picture class="d-block w-100">
-								<source srcset="resources/img/hero_img_1.webp" type="image/webp">
-								<source srcset="resources/img/hero_img_1.jpg" type="image/jpeg"> 
-								<img src="resources/img/hero_img_1.jpg">
-							</picture>
+				<div id="responsiveHero">
+					<video id="hero" class="card-img-top" poster="data:image/webp;base64,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" autoplay muted playsinline>
+						<source src="resources/video/homepage.webm" type="video/webm">
+						<source src="resources/video/homepage.mp4" type="video/mp4">
+					</video>
+					<div id="heroSlides" class="carousel slide d-none" data-ride="carousel" data-interval="8000">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<picture class="d-block w-100">
+									<source srcset="resources/img/hero_img_1.webp" type="image/webp">
+									<source srcset="resources/img/hero_img_1.jpg" type="image/jpeg"> 
+									<img src="resources/img/hero_img_1.jpg">
+								</picture>
+							</div>
+							<div class="carousel-item">
+								<picture class="d-block w-100">
+									<source srcset="resources/img/hero_img_2.webp" type="image/webp">
+									<source srcset="resources/img/hero_img_2.jpg" type="image/jpeg"> 
+									<img src="resources/img/hero_img_2.jpg">
+								</picture>
+							</div>
+							<div class="carousel-item">
+								<picture class="d-block w-100">
+									<source srcset="resources/img/hero_img_3.webp" type="image/webp">
+									<source srcset="resources/img/hero_img_3.jpg" type="image/jpeg"> 
+									<img src="resources/img/hero_img_3.jpg">
+								</picture>
+							</div>
+							<div class="carousel-item">
+								<picture class="d-block w-100">
+									<source srcset="resources/img/hero_img_4.webp" type="image/webp">
+									<source srcset="resources/img/hero_img_4.jpg" type="image/jpeg"> 
+									<img src="resources/img/hero_img_4.jpg">
+								</picture>
+							</div>
 						</div>
-						<div class="carousel-item">
-							<picture class="d-block w-100">
-								<source srcset="resources/img/hero_img_2.webp" type="image/webp">
-								<source srcset="resources/img/hero_img_2.jpg" type="image/jpeg"> 
-								<img src="resources/img/hero_img_2.jpg">
-							</picture>
-						</div>
-						<div class="carousel-item">
-							<picture class="d-block w-100">
-								<source srcset="resources/img/hero_img_3.webp" type="image/webp">
-								<source srcset="resources/img/hero_img_3.jpg" type="image/jpeg"> 
-								<img src="resources/img/hero_img_3.jpg">
-							</picture>
-						</div>
-						<div class="carousel-item">
-							<picture class="d-block w-100">
-								<source srcset="resources/img/hero_img_4.webp" type="image/webp">
-								<source srcset="resources/img/hero_img_4.jpg" type="image/jpeg"> 
-								<img src="resources/img/hero_img_4.jpg">
-							</picture>
-						</div>
+						<div id="media_copyright" class="card-header">
+								<small>© 2016 Electronic Arts, presented game art created by <a href="https://antongrandert.artstation.com">Anton Grandert</a>, <a href="https://perh.artstation.com">Per Haagensen</a> and <a href="http://nickshardlow.com/mirrors-edge-catalyst/">Nick Shardlow</a></small>
+							</div>
 					</div>
-				</div>
-				<div id="media_copyright" class="card-header">
-					<small>© 2016 Electronic Arts, presented game art created by <a href="https://antongrandert.artstation.com">Anton Grandert</a>, <a href="https://perh.artstation.com">Per Haagensen</a> and <a href="http://nickshardlow.com/mirrors-edge-catalyst/">Nick Shardlow</a></small>
 				</div>
 				<div id="hero_text" class="card-body">
 					<p class="card-text">
-						This archive is maintained by <a href="https://reddit.com/u/xtramaniagamer">/u/xtramaniagamer</a> and <a href="https://reddit.com/u/mirrorsedgefan">/u/mirrorsedgefan</a>.
-						We have spent many hundreds, if not thousands, of hours on both games and are highly dedicated fans of the franchise. Over time, we have collected a lot of unique content that may only exist here, as it has been removed from other sites or has never even been published on the Internet. That's why we decided to create this website, hosting some of the most extraordinary content you will find about the Mirror's Edge franchise. We have also created a few fun projects, check them out!</p>
+						Welcome to the Mirror's Edge Archive. Whether you are an avid Player, an untiring speedrunner or just someone who likes to know a bit more about this franchise, you've just found the most extensive collection of Mirror's Edge resources. This project is a community effort maintained by <a href="https://reddit.com/u/mirrorsedgefan">/u/mirrorsedgefan</a> and <a href="https://reddit.com/u/xtramaniagamer">/u/xtramaniagamer</a>.
+					</p>				  
 				</div>
 			</div>
 		</div>
@@ -120,32 +133,38 @@
 			<li class="breadcrumb-item active">Archive</li>
 		</ol>
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="resources/img/archive.png" alt="Card image cap">
+					<div class="image-wrapper">
+						<img class="card-img-top" src="resources/img/archive.png" alt="Card image cap">
+					</div>
 					<div class="card-body">
 						<h5 class="card-title">The Mirror's Edge Archive</h5>
-						<p class="card-text">A huge collection of high-quality photos, videos and other resources from both Mirror's Edge games.</p>
+						<p class="card-text">A huge collection of high-quality photos, concept art, trailers, gameplay-videos, audio, music, developer presentations, fan projects, maps and other resources from both Mirror's Edge games.</p>
 						<a href="archive" class="btn btn-primary">Check it out!</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="resources/img/internetarchive.png" alt="Card image cap">
+					<div class="image-wrapper">
+						<img class="card-img-top" src="resources/img/internetarchive.png" alt="Card image cap">
+					</div>
 					<div class="card-body">
-						<h5 class="card-title">The Mirror's Edge Archive</h5>
-						<p class="card-text">The things we deem most important! Special editions of Mirror's Edge games and the most crucial bits of our archive.</p>
+						<h5 class="card-title">The Mirror's Edge Vault</h5>
+						<p class="card-text">The things we deem most important! Special editions of Mirror's Edge games and the most crucial bits of our archive, saved in special datacenters around the world so we never loose them!</p>
 						<a href="https://archive.org/details/@sidewinder51" class="btn btn-primary">Check it out!</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="resources/img/forums.jpg" alt="Card image cap">
+					<div class="image-wrapper">
+						<img class="card-img-top" src="resources/img/forums.jpg" alt="Card image cap">
+					</div>
 					<div class="card-body">
-						<h5 class="card-title">Mirror's Edge Forums <span class="badge badge-primary">Mirror</span></h5>
-						<p class="card-text">EA closed the Mirror's Edge forums in September 2017, we have taken the liberty of creating a full backup of it.</p>
+						<h5 class="card-title">Mirror's Edge Forums & Website<span class="badge badge-primary">Mirror</span></h5>
+						<p class="card-text">EA closed the Mirror's Edge forums in September 2017, how long will the website still be online? We have taken the liberty of creating a full backup of all of it.</p>
 						<a href="project_doomsday" class="btn btn-primary">Check it out!</a>
 					</div>
 				</div>
@@ -156,9 +175,11 @@
 			<li class="breadcrumb-item active">Projects</li>
 		</ol>
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="resources/img/comparison.jpg" alt="Card image cap">
+					<div class="image-wrapper">
+						<img class="card-img-top" src="resources/img/comparison.jpg" alt="Card image cap">
+					</div>
 					<div class="card-body">
 						<h5 class="card-title">Development vs. Release <span class="badge badge-success">Interactive</span></h5>
 						<p class="card-text">A comparison of how Mirror's Edge looked during development vs. today!</p>
@@ -166,9 +187,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="resources/img/graffiti.jpg" alt="Card image cap">
+					<div class="image-wrapper">
+						<img class="card-img-top" src="resources/img/graffiti.jpg" alt="Card image cap">
+					</div>
 					<div class="card-body">
 						<h5 class="card-title">Player Tag Generator <span class="badge badge-success">Interactive</span></h5>
 						<p class="card-text">Build your own Player Tag and download the result in up to 2K image quality!</p>
@@ -176,9 +199,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src="resources/img/news.jpg" alt="Card image cap">
+					<div class="image-wrapper">
+						<img class="card-img-top" src="resources/img/news.jpg" alt="Card image cap">
+					</div>
 					<div class="card-body">
 						<h5 class="card-title">News broadcasts <span class="badge badge-secondary">Coming soon</span></h5>
 						<p class="card-text">We have extracted all news broadcasts from the city of glass!</p>
@@ -187,9 +212,10 @@
 			</div>
 		</div>
 
-	<div class="alert alert-dark" role="alert">
-			This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. Mirror's Edge and Mirror's Edge Catalyst were created by <a href="/credits">these people</a>. No profit is made by operating this site.
-	</div>
+		<div class="alert alert-dark small text-secondary" role="alert">
+			The Mirror's Edge Archive is open source. You can view and contribute to our code on <a href="https://github.com/Sidewinder53/mirrorsedgearchive">GitHub</a>.<hr>
+			This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. No profit is made by operating this site. <u><a class="text-secondary" href="/takedown">DMCA/Takedown information</a></u>
+		</div>
 	</div>
 </div>
 

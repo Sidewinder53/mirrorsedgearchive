@@ -484,12 +484,14 @@
 			<div class="row">
 				<div class="col">
 					<div data-toggle="tooltip" data-placement="bottom" title="This link will be valid for 24 hours"  class="input-group mar-top2-bot1">
-						<span class="input-group-addon" id="tempshareURLlabel">Direct Link</span>
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="tempshareURLlabel">Direct Link</span>
+						</div>
 						<input onClick="this.select();" id="tempshareURL" type="text" class="form-control" aria-label="tempshareURL" aria-describedby="tempshareURL">
 					</div>
 				</div>
 				<div class="col">
-					<button class="btn btn-primary btn-block mar-top2-bot1" id="downloadButton">Download Image</button>
+					<button class="btn btn-primary btn-block mar-top2-bot1 mdi mdi-share" id="downloadButton">&nbsp;Download Image</button>
 					<a href="" id="downloadButtonHelper" download="ME Playertag.png"></a>
 				</div>
 			</div>
