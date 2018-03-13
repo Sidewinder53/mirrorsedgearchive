@@ -18,7 +18,7 @@ body, html {
 }
 
 #buttons {
-	margin-top: 20%;
+	margin-top: 13.5em;
 }
 
 #content {
@@ -32,6 +32,9 @@ body, html {
 }
 
 #footer {
+	border-top: 1px;
+	border-top-color: gray;
+	border-top-style: solid;
 	text-align: center;
 	padding-top: 1em;
 	position: absolute;
@@ -44,7 +47,7 @@ body, html {
 }
 
 @keyframes slide-in {
-	0% { opacity: 0; bottom: -120px; }
+	0% { opacity: 0; bottom: -60px; }
 	100% { opacity: 1; bottom: 0px; }
 
 }

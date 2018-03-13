@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(".card").css("border-width", "1px");
 	}
 	setTimeout(function(){
+		$("#hero").play(0);
 		if(($("#hero").get(0).paused) == true) {
 			//$("#hero").css("opacity", "0");
 			//$("#hero").attr( 'poster', 'resources/img/homepage_banner.jpg');
