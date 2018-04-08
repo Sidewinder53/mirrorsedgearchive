@@ -1,22 +1,13 @@
-document.addEventListener("keydown", keyDownTextField, false);
-
-var i = 9;
-
-var IntervalId = setInterval(function(){
-	document.getElementById("contributeButton").innerHTML = "<small>" + i + "</small>";
-	if (i<=0) {
-		document.getElementById("contributeButton").classList.remove("disabled");
-		document.getElementById("contributeButton").innerHTML = "Continue to upload form";
-		clearInterval(IntervalId);
+submit = function(event) {
+	if (document.getElementById("agreement").checked == true) {
+		return true;
+	} else {
+		document.getElementById("agreement").classList.add("is-invalid");
+		return false;
 	}
-	i--;
-}, 1000);
+}
 
-function keyDownTextField(e) {
-var keyCode = e.keyCode;
-  if(keyCode==13) {
-  document.getElementById("contributeButton").classList.remove("disabled");
-  document.getElementById("contributeButton").innerHTML = "Continue to upload form";
-  clearInterval(IntervalId);
-  }
+fc = function(event) {
+	$('#collapse_info').collapse('hide');
+	$('#collapse_fc').collapse('show');
 }

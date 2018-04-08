@@ -1,3 +1,18 @@
-#copyright_footer {
-  margin-top: 2em;
+#legal_footer {
+	margin-top: 2em;
+	padding-left: .5rem;
+}
+
+#brand-area {
+	position: relative;
+}
+
+#beta-stamp {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	transform: rotate(-10deg);
+	background-color: rgba(255, 255, 255, 0.5)
 }

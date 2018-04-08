@@ -55,7 +55,7 @@ $bgXY = $bgX.'x'.$bgY;
 $random = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 1) . substr(str_shuffle('aBcEeFgHiJkLmNoPqRstUvWxYz0123456789'),0, 10);
 
 $old_path = getcwd();
-chdir('/webworks/mectagmaker');
+chdir('/var/www/mirrorsedgearchive-de/www/mectagmaker');
 exec("./mectagmaker.sh $emblem $frame $background $random bgresize=$bgXY emresize=$em unused=$unused");
 chdir($old_path);
 //$im = imagecreatefrompng("/dev/shm/mectagmaker-output-$random.png");

@@ -1,21 +1,7 @@
-#beta-stamp {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	text-transform: uppercase;
-	font-weight: bold;
-	transform: rotate(-10deg);
-	background-color: rgba(255, 255, 255, 0.5)
-}
-
 #responsiveHero {
 	line-height: 0;
 	width: 100%;
 	height: 37.5%;
-}
-
-#brand-area {
-	position: relative;
 }
 
 #faithHero {
@@ -53,18 +39,18 @@
 }
 
 #media_copyright {
+	font-size: 10pt;
 	line-height: 0px;
 	text-align: right;
 	background-color: unset;
-	border: none;
 	position: absolute;
-	bottom: 0;
+	bottom: -24px;
 	right: 0;
-	background-color: rgba(255, 255, 255, 0.8);
+	color: #bbbbbb;
 }
 
-#media_copyright a:link {
-	color: #4c4c4c;
+#media_copyright a:link, #media_copyright a:visited {
+	color: #9e9e9e;
 }
 
 #her_slides {
@@ -76,9 +62,14 @@ img {
 	height: auto;
 }
 
-#overview, #hero_text, #media_copyright, .navbar {
+#hero_text {
+	padding-bottom: 1em;
+}
+
+#overview, #hero_text, #media_copyright, .navbar, #cookie_consent {
 	opacity: 0;
 }
+
 
 .card {
 	border-width: 0px;
@@ -88,6 +79,9 @@ img {
 #hero {
 	animation-name: main;
 	animation-duration: 0.5s;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Cpath d='M112.1,71.2s.3,6.5,20.1,26.3l-6.5,14.2,17.5-5.1,9.3,24.5,10.2-25.7H186S176.7,93,155.1,87.8s-33.3-8.2-43-16.6m75.8,30.1V57.2H117v4.3c6.3,6.6,12.3,12.8,39,21.4,22,7.1,29.5,15,31.9,18.4M117,142.8h70.9V109.1H165.6l-13.3,32.2-13.3-25-22.1,15.1v11.4Z' opacity='0.5' fill='%23cd2027'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 @media (max-width: 768px) { 
@@ -121,6 +115,9 @@ img {
 	#faithHeroText > p {
 		margin-left: 15px;
 		font-size: 1.15rem;
+	}
+	#hero_text > h1 {
+		font-size: 2rem;
 	}
 }
 
