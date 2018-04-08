@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>	
 	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" integrity="sha384-NWR7tyUSPWhdW2+LEk+AIUBeuaYSuSVqWnAOkUTZzeMZA5IFw/SzFcpkUnDCjnu8" crossorigin="anonymous">
+	<link rel="stylesheet" href="/resources/css/global.css" type="text/css"/>
 	<link rel="stylesheet" href="/resources/css/credits.css" type="text/css"/>
 </head>
 
@@ -30,51 +31,72 @@
 		<img src="/resources/img/credits/faith_mec.jpg">
 	</picture>
 </div>
+
 <nav id="home" class="navbar navbar-expand-lg navbar-dark bg-dark me-nav-area">
 	<div class="container">
-		<a class="navbar-brand" href="/">The Mirror's Edge Archive</a>
+		<div id="brand-area">
+			<a class="navbar-brand" href="/">
+				<svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"	x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
+					<g>
+						<path fill="rgba(255,255,255,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
+						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255"/>
+					</g>
+				</svg>
+				The Mirror's Edge Archive
+			</a>
+		<span title="Bugs, features, ideas? Hit us up!" id="beta-stamp">BETA</span>
+		</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="/" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Projects
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
-					<a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
-					<a class="dropdown-item" href="/project_graffiti">Player Tag Generator</a>
-					<a class="dropdown-item disabled" href="#">News broadcasts</a>
-				</div>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Archives
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
-					<h6 class="dropdown-header">Internal</h6>
-					<a class="dropdown-item" href="/archive">Main Archive</a>
-					<a class="dropdown-item" href="/project_doomsday">Forums</a>
-					<div class="dropdown-divider"></div>
-					<h6 class="dropdown-header">External</h6>
-					<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
-				</div>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" href="#">Credits</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#contactmodal" data-toggle="modal" data-target="#contactmodal">Contact</a>
-			</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
+						<h6 class="dropdown-header">Interactive</h6>
+						<a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
+						<a class="dropdown-item" href="/project_graffiti">Player Tag Generator</a>
+						<a class="dropdown-item disabled" href="#">Project Navigator</a>
+						<div class="dropdown-divider"></div>
+						<h6 class="dropdown-header">Media</h6>
+						<a class="dropdown-item disabled" href="#">News broadcasts</a>
+						<div class="dropdown-divider"></div>
+						<h6 class="dropdown-header">Software</h6>
+						<a class="dropdown-item disabled" href="#">Project Announcer</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Archives
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
+						<h6 class="dropdown-header">Internal</h6>
+						<a class="dropdown-item" href="/archive">Main Archive</a>
+						<a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
+						<div class="dropdown-divider"></div>
+						<h6 class="dropdown-header">External</h6>
+						<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="/credits">Credits <span class="sr-only">(current)</span></a>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav ml-auto justify-content-end">
-			<li class="nav-item">
-				<a class="nav-link" href="/contribute">Submit a file</a>
-			</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/contribute">
+						<svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
+							<path fill="rgba(255,255,255,.5)" d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
+						</svg>
+						&nbsp;Contribute / Contact
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -149,6 +171,7 @@
 </nav>
 <div id="bg">
 <div class="container" id="content">
+	<div id="cookie_consent_placeholder"></div>
 	<blockquote id="thank_you" class="blockquote"><p class="mb-0">The Mirror's Edge franchise is the result of truly astonishing work by creative, talented and dedicated developers. We appreciate the time, effort and sweat put into this product and would like to express our gratitude to the creators for their memorable work on behalf of the Mirror's Edge community. Without you, we would <i>never</i> have met Faith.</p><footer class="blockquote-footer">The Mirror's Edge Archive team</footer></blockquote>
 
 	<div id="touch_device_notice"></div>
@@ -2652,36 +2675,24 @@
 		<div class="col-"><a class="btn btn-lg btn-light mdi mdi-instagram" href="https://instagram.com/mirrorsedgethegame/" role="button"></a></div>
 	</div>
 </div>
-<div class="alert alert-dark" role="alert">
-		This site is for entertainment purposes only and is not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. No profit is made by operating this site.
-</div>
-
-</div>
-</div>
-
-<div class="modal fade" id="contactmodal" tabindex="-1" role="dialog" aria-labelledby="ContactModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="ContactModalLabel">Contact</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			General inquires should be sent to this email address:<br><br><div style="text-align: center"><a href="mailto:webmaster@mirrorsedgearchive.de">webmaster@mirrorsedgearchive.de</a></div>
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Got it!</button>
-		</div>
+<div id="legal_footer" class="alert alert-dark small text-secondary" role="alert">
+	<div class="media">
+		<svg class="mr-2" style="width:32px;height:32px" viewBox="0 0 24 24">
+				<path fill="rgba(0,0,0,.5)" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M5,5V7H19V5H5M5,9V11H13V9H5M5,13V15H15V13H5Z" />
+		</svg>
+		<div class="media-body">
+				<h6 class="mt-0">Legal information</h6>
+					This project is <u><a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive">open-source</a></u>, non-profit, for entertainment purposes only and not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. For Terms of Service, our Privacy Policy, information on how to file a DMCA takedown request and attributions please visit our <u><a class="text-secondary" href="/legal">legal page</a></u>. The Mirror's Edge Archive is distributed under the <u><a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">MIT License</a></u>.
 		</div>
 	</div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<script src="/resources/js/credits.js"></script>
+</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha256-uz0BcnPtSHZ02XZthAHPRYIoWWrcwMOmAk9ErnFQkNs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script><script src="/resources/js/credits.js"></script>
 <script src="/resources/js/jquery.easing.1.3.js"></script>
 <script src="/resources/js/pagemap-0.4.0.min.js"></script>
 </body>

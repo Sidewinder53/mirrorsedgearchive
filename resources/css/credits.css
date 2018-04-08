@@ -2,7 +2,6 @@
 .character_display > picture > img { height: 100%; }
 #links > div > div { margin-left: 0.25em; margin-right: 0.25em; }
 #links > div > div > a {font-size: 25pt;}
-.nav-link {margin-right: 0.5em;}
 #thank_you { margin-top: 5em; margin-bottom: 5em; }
 #mec_table, .alert { margin-top: 2em; }
 .art_space > img{ width: 100%; }

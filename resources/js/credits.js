@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+	$.getScript('/resources/js/cookie-consent.js');
+
 	if(is_touch_device()==true) {
 		$('#touch_device_notice').html('<div class="alert alert-primary" role="alert"><mark>Highlighted</mark> staff has been credited in both titles.</div>');
 		$('#touch_device_notice').animate({height:100},"slow").fadeTo("slow", 1);

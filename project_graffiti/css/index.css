@@ -1,6 +1,7 @@
-#content { margin-top: 3vh;	margin-bottom: 5vh; }
+#content { margin-top: 2em;	margin-bottom: 5em; }
+#skipIntroCheckArea { margin-top: 0.5em; }
 #floatingPreview { visibility: hidden; position: fixed; top: 100px; right: 10px; width: 122px; transition: visibility 0s, opacity 0.5s linear; opacity: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-#legal { margin-top: 2vh; }
+#legal { margin-top: 2em; }
 .mar-top2-bot1 { margin-top: 2vh; margin-bottom: 1vh; }
 .mar-top5 { margin-top: 5vh; }
 .mar-bot2 {	margin-bottom: 2vh; }
