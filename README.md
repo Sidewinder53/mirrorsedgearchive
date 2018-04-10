@@ -1,3 +1,2 @@
 # mirrorsedgearchive
-A collection of Mirror's Edge related media, code and fan projects.
-We collect everything. Visit us at [mirrorsedgearchive.de](https://mirrorsedgearchive.de) for more information.
+The Mirror's Edge Archive is a community effort maintained by two reddit users. We collect photos, videos, music, art, developer presentations and other materials. Visit us at [mirrorsedgearchive.de](https://mirrorsedgearchive.de) for more information.
