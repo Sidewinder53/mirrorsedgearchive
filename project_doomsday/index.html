@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
 	<link rel="stylesheet" href="/resources/css/global.css" type="text/css"/>
 	<link rel="stylesheet" href="/resources/css/doomsday.css" type="text/css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>		
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" integrity="sha384-NWR7tyUSPWhdW2+LEk+AIUBeuaYSuSVqWnAOkUTZzeMZA5IFw/SzFcpkUnDCjnu8" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.2.43/css/materialdesignicons.min.css" integrity="sha256-CrUiUaTZ7ceP1olaUeE6SJ84gk98g+koKi7xfDHmPSM=" crossorigin="anonymous" />
 	<title>Mirror's Edge Catalyst | Project Doomsday</title>
 </head>
 <body>
@@ -82,34 +82,94 @@
 		</div>
 	</div>
 </nav>
+<div class="container" id="cookie_consent_placeholder"></div>
+<div id="main" class="row">
+	<div class="col-md-6 col-sm-12">
+		<div class="card" id="forums">
+			<div class="card-header mdi mdi-forum">
+					Mirror's Edge Official Forums
+			</div>
+			<div class="image-wrapper card-img-top">
+				<img src="/resources/img/project_doomsday/forums_mockup.png" alt="Card image cap">
+			</div>
+			<div class="card-footer d-flex justify-content-center">
+				<a href="https://forums.mirrorsedgearchive.de/forums.mirrorsedge.com/" class="btn btn-primary btn-lg btn-dl btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
+				<a href="https://forums.mirrorsedgearchive.de/full_backup.7z" class="btn btn-primary btn-lg btn-dl btn-danger mdi mdi-download" role="button" data-toggle="tooltip" data-placement="right" title=".7z-file - 31,0 MB">&nbsp;Download</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-sm-12">
+			<div class="card" id="forums">
+				<div class="card-header mdi mdi-earth">
+						Mirror's Edge Official Website
+				</div>
+				<div class="image-wrapper card-img-top">
+					<img src="/resources/img/project_doomsday/website_mockup.png" alt="Card image cap">
+				</div>
+				<div class="card-footer d-flex justify-content-center align-items-center">
+					<a href="#website-view-modal" data-toggle="modal" data-target="#website-view-modal" class="btn btn-primary btn-lg btn-dl btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
+					<a href="#website-dl-modal" data-toggle="modal" data-target="#website-dl-modal" class="btn btn-primary btn-lg btn-dl btn-danger mdi mdi-download" role="button">&nbsp;Download</a>
+				</div>
+			</div>
+		</div>
+</div>
 
-<div id="background">
-	<div class="container" id="cookie_consent_placeholder"></div>
-	<div class="container" id="content">
-		<div id="buttons">
-			<div class="row justify-content-center">
-				<div class="col-">
-					<a href="https://forums.mirrorsedgearchive.de/forums.mirrorsedge.com/" class="btn btn-primary btn-lg btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-">
-					<a href="https://forums.mirrorsedgearchive.de/full_backup.7z" class="btn btn-primary btn-lg btn-danger mdi mdi-download " role="button" data-toggle="tooltip" data-placement="right" title=".7z-file - 31,0 MB">&nbsp;Download</a>
-				</div>
-			</div>
+<div class="modal fade" id="website-dl-modal" tabindex="-1" role="dialog" aria-labelledby="website-dl-modal-label" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="website-dl-modal-label">Download information</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			The file you are about to download is <b>2.61 GB</b> in size.	Since it is only rarely accessed, it will be served by a cold storage server with low bandwidth.
+			Even at full speed this download will take <b>at least 8 hours in total</b>. Make sure you really need it, otherwise please use the streamed version trough our online viewer.
+		</div>
+		<div class="modal-footer">
+			<a href="https://storage.mirrorsedgearchive.de/project_doomsday/mirrorsedge-20180401220529.warc.gz" class="btn btn-primary btn-sm btn-danger mdi mdi-download" role="button">&nbsp;Download anyway</a>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Abort</button>
+		</div>
 		</div>
 	</div>
 </div>
 
-<div id="footer">
+<div class="modal fade" id="website-view-modal" tabindex="-1" role="dialog" aria-labelledby="website-view-modal-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="website-view-modal-label">Information</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Here's a quick rundown of how things work:<br><br>
+				<ul>
+					<li>You cannot share links to any page. This is a limitation of the way we created this replica. It simply won't work. Trust us. </li>
+					<li>Some links might not work. We did our best to ensure that all resources are included (heck, this page should even work on mobile!), but there might be a few we forgot.</li>
+					<li>Videos and other embedded content only works when your browser window is maximized and your screen is at least 1080p.</li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+				<a target="_blank" href="https://webrecorder.io/_embed/mirrorsedgefan/mirrorsedge/20180401174349/http://www.mirrorsedge.com/" class="btn btn-primary btn btn-success" role="button">&nbsp;Let's go!</a>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!-- <div id="footer">
 	<div class="container">
 		<p>Worried about <a href="http://www.mirrorsedge.com/">mirrorsedge.com</a>? We are closely monitoring the site since it's outage on March 8th 2018. If it ever goes down, we will provide a full backup. </p>
 	</div>
-</footer>
+</footer> -->
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha256-uz0BcnPtSHZ02XZthAHPRYIoWWrcwMOmAk9ErnFQkNs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha256-78rSZBnBJXmJ5VGuWL8mkunvhy94g99Rw53bssjHSUk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
 <script src="/resources/js/forums.js"></script>
 </html>
