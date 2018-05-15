@@ -1,10 +1,45 @@
+body {
+	background: url("/resources/img/bg.svg") no-repeat;
+	background-size: contain;
+}
+
 #legal_footer {
 	margin-top: 2em;
 	padding-left: .5rem;
+	background-color: #f8f9fa;
+	padding: 1em;
+	box-shadow: 0px 3px 15px -2px rgba(0,0,0,0.75);
+	align-items: center;
+}
+
+#legal_text {
+	margin-top: 0.75em;
+}
+
+#legal_footer > div > .media {
+	align-items: flex-end;
+}
+
+#legal_footer > div > div > .media-body {
+	flex: 0 1 auto;
+}
+
+.btn-footer {
+	padding: .375rem;
+}
+
+.btn-footer > svg {
+	vertical-align: middle;
 }
 
 #brand-area {
 	position: relative;
+}
+
+a:hover svg path {
+	transition: 200ms;
+	transition-timing-function: ease-in-out;
+	fill: #CD2027;
 }
 
 #beta-stamp {
@@ -15,4 +50,10 @@
 	font-weight: bold;
 	transform: rotate(-10deg);
 	background-color: rgba(255, 255, 255, 0.5)
+}
+
+@media (max-width: 768px) { 
+	body {
+		background-size: auto;
+	}
 }

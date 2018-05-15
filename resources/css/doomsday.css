@@ -2,8 +2,8 @@
 	margin-top: 1.5vh;
 }
 
-#main {
-	margin: 1em;
+#main{
+	margin-top: 8em;
 }
 
 .btn-dl {
@@ -43,7 +43,11 @@
 	margin-top: 1em;
 }
 
-@media (max-width: 576px) { 
+.container {
+	padding: 0!important;
+}
+
+@media (max-width: 767px) { 
 	#main {
 		margin: 0.5em;
 	}

@@ -6,14 +6,16 @@ $(document).ready(function(){
 
 	if(Cookies.get('skip_intro') =='true') {
 		skipped = 'true';
-		$("#hero_text, #overview, #cookie_consent, .navbar").fadeTo( "slow" , 1);
+		$("#hero_text, #overview, #cookie_consent, #nav-cont").fadeTo( "slow" , 1);
+		$("#herocard").addClass("shadow");
 		$(".card").css("border-width", "1px");
 		$(".card .bg-light").css("background-color", "#f8f9fa");
 	}
 
 	setTimeout(function(){
 		if(($("#hero").get(0).paused) == true) {
-			$("#hero_text, #overview, .navbar").fadeTo( "slow" , 1);
+			$("#hero_text, #overview, #nav-cont").fadeTo( "slow" , 1);
+			$("#herocard").addClass("shadow");
 			$(".card").css("border-width", "1px");
 		}
 	}, 1000);
@@ -24,7 +26,8 @@ $(document).ready(function(){
 
 	$("#hero").on("timeupdate", function(event){
 		if(this.currentTime >= 1.5 && skipped == 'false') {
-			$("#hero_text, #overview, #cookie_consent, .navbar").fadeTo( "slow" , 1);
+			$("#hero_text, #overview, #cookie_consent, #nav-cont").fadeTo( "slow" , 1);
+			$("#herocard").addClass("shadow");
 			$(".card").css("border-width", "1px");
 			Cookies.set("skip_intro", 'true', { expires: 1/24 });
 		}
