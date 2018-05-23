@@ -6,7 +6,9 @@ const gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   webp = require('gulp-webp'),
   browserSync = require('browser-sync').create(),
-  gulpsync = require('gulp-sync')(gulp);
+  gulpsync = require('gulp-sync')(gulp),
+  git = require('git-rev-sync'),
+  replace = require('gulp-replace');
 
 gulp.task(
   'browser-sync',
@@ -89,5 +91,8 @@ gulp.task('copy', function() {
       '!dev/assets/css/*',
       '!templates/**/*'
     ])
+    .pipe(
+      replace('Bugs, features, ideas? Hit us up!', 'Build ID: ' + git.short())
+    )
     .pipe(gulp.dest('dist'));
 });
