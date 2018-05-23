@@ -1,0 +1,32 @@
+{ "articles": [
+    // {
+    //   "title": "Title of the article",
+    //   "date": "{Month} {Day}{Ordinal indicator (st, nd, rd, th)}, {year}",
+    //   "description": "(optional) Description of article. Include writers name if possible.",
+    //   "publication": "(optional)"
+    //   "lURL": "URL of the local file. Assume it's in the same folder.",
+    //   "pURL": "URL of the source; if no longer available, put explanation in this field and set online to zero.",
+    //   "popup": "If the article has fancy formatting or shouldn't be displayed in the modal popup for any other reason set this to 1, article will be opened in new tab then"
+    // },
+    // Please leave this first object empty, so array indexs are in sync with lURL property.
+    {
+    },
+    {
+      "title": "Don't gush: why the vision of Mirror's Edge Catalyst makes it a modern great",
+      "description": "by Emad Ahmed - Feminism and futurism are at one.",
+      "date": "April 5th, 2018",
+      "publication": "Eurogamer",
+      "lURL": "1.html",
+      "pURL": "https://www.eurogamer.net/articles/2018-04-05-dont-gush-why-the-vision-of-mirrors-edge-catalyst-makes-it-a-modern-great",
+      "popup": "0"
+    },
+    {
+      "title": "Shattering the norm",
+      "description": "We chatted with EA DICE's Arvid Burstrom, Technical Artist; Jhony Ljungstedt, Art Director; Mikael Linderholm, Technical Art Director; and Amo Mostofi, Producer, about their latest game.",
+      "date": "Unknown",
+      "publication": "Autodesk",
+      "lURL": "2.html",
+      "pURL": "https://www.autodesk.com/campaigns/autodesk-for-games/ea-dice",
+      "popup": "0"
+    }]
+  };

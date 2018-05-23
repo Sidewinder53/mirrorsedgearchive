@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>The Mirror's Edge Archive Operations - Login</title>
+	<meta name="description" content="The most extensive collection of Mirror's Edge resources to date. Concept art, music, developer presentations and much more! Just here on mirrorsedgearchive.de!" />
+	<meta name="keywords" content="Mirror's Edge, Catalyst, Archive" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU=" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/resources/css/global.css" type="text/css"/>
+	<link rel="stylesheet" href="/resources/css/login.css" type="text/css"/>
+</head>
+
+<body>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container d-flex justify-content-center">
+    <a class="navbar-brand" href="#">The Mirror's Edge Archive Operations</a>
+  </div>
+</nav>
+
+<div id="loading">
+  <svg width="80" height="20" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+    <circle cx="15" cy="15" r="15" fill="black">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite" />
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
+    </circle>
+    <circle cx="60" cy="15" r="9"  fill="black"fill-opacity="0.3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite" />
+        <animate attributeName="fill-opacity" from="0.5" to="0.5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite" />
+    </circle>
+    <circle cx="105" cy="15" r="15" fill="black">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite" />
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
+    </circle>
+  </svg>
+</div>
+
+<div class="container pt-5" id="loginForm">
+  <div class="alert alert-primary mb-5" role="alert">
+    This login page would be pretty cool if we had a backend...
+  </div>
+  <div class="media">
+    <svg class="mr-3" style="width:64px;height:64px" viewBox="0 0 24 24">
+        <path fill="#343a40" d="M10,17.25V14H3V10H10V6.75L15.25,12L10,17.25M8,2H17A2,2 0 0,1 19,4V20A2,2 0 0,1 17,22H8A2,2 0 0,1 6,20V16H8V20H17V4H8V8H6V4A2,2 0 0,1 8,2Z" />
+    </svg>
+    <div class="media-body">
+      <div class="form-group">
+        <label for="userInput">Email address</label>
+        <input type="email" class="form-control" id="userInput" placeholder="faith@mirrorsedgearchive.de">
+      </div>
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+      </div>
+      <button onclick="login()" class="btn btn-block btn-primary">Login</button>
+    </div>
+  </div>
+  
+</div>
+
+<div class="container pt-5" id="loggedIn">
+  <h4 class="display-4">Welcome. </h4>
+  <p id="login_subtext">You are currently logged in.</p>
+  <p>This is an early test for Google Firebase as an Authentication API.</p>
+  <button onclick="logout()" class="btn btn-block btn-primary">Logout</button>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAGzKikltGXHSIV2NFzu7mFXNUk0bW7N-U",
+    authDomain: "cloudlark-services.firebaseapp.com",
+    databaseURL: "https://cloudlark-services.firebaseio.com",
+    projectId: "cloudlark-services",
+    storageBucket: "cloudlark-services.appspot.com",
+    messagingSenderId: "444024498704"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="/resources/js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
+
+</body>
+</html>

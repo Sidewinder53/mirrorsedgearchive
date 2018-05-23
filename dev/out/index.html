@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window.onload=function(){var n=get("t");null!=n&&!0===ValidURL(n)?(document.getElementById("main").style.display="block",URLrep(n)):window.location.replace("/"),$("#continue-button").click(function(){window.location.replace(n)})};</script>
+	
+	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>You are leaving the Mirror's Edge™ Archive</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>		
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css" integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
+  <style>
+    /* body { background: #232526; } */
+    #main { display: none; margin: auto; color: #000000; background-color: rgba(255, 255, 255, 0.85); padding: 2em; max-width: 800px;}
+    #url { opacity: 0; }
+    .absolute-info { position: absolute; margin-top: 11px; left: auto; right: auto; width: 736px; max-width: 80vw; z-index: 10; }
+    </style>
+</head>
+<body>
+  <div class="d-flex">
+    <div id="main">
+      <h2>You are leaving the Mirror's Edge Archive.</h2>
+      <noscript>
+        This page requires JavaScript. If you can't be bothered to active JavaScript, you can copy and paste the destination URL
+        from the address bar.
+      </noscript>
+      <div id="info">
+        This link redirects you to an external page, which is not part of the Mirror's Edge Archive.
+        <div class="url-container">
+          <div class="progress absolute-info">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
+          </div>
+          <div id="nav-aborted" class="absolute-info" style="display: none; text-align: center; margin: 0;">
+            <p>Malicious URL. Redirection aborted. Please contact Admin.</p>
+          </div>
+          <div class="mt-3" id="url">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text mdi mdi-open-in-new" id="url-addon"></span>
+              </div>
+              <input id="url-input" type="text" class="form-control" aria-describedby="url-addon" readonly>
+              <div class="input-group-append">
+                <button class="btn btn-primary mdi mdi-arrow-right-bold" type="button" id="continue-button">&nbsp;Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <small>We have no control over the nature, content and availability of this link. The inclusion of it does not necessarily
+          imply a recommendation or endorse the views expressed within it. For more information, please read our
+          <a href="/legal/terms-of-service.html">Terms of Service</a>.</small>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script async defer>
+  function get(name) {
+    if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+  }
+
+  function ValidURL(str) {
+    // URL validation by Diego Perini, available under the MIT License: https://gist.github.com/dperini/729294
+    var pattern = new RegExp(
+      /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i
+    );
+    if (!pattern.test(str)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function enableNav(url) {
+    $("#url-input").val(url);
+    $('.progress').fadeTo(250, 0, function () {
+      $('.progress').css('display', 'none');
+      $('#url').fadeTo(250, 1);
+    })
+  }
+
+  function URLrep(url) {
+    var request = {
+      "client": {
+        "clientId": "cloudlark",
+        "clientVersion": "1.5.2"
+      },
+      "threatInfo": {
+        "threatTypes": ["MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE", "POTENTIALLY_HARMFUL_APPLICATION"],
+        "platformTypes": ["ANY_PLATFORM"],
+        "threatEntryTypes": ["URL"],
+        "threatEntries": [{
+          "url": url
+        }, ]
+      }
+    };
+    $.ajax({
+      contentType: 'application/json',
+      data: JSON.stringify(request),
+      dataType: 'json',
+      success: function (data) {
+        console.log("Google Safebrowsing API request succeeded.");
+        if (typeof data["matches"] !== "undefined") {
+          console.log("%cURL has been identified as " + data["matches"][0].threatType,
+            "color:red; font-weight: bold;");
+          $('.progress').fadeTo(250, 0, function () {
+            $('#nav-aborted').fadeTo(250, 1);
+          })
+        } else {
+          console.log("URL ok.");
+          enableNav(url);
+        }
+      },
+      error: function () {
+        console.log("Google Safebrowsing API request FAILED.")
+        console.log(data);
+        enableNav(url);
+      },
+      processData: false,
+      type: 'POST',
+      url: 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyBN_Z4lQzdzpMxhO_D9Lc-tsXPxTPXYnaw'
+    });
+  }
+</script>
