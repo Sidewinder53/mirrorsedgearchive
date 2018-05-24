@@ -1,1 +1,0 @@
-submit=function(e){return 1==document.getElementById("agreement").checked||(document.getElementById("agreement").classList.add("is-invalid"),!1)},fc=function(e){$("#collapse_info").collapse("hide"),$("#collapse_fc").collapse("show")};

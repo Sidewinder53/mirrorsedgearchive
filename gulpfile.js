@@ -14,7 +14,7 @@ gulp.task(
   'browser-sync',
   gulpsync.sync([
     'cleanup',
-    ['build-js', 'build-css'],
+    ['build-js', 'build-css', 'build-html'],
     ['optimize', 'optimizeWEBP'],
     'copy'
   ]),
@@ -30,10 +30,30 @@ gulp.task(
 );
 
 gulp.task(
+  'build-full',
+  gulpsync.sync([
+    'cleanup',
+    ['build-js', 'build-css', 'build-html'],
+    ['optimize', 'optimizeWEBP'],
+    'copy'
+  ])
+);
+
+gulp.task(
+  'build-prod',
+  gulpsync.sync([
+    'cleanup',
+    ['build-js', 'build-css', 'build-html-prod'],
+    ['optimize', 'optimizeWEBP'],
+    'copy'
+  ])
+);
+
+gulp.task(
   'default',
   gulpsync.sync([
     'cleanup',
-    ['build-js', 'build-css'],
+    ['build-js', 'build-css', 'build-html'],
     ['optimize', 'optimizeWEBP'],
     'copy'
   ])
@@ -59,6 +79,57 @@ gulp.task('build-css', function(cb) {
     ],
     cb
   );
+});
+
+gulp.task('build-html', function(cb) {
+  pump(
+    [
+      gulp.src('dev/**/*.html'),
+      replace('{{stamp_title}}', 'Build ID: ' + git.short()),
+      replace('{{stamp_text}}', 'DEV'),
+      gulp.dest('dist')
+    ],
+    cb
+  );
+});
+
+gulp.task('build-html-prod', function(cb) {
+  var url = git.remoteUrl();
+  if (!git.isDirty) {
+    pump(
+      [
+        gulp.src('dev/**/*.html'),
+        replace('<!-- {{STAMP}} -->', ''),
+        replace(
+          '<!-- {{CERT}} -->!',
+          '<a href="' +
+            url.substring(0, url.length - 4).concat('/commit/' + git.long()) +
+            '" id="cert">Certified build: ' +
+            git.short() +
+            '</a>'
+        ),
+        gulp.dest('dist')
+      ],
+      cb
+    );
+  } else {
+    pump(
+      [
+        gulp.src('dev/**/*.html'),
+        replace('<!-- {{STAMP}} -->', ''),
+        replace(
+          '<!-- {{CERT}} -->',
+          '&nbsp;&#8729;&nbsp;<a href="' +
+            url.substring(0, url.length - 4).concat('/commit/' + git.long()) +
+            '" id="cert" class="text-secondary">Uncertified build based on: ' +
+            git.short() +
+            '</a>'
+        ),
+        gulp.dest('dist')
+      ],
+      cb
+    );
+  }
 });
 
 gulp.task('optimize', function(cb) {
@@ -89,10 +160,8 @@ gulp.task('copy', function() {
       'dev/**/*',
       '!dev/assets/js/*',
       '!dev/assets/css/*',
-      '!templates/**/*'
+      '!templates/**/*',
+      '!dev/**/*.html'
     ])
-    .pipe(
-      replace('Bugs, features, ideas? Hit us up!', 'Build ID: ' + git.short())
-    )
     .pipe(gulp.dest('dist'));
 });

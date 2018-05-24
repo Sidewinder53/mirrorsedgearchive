@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "gulp",
+    "build-slim": "gulp build-full",
+    "build-prod": "gulp build-prod",
+    "build-full": "gulp build-full",
     "dev": "gulp browser-sync"
   },
   "author": "",
