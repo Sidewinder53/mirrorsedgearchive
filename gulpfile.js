@@ -95,6 +95,7 @@ gulp.task('build-html', function(cb) {
 
 gulp.task('build-html-prod', function(cb) {
   var url = git.remoteUrl();
+<<<<<<< HEAD
   pump(
     [
       gulp.src('dev/**/*.html'),
@@ -111,6 +112,43 @@ gulp.task('build-html-prod', function(cb) {
     ],
     cb
   );
+=======
+  if (!git.isDirty()) {
+    pump(
+      [
+        gulp.src('dev/**/*.html'),
+        replace('<!-- {{STAMP}} -->', ''),
+        replace(
+          '<!-- {{CERT}} -->',
+          '&nbsp;&#8729;&nbsp;<a href="' +
+            url.substring(0, url.length - 4).concat('/commit/' + git.long()) +
+            '" id="cert" class="text-secondary">Certified build: ' +
+            git.short() +
+            '</a>'
+        ),
+        gulp.dest('dist')
+      ],
+      cb
+    );
+  } else {
+    pump(
+      [
+        gulp.src('dev/**/*.html'),
+        replace('<!-- {{STAMP}} -->', ''),
+        replace(
+          '<!-- {{CERT}} -->',
+          '&nbsp;&#8729;&nbsp;<a href="' +
+            url.substring(0, url.length - 4).concat('/commit/' + git.long()) +
+            '" id="cert" class="text-secondary">Uncertified build based on: ' +
+            git.short() +
+            '</a>'
+        ),
+        gulp.dest('dist')
+      ],
+      cb
+    );
+  }
+>>>>>>> cbe5388b2b4866cfed12ab649dcef49fe9c2e229
 });
 
 gulp.task('optimize', function(cb) {
