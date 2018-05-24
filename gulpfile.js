@@ -94,15 +94,14 @@ gulp.task('build-html', function(cb) {
 });
 
 gulp.task('build-html-prod', function(cb) {
-  var url = git.remoteUrl();
   pump(
     [
       gulp.src('dev/**/*.html'),
-      replace('<!-- {{STAMP}} -->', ''),
+      replace('<!-- {{STAMP}} -->', '<span id="beta-stamp">BETA</span>'),
       replace(
         '<!-- {{CERT}} -->',
-        '&nbsp;&#8729;&nbsp;<a href="' +
-          url.substring(0, url.length - 4).concat('/commit/' + git.long()) +
+        '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
+          git.long() +
           '" id="cert" class="text-secondary">Build: ' +
           git.short() +
           '</a>'
