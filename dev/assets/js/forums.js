@@ -1,6 +1,6 @@
-$( document ).ready(function() {
-	$.getScript('/resources/js/cookie-consent.js');
-	$(function () {
-		$('[data-toggle="tooltip"]').tooltip()
-	})
+$(document).ready(function() {
+  $.getScript('/assets/js/cookie-consent.js');
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 });
