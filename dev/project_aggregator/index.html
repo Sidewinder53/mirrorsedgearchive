@@ -1,165 +1,203 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	
-	
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Mirror's Edge™ Catalyst | News articles</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>		
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css" integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="/resources/css/global.css" type="text/css"/>
-	<link rel="stylesheet" href="/resources/css/aggregator.css" type="text/css"/>
-	<script>$.getScript('/resources/js/cookie-consent.js');</script>
+
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Mirror's Edge™ Catalyst | News articles</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css"
+    integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
+  <link rel="stylesheet" href="/assets/css/aggregator.css" type="text/css" />
+  <script>$.getScript('/assets/js/cookie-consent.js');</script>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container">
-		<div id="brand-area">
-			<a class="navbar-brand" href="/">
-				<svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"	x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
-					<g>
-						<path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
-						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255"/>
-					</g>
-				</svg>
-				The Mirror's Edge Archive
-			</a>
-		<span title="Bugs, features, ideas? Hit us up!" id="beta-stamp">BETA</span>
-		</div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="/">Home</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Projects
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
-						<h6 class="dropdown-header">Interactive</h6>
-						<a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
-						<a class="dropdown-item" href="/project_graffiti">Player Tag Generator</a>
-						<a class="dropdown-item disabled" href="#">Project Navigator</a>
-						<div class="dropdown-divider"></div>
-						<h6 class="dropdown-header">Media</h6>
-						<a class="dropdown-item disabled" href="#">News broadcasts</a>
-						<div class="dropdown-divider"></div>
-						<h6 class="dropdown-header">Software</h6>
-						<a class="dropdown-item disabled" href="#">Project Announcer</a>
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Archives
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
-						<h6 class="dropdown-header">Internal</h6>
-						<a class="dropdown-item" href="/archive">Main Archive <span class="sr-only">(current)</span></a>
-            <a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
-            <a class="dropdown-item active" href="/project_aggregator/">News articles</a>
-						<div class="dropdown-divider"></div>
-						<h6 class="dropdown-header">External</h6>
-						<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/credits">Credits</a>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav ml-auto justify-content-end">
-				<li class="nav-item">
-					<a class="nav-link" href="/contribute">
-						<svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
-							<path fill="rgba(0,0,0,.5)" d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
-						</svg>
-						&nbsp;Contribute / Contact
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav>
-			
-<div class="container" id="content">
-  <div id="cookie_consent_placeholder"></div>
-
-  <div id="header" class="card">
-    <img class="card-img-top" src="/resources/img/project_aggreagtor/header.png" alt="Card image cap">
-			<div class="card-footer">
-					<div class="media">
-							<svg class="mr-3 align-self-center"style="width:48px;height:48px" viewBox="0 0 24 24">
-									<path fill="#383d41" d="M10.08,10.86C10.13,10.53 10.24,10.24 10.38,10C10.5,9.74 10.72,9.53 10.97,9.37C11.21,9.22 11.5,9.15 11.88,9.14C12.11,9.15 12.32,9.19 12.5,9.27C12.71,9.36 12.89,9.5 13.03,9.63C13.17,9.78 13.28,9.96 13.37,10.16C13.46,10.36 13.5,10.58 13.5,10.8H15.3C15.28,10.33 15.19,9.9 15,9.5C14.85,9.12 14.62,8.78 14.32,8.5C14,8.22 13.66,8 13.24,7.84C12.82,7.68 12.36,7.61 11.85,7.61C11.2,7.61 10.63,7.72 10.15,7.95C9.67,8.18 9.27,8.5 8.95,8.87C8.63,9.26 8.39,9.71 8.24,10.23C8.09,10.75 8,11.29 8,11.87V12.14C8,12.72 8.08,13.26 8.23,13.78C8.38,14.3 8.62,14.75 8.94,15.13C9.26,15.5 9.66,15.82 10.14,16.04C10.62,16.26 11.19,16.38 11.84,16.38C12.31,16.38 12.75,16.3 13.16,16.15C13.57,16 13.93,15.79 14.24,15.5C14.55,15.25 14.8,14.94 15,14.58C15.16,14.22 15.27,13.84 15.28,13.43H13.5C13.5,13.64 13.43,13.83 13.34,14C13.25,14.19 13.13,14.34 13,14.47C12.83,14.6 12.66,14.7 12.46,14.77C12.27,14.84 12.07,14.86 11.86,14.87C11.5,14.86 11.2,14.79 10.97,14.64C10.72,14.5 10.5,14.27 10.38,14C10.24,13.77 10.13,13.47 10.08,13.14C10.03,12.81 10,12.47 10,12.14V11.87C10,11.5 10.03,11.19 10.08,10.86M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20Z" />
-							</svg>
-							<div class="media-body">
-								This site contains copyrighted material the use of which has not always been specifically authorized by the copyright owner. We are making such material available for archival purposes, and ensure that all entries can be traced back to their respecitve source. If you are the owner of any of the following content, please contact us by email and we will remove your intellectual property immediately.
-							</div>
-						</div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div id="brand-area">
+        <a class="navbar-brand" href="/">
+          <svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
+            <g>
+              <path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
+						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255" />
+            </g>
+          </svg>
+          The Mirror's Edge Archive
+        </a>
+        <!-- {{STAMP}} -->
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
+              <h6 class="dropdown-header">Interactive</h6>
+              <a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
+              <a class="dropdown-item" href="/project_graffiti">Player Tag Generator</a>
+              <a class="dropdown-item disabled" href="#">Project Navigator</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">Media</h6>
+              <a class="dropdown-item disabled" href="#">News broadcasts</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">Software</h6>
+              <a class="dropdown-item disabled" href="#">Project Announcer</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Archives
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
+              <h6 class="dropdown-header">Internal</h6>
+              <a class="dropdown-item" href="/archive">Main Archive
+                <span class="sr-only">(current)</span>
+              </a>
+              <a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
+              <a class="dropdown-item active" href="/project_aggregator/">News articles</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">External</h6>
+              <a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/credits">Credits</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/contribute">
+              <svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
+                <path fill="rgba(0,0,0,.5)" d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z"
+                />
+              </svg>
+              &nbsp;Contribute / Contact
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <div class="container" id="content">
+    <div id="cookie_consent_placeholder"></div>
+
+    <div id="header" class="card">
+      <img class="card-img-top" src="/resources/img/project_aggreagtor/header.png" alt="Card image cap">
+      <div class="card-footer">
+        <div class="media">
+          <svg class="mr-3 align-self-center" style="width:48px;height:48px" viewBox="0 0 24 24">
+            <path fill="#383d41" d="M10.08,10.86C10.13,10.53 10.24,10.24 10.38,10C10.5,9.74 10.72,9.53 10.97,9.37C11.21,9.22 11.5,9.15 11.88,9.14C12.11,9.15 12.32,9.19 12.5,9.27C12.71,9.36 12.89,9.5 13.03,9.63C13.17,9.78 13.28,9.96 13.37,10.16C13.46,10.36 13.5,10.58 13.5,10.8H15.3C15.28,10.33 15.19,9.9 15,9.5C14.85,9.12 14.62,8.78 14.32,8.5C14,8.22 13.66,8 13.24,7.84C12.82,7.68 12.36,7.61 11.85,7.61C11.2,7.61 10.63,7.72 10.15,7.95C9.67,8.18 9.27,8.5 8.95,8.87C8.63,9.26 8.39,9.71 8.24,10.23C8.09,10.75 8,11.29 8,11.87V12.14C8,12.72 8.08,13.26 8.23,13.78C8.38,14.3 8.62,14.75 8.94,15.13C9.26,15.5 9.66,15.82 10.14,16.04C10.62,16.26 11.19,16.38 11.84,16.38C12.31,16.38 12.75,16.3 13.16,16.15C13.57,16 13.93,15.79 14.24,15.5C14.55,15.25 14.8,14.94 15,14.58C15.16,14.22 15.27,13.84 15.28,13.43H13.5C13.5,13.64 13.43,13.83 13.34,14C13.25,14.19 13.13,14.34 13,14.47C12.83,14.6 12.66,14.7 12.46,14.77C12.27,14.84 12.07,14.86 11.86,14.87C11.5,14.86 11.2,14.79 10.97,14.64C10.72,14.5 10.5,14.27 10.38,14C10.24,13.77 10.13,13.47 10.08,13.14C10.03,12.81 10,12.47 10,12.14V11.87C10,11.5 10.03,11.19 10.08,10.86M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20Z"
+            />
+          </svg>
+          <div class="media-body">
+            This site contains copyrighted material the use of which has not always been specifically authorized by the copyright owner.
+            We are making such material available for archival purposes, and ensure that all entries can be traced back to
+            their respecitve source. If you are the owner of any of the following content, please contact us by email and
+            we will remove your intellectual property immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tools-area" class="d-flex justify-content-end mb-2">
+      <button class="btn btn-success mr-2 mdi mdi-download">&nbsp;Download all articles</button>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item active" href="#">All categories</a>
+          <a class="dropdown-item" href="#">News articles</a>
+          <a class="dropdown-item" href="#">Interviews</a>
+          <a class="dropdown-item" href="#">Reviews</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress">
+      <div id="loader" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+    </div>
+
+    <div id="article-list" class="list-group">
+    </div>
+
   </div>
-
-	<div id="tools-area" class="d-flex justify-content-end mb-2">
-		<button class="btn btn-success mr-2 mdi mdi-download">&nbsp;Download all articles</button>
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Categories
-			</button>
-			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item active" href="#">All categories</a>
-				<a class="dropdown-item" href="#">News articles</a>
-				<a class="dropdown-item" href="#">Interviews</a>
-				<a class="dropdown-item" href="#">Reviews</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="progress">
-		<div id="loader" class="progress-bar" role="progressbar" style="width: 0%;"></div>
-	</div>
-
-  <div id="article-list" class="list-group">
-  </div>
-
-  <div id="legal_footer" class="alert alert-dark small text-secondary" role="alert">
-    <div class="media">
-      <svg class="mr-2" style="width:32px;height:32px" viewBox="0 0 24 24">
-          <path fill="rgba(0,0,0,.5)" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M5,5V7H19V5H5M5,9V11H13V9H5M5,13V15H15V13H5Z" />
-      </svg>
-      <div class="media-body">
-          <h6 class="mt-0">Legal information</h6>
-            This project is <u><a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive">open-source</a></u>, non-profit, for entertainment purposes only and not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All rights reserved. All trademarks and registered trademarks belong to their respective owners. For Terms of Service, our Privacy Policy, information on how to file a DMCA takedown request and attributions please visit our <u><a class="text-secondary" href="/legal">legal page</a></u>. The Mirror's Edge Archive is distributed under the <u><a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">MIT License</a></u>.
+  <div id="legal_footer" class="small text-secondary">
+    <div class="container">
+      <div class="media">
+        <div class="media-body">
+          <a href="/legal/terms-of-service.html" class="text-secondary">Terms of use</a>&nbsp;&#8729;&nbsp;
+          <a href="/legal/privacy-policy.html" class="text-secondary" href="">Privacy &amp; cookies</a>&nbsp;&#8729;&nbsp;
+          <a href="/legal/takedown.html" class="text-secondary" href="">DMCA</a>&nbsp;&#8729;&nbsp;
+          <span class="d-md-none">
+            <a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub repository</a>&nbsp;&#8729;&nbsp;
+          </span>
+          <a href="/out/?t=https://www.reddit.com/r/mirrorsedge/" class="text-secondary" href="">/r/mirrorsedge</a>
+          <!-- {{CERT}} -->
+          <div id="legal_text">This non-profit, open-source project is for entertainment purposes only and not affiliated with EA Digital Illusions
+            CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions
+            CE. All trademarks and registered trademarks belong to their respective owners. The Mirror's Edge Archive is
+            distributed under the
+            <u>
+              <a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">MIT License</a>
+            </u>.</div>
+        </div>
+        <a href="https://github.com/Sidewinder53/mirrorsedgearchive" role="button" class="btn btn-light btn-footer d-none d-xl-block">
+          <svg style="width:28px;height:28px" viewBox="0 0 24 24">
+            <path fill="#6c757d" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"
+            />
+          </svg>
+        </a>
       </div>
     </div>
   </div>
-</div>
 
-<div class="modal fade" id="article-modal" tabindex="-1" role="dialog" aria-labelledby="article-modal-label" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="article-modal-label">Article view</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <iframe id="article-iframe" src="about:blank" frameborder="0"></iframe>
-    </div>
-    <div class="modal-footer">
-      <small><a id="source-link" target="_blank" href="https://www.polygon.com/2016/6/6/11863322/mirrors-edge-catalyst-review-xbox-one-ps4-playstation-4-pc-windows-ea-dice">Original article</a></small>
-    </div>
+  <div class="modal fade" id="article-modal" tabindex="-1" role="dialog" aria-labelledby="article-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="article-modal-label">Article view</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe id="article-iframe" src="about:blank" frameborder="0"></iframe>
+        </div>
+        <div class="modal-footer">
+          <small>
+            <a id="source-link" target="_blank" href="https://www.polygon.com/2016/6/6/11863322/mirrors-edge-catalyst-review-xbox-one-ps4-playstation-4-pc-windows-ea-dice">Original article</a>
+          </small>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha256-78rSZBnBJXmJ5VGuWL8mkunvhy94g99Rw53bssjHSUk=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
-<script src="/resources/js/project_aggregator.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha256-78rSZBnBJXmJ5VGuWL8mkunvhy94g99Rw53bssjHSUk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI"
+    crossorigin="anonymous"></script>
+  <script src="/assets/js/project_aggregator.js"></script>
 </body>
+
 </html>

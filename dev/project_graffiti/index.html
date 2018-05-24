@@ -1,606 +1,661 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-	<meta charset="UTF-8">
-	<meta property="og:image" content="https://mirrorsedgearchive.de/project_graffiti/thumb.jpg" />	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>		
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.css" integrity="sha256-9fDoj4QsTQj0X7U6T9oLzybDWYftbTH1UHl85DwrRWo=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css" integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
+  <meta charset="UTF-8">
+  <meta property="og:image" content="https://mirrorsedgearchive.de/project_graffiti/thumb.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.css" integrity="sha256-9fDoj4QsTQj0X7U6T9oLzybDWYftbTH1UHl85DwrRWo="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css"
+    integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/image-picker.css">
-  <link rel="stylesheet" href="/resources/css/global.css" type="text/css"/>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<script src="js/image-picker.js" type="text/javascript"></script>
-	<script src="js/magic.js" type="text/javascript"></script>
-	<title>Mirror's Edge Catalyst | Project Graffiti</title>
-	
-	
+  <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script src="js/image-picker.js" type="text/javascript"></script>
+  <script src="js/magic.js" type="text/javascript"></script>
+  <title>Mirror's Edge Catalyst | Project Graffiti</title>
+
+
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container">
-		<div id="brand-area">
-			<a class="navbar-brand" href="/">
-				<svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"	x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
-					<g>
-						<path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
-						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255"/>
-					</g>
-				</svg>
-				The Mirror's Edge Archive
-			</a>
-		<span title="Bugs, features, ideas? Hit us up!" id="beta-stamp">BETA</span>
-		</div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="/">Home</a>
-				</li>
-				<li class="nav-item dropdown active">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Projects
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
-						<h6 class="dropdown-header">Interactive</h6>
-						<a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
-						<a class="dropdown-item active" href="/project_graffiti">Player Tag Generator <span class="sr-only">(current)</span></a>
-						<a class="dropdown-item disabled" href="#">Project Navigator</a>
-						<div class="dropdown-divider"></div>
-						<h6 class="dropdown-header">Media</h6>
-						<a class="dropdown-item disabled" href="#">News broadcasts</a>
-						<div class="dropdown-divider"></div>
-						<h6 class="dropdown-header">Software</h6>
-						<a class="dropdown-item disabled" href="#">Project Announcer</a>
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Archives
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
-						<h6 class="dropdown-header">Internal</h6>
-						<a class="dropdown-item" href="/archive">Main Archive</a>
-						<a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
-						<div class="dropdown-divider"></div>
-						<h6 class="dropdown-header">External</h6>
-						<a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/credits">Credits</a>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav ml-auto justify-content-end">
-				<li class="nav-item">
-					<a class="nav-link" href="/contribute">
-						<svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
-							<path fill="rgba(0,0,0,.5)" d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
-						</svg>
-						&nbsp;Contribute / Contact
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav>
-<nav id="navbar-credits" class="navbar sticky-top navbar-light bg-light navbar-expand-lg">
-	<div class="container">
-		<ul class="nav nav-pills mx-auto">
-			<li class="nav-item">
-				<a class="nav-link mdi mdi-shape disabled" id="emblem-tab" data-toggle="tab" href="#emblemtabcontent" role="tab" aria-controls="emblem" aria-expanded="true">&nbsp;Emblem</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link mdi mdi-image-filter-frames disabled" id="frame-tab" data-toggle="tab" href="#frametabcontent" role="tab" aria-controls="frame">&nbsp;Frame</a>
-			</li>
-			<li class="nav-item">
-					<a class="nav-link mdi mdi-image disabled" id="background-tab" data-toggle="tab" href="#backgroundtabcontent" role="tab" aria-controls="background">&nbsp;Background</a>
-			</li>
-			<li class="nav-item">
-					<a class="nav-link mdi mdi-auto-fix disabled" id="jumpToGeneratorButton" href="#">&nbsp;Finish your tag!</a>
-			</li>
-		</ul>
-	</div>
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div id="brand-area">
+        <a class="navbar-brand" href="/">
+          <svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
+            <g>
+              <path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
+						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255" />
+            </g>
+          </svg>
+          The Mirror's Edge Archive
+        </a>
+        <!-- {{STAMP}} -->
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownProjects">
+              <h6 class="dropdown-header">Interactive</h6>
+              <a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
+              <a class="dropdown-item active" href="/project_graffiti">Player Tag Generator
+                <span class="sr-only">(current)</span>
+              </a>
+              <a class="dropdown-item disabled" href="#">Project Navigator</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">Media</h6>
+              <a class="dropdown-item disabled" href="#">News broadcasts</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">Software</h6>
+              <a class="dropdown-item disabled" href="#">Project Announcer</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Archives
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownArchive">
+              <h6 class="dropdown-header">Internal</h6>
+              <a class="dropdown-item" href="/archive">Main Archive</a>
+              <a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">External</h6>
+              <a class="dropdown-item" href="https://archive.org/details/@sidewinder51">Internet Archive</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/credits">Credits</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/contribute">
+              <svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
+                <path fill="rgba(0,0,0,.5)" d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z"
+                />
+              </svg>
+              &nbsp;Contribute / Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav id="navbar-credits" class="navbar sticky-top navbar-light bg-light navbar-expand-lg">
+    <div class="container">
+      <ul class="nav nav-pills mx-auto">
+        <li class="nav-item">
+          <a class="nav-link mdi mdi-shape disabled" id="emblem-tab" data-toggle="tab" href="#emblemtabcontent" role="tab" aria-controls="emblem"
+            aria-expanded="true">&nbsp;Emblem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mdi mdi-image-filter-frames disabled" id="frame-tab" data-toggle="tab" href="#frametabcontent" role="tab"
+            aria-controls="frame">&nbsp;Frame</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mdi mdi-image disabled" id="background-tab" data-toggle="tab" href="#backgroundtabcontent" role="tab"
+            aria-controls="background">&nbsp;Background</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mdi mdi-auto-fix disabled" id="jumpToGeneratorButton" href="#">&nbsp;Finish your tag!</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<div class="container" id="content" >
+  <div class="container" id="content">
 
-<div class="collapse" id="collapseIntro">
+    <div class="collapse" id="collapseIntro">
 
-	<div id="introcard" class="card mar-bot2">
-		<img class="card-img-top" src="resources/img/header.jpg" alt="Card image cap">
-		<div class="card-body">
-			<h6 class="card-subtitle mb-2 text-muted">Welcome, to the most versatile...</h6>
-			<h2 class="card-title">Mirror's Edge Catalyst - Player Tag Generator</h2>
-			<p class="card-text">We created this because we believe that these pieces of art deserve to be shown off in its full resolution outside of the game, too. Feel free to play around with it. Generate a new profile picture for yourself to use around the web, or perhaps a wallpaper. Need some inspiration for a new runner tag in the game? Be sure to try out all the options, or let the random generator choose for you!</p>
-			<div class=" " id="skipIntro">
-				<div class="justify-content-center row">
-					<button id="closeIntro" type="button" class="btn btn-primary btn-lg">Let's start</button>
-				</div>
-				<div class="justify-content-center row">
-					<div id="skipIntroCheckArea" class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="skipIntroCookie">
-						<label class="custom-control-label" for="skipIntroCookie">Skip this page next time</label>
-					</div>
-				</div>	
-			</div>
-		</div>
-	</div>
+      <div id="introcard" class="card mar-bot2">
+        <img class="card-img-top" src="resources/img/header.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Welcome, to the most versatile...</h6>
+          <h2 class="card-title">Mirror's Edge Catalyst - Player Tag Generator</h2>
+          <p class="card-text">We created this because we believe that these pieces of art deserve to be shown off in its full resolution outside
+            of the game, too. Feel free to play around with it. Generate a new profile picture for yourself to use around
+            the web, or perhaps a wallpaper. Need some inspiration for a new runner tag in the game? Be sure to try out all
+            the options, or let the random generator choose for you!</p>
+          <div class=" " id="skipIntro">
+            <div class="justify-content-center row">
+              <button id="closeIntro" type="button" class="btn btn-primary btn-lg">Let's start</button>
+            </div>
+            <div class="justify-content-center row">
+              <div id="skipIntroCheckArea" class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="skipIntroCookie">
+                <label class="custom-control-label" for="skipIntroCookie">Skip this page next time</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
+    </div>
 
-<div class="collapse" id="collapseGenerator">
+    <div class="collapse" id="collapseGenerator">
 
-	<div class="tab-content" id="generatorTabContent">
-	<div class="tab-pane fade show active" role="tabpanel" id="emblemtabcontent">
-		<div id="emblemcard" class="card">
-			<div class="card-header">
-				Step 1: Select your Emblem
-			</div>
-			<div class="card-body">
-				<div class="picker">
-					<select id="emblemPicker" class="image-picker">
-					<optgroup label="">
-						<option data-img-src="resources/img/random.png" data-img-alt="Random">random_emblem</option>
-						<option data-img-src="resources/img/none.png" data-img-alt="None">no_emblem</option>
-					</optgroup>
-					<optgroup label="Main mission">
-						<option data-img-src="resources/thumbnails/emblems/bop-chaser.png" data-img-alt="Bird of Prey Chaser">bop-chaser</option>
-						<option data-img-src="resources/thumbnails/emblems/singe-bird-wing.png" data-img-alt="Single Bird Wing">singe-bird-wing</option>
-						<option data-img-src="resources/thumbnails/emblems/pigeon.png" data-img-alt="Pigeon">pigeon</option>
-						<option data-img-src="resources/thumbnails/emblems/shattered-glass-panel.png" data-img-alt="Shattered Glass Panel">shattered-glass-panel</option>
-						<option data-img-src="resources/thumbnails/emblems/shattered-protector-helmet.png" data-img-alt="Shattered Protector Helmet">shattered-protector-helmet</option>
-						<option data-img-src="resources/thumbnails/emblems/c4.png" data-img-alt="C4">c4</option>
-						<option data-img-src="resources/thumbnails/emblems/gift.png" data-img-alt="Gift">gift</option>
-						<option data-img-src="resources/thumbnails/emblems/fly.png" data-img-alt="Fly">fly</option>
-						<option data-img-src="resources/thumbnails/emblems/black-november.png" data-img-alt="Black November">black-november</option>
-						<option data-img-src="resources/thumbnails/emblems/shattered-turret.png" data-img-alt="Shattered Turret">shattered-turret</option>
-						<option data-img-src="resources/thumbnails/emblems/july-revolution.png" data-img-alt="July Revolution">july-revolution</option>
-						<option data-img-src="resources/thumbnails/emblems/claw-marks.png" data-img-alt="Claw Marks">claw-marks</option>
-						<option data-img-src="resources/thumbnails/emblems/cat-profile.png" data-img-alt="Cat Profile">cat-profile</option>
-						<option data-img-src="resources/thumbnails/emblems/che-noah.png" data-img-alt="Che Noah">che-noah</option>
-						<option data-img-src="resources/thumbnails/emblems/shatteret-shard-building.png" data-img-alt="Shattered Shard Building">shatteret-shard-building</option>
-						<option data-img-src="resources/thumbnails/emblems/shatteret-padlock.png" data-img-alt="Shattered Padlock">shatteret-padlock</option>
-						<option data-img-src="resources/thumbnails/emblems/double-dragon.png" data-img-alt="Double Dragon">double-dragon</option>
-					</optgroup>
-					<optgroup label="Mastery">
-						<option data-img-src="resources/thumbnails/emblems/angel-wings.png" data-img-alt="Angel Wings">angel-wings</option>
-						<option data-img-src="resources/thumbnails/emblems/rising-sun.png" data-img-alt="Rising Sun">rising-sun</option>
-						<option data-img-src="resources/thumbnails/emblems/butterfly.png" data-img-alt="Butterfly">butterfly</option>
-						<option data-img-src="resources/thumbnails/emblems/open-hand-with-droplet.png" data-img-alt="Open Hand with Droplet">open-hand-with-droplet</option>
-					</optgroup>
-					<optgroup label="Collectible &amp; Event">
-						<option data-img-src="resources/thumbnails/emblems/key.png" data-img-alt="Key">key</option>
-						<option data-img-src="resources/thumbnails/emblems/spider.png" data-img-alt="Spider">spider</option>
-						<option data-img-src="resources/thumbnails/emblems/two-pigeons.png" data-img-alt="Two Pigeons">two-pigeons</option>
-						<option data-img-src="resources/thumbnails/emblems/delivery.png" data-img-alt="Delivery">delivery</option>
-						<option data-img-src="resources/thumbnails/emblems/geococcyx.png" data-img-alt="Geococcyx">geococcyx</option>
-						<option data-img-src="resources/thumbnails/emblems/shattered-light-bulb.png" data-img-alt="Shattered Light Bulb">shattered-light-bulb</option>
-						<option data-img-src="resources/thumbnails/emblems/closed-fist-revolutionary.png" data-img-alt="Closed Fist Revolutionary">closed-fist-revolutionary</option>
-						<option data-img-src="resources/thumbnails/emblems/jacknife.png" data-img-alt="Jacknife">jacknife</option>
-						<option data-img-src="resources/thumbnails/emblems/pickpocketing-hand.png" data-img-alt="Pickpocketing Hand">pickpocketing-hand</option>
-						<option data-img-src="resources/thumbnails/emblems/destoyed-security-camera.png" data-img-alt="Destoyed Security Camera">destoyed-security-camera</option>
-						<option data-img-src="resources/thumbnails/emblems/anchor.png" data-img-alt="Anchor">anchor</option>
-						<option data-img-src="resources/thumbnails/emblems/battlefield-dog-tag.png" data-img-alt="Battlefield Dog Tag">battlefield-dog-tag</option>
-						<option data-img-src="resources/thumbnails/emblems/big-thick-book.png" data-img-alt="Big Thick Book">big-thick-book</option>
-						<option data-img-src="resources/thumbnails/emblems/cowboyhat-and-bandana.png" data-img-alt="Cowboy Hat and Bandana">cowboyhat-and-bandana</option>
-						<option data-img-src="resources/thumbnails/emblems/leon.png" data-img-alt="Leon">leon</option>
-						<option data-img-src="resources/thumbnails/emblems/mercury-god-helmet.png" data-img-alt="Mercury God Helmet">mercury-god-helmet</option>
-						<option data-img-src="resources/thumbnails/emblems/mountain-peak.png" data-img-alt="Mountain Peak">mountain-peak</option>
-						<option data-img-src="resources/thumbnails/emblems/rat.png" data-img-alt="Rat">rat</option>
-						<option data-img-src="resources/thumbnails/emblems/thumbs-up.png" data-img-alt="Thumbs Up">thumbs-up</option>
-					</optgroup>
-					<optgroup label="Social Play">
-						<option data-img-src="resources/thumbnails/emblems/ghost.png" data-img-alt="Ghost">ghost</option>
-					</optgroup>
-					<optgroup label="Exclusive">
-						<option data-img-src="resources/thumbnails/emblems/cheetah.png" data-img-alt="Cheetah">cheetah</option>
-						<option data-img-src="resources/thumbnails/emblems/fist.png" data-img-alt="Fist">fist</option>
-						<option data-img-src="resources/thumbnails/emblems/shattered-oldschool-footprint.png" data-img-alt="Shattered Oldschool Footprint">shattered-oldschool-footprint</option>
-						<option data-img-src="resources/thumbnails/emblems/stallion.png" data-img-alt="Stallion">stallion</option>
-					</optgroup>
-					<optgroup label="Misc (not available in the game)">
-						<option data-img-src="resources/thumbnails/emblems/unused/feather.png" data-img-alt="Feather">feather</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bee.png" data-img-alt="Bee">bee</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/ikarus_portrait.png" data-img-alt="Icarus Portrait">ikarus_portrait</option>
-					</optgroup>
-					<optgroup label="Unused / Developer exclusive">
-						<option data-img-src="resources/thumbnails/emblems/unused/3-stars.png" data-img-alt="3 Stars">3-stars</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-apex.png" data-img-alt="Bird of Prey Apex">bop-apex</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-deer.png" data-img-alt="Deer">bop-deer</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-interceptor.png" data-img-alt="Bird of Prey Interceptor">bop-interceptor</option>							
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-longranger.png" data-img-alt="Bird of Prey Longranger">bop-longranger</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-lowflier.png" data-img-alt="Bird of Prey Lowflier">bop-lowflier</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-predator.png" data-img-alt="Bird of Prey Predator">bop-predator</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/bop-stalker.png" data-img-alt="Bird of Prey Stalker">bop-stalker</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/chains.png" data-img-alt="Chains">Chains</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/closed-fist.png" data-img-alt="Closed Fist">closed-fist</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/crocodile.png" data-img-alt="Crocodile">crocodile</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/dice-logo.png" data-img-alt="DICE Logo">dice-logo</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/ea-frostbite.png" data-img-alt="EA Frostbite">ea-frostbite</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/ea-logo.png" data-img-alt="EA Logo">ea-logo</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/falling-dominoes.png" data-img-alt="Falling Dominoes">falling-dominoes</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/feather-2.png" data-img-alt="Feather 2">feather-2</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/glass-pieces.png" data-img-alt="Glass Pieces">glass-pieces</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/huma-persepolis.png" data-img-alt="Huma Persepolis">huma-persepolis</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/shattered_senteniel_armor.png" data-img-alt="Shattered Sentinel Armor">shattered_senteniel_armor</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/shattered-shock-protector-helmet.png" data-img-alt="Shattered Shock Protector Helmet">shattered-shock-protector-helmet</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/hunter.png" data-img-alt="Hunter">hunter</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/hood.png" data-img-alt="Hood">hood</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/thumbs-crossed.png" data-img-alt="Thumbs Crossed">thumbs-crossed</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/shattered_senteniel_helmet.png" data-img-alt="Shattered Sentinel Helmet">shattered_senteniel_helmet</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/queen.png" data-img-alt="Queen">queen</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/target.png" data-img-alt="Target">target</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/me-logo.png" data-img-alt="ME Logo">me-logo</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/small-book.png" data-img-alt="Small Book">small-book</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/shattered-enforcer-helmet.png" data-img-alt="Shattered Enforcer Helmet">shattered-enforcer-helmet</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/lion.png" data-img-alt="Lion">lion</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/tiger.png" data-img-alt="Tiger">tiger</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/pith-helmet.png" data-img-alt="Pith Helmet">pith-helmet</option>
-						<option data-img-src="resources/thumbnails/emblems/unused/ram.png" data-img-alt="Ram">ram</option>
-					</optgroup>
-					</select>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tab-pane fade" role="tabpanel" id="frametabcontent">
-		<div id="framecard" class="card">
-			<div class="card-header">
-				Step 2: Select your Frame
-			</div>
-			<div class="card-body">
-				<div class="picker">
-						<select id="framePicker" class="image-picker">
-						<optgroup label="">
-							<option data-img-src="resources/img/random.png" data-img-alt="Random">random_frame</option>
-							<option data-img-src="resources/img/none.png" data-img-alt="None">no_frame</option>
-						</optgroup>
-						<optgroup label="Basic">
-							<option data-img-src="resources/thumbnails/frames/basic_arrow.png" data-img-alt="Basic Arrow">basic_arrow</option>
-							<option data-img-src="resources/thumbnails/frames/basic_circle.png" data-img-alt="Basic Circle">basic_circle</option>
-							<option data-img-src="resources/thumbnails/frames/basic_diamond.png" data-img-alt="Basic Diamond">basic_diamond</option>
-							<option data-img-src="resources/thumbnails/frames/basic_hexagon.png" data-img-alt="Basic Hexagon">basic_hexagon</option>
-							<option data-img-src="resources/thumbnails/frames/basic_octagon.png" data-img-alt="Basic Octagon">basic_octagon</option>
-							<option data-img-src="resources/thumbnails/frames/basic_pentagon.png" data-img-alt="Basic Pentagon">basic_pentagon</option>
-							<option data-img-src="resources/thumbnails/frames/basic_shield.png" data-img-alt="Basic Shield">basic_shield</option>
-							<option data-img-src="resources/thumbnails/frames/basic_square.png" data-img-alt="Basic Square">basic_square</option>
-							<option data-img-src="resources/thumbnails/frames/basic_star.png" data-img-alt="Basic Star">basic_star</option>
-							<option data-img-src="resources/thumbnails/frames/basic_triangle.png" data-img-alt="Basic Triangle">basic_triangle</option>
-						</optgroup>
-						<optgroup label="Advanced">
-							<option data-img-src="resources/thumbnails/frames/evolved_arrow.png" data-img-alt="Evolved Arrow">evolved_arrow</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_celtic.png" data-img-alt="Evolved Celtic">evolved_celtic</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_circle.png" data-img-alt="Evolved Circle">evolved_circle</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_cross.png" data-img-alt="Evolved Cross">evolved_cross</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_crusher.png" data-img-alt="Evolved Crusher">evolved_crusher</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_frame.png" data-img-alt="Evolved Frame">evolved_frame</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_hexagon.png" data-img-alt="Evolved Hexagon">evolved_hexagon</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_hexangle.png" data-img-alt="Evolved Hexangle">evolved_hexangle</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_invincible.png" data-img-alt="Evolved Invincible">evolved_invincible</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_nova.png" data-img-alt="Evolved Nova">evolved_nova</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_shield.png" data-img-alt="Evolved Shield">evolved_shield</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_square.png" data-img-alt="Evolved Square">evolved_square</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_triburst.png" data-img-alt="Evolved Triburst">evolved_triburst</option>
-							<option data-img-src="resources/thumbnails/frames/evolved_triforce.png" data-img-alt="Evolved Triforce">evolved_triforce</option>
-						</optgroup>
-						<optgroup label="Elite">
-							<option data-img-src="resources/thumbnails/frames/elite_nova_prime.png" data-img-alt="Elite Nova Prime">elite_nova_prime</option>
-							<option data-img-src="resources/thumbnails/frames/elite_the_hood.png" data-img-alt="Elite The Hood">elite_the_hood</option>
-							<option data-img-src="resources/thumbnails/frames/elite_blades.png" data-img-alt="Elite Blades">elite_blades</option>
-							<option data-img-src="resources/thumbnails/frames/elite_shinobi.png" data-img-alt="Elite Shinobi">elite_shinobi</option>
-							<option data-img-src="resources/thumbnails/frames/elite_circle.png" data-img-alt="Elite Circle">elite_circle</option>
-							<option data-img-src="resources/thumbnails/frames/elite_hexagon.png" data-img-alt="Elite Hexagon">elite_hexagon</option>
-							<option data-img-src="resources/thumbnails/frames/elite_shift.png" data-img-alt="Elite Shift">elite_shift</option>
-							<option data-img-src="resources/thumbnails/frames/elite_arrow.png" data-img-alt="Elite Arrow">elite_arrow</option>
-							<option data-img-src="resources/thumbnails/frames/elite_razor_claw.png" data-img-alt="Elite Razor Claw">elite_razor_claw</option>
-							<option data-img-src="resources/thumbnails/frames/elite_shield.png" data-img-alt="Elite Shield">elite_shield</option>
-						</optgroup>
-						<optgroup label="Unused">
-							<option data-img-src="resources/thumbnails/frames/unused/elite_buzzsaw.png" data-img-alt="Elite Buzzsaw">elite_buzzsaw</option>
-							<option data-img-src="resources/thumbnails/frames/unused/elite_prism.png" data-img-alt="Elite Prism">elite_prism</option>
-							<option data-img-src="resources/thumbnails/frames/unused/elite_pentagon.png" data-img-alt="Elite Pentagon">elite_pentagon</option>
-							<option data-img-src="resources/thumbnails/frames/unused/elite_shuriken.png" data-img-alt="Elite Shuriken">elite_shuriken</option>
-						</optgroup>
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="tab-pane fade" role="tabpanel" id="backgroundtabcontent">
-		<div id="backgroundcard" class="card">
-			<div class="card-header">
-				Step 3: Select your Background
-			</div>
-			<div class="card-body">
-				<div id="backgroundPickerArea" class="picker">
-					<select id="backgroundPicker" class="image-picker">
-					<optgroup label="">
-						<option data-img-src="resources/img/random.png" data-img-alt="Random">random_background</option>
-						<option data-img-src="resources/img/none.png" data-img-alt="None">no_background</option>
-					</optgroup>
-					<optgroup label="Starting">
-						<option data-img-src="resources/thumbnails/backgrounds/starting/blocks_02.jpg" data-img-alt="Blocks 02">blocks_02</option>
-						<option data-img-src="resources/thumbnails/backgrounds/starting/crystaline_02.jpg" data-img-alt="Crystalline 02">crystaline_02</option>
-						<option data-img-src="resources/thumbnails/backgrounds/starting/organic_01.jpg" data-img-alt="Organic 01">organic_01</option>
-						<option data-img-src="resources/thumbnails/backgrounds/starting/spheres_04.jpg" data-img-alt="Spheres 04">spheres_04</option>
-					</optgroup>
-					<optgroup label="Basic">
-						<option data-img-src="resources/thumbnails/backgrounds/basic/crystaline_07.jpg" data-img-alt="Crystalline 07">crystaline_07</option>
-						<option data-img-src="resources/thumbnails/backgrounds/basic/grid_05.jpg" data-img-alt="Grid 05">grid_05</option>
-						<option data-img-src="resources/thumbnails/backgrounds/basic/hex_03.jpg" data-img-alt="Hex 03">hex_03</option>
-						<option data-img-src="resources/thumbnails/backgrounds/basic/grid_04.jpg" data-img-alt="Grid 04">grid_04</option>
-						<option data-img-src="resources/thumbnails/backgrounds/basic/organic_04.jpg" data-img-alt="Organic 04">organic_04</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_01.jpg" data-img-alt="Spheres 01">spheres_01</option>
-					</optgroup>
-					<optgroup label="Advanced">
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_08.jpg" data-img-alt="Crystalline 08">crystaline_08</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/grid_03.jpg" data-img-alt="Grid 03">grid_03</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/organic_05.jpg" data-img-alt="Organic 05">organic_05</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_02.jpg" data-img-alt="Spheres 02">spheres_02</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_03.jpg" data-img-alt="Spheres 03">spheres_03</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/blocks_03.jpg" data-img-alt="Blocks 03">blocks_03</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/grid_02.jpg" data-img-alt="Grid 02">grid_02</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_01.jpg" data-img-alt="Crystalline 01">crystaline_01</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_03.jpg" data-img-alt="Crystalline 03">crystaline_03</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_04.jpg" data-img-alt="Crystalline 04">crystaline_04</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_05.jpg" data-img-alt="Crystalline 05">crystaline_05</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/hex_02.jpg" data-img-alt="Hex 02">hex_02</option>
-						<option data-img-src="resources/thumbnails/backgrounds/advanced/organic_02.jpg" data-img-alt="Organic 02">organic_02</option>
-					</optgroup>
-					<optgroup label="Elite">
-						<option data-img-src="resources/thumbnails/backgrounds/elite/blocks_01.jpg" data-img-alt="Blocks 01">blocks_01</option>
-						<option data-img-src="resources/thumbnails/backgrounds/elite/crystaline_06.jpg" data-img-alt="Crystalline 06">crystaline_06</option>
-						<option data-img-src="resources/thumbnails/backgrounds/elite/grid_01.jpg" data-img-alt="Grid 01">grid_01</option>
-						<option data-img-src="resources/thumbnails/backgrounds/elite/hex_01.jpg" data-img-alt="Hex 01">hex_01</option>
-						<option data-img-src="resources/thumbnails/backgrounds/elite/organic_03.jpg" data-img-alt="Organic 03">organic_03</option>
-					</optgroup>
-					<optgroup label="Exclusive">
-						<option data-img-src="resources/thumbnails/backgrounds/special/preorder_speedrunner_bg.jpg" data-img-alt="Preorder Speedrunner Background">preorder_speedrunner_bg</option>
-						<option data-img-src="resources/thumbnails/backgrounds/special/preorder_combat_bg.jpg" data-img-alt="Preorder Combat Background">preorder_combat_bg</option>
-					</optgroup>
-					<optgroup label="Unused">
-						<option data-img-src="resources/thumbnails/backgrounds/special/unused/renewed_faith_reward_bg.jpg" data-img-alt="Renewed Faith Reward Background">renewed_faith_reward_bg</option>
-					</optgroup>
-					</select>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
+      <div class="tab-content" id="generatorTabContent">
+        <div class="tab-pane fade show active" role="tabpanel" id="emblemtabcontent">
+          <div id="emblemcard" class="card">
+            <div class="card-header">
+              Step 1: Select your Emblem
+            </div>
+            <div class="card-body">
+              <div class="picker">
+                <select id="emblemPicker" class="image-picker">
+                  <optgroup label="">
+                    <option data-img-src="resources/img/random.png" data-img-alt="Random">random_emblem</option>
+                    <option data-img-src="resources/img/none.png" data-img-alt="None">no_emblem</option>
+                  </optgroup>
+                  <optgroup label="Main mission">
+                    <option data-img-src="resources/thumbnails/emblems/bop-chaser.png" data-img-alt="Bird of Prey Chaser">bop-chaser</option>
+                    <option data-img-src="resources/thumbnails/emblems/singe-bird-wing.png" data-img-alt="Single Bird Wing">singe-bird-wing</option>
+                    <option data-img-src="resources/thumbnails/emblems/pigeon.png" data-img-alt="Pigeon">pigeon</option>
+                    <option data-img-src="resources/thumbnails/emblems/shattered-glass-panel.png" data-img-alt="Shattered Glass Panel">shattered-glass-panel</option>
+                    <option data-img-src="resources/thumbnails/emblems/shattered-protector-helmet.png" data-img-alt="Shattered Protector Helmet">shattered-protector-helmet</option>
+                    <option data-img-src="resources/thumbnails/emblems/c4.png" data-img-alt="C4">c4</option>
+                    <option data-img-src="resources/thumbnails/emblems/gift.png" data-img-alt="Gift">gift</option>
+                    <option data-img-src="resources/thumbnails/emblems/fly.png" data-img-alt="Fly">fly</option>
+                    <option data-img-src="resources/thumbnails/emblems/black-november.png" data-img-alt="Black November">black-november</option>
+                    <option data-img-src="resources/thumbnails/emblems/shattered-turret.png" data-img-alt="Shattered Turret">shattered-turret</option>
+                    <option data-img-src="resources/thumbnails/emblems/july-revolution.png" data-img-alt="July Revolution">july-revolution</option>
+                    <option data-img-src="resources/thumbnails/emblems/claw-marks.png" data-img-alt="Claw Marks">claw-marks</option>
+                    <option data-img-src="resources/thumbnails/emblems/cat-profile.png" data-img-alt="Cat Profile">cat-profile</option>
+                    <option data-img-src="resources/thumbnails/emblems/che-noah.png" data-img-alt="Che Noah">che-noah</option>
+                    <option data-img-src="resources/thumbnails/emblems/shatteret-shard-building.png" data-img-alt="Shattered Shard Building">shatteret-shard-building</option>
+                    <option data-img-src="resources/thumbnails/emblems/shatteret-padlock.png" data-img-alt="Shattered Padlock">shatteret-padlock</option>
+                    <option data-img-src="resources/thumbnails/emblems/double-dragon.png" data-img-alt="Double Dragon">double-dragon</option>
+                  </optgroup>
+                  <optgroup label="Mastery">
+                    <option data-img-src="resources/thumbnails/emblems/angel-wings.png" data-img-alt="Angel Wings">angel-wings</option>
+                    <option data-img-src="resources/thumbnails/emblems/rising-sun.png" data-img-alt="Rising Sun">rising-sun</option>
+                    <option data-img-src="resources/thumbnails/emblems/butterfly.png" data-img-alt="Butterfly">butterfly</option>
+                    <option data-img-src="resources/thumbnails/emblems/open-hand-with-droplet.png" data-img-alt="Open Hand with Droplet">open-hand-with-droplet</option>
+                  </optgroup>
+                  <optgroup label="Collectible &amp; Event">
+                    <option data-img-src="resources/thumbnails/emblems/key.png" data-img-alt="Key">key</option>
+                    <option data-img-src="resources/thumbnails/emblems/spider.png" data-img-alt="Spider">spider</option>
+                    <option data-img-src="resources/thumbnails/emblems/two-pigeons.png" data-img-alt="Two Pigeons">two-pigeons</option>
+                    <option data-img-src="resources/thumbnails/emblems/delivery.png" data-img-alt="Delivery">delivery</option>
+                    <option data-img-src="resources/thumbnails/emblems/geococcyx.png" data-img-alt="Geococcyx">geococcyx</option>
+                    <option data-img-src="resources/thumbnails/emblems/shattered-light-bulb.png" data-img-alt="Shattered Light Bulb">shattered-light-bulb</option>
+                    <option data-img-src="resources/thumbnails/emblems/closed-fist-revolutionary.png" data-img-alt="Closed Fist Revolutionary">closed-fist-revolutionary</option>
+                    <option data-img-src="resources/thumbnails/emblems/jacknife.png" data-img-alt="Jacknife">jacknife</option>
+                    <option data-img-src="resources/thumbnails/emblems/pickpocketing-hand.png" data-img-alt="Pickpocketing Hand">pickpocketing-hand</option>
+                    <option data-img-src="resources/thumbnails/emblems/destoyed-security-camera.png" data-img-alt="Destoyed Security Camera">destoyed-security-camera</option>
+                    <option data-img-src="resources/thumbnails/emblems/anchor.png" data-img-alt="Anchor">anchor</option>
+                    <option data-img-src="resources/thumbnails/emblems/battlefield-dog-tag.png" data-img-alt="Battlefield Dog Tag">battlefield-dog-tag</option>
+                    <option data-img-src="resources/thumbnails/emblems/big-thick-book.png" data-img-alt="Big Thick Book">big-thick-book</option>
+                    <option data-img-src="resources/thumbnails/emblems/cowboyhat-and-bandana.png" data-img-alt="Cowboy Hat and Bandana">cowboyhat-and-bandana</option>
+                    <option data-img-src="resources/thumbnails/emblems/leon.png" data-img-alt="Leon">leon</option>
+                    <option data-img-src="resources/thumbnails/emblems/mercury-god-helmet.png" data-img-alt="Mercury God Helmet">mercury-god-helmet</option>
+                    <option data-img-src="resources/thumbnails/emblems/mountain-peak.png" data-img-alt="Mountain Peak">mountain-peak</option>
+                    <option data-img-src="resources/thumbnails/emblems/rat.png" data-img-alt="Rat">rat</option>
+                    <option data-img-src="resources/thumbnails/emblems/thumbs-up.png" data-img-alt="Thumbs Up">thumbs-up</option>
+                  </optgroup>
+                  <optgroup label="Social Play">
+                    <option data-img-src="resources/thumbnails/emblems/ghost.png" data-img-alt="Ghost">ghost</option>
+                  </optgroup>
+                  <optgroup label="Exclusive">
+                    <option data-img-src="resources/thumbnails/emblems/cheetah.png" data-img-alt="Cheetah">cheetah</option>
+                    <option data-img-src="resources/thumbnails/emblems/fist.png" data-img-alt="Fist">fist</option>
+                    <option data-img-src="resources/thumbnails/emblems/shattered-oldschool-footprint.png" data-img-alt="Shattered Oldschool Footprint">shattered-oldschool-footprint</option>
+                    <option data-img-src="resources/thumbnails/emblems/stallion.png" data-img-alt="Stallion">stallion</option>
+                  </optgroup>
+                  <optgroup label="Misc (not available in the game)">
+                    <option data-img-src="resources/thumbnails/emblems/unused/feather.png" data-img-alt="Feather">feather</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bee.png" data-img-alt="Bee">bee</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/ikarus_portrait.png" data-img-alt="Icarus Portrait">ikarus_portrait</option>
+                  </optgroup>
+                  <optgroup label="Unused / Developer exclusive">
+                    <option data-img-src="resources/thumbnails/emblems/unused/3-stars.png" data-img-alt="3 Stars">3-stars</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-apex.png" data-img-alt="Bird of Prey Apex">bop-apex</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-deer.png" data-img-alt="Deer">bop-deer</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-interceptor.png" data-img-alt="Bird of Prey Interceptor">bop-interceptor</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-longranger.png" data-img-alt="Bird of Prey Longranger">bop-longranger</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-lowflier.png" data-img-alt="Bird of Prey Lowflier">bop-lowflier</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-predator.png" data-img-alt="Bird of Prey Predator">bop-predator</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/bop-stalker.png" data-img-alt="Bird of Prey Stalker">bop-stalker</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/chains.png" data-img-alt="Chains">Chains</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/closed-fist.png" data-img-alt="Closed Fist">closed-fist</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/crocodile.png" data-img-alt="Crocodile">crocodile</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/dice-logo.png" data-img-alt="DICE Logo">dice-logo</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/ea-frostbite.png" data-img-alt="EA Frostbite">ea-frostbite</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/ea-logo.png" data-img-alt="EA Logo">ea-logo</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/falling-dominoes.png" data-img-alt="Falling Dominoes">falling-dominoes</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/feather-2.png" data-img-alt="Feather 2">feather-2</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/glass-pieces.png" data-img-alt="Glass Pieces">glass-pieces</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/huma-persepolis.png" data-img-alt="Huma Persepolis">huma-persepolis</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/shattered_senteniel_armor.png" data-img-alt="Shattered Sentinel Armor">shattered_senteniel_armor</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/shattered-shock-protector-helmet.png" data-img-alt="Shattered Shock Protector Helmet">shattered-shock-protector-helmet</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/hunter.png" data-img-alt="Hunter">hunter</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/hood.png" data-img-alt="Hood">hood</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/thumbs-crossed.png" data-img-alt="Thumbs Crossed">thumbs-crossed</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/shattered_senteniel_helmet.png" data-img-alt="Shattered Sentinel Helmet">shattered_senteniel_helmet</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/queen.png" data-img-alt="Queen">queen</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/target.png" data-img-alt="Target">target</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/me-logo.png" data-img-alt="ME Logo">me-logo</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/small-book.png" data-img-alt="Small Book">small-book</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/shattered-enforcer-helmet.png" data-img-alt="Shattered Enforcer Helmet">shattered-enforcer-helmet</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/lion.png" data-img-alt="Lion">lion</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/tiger.png" data-img-alt="Tiger">tiger</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/pith-helmet.png" data-img-alt="Pith Helmet">pith-helmet</option>
+                    <option data-img-src="resources/thumbnails/emblems/unused/ram.png" data-img-alt="Ram">ram</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" role="tabpanel" id="frametabcontent">
+          <div id="framecard" class="card">
+            <div class="card-header">
+              Step 2: Select your Frame
+            </div>
+            <div class="card-body">
+              <div class="picker">
+                <select id="framePicker" class="image-picker">
+                  <optgroup label="">
+                    <option data-img-src="resources/img/random.png" data-img-alt="Random">random_frame</option>
+                    <option data-img-src="resources/img/none.png" data-img-alt="None">no_frame</option>
+                  </optgroup>
+                  <optgroup label="Basic">
+                    <option data-img-src="resources/thumbnails/frames/basic_arrow.png" data-img-alt="Basic Arrow">basic_arrow</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_circle.png" data-img-alt="Basic Circle">basic_circle</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_diamond.png" data-img-alt="Basic Diamond">basic_diamond</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_hexagon.png" data-img-alt="Basic Hexagon">basic_hexagon</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_octagon.png" data-img-alt="Basic Octagon">basic_octagon</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_pentagon.png" data-img-alt="Basic Pentagon">basic_pentagon</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_shield.png" data-img-alt="Basic Shield">basic_shield</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_square.png" data-img-alt="Basic Square">basic_square</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_star.png" data-img-alt="Basic Star">basic_star</option>
+                    <option data-img-src="resources/thumbnails/frames/basic_triangle.png" data-img-alt="Basic Triangle">basic_triangle</option>
+                  </optgroup>
+                  <optgroup label="Advanced">
+                    <option data-img-src="resources/thumbnails/frames/evolved_arrow.png" data-img-alt="Evolved Arrow">evolved_arrow</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_celtic.png" data-img-alt="Evolved Celtic">evolved_celtic</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_circle.png" data-img-alt="Evolved Circle">evolved_circle</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_cross.png" data-img-alt="Evolved Cross">evolved_cross</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_crusher.png" data-img-alt="Evolved Crusher">evolved_crusher</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_frame.png" data-img-alt="Evolved Frame">evolved_frame</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_hexagon.png" data-img-alt="Evolved Hexagon">evolved_hexagon</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_hexangle.png" data-img-alt="Evolved Hexangle">evolved_hexangle</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_invincible.png" data-img-alt="Evolved Invincible">evolved_invincible</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_nova.png" data-img-alt="Evolved Nova">evolved_nova</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_shield.png" data-img-alt="Evolved Shield">evolved_shield</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_square.png" data-img-alt="Evolved Square">evolved_square</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_triburst.png" data-img-alt="Evolved Triburst">evolved_triburst</option>
+                    <option data-img-src="resources/thumbnails/frames/evolved_triforce.png" data-img-alt="Evolved Triforce">evolved_triforce</option>
+                  </optgroup>
+                  <optgroup label="Elite">
+                    <option data-img-src="resources/thumbnails/frames/elite_nova_prime.png" data-img-alt="Elite Nova Prime">elite_nova_prime</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_the_hood.png" data-img-alt="Elite The Hood">elite_the_hood</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_blades.png" data-img-alt="Elite Blades">elite_blades</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_shinobi.png" data-img-alt="Elite Shinobi">elite_shinobi</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_circle.png" data-img-alt="Elite Circle">elite_circle</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_hexagon.png" data-img-alt="Elite Hexagon">elite_hexagon</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_shift.png" data-img-alt="Elite Shift">elite_shift</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_arrow.png" data-img-alt="Elite Arrow">elite_arrow</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_razor_claw.png" data-img-alt="Elite Razor Claw">elite_razor_claw</option>
+                    <option data-img-src="resources/thumbnails/frames/elite_shield.png" data-img-alt="Elite Shield">elite_shield</option>
+                  </optgroup>
+                  <optgroup label="Unused">
+                    <option data-img-src="resources/thumbnails/frames/unused/elite_buzzsaw.png" data-img-alt="Elite Buzzsaw">elite_buzzsaw</option>
+                    <option data-img-src="resources/thumbnails/frames/unused/elite_prism.png" data-img-alt="Elite Prism">elite_prism</option>
+                    <option data-img-src="resources/thumbnails/frames/unused/elite_pentagon.png" data-img-alt="Elite Pentagon">elite_pentagon</option>
+                    <option data-img-src="resources/thumbnails/frames/unused/elite_shuriken.png" data-img-alt="Elite Shuriken">elite_shuriken</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" role="tabpanel" id="backgroundtabcontent">
+          <div id="backgroundcard" class="card">
+            <div class="card-header">
+              Step 3: Select your Background
+            </div>
+            <div class="card-body">
+              <div id="backgroundPickerArea" class="picker">
+                <select id="backgroundPicker" class="image-picker">
+                  <optgroup label="">
+                    <option data-img-src="resources/img/random.png" data-img-alt="Random">random_background</option>
+                    <option data-img-src="resources/img/none.png" data-img-alt="None">no_background</option>
+                  </optgroup>
+                  <optgroup label="Starting">
+                    <option data-img-src="resources/thumbnails/backgrounds/starting/blocks_02.jpg" data-img-alt="Blocks 02">blocks_02</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/starting/crystaline_02.jpg" data-img-alt="Crystalline 02">crystaline_02</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/starting/organic_01.jpg" data-img-alt="Organic 01">organic_01</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/starting/spheres_04.jpg" data-img-alt="Spheres 04">spheres_04</option>
+                  </optgroup>
+                  <optgroup label="Basic">
+                    <option data-img-src="resources/thumbnails/backgrounds/basic/crystaline_07.jpg" data-img-alt="Crystalline 07">crystaline_07</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/basic/grid_05.jpg" data-img-alt="Grid 05">grid_05</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/basic/hex_03.jpg" data-img-alt="Hex 03">hex_03</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/basic/grid_04.jpg" data-img-alt="Grid 04">grid_04</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/basic/organic_04.jpg" data-img-alt="Organic 04">organic_04</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_01.jpg" data-img-alt="Spheres 01">spheres_01</option>
+                  </optgroup>
+                  <optgroup label="Advanced">
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_08.jpg" data-img-alt="Crystalline 08">crystaline_08</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/grid_03.jpg" data-img-alt="Grid 03">grid_03</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/organic_05.jpg" data-img-alt="Organic 05">organic_05</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_02.jpg" data-img-alt="Spheres 02">spheres_02</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_03.jpg" data-img-alt="Spheres 03">spheres_03</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/blocks_03.jpg" data-img-alt="Blocks 03">blocks_03</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/grid_02.jpg" data-img-alt="Grid 02">grid_02</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_01.jpg" data-img-alt="Crystalline 01">crystaline_01</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_03.jpg" data-img-alt="Crystalline 03">crystaline_03</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_04.jpg" data-img-alt="Crystalline 04">crystaline_04</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_05.jpg" data-img-alt="Crystalline 05">crystaline_05</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/hex_02.jpg" data-img-alt="Hex 02">hex_02</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/advanced/organic_02.jpg" data-img-alt="Organic 02">organic_02</option>
+                  </optgroup>
+                  <optgroup label="Elite">
+                    <option data-img-src="resources/thumbnails/backgrounds/elite/blocks_01.jpg" data-img-alt="Blocks 01">blocks_01</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/elite/crystaline_06.jpg" data-img-alt="Crystalline 06">crystaline_06</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/elite/grid_01.jpg" data-img-alt="Grid 01">grid_01</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/elite/hex_01.jpg" data-img-alt="Hex 01">hex_01</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/elite/organic_03.jpg" data-img-alt="Organic 03">organic_03</option>
+                  </optgroup>
+                  <optgroup label="Exclusive">
+                    <option data-img-src="resources/thumbnails/backgrounds/special/preorder_speedrunner_bg.jpg" data-img-alt="Preorder Speedrunner Background">preorder_speedrunner_bg</option>
+                    <option data-img-src="resources/thumbnails/backgrounds/special/preorder_combat_bg.jpg" data-img-alt="Preorder Combat Background">preorder_combat_bg</option>
+                  </optgroup>
+                  <optgroup label="Unused">
+                    <option data-img-src="resources/thumbnails/backgrounds/special/unused/renewed_faith_reward_bg.jpg" data-img-alt="Renewed Faith Reward Background">renewed_faith_reward_bg</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div id="finishcard" class="card mar-top2-bot1">
-	<div class="card-header d-flex justify-content-between">
-		<div>
-			Step 4: Finish your Tag!
-		</div>
-		<div>
-			<button id="show_advanced" type="button" class="btn btn-outline-primary btn-sm mdi mdi-tune">&nbsp;Toggle advanced settings</button>
-		</div>
-	</div>
-		<div class="collapse" id="collapseAdvancedSettings">
-		<div id="sizearea" class="row">
-			<div id="sizeconfig" class="col">
-				<ul class="list-group list-group-flush">
-				<li class="list-group-item">
-				<div class="row ">
-					<div class="col">
-						Background X:<div class="sizeslider" id="bgXslider"></div>
-					</div>
-					<div class="col-sm-auto">
-						<div class="input-group">
-							<input id="bgXvalue" class="form-control sizecfginput" type="number" value="1024" min="64" max="2048" required>
-							<div class="input-group-append">
-								<span class="input-group-text">px</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				</li>
-				<li class="list-group-item">
-				<div class="row ">
-					<div class="col">
-						Background Y:<div class="sizeslider" id="bgYslider"></div>
-					</div>
-					<div class="col-sm-auto">
-						<div class="input-group">
-							<input id="bgYvalue" class="form-control sizecfginput" type="number" value="1024" min="64" max="2048" required>
-							<div class="input-group-append">
-								<span class="input-group-text">px</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				</li>
-				<li class="list-group-item">
-				<div class="row ">
-					<div class="col">
-						Emblem X and Y:<div class="sizeslider" id="emslider"></div>
-					</div>
-					<div class="col-sm-auto">
-						<div class="input-group">
-							<input id="emvalue" class="form-control sizecfginput" type="number" value="256" min="64" max="512" required>
-							<div class="input-group-append">
-								<span class="input-group-text">px</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				</li>
-				<li class="list-group-item">
-				<div class="row ">
-					<div class="col">
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="random_unused">
-							<label class="custom-control-label" for="random_unused">Include 'unused' and 'special' assets in random selection</label>
-						</div>
-					</div>
-				</div>
-				</li>
+      <div id="finishcard" class="card mar-top2-bot1">
+        <div class="card-header d-flex justify-content-between">
+          <div>
+            Step 4: Finish your Tag!
+          </div>
+          <div>
+            <button id="show_advanced" type="button" class="btn btn-outline-primary btn-sm mdi mdi-tune">&nbsp;Toggle advanced settings</button>
+          </div>
+        </div>
+        <div class="collapse" id="collapseAdvancedSettings">
+          <div id="sizearea" class="row">
+            <div id="sizeconfig" class="col">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row ">
+                    <div class="col">
+                      Background X:
+                      <div class="sizeslider" id="bgXslider"></div>
+                    </div>
+                    <div class="col-sm-auto">
+                      <div class="input-group">
+                        <input id="bgXvalue" class="form-control sizecfginput" type="number" value="1024" min="64" max="2048" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text">px</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row ">
+                    <div class="col">
+                      Background Y:
+                      <div class="sizeslider" id="bgYslider"></div>
+                    </div>
+                    <div class="col-sm-auto">
+                      <div class="input-group">
+                        <input id="bgYvalue" class="form-control sizecfginput" type="number" value="1024" min="64" max="2048" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text">px</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row ">
+                    <div class="col">
+                      Emblem X and Y:
+                      <div class="sizeslider" id="emslider"></div>
+                    </div>
+                    <div class="col-sm-auto">
+                      <div class="input-group">
+                        <input id="emvalue" class="form-control sizecfginput" type="number" value="256" min="64" max="512" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text">px</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row ">
+                    <div class="col">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="random_unused">
+                        <label class="custom-control-label" for="random_unused">Include 'unused' and 'special' assets in random selection</label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
 
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="card-body">
-		<div id ="preview" class="row justify-content-center">
-			<div id="emblem_col" class="col- preview_col">
-				<div class="card">
-					<div class="thumbnail" id="emblem_preview_background">
-						<img id="emblem_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Emblem preview">
-					</div>
-					<div class="card-body">
-						<p id="emblem_preview_label" class="card-text">Emblem</p>
-					</div>
-				</div>
-			</div>
-			<div id="frame_col" class="col- preview_col">
-				<div class="card">
-					<div class="thumbnail" id="frame_preview_frame">
-						<img id="frame_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Frame preview">
-					</div>
-					<div class="card-body">
-						<p id="frame_preview_label" class="card-text">Frame</p>
-					</div>
-				</div>
-			</div>
-			<div id="background_col" class="col- preview_col">
-				<div class="card">
-					<div class="thumbnail" id="background_preview_background">
-						<img id="background_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Background preview">
-					</div>
-					<div class="card-body">
-						<p id="background_preview_label" class="card-text">Background</p>
-					</div>
-				</div>
-			</div>
-			<div id="stacked_col" class="col- preview_col">
-				<div class="card">
-					<div class="thumbnail" id="background_preview_stacked">
-						<canvas id="previewCanvas" width="120" height="120"></canvas>
-					</div>
-					<div class="card-body">
-						<p class="card-text">Preview</p>
-					</div>
-				</div>
-			</div>
-		<button id="generateButton" type="button" class="btn btn-primary btn-lg btn-block mdi mdi-auto-fix">&nbsp;Generate my Tag!</button>
-		<!-- Debug buttons
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="preview" class="row justify-content-center">
+            <div id="emblem_col" class="col- preview_col">
+              <div class="card">
+                <div class="thumbnail" id="emblem_preview_background">
+                  <img id="emblem_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Emblem preview">
+                </div>
+                <div class="card-body">
+                  <p id="emblem_preview_label" class="card-text">Emblem</p>
+                </div>
+              </div>
+            </div>
+            <div id="frame_col" class="col- preview_col">
+              <div class="card">
+                <div class="thumbnail" id="frame_preview_frame">
+                  <img id="frame_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Frame preview">
+                </div>
+                <div class="card-body">
+                  <p id="frame_preview_label" class="card-text">Frame</p>
+                </div>
+              </div>
+            </div>
+            <div id="background_col" class="col- preview_col">
+              <div class="card">
+                <div class="thumbnail" id="background_preview_background">
+                  <img id="background_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Background preview">
+                </div>
+                <div class="card-body">
+                  <p id="background_preview_label" class="card-text">Background</p>
+                </div>
+              </div>
+            </div>
+            <div id="stacked_col" class="col- preview_col">
+              <div class="card">
+                <div class="thumbnail" id="background_preview_stacked">
+                  <canvas id="previewCanvas" width="120" height="120"></canvas>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Preview</p>
+                </div>
+              </div>
+            </div>
+            <button id="generateButton" type="button" class="btn btn-primary btn-lg btn-block mdi mdi-auto-fix">&nbsp;Generate my Tag!</button>
+            <!-- Debug buttons
 		<button class="btn btn-light btn-lg btn-block" id="debugButton">Debug collapse & progress modal</button>
 		<button class="btn btn-light btn-lg btn-block" id="debugErrorButton">Debug error modal</button>
 		-->
-	</div>
-	</div>
-</div>
-</div>
-<!-- g-recaptcha # Google Recaptcha currently disabled -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- g-recaptcha # Google Recaptcha currently disabled -->
 
-<div class="collapse" id="collapseResult">
-	<div id="resultcard" class="card">
-		<div class="card-header">Result</div>
-		<div class="card-body">
-			<button class="btn btn-primary btn-lg btn-block mar-bot2" id="resetButton">Back to the drawing board</button>
-			<div id="print" class="print"><img id="resultpng" src=""></div>
-			<div class="row">
-				<div class="col">
-					<div data-toggle="tooltip" data-placement="bottom" title="This link will be valid for 24 hours"  class="input-group mar-top2-bot1">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="tempshareURLlabel">Direct Link</span>
-						</div>
-						<input onClick="this.select();" id="tempshareURL" type="text" class="form-control" aria-label="tempshareURL" aria-describedby="tempshareURL">
-					</div>
-				</div>
-				<div class="col">
-					<button class="btn btn-primary btn-block mar-top2-bot1 mdi mdi-share" id="downloadButton">&nbsp;Download Image</button>
-					<a href="" id="downloadButtonHelper" download="ME Playertag.png"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-<div id="legal_footer" class="small text-secondary">
-	<div class="container">
-	  <div class="media">
-		<div class="media-body">
-		  <u><a href="/legal/terms-of-service.html" class="text-secondary">Terms of use</a></u>&nbsp;&#8729;&nbsp;
-		  <u><a href="/legal/privacy-policy.html" class="text-secondary" href="">Privacy &amp; cookies</a></u>&nbsp;&#8729;&nbsp;
-		  <u><a href="/legal/takedown.html" class="text-secondary" href="">DMCA</a></u>&nbsp;&#8729;&nbsp;
-		  <span class="d-md-none"><u><a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub repository</a></u>&nbsp;&#8729;&nbsp;</span>
-		  <u><a href="/out/?t=https://www.reddit.com/r/mirrorsedge/" class="text-secondary" href="">/r/mirrorsedge</a></u>
-		  <div id="legal_text">This non-profit, open-source project is for entertainment purposes only and not affiliated with EA Digital Illusions CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All trademarks and registered trademarks belong to their respective owners. The Mirror's Edge Archive is distributed under the <u><a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">MIT License</a></u>.</div>
-		</div>
-		<a href="https://github.com/Sidewinder53/mirrorsedgearchive" role="button" class="btn btn-light btn-footer d-none d-xl-block">
-		  <svg style="width:28px;height:28px" viewBox="0 0 24 24">
-			<path fill="#6c757d" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-		  </svg>
-		</a>
-	  </div>
-	</div>
-  </div> 
+    <div class="collapse" id="collapseResult">
+      <div id="resultcard" class="card">
+        <div class="card-header">Result</div>
+        <div class="card-body">
+          <button class="btn btn-primary btn-lg btn-block mar-bot2" id="resetButton">Back to the drawing board</button>
+          <div id="print" class="print">
+            <img id="resultpng" src="">
+          </div>
+          <div class="row">
+            <div class="col">
+              <div data-toggle="tooltip" data-placement="bottom" title="This link will be valid for 24 hours" class="input-group mar-top2-bot1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="tempshareURLlabel">Direct Link</span>
+                </div>
+                <input onClick="this.select();" id="tempshareURL" type="text" class="form-control" aria-label="tempshareURL" aria-describedby="tempshareURL">
+              </div>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-block mar-top2-bot1 mdi mdi-share" id="downloadButton">&nbsp;Download Image</button>
+              <a href="" id="downloadButtonHelper" download="ME Playertag.png"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="legal_footer" class="small text-secondary">
+    <div class="container">
+      <div class="media">
+        <div class="media-body">
+          <a href="/legal/terms-of-service.html" class="text-secondary">Terms of use</a>&nbsp;&#8729;&nbsp;
+          <a href="/legal/privacy-policy.html" class="text-secondary" href="">Privacy &amp; cookies</a>&nbsp;&#8729;&nbsp;
+          <a href="/legal/takedown.html" class="text-secondary" href="">DMCA</a>&nbsp;&#8729;&nbsp;
+          <span class="d-md-none">
+            <a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub repository</a>&nbsp;&#8729;&nbsp;
+          </span>
+          <a href="/out/?t=https://www.reddit.com/r/mirrorsedge/" class="text-secondary" href="">/r/mirrorsedge</a>
+          <!-- {{CERT}} -->
+          <div id="legal_text">This non-profit, open-source project is for entertainment purposes only and not affiliated with EA Digital Illusions
+            CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions
+            CE. All trademarks and registered trademarks belong to their respective owners. The Mirror's Edge Archive is
+            distributed under the
+            <u>
+              <a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">MIT License</a>
+            </u>.</div>
+        </div>
+        <a href="https://github.com/Sidewinder53/mirrorsedgearchive" role="button" class="btn btn-light btn-footer d-none d-xl-block">
+          <svg style="width:28px;height:28px" viewBox="0 0 24 24">
+            <path fill="#6c757d" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 
-<div class="modal fade" id="stallusermodal" tabindex="-1" role="dialog" aria-labelledby="StallUserLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title mdi mdi-auto-fix" id="StallUserLabel">&nbsp;Generating your personal tag!</h5>
-		</div>
-		<div class="modal-body">
-			This process might take up to 60 seconds. Please wait...<br><br>
-			<h3 style="text-align: center;"><i class="mdi mdi-shape"></i>&nbsp;<i class="mdi mdi-plus"></i>&nbsp;<i class="mdi mdi-image-filter-frames"></i>&nbsp;<i class="mdi mdi-plus"></i>&nbsp;<i class="mdi mdi-image"></i>&nbsp;<i class="mdi mdi-chevron-right"></i>&nbsp;<i class="mdi mdi-creation"></i></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-			</div>
-		</div>
-		</div>
-	</div>
-</div>
+  <div class="modal fade" id="stallusermodal" tabindex="-1" role="dialog" aria-labelledby="StallUserLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title mdi mdi-auto-fix" id="StallUserLabel">&nbsp;Generating your personal tag!</h5>
+        </div>
+        <div class="modal-body">
+          This process might take up to 60 seconds. Please wait...
+          <br>
+          <br>
+          <h3 style="text-align: center;">
+            <i class="mdi mdi-shape"></i>&nbsp;
+            <i class="mdi mdi-plus"></i>&nbsp;
+            <i class="mdi mdi-image-filter-frames"></i>&nbsp;
+            <i class="mdi mdi-plus"></i>&nbsp;
+            <i class="mdi mdi-image"></i>&nbsp;
+            <i class="mdi mdi-chevron-right"></i>&nbsp;
+            <i class="mdi mdi-creation"></i>
+          </h3>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+              aria-valuemax="100" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="modal fade" id="errormodal" tabindex="-1" role="dialog" aria-labelledby="errorLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="StallUserLabel">Fatal Error</h5>
-		</div>
-		<div class="modal-body">
-			We are sorry, the image generation progress failed. Please reload the page and try again. If the issue persists, please contact us. <small class="text-muted">That’s all we know.</small>
-		</div>
-		</div>
-	</div>
-</div>
-</div>
+  <div class="modal fade" id="errormodal" tabindex="-1" role="dialog" aria-labelledby="errorLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="StallUserLabel">Fatal Error</h5>
+        </div>
+        <div class="modal-body">
+          We are sorry, the image generation progress failed. Please reload the page and try again. If the issue persists, please contact
+          us.
+          <small class="text-muted">That’s all we know.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-<div class="modal fade" id="deprecatedmodal" tabindex="-1" role="dialog" aria-labelledby="deprecatedLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="StallUserLabel">This application is not up-to-date.</h5>
-		</div>
-		<div class="modal-body">
-			We are sorry, the image generation progress could not be completed. We noticed that you are running an outdated version of this web application. Please reload by pressing Ctrl + F5 or just do a simple reload on your mobile device.<br><small class="text-muted">That’s all we know.</small>
-		</div>
-		</div>
-	</div>
-</div>
-</div>
+  <div class="modal fade" id="deprecatedmodal" tabindex="-1" role="dialog" aria-labelledby="deprecatedLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="StallUserLabel">This application is not up-to-date.</h5>
+        </div>
+        <div class="modal-body">
+          We are sorry, the image generation progress could not be completed. We noticed that you are running an outdated version of
+          this web application. Please reload by pressing Ctrl + F5 or just do a simple reload on your mobile device.
+          <br>
+          <small class="text-muted">That’s all we know.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-<div data-toggle="tooltip" data-placement="left" title="This preview is not true to scale and the emblem hasn't been rendered yet." id="floatingPreview" class="preview_col">
-<div class="card text-center">
-		<div class="thumbnail" id="background_preview_stacked">
-			<canvas id="floatingPreviewCanvas" width="120" height="120"></canvas>
-		</div>
-		<div class="card-body">
-			<p class="card-text">Preview</p>
-		</div>
-	</div>
-</div>
+  <div data-toggle="tooltip" data-placement="left" title="This preview is not true to scale and the emblem hasn't been rendered yet."
+    id="floatingPreview" class="preview_col">
+    <div class="card text-center">
+      <div class="thumbnail" id="background_preview_stacked">
+        <canvas id="floatingPreviewCanvas" width="120" height="120"></canvas>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Preview</p>
+      </div>
+    </div>
+  </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.min.js" integrity="sha256-oj880/QiddQHkKfC9iOmsu+Hu5V4KCHfS3RY3RaZdZc=" crossorigin="anonymous"></script>
-<script src="js/wNumb.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.min.js" integrity="sha256-oj880/QiddQHkKfC9iOmsu+Hu5V4KCHfS3RY3RaZdZc="
+    crossorigin="anonymous"></script>
+  <script src="js/wNumb.js"></script>
+
 </html>
