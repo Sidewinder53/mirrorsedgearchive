@@ -12,20 +12,22 @@ const gulp = require('gulp'),
 
 gulp.task(
   'browser-sync',
-  gulpsync.sync([
-    'cleanup',
-    ['build-js', 'build-css', 'build-html'],
-    ['optimize', 'optimizeWEBP'],
-    'copy'
-  ]),
+  gulpsync.sync([['build-js', 'build-css', 'build-html'], 'copy']),
   function() {
     browserSync.init({
       notify: false,
-      server: {
-        baseDir: './dist'
-      }
+      server: './dist'
     });
-    gulp.watch('dist/**/*').on('change', browserSync.reload);
+    gulp.watch('dev/**/*', ['browser-sync-reload']);
+  }
+);
+
+gulp.task(
+  'browser-sync-reload',
+  gulpsync.sync([['build-js', 'build-css', 'build-html'], 'copy']),
+  function(cb) {
+    browserSync.reload();
+    cb();
   }
 );
 

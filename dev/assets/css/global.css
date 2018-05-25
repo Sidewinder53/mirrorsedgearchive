@@ -4,8 +4,9 @@ html {
 }
 
 body {
-  background: url('/resources/img/bg.svg') no-repeat;
+  background: url('/assets/media/image/bg.svg') no-repeat;
   background-size: contain;
+  overflow-y: scroll;
 }
 
 #legal_footer {
@@ -62,6 +63,22 @@ a:hover svg path {
   font-weight: bold;
   transform: rotate(-10deg);
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  transition: 100ms;
+  transition-timing-function: ease-in-out;
+  color: #cd2027;
+}
+
+.dropdown-item:hover:not(.disabled) {
+  transition: 100ms;
+  transition-timing-function: ease-in-out;
+  color: #cd2027;
+}
+
+.dropdown-item.disabled {
+  cursor: default;
 }
 
 @media (max-width: 576px) {

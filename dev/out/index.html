@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <script>window.onload=function(){var n=get("t");null!=n&&!0===ValidURL(n)?(document.getElementById("main").style.display="block",URLrep(n)):window.location.replace("/"),$("#continue-button").click(function(){window.location.replace(n)})};</script>
-	
-	
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script>window.onload = function () { var n = get("t"); null != n && !0 === ValidURL(n) ? (document.getElementById("main").style.display = "block", URLrep(n)) : window.location.replace("/"), $("#continue-button").click(function () { window.location.replace(n) }) };</script>
+
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>You are leaving the Mirror's Edge™ Archive</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>		
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css" integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css"
+    integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
   <style>
     /* body { background: #232526; } */
-    #main { display: none; margin: auto; color: #000000; background-color: rgba(255, 255, 255, 0.85); padding: 2em; max-width: 800px;}
-    #url { opacity: 0; }
-    .absolute-info { position: absolute; margin-top: 11px; left: auto; right: auto; width: 736px; max-width: 80vw; z-index: 10; }
-    </style>
+
+    #main {
+      display: none;
+      margin: auto;
+      color: #000000;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2em;
+      max-width: 800px;
+    }
+
+    #url {
+      opacity: 0;
+    }
+
+    .absolute-info {
+      position: absolute;
+      margin-top: 11px;
+      left: auto;
+      right: auto;
+      width: 736px;
+      max-width: 80vw;
+      z-index: 10;
+    }
+  </style>
 </head>
+
 <body>
   <div class="d-flex">
     <div id="main">
@@ -50,7 +75,7 @@
         <hr>
         <small>We have no control over the nature, content and availability of this link. The inclusion of it does not necessarily
           imply a recommendation or endorse the views expressed within it. For more information, please read our
-          <a href="/legal/terms-of-service.html">Terms of Service</a>.</small>
+          <a href="/legal/terms-of-use.html">Terms of Use</a>.</small>
       </div>
     </div>
   </div>
@@ -95,7 +120,7 @@
         "threatEntryTypes": ["URL"],
         "threatEntries": [{
           "url": url
-        }, ]
+        },]
       }
     };
     $.ajax({
