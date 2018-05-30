@@ -1,0 +1,546 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@font-face{font-family:caecilia;src:url(/redesign/global/css/fonts/caecilialtstd-light-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/caecilialtstd-light-webfont.woff) format("woff"), url(/redesign/global/css/fonts/caecilialtstd-light-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/caecilialtstd-light-webfont.svg#webfont_bold) format("svg");font-weight:300;font-style:normal;}@font-face{font-family:caecilia-300-normal;src:url(/redesign/global/css/fonts/caecilialtstd-light-webfont.eot);src:url(/redesign/global/css/fonts/caecilialtstd-light-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:caecilia;src:url(/redesign/global/css/fonts/caecilialtstd-lightitalic-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/caecilialtstd-lightitalic-webfont.woff) format("woff"), url(/redesign/global/css/fonts/caecilialtstd-lightitalic-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/caecilialtstd-lightitalic-webfont.svg#webfont_bold) format("svg");font-weight:300;font-style:italic;}@font-face{font-family:caecilia-300-italic;src:url(/redesign/global/css/fonts/caecilialtstd-lightitalic-webfont.eot);src:url(/redesign/global/css/fonts/caecilialtstd-lightitalic-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:caecilia;src:url(/redesign/global/css/fonts/caecilialtstd-roman-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/caecilialtstd-roman-webfont.woff) format("woff"), url(/redesign/global/css/fonts/caecilialtstd-roman-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/caecilialtstd-roman-webfont.svg#webfont_bold) format("svg");font-weight:400;font-style:normal;}@font-face{font-family:caecilia-400-normal;src:url(/redesign/global/css/fonts/caecilialtstd-roman-webfont.eot);src:url(/redesign/global/css/fonts/caecilialtstd-roman-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:caecilia;src:url(/redesign/global/css/fonts/caecilialtstd-italic-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/caecilialtstd-italic-webfont.woff) format("woff"), url(/redesign/global/css/fonts/caecilialtstd-italic-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/caecilialtstd-italic-webfont.svg#webfont_bold) format("svg");font-weight:400;font-style:italic;}@font-face{font-family:caecilia-400-italic;src:url(/redesign/global/css/fonts/caecilialtstd-italic-webfont.eot);src:url(/redesign/global/css/fonts/caecilialtstd-italic-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:caecilia;src:url(/redesign/global/css/fonts/caecilialtstd-bold-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/caecilialtstd-bold-webfont.woff) format("woff"), url(/redesign/global/css/fonts/caecilialtstd-bold-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/caecilialtstd-bold-webfont.svg#webfont_bold) format("svg");font-weight:700;font-style:normal;}@font-face{font-family:caecilia-700-normal;src:url(/redesign/global/css/fonts/caecilialtstd-bold-webfont.eot);src:url(/redesign/global/css/fonts/caecilialtstd-bold-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:caecilia;src:url(/redesign/global/css/fonts/caecilialtstd-bolditalic-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/caecilialtstd-bolditalic-webfont.woff) format("woff"), url(/redesign/global/css/fonts/caecilialtstd-bolditalic-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/caecilialtstd-bolditalic-webfont.svg#webfont_bold) format("svg");font-weight:700;font-style:italic;}@font-face{font-family:caecilia-700-italic;src:url(/redesign/global/css/fonts/caecilialtstd-bolditalic-webfont.eot);src:url(/redesign/global/css/fonts/caecilialtstd-bolditalic-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:evernote_rhonda;src:url(/redesign/global/css/fonts/evernoterhonda-regular-webfont.eot?#iefix) format("embedded-opentype"), url(/redesign/global/css/fonts/evernoterhonda-regular-webfont.woff) format("woff"), url(/redesign/global/css/fonts/evernoterhonda-regular-webfont.ttf) format("truetype"), url(/redesign/global/css/fonts/evernoterhonda-regular-webfont.svg#webfont_bold) format("svg");font-weight:normal;font-style:normal;}@font-face{font-family:evernote_rhonda-normal-normal;src:url(/redesign/global/css/fonts/evernoterhonda-regular-webfont.eot);src:url(/redesign/global/css/fonts/evernoterhonda-regular-webfont.eot?#iefix) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/04F6D068D4A33A1DF.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-light.woff) format("woff");font-weight:300;font-style:normal;}@font-face{font-family:gotham-300-normal;src:url(/redesign/global/css/fonts/04F6D068D4A33A1DF.eot);src:local("?"), url(/redesign/global/css/fonts/04F6D068D4A33A1DF.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/F4671B5B0A865F73C.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-light-italic.woff) format("woff");font-weight:300;font-style:italic;}@font-face{font-family:gotham-300-italic;src:url(/redesign/global/css/fonts/F4671B5B0A865F73C.eot);src:local("?"), url(/redesign/global/css/fonts/F4671B5B0A865F73C.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/0E1C61EA7744BAF6E.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-book.woff) format("woff");font-weight:400;font-style:normal;}@font-face{font-family:gotham-400-normal;src:url(/redesign/global/css/fonts/0E1C61EA7744BAF6E.eot);src:local("?"), url(/redesign/global/css/fonts/0E1C61EA7744BAF6E.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/6DD66284BA5A9CFF6.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-book-italic.woff) format("woff");font-weight:400;font-style:italic;}@font-face{font-family:gotham-400-italic;src:url(/redesign/global/css/fonts/6DD66284BA5A9CFF6.eot);src:local("?"), url(/redesign/global/css/fonts/6DD66284BA5A9CFF6.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/140183092F34C88B5.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-medium.woff) format("woff");font-weight:500;font-style:normal;}@font-face{font-family:gotham-500-normal;src:url(/redesign/global/css/fonts/140183092F34C88B5.eot);src:local("?"), url(/redesign/global/css/fonts/140183092F34C88B5.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/A3C99C48DFF681102.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-medium-italic.woff) format("woff");font-weight:500;font-style:italic;}@font-face{font-family:gotham-500-italic;src:url(/redesign/global/css/fonts/A3C99C48DFF681102.eot);src:local("?"), url(/redesign/global/css/fonts/A3C99C48DFF681102.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/A3FE1652E9A9460E6.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-bold.woff) format("woff");font-weight:700;font-style:normal;}@font-face{font-family:gotham-700-normal;src:url(/redesign/global/css/fonts/A3FE1652E9A9460E6.eot);src:local("?"), url(/redesign/global/css/fonts/A3FE1652E9A9460E6.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}@font-face{font-family:gotham;src:local("?"), url(/redesign/global/css/fonts/9E86ED56F0272CCE6.eot?#hfj) format("embedded-opentype"), url(/redesign/global/css/fonts/gotham-bold-italic.woff) format("woff");font-weight:700;font-style:italic;}@font-face{font-family:gotham-700-italic;src:url(/redesign/global/css/fonts/9E86ED56F0272CCE6.eot);src:local("?"), url(/redesign/global/css/fonts/9E86ED56F0272CCE6.eot?#hfj) format("embedded-opentype");font-weight:normal;font-style:normal;}</style><style type="text/css">html,body,div,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre{margin:0;padding:0;border:0;}a{margin:0;padding:0;border:0;line-height:1.571428em;cursor:pointer;}code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li{margin:0;padding:0;border:0;}abbr,acronym,address,area,b,bdo,big,blockquote,caption,center,cite,code,col,colgroup,dd{line-height:1.571428em;}del{line-height:1.571428em;text-decoration:line-through;}dfn{line-height:1.571428em;font-style:italic;}div,dl,dt,em,font,h3,h4,h5,h6,hr,i,ins,kbd,li,map,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,u,ul{line-height:1.571428em;}body{color:#383838;font-family:gotham, helvetica, arial, sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0;word-wrap:break-word;overflow-wrap:break-word;padding-right:1px;box-sizing:border-box;}a:link,a:visited{color:#047ac6;}a:hover,a:active{color:#2596de;}h1{font-family:gotham, helvetica, arial, sans-serif;font-weight:bold;font-size:1.5em;line-height:1.047619em;margin-bottom:0.4761em;margin-top:0.9523em;}h2{font-family:gotham, helvetica, arial, sans-serif;font-weight:bold;font-size:1.286em;line-height:1.222222em;margin-bottom:0.5556em;margin-top:1.111em;}h3{font-family:gotham, helvetica, arial, sans-serif;font-weight:bold;font-size:1em;margin-bottom:0.714285em;margin-top:1.4285em;}h4,h5,h6{font-family:gotham, helvetica, arial, sans-serif;font-weight:bold;}h4,h5,h6{font-size:1em;font-weight:bold;}div{font-family:gotham, helvetica, arial, sans-serif;font-size:14px;}p{margin-bottom:0.714285em;}img.en-media{margin-bottom:1.286em;max-width:100%;height:auto;}img.en-media[height="1"]{height:1px;}p+img,p+div img{margin-top:0.714285em;}div+img,div+div img{margin-top:0.857412em;}img+img,div+div img+img{margin-top:0;}ul,ol{list-style-position:outside;margin-top:0.2857em;margin-bottom:0.714285em;margin-left:2.7em;padding-left:0;}li ul,li ol{margin-bottom:0;margin-top:0;}p+ul,p+ol,h1+ul,h1+ol,h2+ul,h2+ol{margin-top:-0.428571em;}blockquote{border-left-color:#bfbfbf;border-left-style:solid;border-left-width:2px;margin-left:1.4285em;padding-left:0.714285em;margin-top:1.4285em;margin-bottom:1.4285em;}pre,code{font-family:Monaco, Courier, monospace;}cite{font-style:italic;}table{font-size:1em;}th,td{padding:0.2em 2em 0.2em 0;text-align:left;vertical-align:top;}button.en-ignore{margin-bottom:1em;}.highlight{border:1px solid #62eb92;background:#c9f2d0;}.Decrypted{background-color:#f7f7f7;padding:5px;}.Decrypted .Header{font-family:gotham, helvetica, arial, sans-serif;font-size:11px;padding-bottom:5px;color:#404040;}.Decrypted .Body{background-color:white;padding:5px;}.canvas-container{margin-bottom:10px;border:1px solid #cacaca;background:#fff url(/redesign/global/img/loading-spinner.gif) no-repeat center center;}::selection{background:#c9f2d0;}img[name="en-crypt"]{cursor:pointer;}</style><style type="text/css">::-moz-selection{background:#c9f2d0;}</style></head><body class="ennote" ><div>
+ <div>
+  <div>
+   <h1>Designing Mirror’s Edge: The making of a franchise</h1>
+   <div>
+    <div></div>
+   </div>
+  </div> by Phil Kollar 
+  <div> 
+   <div> 
+    <p>When the first-person parkour game <em>Mirror’s Edge</em> launched in 2008, players reacted with a wide range of emotions.</p> 
+   </div> 
+   <p>Many praised the unique take on a first-person game, one that 
+attempted to perfect movement and platforming in that perspective. 
+Others criticized publisher Electronic Arts and developer DICE for not 
+going far enough. Most notoriously, the game still allowed the player to
+ pick up and shoot guns as a last resort, a mechanic that broke the flow
+ and showed a lack of polish.</p> 
+   <p>The general feeling at EA seems to be that <em>Mirror’s Edge</em> 
+performed fine. It wasn’t a huge failure, but it also wasn’t a massive 
+success. And yet, in the near decade since its release, the game has 
+stayed lodged in gaming’s consciousness.</p> 
+   <p>Maybe it was the unique art style. Maybe it was the sense of 
+speed. Perhaps it was the unique feeling of a first-person action game 
+that wasn’t primarily focused on shooting, years before the 
+narrative-heavy, no-combat style would become a staple of the indie game
+ scene. Whatever the reason, <em>Mirror’s Edge</em> remained a 
+centerpiece of conversations with an ever-growing, passionate fanbase. 
+And more than anything, that fanbase wanted a sequel.</p> 
+   <p>Now, nearly eight years later, EA and DICE are finally ready to 
+provide that sequel. But before making it, the studio went through a 
+lengthy process, with multiple teams pitching their own ideas for the 
+long-awaited sequel. A process that itself mirrored the birth of the 
+first <em>Mirror’s Edge</em>.</p> 
+  </div> 
+  <div> 
+   <div>
+    <img alt="Sonic art" src="55_files/94ca204a-0c4d-414d-9dd5-6cfac51464ef.jpg" name="94ca204a-0c4d-414d-9dd5-6cfac51464ef" class="en-media">
+   </div>
+   <cite>While <em>Mirror’s Edge Catalyst</em>’s City of Glass is an 
+open-world, players will need to unlock the city section by section. The
+ first area is the City of Glass’ downtown. Next, players will enter the
+ Anchor District, which DICE’s Erik Odeldahl calls "more demanding and a
+ lot more versatile." Beyond that lies The View, a dangerous district 
+built for the upper crust of the city’s high society. In addition to 
+those three, Odeldahl mentions an area called "The Underground." He 
+changes the subject just as quickly, saying he wants to keep some 
+surprises.</cite> 
+  </div> 
+  <div> 
+   <h2>Something different</h2> 
+   <p>"I had no idea that <em>Mirror’s Edge</em> was what we were going to end up building," says EA Studios executive vice president Patrick Söderlund.</p> 
+   <p>In the mid-2000s, Söderlund was CEO of DICE (a.k.a. Digital 
+Illusions Creative Entertainment), a Swedish game development studio 
+that North American mega-publisher EA acquired in 2006. Prior to that 
+purchase, when EA owned a majority stake in the studio, DICE was looking
+ to stretch its creative muscles and remind everyone that it was 
+independent.</p> 
+   <p>"There was a push inside the studio to do something different," 
+Söderlund says. "... At the time that we were still an independent 
+company. We wanted to push for a new IP."</p> 
+   <div> 
+     
+     <div>
+      <img alt="Patrick Soderlund" src="55_files/b55be694-ea8e-4b43-ac94-79d78e5c9e79.jpg" name="b55be694-ea8e-4b43-ac94-79d78e5c9e79" class="en-media">
+     </div> 
+     
+    <cite>Patrick Söderlund</cite> 
+   </div> 
+   <p>Up to that point, DICE had made a name for itself first with 
+racing games and then with the increasingly popular Battlefield military
+ shooter series. Given Battlefield's popularity, DICE was inevitably 
+going to continue developing the franchise. But while the majority of 
+the studio focused on new Battlefield entries, several small groups of 
+three to five developers began workshopping pitches for something new.</p> 
+   <p>Over the course of a year-and-a-half, Söderlund saw 10 different 
+pitches in various states. Some just had concept art; others had 
+functioning prototypes. But none of them were what he wanted the studio 
+to pursue.</p> 
+   <p>"Nothing really stood out or felt unique enough or different," he 
+says. "Whenever you’re in a position to create something new, you have 
+to really think about what you’re trying to build, who you’re building 
+it for and what you want to achieve. For us, we wanted to do something 
+that was different, that had its own place in the market and felt fresh 
+and unique."</p> 
+   <p>To Söderlund, this wasn’t just a one-time process; he says even today it’s a core piece of DICE’s studio identity.</p> 
+   <p>"At some point, in a creative organization, in order for it to 
+continue to thrive, you have to challenge people to do something that 
+they’re not comfortable with," he says. Lots of people presented what 
+Söderlund calls "really cool" ideas, but no one brought forward 
+something that actually got him nervous about whether or not DICE could 
+pull it off.</p> 
+   <p>After over a year of searching, a team came to Söderlund with a pitch that gave him pause: a parkour-based first-person game.</p> 
+   <p>"I think my first reaction was, ‘That sounds like a really bad 
+idea,’" Söderlund recalls, laughing. "First-person movement, in general,
+ is difficult. For you to understand where you are in the world, spatial
+ awareness becomes difficult."</p> 
+   <p>Erik Odeldahl was new to DICE in 2006 and primarily working on the
+ Battlefield series at the time. He remembers the wave of excitement the
+ earliest <em>Mirror’s Edge</em> demo caused at the company, though.</p> 
+   <p>"I remember testing a white box demo," Odeldahl says. "It was 
+basically only first-person movements in a completely untextured 
+environment but with fairly decent animations. I remember being 
+completely blown away."</p> 
+   <div>
+    <q>Whenever someone looked at a screenshot of this game, I wanted them to understand immediately what game it was.</q>
+   </div> 
+   <p>Odeldahl recalls coming up to a wall in this first demo and 
+wondering if he could run on it. Without any tutorial or direction, he 
+pulled it off, and it left a huge grin on his face. He immediately 
+wanted to be on the project, but he had an obligation to the Battlefield
+ franchise, and <em>Mirror’s Edge</em> had yet to be greenlit.</p> 
+   <p>Söderlund was worried about the difficulty of pulling off the core concept behind <em>Mirror’s Edge</em>,
+ but he couldn’t deny that it was a unique idea, something he had never 
+seen before. The team was persistent and continued working on the idea 
+even without his full support. Eventually it brought it back to him with
+ a prototype that included refined first-person movement and the element
+ that sold Söderlund on the concept: a bright, hyper-clean art style.</p> 
+   <p>"At the time, I remember looking at a lot of games, and they all 
+kind of looked the same," he says. "I challenged the team in art 
+direction. Whenever someone looked at a screenshot of this game, I 
+wanted them to understand immediately what game it was."</p> 
+   <p>With an outstanding look, a unique gameplay hook and the 
+introduction of a memorable protagonist in the form of Faith, Söderlund 
+was finally won over by <em>Mirror’s Edge</em>. "I fell in love with the whole concept," he says.</p> 
+   <p>EA revealed the game to the public in 2007, and released it in November of 2008.</p> 
+  </div> 
+  <div> 
+   <h2>The search for a sequel</h2> 
+   <p>To understand why it took so long for DICE to pursue a <em>Mirror’s Edge</em>
+ sequel, it’s important to understand the first game’s level of success,
+ particularly through the metrics of a major publisher like EA. Even 
+Söderlund couches its sales and critical performance in less superlative
+ terms than you might expect from a publisher executive.</p> 
+   <p>"The reception for Mirror’s Edge was pretty good," he says. "Obviously, you always want better."</p> 
+   <p>Söderlund believes the team that created the first game nailed 
+many aspects of what it needed, including the character Faith and the 
+general feel of first-person movement. And yet, he admits, "When you’re 
+trying to break new ground, it’s difficult to get the formula 
+perfected."</p> 
+   <p>Some of <em>Mirror’s Edge</em>’s imperfections include the 
+lackluster story, a controversial, fast-paced movement system that 
+needed a little more polish and, yes, the game’s inclusion of the 
+ability to wield guns.</p> 
+   <div> 
+    <div>
+     <img alt="Erik Odeldahl" src="55_files/7cfe12a6-9873-43dd-9597-0bc9cb6aeb0b.jpg" name="7cfe12a6-9873-43dd-9597-0bc9cb6aeb0b" class="en-media">
+    </div>
+    <cite>Erik Odeldahl</cite> 
+   </div> 
+   <p>"We maybe didn’t dare to go all the way with the product in the 
+sense that we decided to throw in weapons, and you could pick them up 
+and shoot," Söderlund says. "In hindsight, in all candor, that maybe was
+ not the best fit for the game."</p> 
+   <p>Odeldahl, who watched the first game's development with increasing
+ curiosity inside the studio, says there were discussions about 
+potentially removing guns back then. But the team had "a clear design 
+intent" when it decided to include them.</p> 
+   <p>"Picking up a gun really slows you down," he says. "It’s like a 
+counterpoint to the fluid movement. There was an intent there, which I 
+think is really interesting. But for this game and for Faith as a 
+character also, it didn’t fit."</p> 
+   <p>The same criticisms that being discussed within the studio were 
+talking points for critics and the public at large in the weeks and 
+months after <em>Mirror’s Edge</em>’s release. But there was also lots 
+of praise being directed at the game. Amo Mostofi, now a producer at 
+DICE, was not working at the company yet. He says that playing <em>Mirror’s Edge</em> for the first time was a "what the hell moment."</p> 
+   <p>"I experienced it in the same way, I think, as so many of the fans
+ did," Mostofi says. "From the first-person perspective, you’re so used 
+to a certain style of gameplay. This just broke the mold completely."</p> 
+   <p>Mostofi became obsessed with the game, playing it over and over 
+and watching speedrunners who worked to constantly shave seconds off of 
+near-flawless runs through each level. It was, much more so than any 
+Battlefield release, the game that made Mostofi want to work at DICE.</p> 
+   <p>Battlefield, however, was really starting to blow up. Certain 
+parties within DICE, including Odeldahl, began pushing for a second 
+chance at <em>Mirror’s Edge</em> within a year of the first game’s 
+release. But the demand for Battlefield was greater than ever, and the 
+studio needed more people working on it. On top of that, Söderlund says 
+he wanted to take the approach to a sequel slow. He wanted to wait for 
+the right idea.</p> 
+   <p>He wanted to handle it similarly to how the team created the first game.</p> 
+   <p>Several years after <em>Mirror’s Edge</em>’s release, Söderlund 
+once more put out a challenge to the developers at DICE. He allowed a 
+handful of small groups of developers – teams of two or three – to come 
+up with their own pitches for a potential <em>Mirror’s Edge</em> sequel.
+ Once again, Söderlund and others at EA sat through multiple pitch 
+meetings with ideas at various stages of development. And once again, 
+nothing was quite clicking in the way Söderlund and the publisher 
+wanted.</p> 
+  </div> 
+  <div> 
+   <div>
+    <img alt="Sonic art" src="55_files/130afb03-3e2c-4199-8405-23a3594c617d.jpg" name="130afb03-3e2c-4199-8405-23a3594c617d" class="en-media">
+   </div>
+   <cite>The way that audio director James Slavin describes it, sound in
+ Mirror’s Edge Catalyst required a soft touch, and part of this involved
+ embracing the game’s open-world design. Slavin spent a lot of time 
+tweaking how Faith’s speed affects the audio. The faster she goes, the 
+more that sound dulls around her. When Faith is at full-speed and 
+pulling off combos, she is invincible to bullets; players can actually <em>hear</em> this, as bullets whiz past her head and the audio fades to a subdued roar.</cite> 
+  </div> 
+  <div> 
+   <p>Söderlund describes one of the more impressive pitches for a 
+potential sequel that he sat in on. This one was far enough along to 
+actually have a rendered, playable demo, the kind of thing that could 
+easily have served as the announcement of the game. It was a nighttime 
+scene, featuring Faith running through the city under the cover of dark,
+ blazing along with all the speed and grace that fans of the original 
+loved, taking out armed guards and never slowing down. It was cool, 
+slick, action-packed; it was everything EA could have asked for in a 
+follow-up.</p> 
+   <p>For Söderlund, though, it was just too familiar.</p> 
+   <p>"We were kind of going down the same path," Söderlund says. "It 
+would have been a better game, and we would have done more, but would 
+have been more of the same."</p> 
+   <p>Söderlund didn’t want more of the same, because he felt like that 
+approach to a sequel couldn’t address the problems DICE ran into with 
+the first game. Moreover, just pumping out a minimal improvement over 
+the original wasn’t true to the roots of that game, nor the developer’s 
+creative ambitions, he says.</p> 
+   <p>What DICE needed was a new perspective on Mirror’s Edge. What it needed was some new blood.</p> 
+  </div> 
+  <div> 
+   <h2>The big plan</h2> 
+   <p>Sara Jansson started work at DICE as an associate producer around the same time that the first <em>Mirror’s Edge</em>
+ was in development. Like Erik Odeldahl, her primary focus was on 
+Battlefield. But also like Odeldahl, she watched the development of <em>Mirror’s Edge</em> with interest, and she wanted a shot at the future of the series.</p> 
+   <p>For her first step, Jansson recruited Odeldahl to serve as lead 
+designer on her pitch. He remembers the day Jansson asked him to be 
+involved. Within a moment of her asking, he let out an eager reply: "Of,
+ of course. I have to do this. I’m going to do this."</p> 
+   <p>They also brought in an art director to maintain the first game’s 
+striking visual style, and a technical director to create a logical 
+roadmap for building the game once they had ideas in place. Then they 
+locked themselves in a room and got to work on a pitch.</p> 
+   <div> 
+    <div>
+     <img alt="Sara Jansson" src="55_files/6dbd51c7-3487-4101-8d98-1762d16d250c.jpg" name="6dbd51c7-3487-4101-8d98-1762d16d250c" class="en-media">
+    </div>
+    <cite>Sara Jansson</cite> 
+   </div> 
+   <p>"What we looked at first of all was that we wanted to open up the 
+game," Odeldahl says. "That’s where it started. We wanted to open up the
+ world for exploration."</p> 
+   <p>As Jansson and her team looked at the various failed pitches for <em>Mirror’s Edge</em>
+ sequels, they realized that many of them shared one thing in common: 
+They were, like the first game, linear and level-based in structure. 
+Odeldahl had the breakthrough idea of turning the game that would become
+ <em>Mirror’s Edge Catalyst</em> into an open-world game. This move 
+would set it apart from the first game while also creating an outlet to 
+better explore the unique world.</p> 
+   <p>"We wanted missions," says Odeldahl. "We wanted side missions. We 
+wanted more characters to interact with. We wanted secrets hidden 
+everywhere."</p> 
+   <p>As with the first game, Söderlund’s first sign that <em>Mirror’s Edge Catalyst</em> was <em>the one</em> was concern over whether or not DICE could pull it off, he says.</p> 
+   <p>"My immediate reaction to the idea of making Mirror’s Edge 
+open-world was, ‘Whoa, that sounds difficult, and it’s going to take a 
+lot of time,’" he says, laughing. "At the same time, you can look at an 
+open-world game like Grand Theft Auto, which is gigantic and where it 
+truly is a sandbox, and you can more or less do whatever you want. Or 
+you can describe an open-world game like one of the <em>Batman: Arkham Asylum</em> games. Maybe those are a little more confined. It’s still seen as an open-world game, but not as expansive as GTA."</p> 
+   <p>Söderlund, Jansson and Odeldahl found themselves in agreement that
+ trying to turn Mirror’s Edge into something the scale of a Grand Theft 
+Auto would not work. But as a more focused open-world game, one where 
+everything in the world was built to enhance the game’s key mechanic of 
+movement – that was exactly the unique hook Söderlund says he had been 
+waiting for.</p> 
+   <p>"They took a very different stance and approach to Mirror’s Edge,"
+ Söderlund says of Jansson and Odeldahl. "They made it more modern in 
+its design and more relevant, I would say. They also made some bold 
+changes to the design."</p> 
+   <p>It helped convince Söderlund, as well, that the small team also 
+had a plan to facilitate its arduous goal of creating an open-world 
+where the free running of Mirror’s Edge just works.</p> 
+  </div> 
+  <div> 
+   <div>
+    <img alt="Sonic art" src="55_files/1b016a8e-bfc2-4957-9e16-4ddf7e04321f.jpg" name="1b016a8e-bfc2-4957-9e16-4ddf7e04321f" class="en-media">
+   </div> 
+  </div> 
+  <div> 
+   <p>"When we started building the City of Glass [the setting of <em>Mirror’s Edge Catalyst</em>],
+ we blocked out all of the districts," Odeldahl explains. "Really early 
+on, we had the city built out so you could traverse all of it. That 
+shows us which areas were fine and just needed to be iterated on and 
+improved. Other areas, we needed to change completely because it didn’t 
+work. We basically started with the big building blocks and then just 
+filled it in with more and more paths."</p> 
+   <p>That’s not to say it was easy, of course. Odeldahl says there is not a single random element in the level design of <em>Mirror’s Edge Catalyst</em>.
+ "A level designer or level artist has placed each object exactly where 
+it should be," he insists. This process has been time consuming, he 
+says, but necessary to ensure that every part of the city functions 
+perfectly with Faith’s moveset.</p> 
+   <p>Another key to Jansson and Odeldahl’s vision for <em>Mirror’s Edge Catalyst</em> was dropping guns entirely. Despite recognizing the gun combat as a weakness of the first <em>Mirror’s Edge</em>, Söderlund was initially skeptical of the choice. Jansson, in particular, was adamant. The Faith in <em>Mirror’s Edge Catalyst</em> didn’t need guns; she would be a stronger character, and it would be a better game, without them.</p> 
+   <div>
+    <q>It was part of the pitch: We’re going to do first-person melee. 
+Everybody said, ‘That’s really hard.’ Yes, it is. But it was the right 
+thing to do.</q>
+   </div> 
+   <p>"We decided to get rid of guns really early on," says Odeldahl. 
+"It was part of the pitch: We’re going to do first-person melee. 
+Everybody said, ‘That’s really hard.’ Yes, it is. But it was the right 
+thing to do for this title, and we stuck to it and overcame the problems
+ associated with it."</p> 
+   <p><em>Mirror’s Edge Catalyst</em> narrative designer Christofer 
+Emgard hadn’t joined the team at this early stage of the development, 
+but the decision to cut guns was one he felt passionately about from a 
+story perspective as well.</p> 
+   <p>"I always felt that it was the cleaner choice from a narrative 
+standpoint," he says. "It’s more fitting with her as a character and 
+also the world in general. Having guns in the first game was maybe 
+diluting that mojo. Removing it is more refined."</p> 
+   <p>With a solid vision for <em>Mirror’s Edge Catalyst</em> and, now, 
+the support of Söderlund and EA, Jansson and Odeldahl began working on 
+the game in earnest in 2012. They expanded the team, bringing fresh DICE
+ recruit Amo Mostofi over from the Battlefield series as a lead producer
+ and hiring Emgard to be the team’s in-house writer. James Slavin joined
+ as an audio director. Together, that small team began the hard work of 
+preparing to reveal the long-requested sequel to the world.</p> 
+  </div> 
+  <div> 
+   <h2>Slow reveal</h2> 
+   <p>On the afternoon of June 10, 2013, Erik Odeldahl stood backstage 
+at the Shrine Auditorium with frayed nerves. On stage, EA had just 
+finished showing off a bombastic 64-player multiplayer demo of <em>Battlefield 4</em>.
+ This is normally where EA’s E3 press conference would end, but the 
+company told those in attendance and watching online that it had a 
+surprise to share.</p> 
+   <p>The surprise was a minutelong trailer for the new Mirror’s Edge 
+game that Odeldahl and team had been working on, which didn’t yet carry 
+the Catalyst part of its title.</p> 
+   <p>"I was panicking, because this was the first time we were going to
+ show anything," Odeldahl says. "There was this gasp. There was this 
+weird lull – lots of noise from the audience, and then suddenly it went 
+quiet. And then ... it just erupted."</p> 
+   <div> 
+    <div>
+     <img alt="Mirror’s Edge Catalyst" src="55_files/0e47e9d8-b08b-4d97-b31c-a06801ef2d66.jpg" name="0e47e9d8-b08b-4d97-b31c-a06801ef2d66" class="en-media">
+    </div> 
+   </div> 
+   <p>Back home at DICE’s headquarters in Stockholm, Sweden, Christofer 
+Emgard and the handful of other members of the small team working on the
+ game watched the press conference from a projector in the studio’s 
+kitchen. The reaction that Odeldahl felt there in person didn’t carry 
+over via video, so immediately after the press conference finished, 
+Emgard took to YouTube and began obsessively watching reaction videos.</p> 
+   <p>"It felt very powerful to be part of this thing where people seemed to be reacting in such a positive way," he says.</p> 
+   <p>While DICE didn’t show very much of what would become <em>Mirror’s Edge Catalyst</em>
+ in 2013, fans picked up on some important elements quickly. Most 
+notably, EA was not positioning this as a sequel. Rather, the company 
+said it was going to present a new origin story for protagonist Faith. 
+Emgard was the key to the developer’s attempt to create a better story 
+this time around.</p> 
+   <p>"It was important for <em>Mirror’s Edge Catalyst</em> to get a 
+writer to be in-house all the time," says audio director James Slavin. 
+Emgard was able to embed himself within the team in a way that’s rare 
+for writers in this industry. He was able to work directly with the 
+level designers, the audio team and everyone else to come up with the 
+perfect pacing for storytelling.</p> 
+   <p>For Emgard, it was a dream come true — a chance to build his own universe using a foundation he already care about.</p> 
+   <p>"A lot of my initial work was just to create this world from a 
+narrative standpoint," he says. "What are these corporations? What is 
+the Conglomerate? How does it rule? Why do people accept it? One idea 
+would give rise to another and back and forth."</p> 
+   <p>For as much as <em>Mirror’s Edge Catalyst</em> serves as an origin
+ story for Faith, Emgard also approached it as a tale of the City of 
+Glass itself. He says that through missions, incidental dialogue and 
+more, players will form a picture of what this city is, who lives in 
+each of its districts and how Faith’s presence there changes things.</p> 
+   <p>Söderlund believes DICE has improved the plot in <em>Mirror’s Edge Catalyst</em> by having Emgard with the team full-time.</p> 
+   <div> 
+    <div>
+     <img alt="Mirror’s Edge Catalyst" src="55_files/ac8c6304-17fa-4d0f-aa0e-86e834ca09e3.jpg" name="ac8c6304-17fa-4d0f-aa0e-86e834ca09e3" class="en-media">
+    </div> 
+   </div> 
+   <p>"The story in the first game could have been better," admits 
+Söderlund. "This team has made a much better game from a story 
+perspective this time around. When I played it, it’s a story I actually 
+wanted to see more of and understand how it unfolds. I started to care 
+about the characters in a different way than I did in the first game."</p> 
+   <p>While DICE was excited to reveal the new Mirror’s Edge project to 
+its fans in 2013, it was still at an extremely early point in 
+development. By the time E3 2014 rolled around, the team still didn’t 
+feel confident enough to show a lot more of the game. EA played a 
+behind-the-scenes dev diary during EA’s press conference that year but 
+didn’t show much new, much to the disappointment of eager fans.</p> 
+   <p>By E3 2015, however, development had progressed significantly. The game had a new, final title — <em>Mirror’s Edge Catalyst</em> — and DICE was ready to let people outside of the studio go hands-on with the game.</p> 
+   <p>Lead producer Amo Mostofi attended E3 that year and got to watch 
+players jumping into the game with an equal mix of excitement and fear.</p> 
+   <p>"When it went out there, I think I kind of went numb a little 
+bit," he says. "It was one of those moments of like, ‘Do I really want 
+to be here? Do I really want to see this happen?’"</p> 
+   <p>Mostofi’s fears were slowly but surely eased. He saw many fans make a beeline for the <em>Mirror’s Edge Catalyst</em>
+ demo as the first and most important thing they wanted to see on a 
+packed E3 showfloor. Those fans had been waiting for this follow-up for 
+many years, and by and large, they seemed to be happy with what they 
+were playing.</p> 
+   <p>"There are lots of expectations of how a Mirror’s Edge title 
+should look and should sound and should play," says Odeldahl. "Almost 
+everybody I talked to at E3 that year told me that we were doing the 
+right thing. That felt great."</p> 
+   <p>During E3 2015, EA announced that <em>Mirror’s Edge Catalyst</em> 
+would release on Feb. 23 of the next year. By the end of the year, that 
+was pushed back to May 24, with a second delay moving the game back 
+another few weeks to June 7.</p> 
+   <p>While it was frustrating to fans who’ve been waiting so long for 
+the game, Odeldahl says the delays have been extremely useful for the 
+team.</p> 
+   <div> 
+    <div>
+     <img alt="Mirror’s Edge Catalyst" src="55_files/f280c0be-3672-474f-8422-dbc5973b6711.jpg" name="f280c0be-3672-474f-8422-dbc5973b6711" class="en-media">
+    </div> 
+   </div> 
+   <p>"We basically looked at some areas in the game and said, ‘We 
+should improve these,’" he explains. "We got a few more months to do 
+that, which was a great thing."</p> 
+   <p>More recently, DICE and EA held a public beta for <em>Catalyst</em>
+ — something that seems strange for a single-player focused game but was
+ useful because of social elements like user-made challenges that the 
+sequel will feature. Emgard notes his happiness with the reaction to 
+this beta, saying there’s been "very little vitriol."</p> 
+   <p>Odeldahl agrees: "As a game developer, after a while you become a 
+bit jaded to online response. People can be a bit mean online sometimes.
+ But we’ve been spared. People are really positive. The Mirror’s Edge 
+community words their concerns carefully. They ask us things. There’s 
+almost no negative vibe."</p> 
+   <p>As time has crawled on and the game has neared completion, one by 
+one, individual developers have left the project, moving onto the next 
+big thing they’re working on at DICE. Just as the team slowly expanded 
+from three or four main people to a larger group, it has shrunk back 
+down as people finish whatever final things they need to work on. With 
+the final release date now just a couple of weeks away, Emgard says he’s
+ beginning to feel "post-project depression" alongside his excitement at
+ finally getting <em>Mirror’s Edge Catalyst</em> out the door.</p> 
+   <p>"There’s always this huge expectation that when you’re done, it’s 
+going to be such a huge relief," he says. "It’s out there. You can just 
+enjoy seeing people playing it and enjoying it hopefully and all that. 
+Of course there’s that too. But I’m definitely also feeling this sort of
+ emptiness. Now this is done."</p> 
+   <p>One very notable person in particular is missing from the team 
+these days: senior producer Sara Jansson, who helped put together the 
+team and get <em>Catalyst</em> off the ground. Earlier this month, just 
+weeks before the game’s release, Jansson gave birth. She has since been 
+home on maternity leave.</p> 
+   <p>Even with a newborn taking up all her time, Jansson couldn’t help 
+but take some time to express her excitement. "I couldn’t be prouder of 
+the team," she says. "We have been working so hard on making sure we’re 
+doing the game justice and getting everything right.</p> 
+   <p>"In a way, you can say that I have two babies seeing the light of day just weeks apart."</p> 
+  </div> 
+  <div> 
+   <h2>The future</h2> 
+   <p>Even as the game is about to be released, there’s still an air of unexpectedness to <em>Mirror’s Edge Catalyst</em>
+ existing — to a massive publisher like EA "taking a chance" on a sequel
+ to a game that wasn’t a breakout hit in the first place.</p> 
+   <p>"I think it’s important that we allow a game like Mirror’s Edge to
+ exist," says Söderlund. "When you’re the size of Electronic Arts, and 
+when you have so many big games, I look at our games catalog as a 
+portfolio. You have to look at it almost like a movie studio would look 
+at it. You have your blockbusters. You have your more artistic, almost 
+indie-like titles. There’s a market for those as well, and I think the 
+industry deserves those types of products."</p> 
+   <p>Söderlund believes <em>Mirror’s Edge Catalyst</em> has the 
+potential to do extremely well and to reach an even bigger audience than
+ the first game. But he’s also realistic about it; he recognizes that it
+ "probably won’t be a GTA in terms of audience size."</p> 
+   <p>Players wanted it, though, as did the studio. And perhaps just as importantly, <em>Mirror’s Edge Catalyst</em> contains technology and design lessons that Söderlund believes will be useful to DICE and EA as a whole moving forward.</p> 
+   <div>
+    <q>The very fact that we greenlit <em>Mirror’s Edge Catalyst</em> and that we’re moving ahead with it speaks volumes about our mindset.</q>
+   </div> 
+   <p>"There’s a lot of learnings that, should we not build another 
+Mirror’s Edge for various reasons — a lot of the things that we’ve done 
+will serve as great learnings for whatever else we build," he says. "As 
+you know, EA is pushing quite hard as a company to move into the action 
+space. A lot of stuff like going to an open-world structure, going to a 
+nonlinear narrative, building out characters and stories — these are 
+things that we need to learn and perfect as a company. Sometimes, you 
+have to look at it long-term.</p> 
+   <p>"I hope that <em>Mirror’s Edge Catalyst</em> does extremely well. 
+But in a world where it may or may not do well, it’s important for us to
+ understand that everything that we do needs to be seen in the longer 
+perspective. You can’t just look at it in isolation."</p> 
+   <p>The developers at DICE echo this point from a slightly different 
+angle. Mostofi says that Mirror’s Edge’s existence is evidence of the 
+passion that’s alive at the developer, proof that the team is about more
+ than just "this first-person shooter, Battlefield juggernaut." He says 
+that even as the company has grown into a triple-A studio competing with
+ some of the most popular franchises in the world, it has maintained the
+ sense of being an underdog internally.</p> 
+   <p>"The very fact that we greenlit <em>Mirror’s Edge Catalyst</em> 
+and that we’re moving ahead with it speaks volumes about our mindset," 
+Mostofi says. "No one is sitting there going, ‘We make one of the 
+biggest games in the world; we know what we’re doing.’ We’ve still got 
+to push forward and look for something different and new and fresh."</p> 
+   <p>Odeldahl concurs: "We don’t want to constantly be working on the 
+same things. We don’t want to just iterate. Sometimes you want to do 
+something that’s completely out of left field, that scares people on the
+ development team."</p> 
+  </div> 
+  <div> 
+   <div>
+    <img alt="ME2" src="55_files/0b7bbb78-0c9f-401b-b3ba-240e02c06b9d.jpg" name="0b7bbb78-0c9f-401b-b3ba-240e02c06b9d" class="en-media">
+   </div> 
+  </div> 
+  <div> 
+   <p>It’s become commonplace to view massive game development houses as
+ factories built to pump out the latest mainstream sensation. For DICE, 
+both the first Mirror’s Edge game and its long-awaited follow-up serve 
+as evidence that the studio isn't a conveyer belt for military shooters.</p> 
+   <p>And yet, where the franchise goes from here will in all likelihood be determined by sales.</p> 
+   <p>"Whether or not there’s another Mirror’s Edge is going to be up to
+ the people out there," Söderlund says. "If we can convince them that 
+there’s a market for this, that people want to buy it, and if they tell 
+us they want another one, then we’ll make another one. If the answer is 
+that there wasn’t a big enough audience, it’s too difficult and too much
+ work goes into making a game to build a game that we know people 
+probably don’t want."</p> 
+   <p>For its part, the team that worked on <em>Mirror’s Edge Catalyst</em>
+ directly seems ready and eager to see the franchise grow from here. 
+Emgard says he "got lost a little bit" in the creation of the game’s 
+world, building dozens of potential narrative hooks to expand out from 
+here. Mostofi is confident that the series "will have an exciting 
+future."</p> 
+   <p>Odeldahl is the only member of the team to exercise a little more 
+caution. "We should definitely do another Mirror’s Edge," he says, 
+before stressing, "when it’s the right thing."</p> 
+   <p>He doesn’t want to forget what both games in the series have been 
+built on so far: pushing not for more of the same, not for iteration, 
+but for something new and surprising and different. If and when there’s a
+ third Mirror’s Edge game, we can only hope that it continues that 
+tradition. <img alt="Babykayak" src="55_files/10a487f3-0e32-4db2-84e7-cdaf7b34b469.png" name="10a487f3-0e32-4db2-84e7-cdaf7b34b469" class="en-media"></p> 
+   <cite>Design: Erika Espinoza</cite> 
+  </div> 
+  <div>
+   <div>
+    <div>
+     <div>
+      
+     </div>
+    </div>
+   </div>
+  </div> 
+ </div>
+</div></body></html>

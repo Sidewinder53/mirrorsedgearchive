@@ -6,7 +6,8 @@
   margin-bottom: 1em;
 }
 
-#article-list, #legal_footer {
+#article-list,
+#legal_footer {
   display: none;
 }
 
@@ -15,11 +16,11 @@
 }
 
 .modal-backdrop.show {
-  opacity: .85!important;
+  opacity: 0.85 !important;
 }
 
 .fade {
-  transition: opacity .25s linear;
+  transition: opacity 0.25s linear;
 }
 
 #article-modal > div > div > .modal-body {
@@ -27,6 +28,6 @@
 }
 
 #article-iframe {
-  width: 100%;
+  width: 80%;
   height: 80vh;
 }

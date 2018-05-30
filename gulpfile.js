@@ -16,7 +16,13 @@ gulp.task(
   function() {
     browserSync.init({
       notify: false,
-      server: './dist'
+      server: {
+        baseDir: './dist',
+        middleware: function(req, res, next) {
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          next();
+        }
+      }
     });
     gulp.watch('dev/**/*', ['browser-sync-reload']);
   }
