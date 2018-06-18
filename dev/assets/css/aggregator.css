@@ -11,6 +11,21 @@
   display: none;
 }
 
+#article-modal-content {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#article-modal-content img {
+  margin: 1em 0;
+  width: 100% !important;
+  height: auto !important;
+}
+
+#article-modal-content p,
+h1 {
+  margin: 0 1em;
+}
+
 .article-link {
   cursor: pointer;
 }
@@ -24,10 +39,20 @@
 }
 
 #article-modal > div > div > .modal-body {
-  padding: 0;
+  padding: 1em 0em;
 }
 
 #article-iframe {
   width: 80%;
   height: 80vh;
+}
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 0;
+  }
+
+  .modal-content {
+    border: none;
+    border-radius: 0;
+  }
 }

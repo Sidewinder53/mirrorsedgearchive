@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>The Mirror's Edge Archive</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background: black;
+      overflow: hidden;
+    }
+
+    #header {
+      background-color: #455A64;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      color: #ffffff;
+      padding: .8125rem;
+    }
+
+    #main {
+      margin: 2em;
+      color: #000000;
+      top: 25%;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      display: inline-block;
+      padding: 2em 2em 0.5em 2em;
+    }
+
+    canvas {
+      width: 100%;
+      top: 56px;
+      position: absolute;
+      z-index: -10;
+    }
+
+    .fadeIn {
+      animation: fadeIn 2s;
+    }
+
+    small {
+      color: gray;
+      font-size: x-small;
+      font-weight: 100;
+    }
+
+    h1 {
+      font-size: 400%;
+      margin: 0;
+      color: #cd2027;
+      animation: fadeColor 2s;
+      line-height: 80%;
+    }
+
+    a {
+      color: black;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeColor {
+      from {
+        color: #000000;
+      }
+      to {
+        color: #cd2027;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #main {
+        width: calc(100% - 1em);
+        padding: 1em 0 1em 1em;
+        margin: 0;
+        bottom: 0;
+        position: absolute;
+        top: unset;
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var c = document.getElementById("arrest");
+      var ctx = c.getContext("2d");
+      var krugerImg = new Image();
+      krugerImg.src = "https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527794564/mea/younger_kruger_ftb.jpg";
+      krugerImg.onload = function () {
+        ctx.drawImage(krugerImg, 0, 0);
+        c.classList.add('fadeIn');
+        var andrewImg = new Image();
+        andrewImg.src = "https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527863895/mea/andrew.jpg";
+        andrewImg.onload = function () {
+          var i = 0;
+          setTimeout(function () {
+            document.getElementById("lost").play();
+            while (i < 80) {
+              (function (i) {
+                setTimeout(function () {
+                  ctx.globalAlpha = i / 500;
+                  ctx.drawImage(andrewImg, 1327, 302 - 249);
+                }, 100 * i)
+              })(i++)
+            }
+          }, 6000)
+        };
+      }
+
+    }
+  </script>
+</head>
+
+<body>
+  <audio id="lost" src="https://mirrorsedgearchive.de/assets/media/audio/error/lost.ogg"></audio>
+  <div id="header">
+    The Mirror's Edge Archive
+  </div>
+  <canvas id="arrest" width="1920px" height="1080px"></canvas>
+  <div id="main">
+    <h1>404</h1>
+    <h3>You've lost your way.
+      <a href="/">Turn back</a>.</h3>
+    <small>Request ID:
+      <span id="traceback_id">Unknown</span>
+    </small>
+  </div>
+</body>
+
+</html>

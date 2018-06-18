@@ -8,7 +8,18 @@ const gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
   gulpsync = require('gulp-sync')(gulp),
   git = require('git-rev-sync'),
-  replace = require('gulp-replace');
+  replace = require('gulp-replace'),
+  cache = require('gulp-cached');
+
+gulp.task(
+  'default',
+  gulpsync.sync([
+    'cleanup',
+    ['build-js', 'build-css', 'build-html'],
+    ['optimize', 'optimizeWEBP'],
+    'copy'
+  ])
+);
 
 gulp.task(
   'browser-sync',
@@ -57,16 +68,6 @@ gulp.task(
   ])
 );
 
-gulp.task(
-  'default',
-  gulpsync.sync([
-    'cleanup',
-    ['build-js', 'build-css', 'build-html'],
-    ['optimize', 'optimizeWEBP'],
-    'copy'
-  ])
-);
-
 gulp.task('cleanup', function(cb) {
   return del('dist');
 });
@@ -93,6 +94,7 @@ gulp.task('build-html', function(cb) {
   pump(
     [
       gulp.src('dev/**/*.html'),
+      cache('htmlcache'),
       replace('{{stamp_title}}', 'Build ID: ' + git.short()),
       replace('{{stamp_text}}', 'DEV'),
       gulp.dest('dist')
@@ -124,6 +126,7 @@ gulp.task('optimize', function(cb) {
   pump(
     [
       gulp.src('dev/assets/media/image/**/*'),
+      cache('genericImageCache'),
       imagemin({ verbose: true }),
       gulp.dest('dist/assets/media/image')
     ],
@@ -135,6 +138,7 @@ gulp.task('optimizeWEBP', function(cb) {
   pump(
     [
       gulp.src('dev/assets/media/image/**/*'),
+      cache('webpImageCache'),
       webp({ verbose: true }),
       gulp.dest('dist/assets/media/image')
     ],
