@@ -1,0 +1,8 @@
+#glassMap {
+  height: calc(100vh - 56px);
+  width: 100%;
+}
+
+body {
+  margin-bottom: 0 !important;
+}
