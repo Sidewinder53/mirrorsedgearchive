@@ -169,15 +169,15 @@ gulp.task('copy', function() {
         '!dev/assets/media/image/map/**/*',
         '!dev/assets/media/image/credits/**/*'
       ])
-      .pipe(gulp.dest('/dist')),
+      .pipe(gulp.dest('dist')),
     gulp
       .src('dev/assets/media/image/development_vs_release/**/*')
-      .pipe(gulp.dest('/dist/assets/media/image/development_vs_release/')),
+      .pipe(gulp.dest('dist/assets/media/image/development_vs_release/')),
     gulp
       .src('dev/assets/media/image/map/**/*')
-      .pipe(gulp.dest('/dist/dev/assets/media/image/map/')),
+      .pipe(gulp.dest('dist/dev/assets/media/image/map/')),
     gulp
       .src('dev/assets/media/image/credits/**/*')
-      .pipe(gulp.dest('/dist/dev/assets/media/image/credits'))
+      .pipe(gulp.dest('dist/dev/assets/media/image/credits'))
   );
 });
