@@ -175,9 +175,9 @@ gulp.task('copy', function() {
       .pipe(gulp.dest('dist/assets/media/image/development_vs_release/')),
     gulp
       .src('dev/assets/media/image/map/**/*')
-      .pipe(gulp.dest('dist/dev/assets/media/image/map/')),
+      .pipe(gulp.dest('dist/assets/media/image/map/')),
     gulp
       .src('dev/assets/media/image/credits/**/*')
-      .pipe(gulp.dest('dist/dev/assets/media/image/credits'))
+      .pipe(gulp.dest('dist/assets/media/image/credits'))
   );
 });
