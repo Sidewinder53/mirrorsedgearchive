@@ -17,12 +17,32 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
   <link rel="stylesheet" href="/assets/css/legal.css" type="text/css" />
+  <style>
+    .z {
+      float: right;
+      font-size: .001px;
+      color: transparent;
+      display: inline-block;
+      width: 0px;
+    }
+
+    #obf_mail {
+      user-select: none;
+      cursor: help;
+    }
+  </style>
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/legal">The Mirror's Edge Archive - Legal</a>
+      <a class="navbar-brand" href="/legal">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block align-top" width="30" height="30">
+          <path fill="#191919" d="M2.3 20.3l9.6-9.6-1.4-1.4-.7.7a1 1 0 0 1-1.4 0l-.7-.7a1 1 0 0 1 0-1.5l5.6-5.6a1 1 0 0 1 1.4 0l.7.7c.4.4.4 1 0 1.4l-.7.7 1.4 1.4a1 1 0 0 1 1.5 0c.3.4.3 1 0 1.4L19 9.3l.7-.8a1 1 0 0 1 1.4 0l.7.8c.4.3.4 1 0 1.4l-5.7 5.6a1 1 0 0 1-1.4 0l-.7-.7a1 1 0 0 1 0-1.4l.7-.7-1.4-1.4-9.6 9.6a1 1 0 0 1-1.4 0 1 1 0 0 1 0-1.4M20 19a2 2 0 0 1 2 2v1H12v-1a2 2 0 0 1 2-2h6z"
+          />
+        </svg>
+        The Mirror's Edge Archive - Legal</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,56 +61,58 @@
 
   <div id="main" class="container">
     <div id="cookie_consent_placeholder"></div>
-
-    <h2>Formal Takedown request</h2>
-    <div class="alert alert-warning text-center" role="alert">
-      ⚠ Misuse of this process may result in legal consequences! ⚠
+    <div class="alert alert-secondary" role="alert">
+      <h4 class="alert-heading">To our friends at DICE</h4>
+      We respect your work, and in the case you are not content with us displaying your work on the pages of The Mirror's Edge
+      Archive, we will remove any of it immediately upon your request. Please send an e-mail to
+      <a class="alert-link" href="mailto:admin@mirrorsedgearchive.de">admin@mirrorsedgearchive.de</a> if you'd like to talk.
+      <hr> If you're not a a developer at DICE, you'll have to play by the rules and open a formal takedown request. To do so,
+      please follow the instructions below.
     </div>
+    <br>
+    <p>
+      <strong>This notification is initiating a legal process</strong> - please be careful to provide accurate infomration. You may
+      wish to first consult with an attorney to determine whether the content you are reporting is in fact infringing and
+      not protected by fair use, license, or other legal basis. Please note that Takedown Notices received through any other
+      means of contact will not be processed! To submit a valid takedown notice, state the following information:</p>
 
     <p>
-      <strong>This notification is initiating a legal process</strong> - please be careful to be accurate in your copyright infringement
-      claims. You may wish to first consult with an attorney to determine whether the content you are reporting is in fact
-      infringing and not protected by fair use, license, or other legal basis. Please note that Takedown Notices received
-      through any other means of contact will not be processed! To submit a valid takedown notice, state the following information:</p>
-    <hr>
-    <p>
-      I am,
+      Please note that we will only process complaints that meet the following requirements:
       <ul>
-        <li>The owner of the infringing content.</li>
-        <li>an agent, commissioned and allowed to file this takedown notice on behalf of the rightholder.</li>
-        <ul>
-          <li>Rightsholder Full Legal Name</li>
-          <li>Rightsholder Country</li>
-        </ul>
-      </ul>
-      <ul>
-        <li>Your Full Legal Name</li>
-        <li>Your Company/Organisation</li>
-        <li>Your Job Title / Position</li>
-        <li>Your Email</li>
-        <li>Your Address</li>
-        <li>Country</li>
-        <li>Your ZIP/Postal Code</li>
-        <li>Your City</li>
-        <li>Content type, such as</li>
-        <ul>
-          <li>Audio</li>
-          <li>Video</li>
-          <li>Graphics</li>
-        </ul>
-        <li>URL of infringing content</li>
-      </ul>
-      Include this at the end of your message:</p>
+        <li>Please provide us with your name and the legal basis on which you are the legal owner of the corresponding item.</li>
 
-    <pre>
-I am the owner, or an agent authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
-I have good faith belief that the use of the content in the manner complained of, is not authorized by the compyright 
-owner, its agent, or the law. The information in this notification is accurate. I acknowledge that there may be adverse 
-legal consequences for making false or bad faith allegations of copyright infringement by using this process.
-</pre> If you are ready, submit your request to
-    <div class="alert alert-light text-center" role="alert">
-      abuse at (this second-level-domain) dot de
-    </div>
+        <li>Describe the exact location of the infringing file by providing us with the exact URL to the file. If you are reporting
+          multiple files, ensure that each link is in an individual line.</li>
+      </ul>
+      If your request applies to more than one download-link please make sure that all links are complete. Do not send attachments.
+      Include the illegal file links directly in your message. Please make sure you can receive messages on the e-mail address
+      from which you contact us. Anonymous or incomplete messages will not be processed. As soon as you are ready, use this
+      e-mail address to submit your request
+      <div class="alert alert-light text-center">
+        <p id="obf_mail" title="You cannot copy this e-mail address. Please type it by hand.">
+          <span class="z">admin</span>
+          <span class="a">abuse</span>
+          <span class="z">owner</span>
+          <span class="n">at</span>
+          <span class="z">webmaster</span>
+          <span class="y">(</span>
+          <span class="z">some</span>
+          <span class="r">this</span>
+          <span class="z">third</span>
+          <span class="l">second</span>
+          <span class="z">fourth</span>
+          <span class="c">level</span>
+          <span class="z">public</span>
+          <span class="f">domain</span>
+          <span class="z">registry</span>
+          <span class="v">)</span>
+          <span class="z">mail</span>
+          <span class="y">dot</span>
+          <span class="z">service</span>
+          <span class="g">de</span>
+          <span class="z">com</span>
+        </p>
+      </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha256-78rSZBnBJXmJ5VGuWL8mkunvhy94g99Rw53bssjHSUk="
     crossorigin="anonymous"></script>

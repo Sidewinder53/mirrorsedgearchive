@@ -11,15 +11,7 @@ const gulp = require('gulp'),
   replace = require('gulp-replace'),
   cache = require('gulp-cached');
 
-gulp.task(
-  'default',
-  gulpsync.sync([
-    'cleanup',
-    ['build-js', 'build-css', 'build-html'],
-    ['optimize', 'optimizeWEBP'],
-    'copy'
-  ])
-);
+gulp.task('default', ['browser-sync']);
 
 gulp.task(
   'browser-sync',
@@ -35,18 +27,26 @@ gulp.task(
         }
       }
     });
-    gulp.watch('dev/**/*', ['browser-sync-reload']);
+    gulp.watch('dev/**/*.js', ['watch-js']);
+    gulp.watch('dev/**/*.css', ['watch-css']);
+    gulp.watch('dev/**/*.html', ['watch-html']);
   }
 );
 
-gulp.task(
-  'browser-sync-reload',
-  gulpsync.sync([['build-js', 'build-css', 'build-html'], 'copy']),
-  function(cb) {
-    browserSync.reload();
-    cb();
-  }
-);
+gulp.task('watch-js', ['build-js'], function(cb) {
+  browserSync.reload();
+  cb();
+});
+
+gulp.task('watch-css', ['build-css'], function(cb) {
+  browserSync.reload();
+  cb();
+});
+
+gulp.task('watch-html', ['build-html'], function(cb) {
+  browserSync.reload();
+  cb();
+});
 
 gulp.task(
   'build-full',
@@ -125,7 +125,12 @@ gulp.task('build-html-prod', function(cb) {
 gulp.task('optimize', function(cb) {
   pump(
     [
-      gulp.src('dev/assets/media/image/**/*'),
+      gulp.src([
+        'dev/assets/media/image/**/*',
+        '!dev/assets/media/image/development_vs_release/**/*',
+        '!dev/assets/media/image/map/**/*',
+        '!dev/assets/media/image/credits/**/*'
+      ]),
       cache('genericImageCache'),
       imagemin({ verbose: true }),
       gulp.dest('dist/assets/media/image')
@@ -137,7 +142,12 @@ gulp.task('optimize', function(cb) {
 gulp.task('optimizeWEBP', function(cb) {
   pump(
     [
-      gulp.src('dev/assets/media/image/**/*'),
+      gulp.src([
+        'dev/assets/media/image/**/*',
+        '!dev/assets/media/image/development_vs_release/**/*',
+        '!dev/assets/media/image/map/**/*',
+        '!dev/assets/media/image/credits/**/*'
+      ]),
       cache('webpImageCache'),
       webp({ verbose: true }),
       gulp.dest('dist/assets/media/image')
@@ -147,13 +157,27 @@ gulp.task('optimizeWEBP', function(cb) {
 });
 
 gulp.task('copy', function() {
-  return gulp
-    .src([
-      'dev/**/*',
-      '!dev/assets/js/*',
-      '!dev/assets/css/*',
-      '!templates/**/*',
-      '!dev/**/*.html'
-    ])
-    .pipe(gulp.dest('dist'));
+  return (
+    gulp
+      .src([
+        'dev/**/*',
+        '!dev/assets/js/*',
+        '!dev/assets/css/*',
+        '!templates/**/*',
+        '!dev/**/*.html',
+        '!dev/assets/media/image/development_vs_release/**/*',
+        '!dev/assets/media/image/map/**/*',
+        '!dev/assets/media/image/credits/**/*'
+      ])
+      .pipe(gulp.dest('dist')),
+    gulp
+      .src('dev/assets/media/image/development_vs_release/**/*')
+      .pipe(gulp.dest('/assets/media/image/development_vs_release/')),
+    gulp
+      .src('dev/assets/media/image/map/**/*')
+      .pipe(gulp.dest('dev/assets/media/image/map/')),
+    gulp
+      .src('dev/assets/media/image/credits/**/*')
+      .pipe(gulp.dest('dev/assets/media/image/credits'))
+  );
 });

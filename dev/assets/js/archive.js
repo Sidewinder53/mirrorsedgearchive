@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $.get('https://strgdev.tobias-kleinmann.de/api.php', function(data) {
+  $.get('https://archive.mirrorsedgearchive.de/api.php', function(data) {
     var total_size = Math.floor(data['total_size'] / 1000000);
     animateValue('total_size', 0, total_size, 2000);
     animateValue('total_files', 0, data['total_files'], 2000);

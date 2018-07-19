@@ -1,13 +1,13 @@
 submit = function(event) {
-	if (document.getElementById("agreement").checked == true) {
-		return true;
-	} else {
-		document.getElementById("agreement").classList.add("is-invalid");
-		return false;
-	}
-}
+  if (document.getElementById('agreement').checked == true) {
+    return true;
+  } else {
+    document.getElementById('agreement').classList.add('is-invalid');
+    return false;
+  }
+};
 
-fc = function(event) {
-	$('#collapse_info').collapse('hide');
-	$('#collapse_fc').collapse('show');
-}
+mc = function(event) {
+  $('#collapse_info').collapse('hide');
+  $('#collapse_mc').collapse('show');
+};

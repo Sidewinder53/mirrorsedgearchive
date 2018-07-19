@@ -32,6 +32,12 @@
   filter: blur(5px);
 }
 
+.btn-primary:hover svg path {
+  transition: 150ms;
+  transition-timing-function: ease-in-out;
+  fill: #fff;
+}
+
 @keyframes main {
   0% {
     opacity: 0;

@@ -9,3 +9,7 @@
   color: rgb(197, 197, 197);
   text-align: center;
 }
+
+.monospace {
+  font-family: monospace;
+}
