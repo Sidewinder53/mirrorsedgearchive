@@ -24,12 +24,18 @@
   animation-duration: 1s;
 }
 
+#total_files,
+#total_size {
+  transition: all 0.5s ease-in-out;
+}
+
 .blurIt {
   filter: blur(2.5px);
 }
 
 .preBlurIt {
   filter: blur(5px);
+  transition: all 0.5s ease-out;
 }
 
 .btn-primary:hover svg path {
