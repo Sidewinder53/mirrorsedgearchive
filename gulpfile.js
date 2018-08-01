@@ -107,7 +107,7 @@ gulp.task('build-html-prod', function(cb) {
   pump(
     [
       gulp.src('dev/**/*.html'),
-      replace('<!-- {{STAMP}} -->', '<span id="beta-stamp">BETA</span>'),
+      replace('<!-- {{STAMP}} -->', ''),
       replace(
         '<!-- {{CERT}} -->',
         '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
