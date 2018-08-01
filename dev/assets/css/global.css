@@ -9,6 +9,11 @@ body {
   overflow-y: scroll;
 }
 
+::selection {
+  background: #cd2027; /* WebKit/Blink Browsers */
+  color: white;
+}
+
 #legal_footer {
   margin-top: 2em;
   padding-left: 0.5rem;
