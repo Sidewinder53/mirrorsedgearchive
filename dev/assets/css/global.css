@@ -86,6 +86,12 @@ a:hover svg path {
   cursor: default;
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #000;
+  text-decoration: none;
+  background-color: #efefef;
+}
 @media (max-width: 576px) {
   #legal_footer {
     height: auto;
