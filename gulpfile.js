@@ -1,6 +1,6 @@
 const gulp = require('gulp'),
   del = require('del'),
-  uglify = require('gulp-uglify'),
+  uglify = require('gulp-uglify-es').default,
   cleanCSS = require('gulp-clean-css'),
   pump = require('pump'),
   imagemin = require('gulp-imagemin'),
@@ -161,8 +161,8 @@ gulp.task('copy', function() {
     gulp
       .src([
         'dev/**/*',
-        '!dev/assets/js/*',
-        '!dev/assets/css/*',
+        '!dev/assets/js/*.js',
+        '!dev/assets/css/*.css',
         '!templates/**/*',
         '!dev/**/*.html',
         '!dev/assets/media/image/development_vs_release/**/*',
