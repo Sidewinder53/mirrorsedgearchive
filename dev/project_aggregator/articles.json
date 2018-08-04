@@ -1321,10 +1321,9 @@
       "date": "",
       "description": "",
       "lURL": "120.html",
-      "popup": "1",
-      "publication": "",
-      "pURL":
-        "Three sources, available inside the backed up document at the end of each section.",
+      "popup": "0",
+      "publication": "Mixed",
+      "pURL": "https://example.com",
       "title":
         "Collection of two Solar Fields interviews and a review of the ME OST"
     },

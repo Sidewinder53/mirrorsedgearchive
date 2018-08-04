@@ -26,9 +26,11 @@ $(function() {
     $('#legal_footer').css('display', 'block');
 
     $('#article-list').on('click', 'a', function() {
-      var art_id = $(this)
+      var obj_id = $(this)
         .attr('id')
         .replace('obj-', '');
+      var art_id = db['articles'][obj_id].lURL.replace('.html', '');
+
       $.get('articles/' + art_id + '.html', function(data) {
         data = data.replace(/(.*\W.*)<body class="ennote" >/gm, '');
 
@@ -39,7 +41,7 @@ $(function() {
 
         $('#article-modal-content').html(data);
         //$('#article-iframe').attr('src', 'articles/' + art_id + '.html');
-        $('#source-link').attr('href', db['articles'][art_id].pURL);
+        $('#source-link').attr('href', db['articles'][obj_id].pURL);
         $('#article-modal').modal('show');
       });
     });
