@@ -58,10 +58,9 @@ $(document).ready(function() {
   });
 
   $('video').on('ended', function() {
-    $('#heroSlides').carousel({ interval: 2500 });
+    $('#heroSlides').carousel({ interval: 3000 });
     $('#hero').addClass('d-none');
     $('#heroSlides').removeClass('d-none');
-    $('.carousel-indicators').fadeTo('slow', 1);
     $('#media_copyright').fadeTo('slow', 1);
   });
 });

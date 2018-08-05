@@ -77,9 +77,19 @@ img {
 #hero_text,
 #media_copyright,
 #nav-cont,
-#cookie_consent,
-.carousel-indicators {
+#cookie_consent {
   opacity: 0;
+}
+
+.carousel-indicators {
+  transition: all 0.15s ease-in;
+}
+
+.carousel .carousel-indicators {
+  opacity: 0;
+}
+.carousel:hover .carousel-indicators {
+  opacity: 1;
 }
 
 .blur {
