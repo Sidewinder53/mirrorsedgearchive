@@ -77,7 +77,8 @@ img {
 #hero_text,
 #media_copyright,
 #nav-cont,
-#cookie_consent {
+#cookie_consent,
+.carousel-indicators {
   opacity: 0;
 }
 
