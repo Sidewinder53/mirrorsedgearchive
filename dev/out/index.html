@@ -2,7 +2,8 @@
 <html>
 
 <head>
-  <script>window.onload = function () {
+  <script>
+    window.onload = function () {
       if (document.referrer.match(/^https?:\/\/([^\/]+\.)?mirrorsedgearchive\.de(\/|$)/i) || window.location.hostname == 'localhost') {
         console.log("Valid ref.");
         var n = get("t");
@@ -10,9 +11,8 @@
       } else {
         $('#nav-aborted-referrer').fadeTo(250, 1);
       }
-    };</script>
-
-
+    };
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -65,7 +65,7 @@
     <div id="main">
       <h2>You are leaving the Mirror's Edge Archive.</h2>
       <div id="info">
-        This link redirects you to an external page, which is not part of the Mirror's Edge Archive.
+        This link leads to an external page, which is not part of the Mirror's Edge Archive.
         <div class="url-container">
           <div class="progress absolute-info">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
