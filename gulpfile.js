@@ -68,6 +68,16 @@ gulp.task(
   ])
 );
 
+gulp.task(
+  'build-sandbox',
+  gulpsync.sync([
+    'cleanup',
+    ['build-js', 'build-css', 'build-html-sandbox'],
+    ['optimize', 'optimizeWEBP'],
+    'copy'
+  ])
+);
+
 gulp.task('cleanup', function(cb) {
   return del('dist');
 });
@@ -108,6 +118,25 @@ gulp.task('build-html-prod', function(cb) {
     [
       gulp.src('dev/**/*.html'),
       replace('<!-- {{STAMP}} -->', ''),
+      replace(
+        '<!-- {{CERT}} -->',
+        '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
+          git.long() +
+          '" id="cert" class="text-secondary">Build: ' +
+          git.short() +
+          '</a>'
+      ),
+      gulp.dest('dist')
+    ],
+    cb
+  );
+});
+
+gulp.task('build-html-sandbox', function(cb) {
+  pump(
+    [
+      gulp.src('dev/**/*.html'),
+      replace('<!-- {{STAMP}} -->', 'BETA'),
       replace(
         '<!-- {{CERT}} -->',
         '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
