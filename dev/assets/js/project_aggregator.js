@@ -9,11 +9,7 @@ $(function() {
           i +
           "' class='article-link list-group-item list-group-item-action flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>" +
           db['articles'][i].title +
-          "</h5><small class='text-muted'>" +
-          db['articles'][i].date +
-          "</small></div><div class='d-flex w-100 justify-content-between'><p class='mb-1'>" +
-          db['articles'][i].description +
-          "</p><div><span href='#' class='badge badge-primary article-link-badge'>" +
+          "</h5><span href='#' class='badge badge-primary article-link-badge'>" +
           db['articles'][i].publication +
           '</span></div></div></a>'
       );
@@ -26,6 +22,10 @@ $(function() {
     $('#legal_footer').css('display', 'block');
 
     $('#article-list').on('click', 'a', function() {
+      $('#article-modal-content').html(
+        '<p>Loading article, please wait...</p>'
+      );
+      $('#article-modal').modal('show');
       var obj_id = $(this)
         .attr('id')
         .replace('obj-', '');
@@ -33,7 +33,7 @@ $(function() {
 
       $.get('articles/' + art_id + '.html', function(data) {
         data = data.replace(/(.*\W.*)<body class="ennote" >/gm, '');
-
+        console.log('Article modified.');
         var oldlink = art_id + '_files';
         var newlink = 'articles/' + art_id + '_files';
         var re = new RegExp(oldlink, 'g');

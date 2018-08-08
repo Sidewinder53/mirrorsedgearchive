@@ -44,6 +44,14 @@ body {
   background: none;
 }
 
+#credits-toggler {
+  margin-left: 0.5em;
+}
+
+#credits-toggler > .toggler-desc {
+  vertical-align: -2px;
+}
+
 tr {
   padding-top: 70px;
   margin-top: -70px;
