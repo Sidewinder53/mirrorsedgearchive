@@ -136,7 +136,7 @@ gulp.task('build-html-sandbox', function(cb) {
   pump(
     [
       gulp.src('dev/**/*.html'),
-      replace('<!-- {{STAMP}} -->', '<span id="beta-stamp">BETA</span>'),
+      replace('<!-- {{STAMP}} -->', '<span id="beta-stamp">DEV</span>'),
       replace(
         '<!-- {{CERT}} -->',
         '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
