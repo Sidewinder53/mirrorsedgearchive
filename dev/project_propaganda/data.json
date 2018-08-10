@@ -1,0 +1,221 @@
+{
+  "types": {
+    "casts": [
+      {
+        "categoryName": "Juvie",
+        "categoryLabel": "Juvie",
+        "videos": [
+          {
+            "videoName": "krugerspeech_00",
+            "videoLabel": "Kruger 1",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/newscasts/krugerspeech_00_.mp4"
+            },
+            "description": "Gabriel Kruger instructs 'reformed' employees after they left juvenile."
+          }
+        ]
+      },
+      {
+        "categoryName": "Release",
+        "categoryLabel": "Post Release",
+        "videos": [
+          {
+            "videoName": "hero2015",
+            "videoLabel": "archive.org Test",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://archive.org/download/medgec_trailers/2015%20-%20Hero.mp4"
+            },
+            "description": "A video to demonstrate how external resources may be used with this player."
+          },
+          {
+            "videoName": "newscast_01",
+            "videoLabel": "Newscast #01",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/newscasts/newscast_01_.mp4"
+            },
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+            "timestamps": {
+              "0": "INTRODUCTION",
+              "38": "OMNISTAT DE-ESCALATION TALKS AT A STALEMATE",
+              "91": "KRUGERSEC FOCUSING ON ROOFTOP SECURITY",
+              "129": "BRYSON SENIOR EXEC TO STEP DOWN",
+              "163": "REFLECTION - A STEP OR A LEAP FORWARD?",
+              "202": "GLASS GIANTS BEATS CASCADIA PRIMALS"
+            }
+          }
+        ]
+      },
+      {
+        "categoryName": "Savant",
+        "categoryLabel": "Post Savant"
+      },
+      {
+        "categoryName": "Benefactor",
+        "categoryLabel": "Post Benefactor"
+      },
+      {
+        "categoryName": "Flytrap",
+        "categoryLabel": "Post Flytrap"
+      },
+      {
+        "categoryName": "ViveLaResistance",
+        "categoryLabel": "Post Vive La Resistance"
+      },
+      {
+        "categoryName": "Kingdom",
+        "categoryLabel": "Post Kingdom"
+      },
+      {
+        "categoryName": "FamilyMatters",
+        "categoryLabel": "Post Family Matters"
+      },
+      {
+        "categoryName": "Shard",
+        "categoryLabel": "Post The Shard"
+      }
+    ],
+    "extras": [
+      {
+        "categoryName": "Abstract",
+        "categoryLabel": "Abstract",
+        "videos": [
+          {
+            "videoName": "abstract_01a",
+            "videoLabel": "One Alpha",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_01a_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_01b",
+            "videoLabel": "One Bravo",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_01b_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_01c",
+            "videoLabel": "One Charlie",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_01c_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_02b",
+            "videoLabel": "Two Bravo",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_02b_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_03a",
+            "videoLabel": "Three Alpha",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_03a_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_04b",
+            "videoLabel": "Three Bravo",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_04b_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_05a",
+            "videoLabel": "Five Alpha",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_05a_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_05b",
+            "videoLabel": "Five Bravo",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_05b_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_06a",
+            "videoLabel": "Six Alpha",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_06a_.mp4"
+            }
+          },
+          {
+            "videoName": "abstract_06b",
+            "videoLabel": "Six Bravo",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_06b_.mp4"
+            }
+          },
+          {
+            "videoName": "flow_02",
+            "videoLabel": "Flow",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/flow_02_.mp4"
+            }
+          },
+          {
+            "videoName": "pulse_01",
+            "videoLabel": "Pulse",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/pulse_01_.mp4"
+            }
+          }
+        ]
+      },
+      {
+        "categoryName": "Allcom",
+        "categoryLabel": "Allcom",
+        "videos": [
+          {
+            "videoName": "allcom01a",
+            "videoLabel": "One",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/allcom01a_.mp4"
+            }
+          }
+        ]
+      },
+      {
+        "categoryName": "Anansi",
+        "categoryLabel": "Anansi",
+        "videos": [
+          {
+            "videoName": "anansi_01",
+            "videoLabel": "One",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/anansi_01_.mp4"
+            }
+          },
+          {
+            "videoName": "anansi_02",
+            "videoLabel": "Two",
+            "videoURL": {
+              "modern": null,
+              "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/anansi_02_.mp4"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

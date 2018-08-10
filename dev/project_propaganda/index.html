@@ -89,56 +89,63 @@
     </div>
   </nav>
 
+  <div class="container">
+    <div class="alert alert-info " role="alert">
+      This project is work in progress, subject to substantial change and best viewed on a large, Full HD viewport.
+    </div>
+  </div>
+
   <div class="container" id="mainDiv">
-    <br>
-    <div class="alert alert-info" role="alert">
-      This project is work in progress and subject to change.
+
+    <div class="card">
+      <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
+        <video id="vidPlayer" controls poster="https://dummyimage.com/1440x720/808080/fff.png" controlslist="nodownload" class="embed-responsive-item">
+          <source id="vidFileMo" src="" type="video/webm">
+          <source id="vidFileFb" src="" type="video/mp4">
+          <track id="vidTrack" kind="subtitles" label="English subtitles" src="" srclang="en" default>
+        </video>
+      </div>
     </div>
-    <br>
-    <div id="videoContainer">
-      <video id="videoPlayer" controls style="display: none;">
-        <source id="videoFile" src="" type="video/mp4">
-        <track id="videoTrack" kind="subtitles" label="English subtitles" src="" srclang="en" default>
-      </video>
-      <p id="videoHelp">
-        <img id="videoImage" src="https://vgy.me/RVA8Q6.jpg">
-        <br>
-        <br>To start, select a video from the list. Subtitles are available and can be toggled in the player.
-        <noscript>
-          <b>JavaScript is required.</b>
-        </noscript>
-      </p>
+
+    <h2 class="mt-2" id="vidTitle"></h2>
+
+    <div id="vidNav" class="card shadow">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          Navigation
+        </h5>
+      </div>
+      <div id="tsList" class="list-group list-group-flush">
+        <button type="button" class="list-group-item list-group-item-action text-center" disabled>Select a video to get started</button>
+      </div>
     </div>
-    <div id="videoList">
-      <p class="videoChapter">Juvie</p>
-      <p class="videoListEntry" id="video1" onclick="showVideo(1)">krugerspeech_00</p>
-      <p class="videoChapter">Post Release</p>
-      <p class="videoListEntry" id="video2" onclick="showVideo(2)">safe.moe</p>
-      <p class="videoListEntry" id="video3" onclick="showVideo(3)">mixtape.moe</p>
-      <p class="videoListEntry" id="video4" onclick="showVideo(4)">archive.org</p>
-      <p class="videoChapter">Post Savant</p>
-      <p class="videoListEntry" id="video5" onclick="showVideo(5)">aww.moe (Private)</p>
-      <p class="videoListEntry" id="video6" onclick="showVideo(6)">Video 6</p>
-      <p class="videoListEntry" id="video7" onclick="showVideo(7)">Video 7</p>
-      <p class="videoChapter">Post Benefactor</p>
-      <p class="videoListEntry" id="video8" onclick="showVideo(8)">Video 8</p>
-      <p class="videoChapter">Post Flytrap</p>
-      <p class="videoListEntry" id="video9" onclick="showVideo(9)">Video 9</p>
-      <p class="videoChapter">Post Vive La Resistance</p>
-      <p class="videoListEntry" id="video10" onclick="showVideo(10)">Video 10</p>
-      <p class="videoListEntry" id="video11" onclick="showVideo(11)">Video 11</p>
-      <p class="videoListEntry" id="video12" onclick="showVideo(12)">Video 12</p>
-      <p class="videoChapter">Post Kingdom</p>
-      <p class="videoListEntry" id="video13" onclick="showVideo(13)">Video 13</p>
-      <p class="videoListEntry" id="video14" onclick="showVideo(14)">Video 14</p>
-      <p class="videoListEntry" id="video15" onclick="showVideo(15)">Video 15</p>
-      <p class="videoChapter">Post Family Matters</p>
-      <p class="videoListEntry" id="video16" onclick="showVideo(16)">Video 16</p>
-      <p class="videoListEntry" id="video17" onclick="showVideo(17)">Video 17</p>
-      <p class="videoChapter">Post The Shard</p>
-      <p class="videoListEntry" id="video18" onclick="showVideo(18)">Video 18</p>
+
+    <div id="vidSel" class="card shadow">
+      <div class="card-header">
+        <h5 class="mb-0">
+          Scene selection
+        </h5>
+      </div>
+
+      <ul id="vidTypeSel" class="nav nav-pills nav-justified" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="castsTab" data-toggle="tab" href="#casts" role="tab" aria-controls="casts" aria-selected="true">Newscasts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="extrasTab" data-toggle="tab" href="#extras" role="tab" aria-controls="extras" aria-selected="false">Extras</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane show active" id="casts" role="tabpanel" aria-labelledby="castsTab">
+          <div class="list-group list-group-flush vidList" id="castList"></div>
+        </div>
+        <div class="tab-pane" id="extras" role="tabpanel" aria-labelledby="extrasTab">
+          <div class="list-group list-group-flush vidList" id="extrasList">
+          </div>
+        </div>
+      </div>
     </div>
-    <br>
   </div>
 
   <div id="legal_footer" class="small text-secondary">
