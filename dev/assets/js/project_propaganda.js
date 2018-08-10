@@ -142,12 +142,15 @@ $(function() {
     .then(
       $('#subCheck').change(function() {
         if (this.checked) {
-          $('#vidPlayer').append(
-            '<track kind="subtitles" label="English" src="' +
-              $('#vidPlayer').data('track') +
-              '" srclang="en" default>'
-          );
-          $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+          if ($('#vidPlayer').get(0).textTracks[0]) {
+            $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+          } else {
+            $('#vidPlayer').append(
+              '<track kind="subtitles" label="English" src="' +
+                $('#vidPlayer').data('track') +
+                '" srclang="en" default>'
+            );
+          }
         } else {
           $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
         }
