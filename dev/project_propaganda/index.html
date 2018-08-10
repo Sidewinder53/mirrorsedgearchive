@@ -98,6 +98,7 @@
   <div class="container" id="mainDiv">
 
     <div class="card">
+      <div id="vidIntro" class="text-muted h3 text-center">Select a video to get started.</div>
       <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
         <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/placeholder.jpg" controlslist="nodownload" class="embed-responsive-item"
           controls autoplay crossorigin="anonymous">
@@ -105,7 +106,14 @@
       </div>
     </div>
 
-    <h2 class="mt-2" id="vidTitle"></h2>
+    <div class="d-flex justify-content-between">
+      <h2 class="mt-2" id="vidTitle"></h2>
+      <div id="subToggle" class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="subCheck">
+        <label class="custom-control-label text-muted" for="subCheck">Subtitles</label>
+      </div>
+    </div>
+
 
     <div id="vidNav" class="card shadow">
       <div class="card-header" id="headingOne">

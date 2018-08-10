@@ -1,4 +1,11 @@
 $(function() {
+  $('#subCheck').change(function() {
+    if (this.checked) {
+      $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+    } else {
+      $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
+    }
+  });
   var castList = '',
     extrasList = '';
   var gdb = null;
@@ -45,7 +52,11 @@ $(function() {
   })
     .then(
       $('.vidList').on('click', '.list-group-item.video', function() {
-        console.log('Click registred.');
+        $('#vidPlayer').css('display', 'block');
+        $('#vidIntro').css('display', 'none');
+        $('#vidContainer')
+          .css('background-color', '#000')
+          .css('background-image', 'none');
         let find = $(this);
         let type = find.data('type') + 's';
         $.each(eval("gdb['types']." + type), function(i, category) {
@@ -99,7 +110,12 @@ $(function() {
                   vidSrc +=
                     '<track kind="subtitles" label="English subtitles" src="' +
                     video.subtitle +
-                    '" srclang="en" default>';
+                    '" srclang="en" ';
+                  if ($('#subCheck').is(':checked')) {
+                    vidSrc += 'default>';
+                  } else {
+                    vidSrc += '>';
+                  }
                 }
                 $('#vidPlayer').html(vidSrc);
                 $('#vidTitle').text(
@@ -114,11 +130,15 @@ $(function() {
                   .load();
                 let timestamps = getTimeStamps(video);
                 if (timestamps) {
+                  $('#vidNav')
+                    .css('opacity', '0')
+                    .css('display', 'block')
+                    .fadeTo(400, 1);
                   $('#tsList').html(timestamps);
                 } else {
-                  $('#tsList').html(
-                    '<button type="button" class="list-group-item list-group-item-action text-center" disabled>Navigation unavailable</button>'
-                  );
+                  $('#vidNav').fadeTo(400, 0, function() {
+                    $(this).css('display', 'none');
+                  });
                 }
               }
             });
