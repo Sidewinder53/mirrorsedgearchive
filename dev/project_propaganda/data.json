@@ -12,7 +12,8 @@
               "modern": null,
               "fallback": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/newscasts/krugerspeech_00_.mp4"
             },
-            "description": "Gabriel Kruger instructs 'reformed' employees after they left juvenile."
+            "description": "Gabriel Kruger instructs 'reformed' employees after they left juvenile.",
+            "thumbnail": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/newscasts/thumbs/_krugerspeech_00_.mp4.png"
           }
         ]
       },
@@ -44,7 +45,9 @@
               "129": "BRYSON SENIOR EXEC TO STEP DOWN",
               "163": "REFLECTION - A STEP OR A LEAP FORWARD?",
               "202": "GLASS GIANTS BEATS CASCADIA PRIMALS"
-            }
+            },
+            "thumbnail": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/newscasts/thumbs/_newscast_01_.mp4.png",
+            "subtitle": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/newscasts/subtitles/newscast_01.vtt"
           }
         ]
       },

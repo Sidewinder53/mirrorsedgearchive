@@ -52,7 +52,9 @@ $(function() {
           if (category.categoryName === find.data('category')) {
             $.each(category['videos'], function(j, video) {
               if (video.videoName === find.attr('id')) {
-                let modernAssetURL, fallbackAssetURL;
+                let modernAssetURL,
+                  fallbackAssetURL,
+                  vidSrc = '';
                 if (video.videoURL['modern']) {
                   if (video.videoURL['modern'].indexOf('$localAssets$') != -1) {
                     console.log('Modern asset is local.');
@@ -64,6 +66,10 @@ $(function() {
                     console.log('Modern asset is external.');
                     modernAssetURL = video.videoURL['modern'];
                   }
+                  vidSrc +=
+                    '<source id="vidFileMo" src="' +
+                    modernAssetURL +
+                    '" type="video/webm">';
                 } else {
                   console.log('Modern asset does not exist.');
                   modernAssetURL = '';
@@ -81,15 +87,25 @@ $(function() {
                     console.log('Fallback asset is external.');
                     fallbackAssetURL = video.videoURL['fallback'];
                   }
+                  vidSrc +=
+                    '<source id="vidFileFb" src="' +
+                    fallbackAssetURL +
+                    '" type="video/webm">';
                 } else {
                   console.log('Fallback asset does not exist.');
                   fallbackAssetURL = '';
                 }
-                console.log('Modern asset:   ' + modernAssetURL);
-                console.log('Fallback asset: ' + fallbackAssetURL);
+                if (video.subtitle) {
+                  vidSrc +=
+                    '<track kind="subtitles" label="English subtitles" src="' +
+                    video.subtitle +
+                    '" srclang="en" default>';
+                }
+                $('#vidPlayer').html(vidSrc);
                 $('#vidTitle').text(
                   category.categoryLabel + ' - ' + video.videoLabel
                 );
+                $('#vidPlayer').attr('poster', getThumbnail(video));
                 $('#vidTitle').css('display', 'block');
                 $('#vidFileMo').attr('src', modernAssetURL);
                 $('#vidFileFb').attr('src', fallbackAssetURL);
@@ -104,9 +120,6 @@ $(function() {
                     '<button type="button" class="list-group-item list-group-item-action text-center" disabled>Navigation unavailable</button>'
                   );
                 }
-                $('#vidPlayer')
-                  .get(0)
-                  .play();
               }
             });
           }
@@ -142,6 +155,14 @@ function getTimeStamps(video) {
     return timesList;
   } else {
     return null;
+  }
+}
+
+function getThumbnail(video) {
+  if (video.thumbnail) {
+    return video.thumbnail;
+  } else {
+    return 'https://video-assets.mirrorsedgearchive.de/placeholder.jpg';
   }
 }
 
