@@ -14,25 +14,6 @@
   width: 100%;
 }
 
-#caption {
-  font-size: 1em;
-  color: #222;
-  margin-bottom: 3em;
-}
-
-a {
-  color: #4f4f4f;
-}
-
-table {
-  max-width: inherit;
-  text-align: center;
-}
-
-#introduction {
-  text-align: justify;
-}
-
 #mainDiv {
   position: relative;
 }
@@ -94,11 +75,8 @@ table {
   text-decoration: underline;
 }
 
-#vidTitle {
-  /* display: none; */
-}
-
 #subToggle {
+  display: none;
   padding-top: 13px;
 }
 

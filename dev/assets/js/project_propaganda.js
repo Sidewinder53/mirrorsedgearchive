@@ -1,11 +1,4 @@
 $(function() {
-  $('#subCheck').change(function() {
-    if (this.checked) {
-      $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
-    } else {
-      $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
-    }
-  });
   var castList = '',
     extrasList = '';
   var gdb = null;
@@ -108,14 +101,12 @@ $(function() {
                 }
                 if (video.subtitle) {
                   vidSrc +=
-                    '<track kind="subtitles" label="English subtitles" src="' +
+                    '<track kind="subtitles" label="English" src="' +
                     video.subtitle +
-                    '" srclang="en" ';
-                  if ($('#subCheck').is(':checked')) {
-                    vidSrc += 'default>';
-                  } else {
-                    vidSrc += '>';
-                  }
+                    '" srclang="en" default>';
+                  $('#subToggle').css('display', 'block');
+                } else {
+                  $('#subToggle').css('display', 'none');
                 }
                 $('#vidPlayer').html(vidSrc);
                 $('#vidTitle').text(
@@ -128,6 +119,13 @@ $(function() {
                 $('#vidPlayer')
                   .get(0)
                   .load();
+                if (video.subtitle) {
+                  if ($('#subCheck').is(':checked')) {
+                    $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+                  } else {
+                    $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
+                  }
+                }
                 let timestamps = getTimeStamps(video);
                 if (timestamps) {
                   $('#vidNav')
@@ -147,6 +145,13 @@ $(function() {
       })
     )
     .then(
+      $('#subCheck').change(function() {
+        if (this.checked) {
+          $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+        } else {
+          $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
+        }
+      }),
       $('#vidPlayer').bind('timeupdate', function() {
         console.log('timeupdate');
       }),
