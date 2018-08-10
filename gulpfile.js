@@ -30,6 +30,7 @@ gulp.task(
     gulp.watch('dev/**/*.js', ['watch-js']);
     gulp.watch('dev/**/*.css', ['watch-css']);
     gulp.watch('dev/**/*.html', ['watch-html']);
+    gulp.watch('dev/**/*.json', ['copy']);
   }
 );
 
@@ -84,7 +85,11 @@ gulp.task('cleanup', function(cb) {
 
 gulp.task('build-js', function(cb) {
   pump(
-    [gulp.src('dev/assets/js/*.js'), uglify(), gulp.dest('dist/assets/js')],
+    [
+      gulp.src('dev/assets/js/*.js'),
+      uglify({ ecma: 8 }),
+      gulp.dest('dist/assets/js')
+    ],
     cb
   );
 });
