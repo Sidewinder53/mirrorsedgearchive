@@ -22,15 +22,6 @@
         "categoryLabel": "Post Release",
         "videos": [
           {
-            "videoName": "hero2015",
-            "videoLabel": "archive.org Test",
-            "videoURL": {
-              "modern": null,
-              "fallback": "https://archive.org/download/medgec_trailers/2015%20-%20Hero.mp4"
-            },
-            "description": "A video to demonstrate how external resources may be used with this player."
-          },
-          {
             "videoName": "newscast_01",
             "videoLabel": "Newscast #01",
             "videoURL": {
