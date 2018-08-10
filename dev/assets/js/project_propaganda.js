@@ -100,32 +100,27 @@ $(function() {
                   fallbackAssetURL = '';
                 }
                 if (video.subtitle) {
-                  vidSrc +=
-                    '<track kind="subtitles" label="English" src="' +
-                    video.subtitle +
-                    '" srclang="en" default>';
                   $('#subToggle').css('display', 'block');
+                  $('#vidPlayer').data('track', video.subtitle);
                 } else {
                   $('#subToggle').css('display', 'none');
                 }
+                $('#vidPlayer').attr('poster', getThumbnail(video));
                 $('#vidPlayer').html(vidSrc);
                 $('#vidTitle').text(
                   category.categoryLabel + ' - ' + video.videoLabel
                 );
-                $('#vidPlayer').attr('poster', getThumbnail(video));
                 $('#vidTitle').css('display', 'block');
-                $('#vidFileMo').attr('src', modernAssetURL);
-                $('#vidFileFb').attr('src', fallbackAssetURL);
                 $('#vidPlayer')
                   .get(0)
                   .load();
-                if (video.subtitle) {
-                  if ($('#subCheck').is(':checked')) {
-                    $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
-                  } else {
-                    $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
-                  }
-                }
+                // if (video.subtitle) {
+                //   if ($('#subCheck').is(':checked')) {
+                //     $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+                //   } else {
+                //     $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
+                //   }
+                // }
                 let timestamps = getTimeStamps(video);
                 if (timestamps) {
                   $('#vidNav')
@@ -147,6 +142,11 @@ $(function() {
     .then(
       $('#subCheck').change(function() {
         if (this.checked) {
+          $('#vidPlayer').append(
+            '<track kind="subtitles" label="English" src="' +
+              $('#vidPlayer').data('track') +
+              '" srclang="en" default>'
+          );
           $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
         } else {
           $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
