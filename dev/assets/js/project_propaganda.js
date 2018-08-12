@@ -185,6 +185,7 @@ function enableSubs() {
           subURL +
           '" srclang="en" default>'
       );
+      $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
     }
   } else {
     $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
