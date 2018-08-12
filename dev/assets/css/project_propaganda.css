@@ -72,6 +72,7 @@
   padding-top: 5px;
   z-index: 1;
   transition: background-image 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 #vidDesc {
@@ -107,7 +108,6 @@
 
 #subToggle {
   display: none;
-  padding-top: 10px;
 }
 
 @media only screen and (max-width: 1800px) {

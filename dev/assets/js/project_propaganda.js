@@ -57,9 +57,17 @@ $(function() {
     });
     $('#castList').append(castList);
     $('#extrasList').append(extrasList);
+    var queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.has('v')) {
+      let v = queryParams.get('v').replace(/\W/g, '');
+      console.log('Queried video: ' + v);
+      $('#' + v).click();
+    }
+    $('[data-toggle="popover"]').popover();
   })
     .then(
       $('.vidList').on('click', '.list-group-item.video', function() {
+        history.pushState(null, null, '?v=' + this.id);
         $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
         $('#vidIntro').css('display', 'none');
         $('#vidContainer')
@@ -236,6 +244,17 @@ function getThumbnail(video) {
 function secToDIN(s) {
   return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s;
 }
+
+String.prototype.hashCode = function() {
+  var hash = 0;
+  if (this.length == 0) return hash;
+  for (i = 0; i < this.length; i++) {
+    char = this.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return hash;
+};
 
 // var prevVideoId = '';
 
