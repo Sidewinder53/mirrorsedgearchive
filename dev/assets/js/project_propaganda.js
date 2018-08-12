@@ -60,7 +60,7 @@ $(function() {
   })
     .then(
       $('.vidList').on('click', '.list-group-item.video', function() {
-        $('#vidPlayer').css('display', 'block');
+        $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
         $('#vidIntro').css('display', 'none');
         $('#vidContainer')
           .css('background-color', '#000')
@@ -113,6 +113,15 @@ $(function() {
                   fallbackAssetURL = '';
                 }
                 $('#vidPlayer').attr('poster', getThumbnail(video));
+                if (video.description) {
+                  $('#vidDesc')
+                    .text(video.description)
+                    .removeClass('text-muted');
+                } else {
+                  $('#vidDesc')
+                    .text('No description.')
+                    .addClass('text-muted');
+                }
                 $('#vidPlayer').html(vidSrc);
                 if (video.subtitle) {
                   $('#subToggle').css('display', 'block');

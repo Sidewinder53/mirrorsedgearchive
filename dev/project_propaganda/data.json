@@ -208,7 +208,7 @@
             "videoName": "newscast_05",
             "videoLabel": "Newscast #05 (video N/A)",
             "videoURL": {
-              "modern": "$mainAsset$/vp9/newscasts/newscast_01_.webm",
+              "modern": "$mainAsset$/vp9/newscasts/newscast_05_.webm",
               "fallback": "$mainAsset$/mp4-ultrafast/newscasts/newscast_05_.mp4"
             },
             "description": "Aurore reports about Isabel Kruger who was freed from captivity by KrugerSec.",
@@ -220,7 +220,7 @@
               "181": "REZONING RUMBLINGS UPSET NEARBY RESIDENTS",
               "235": "TRISHA MALUS HOSTS NEW ART EXHIBITION"
             },
-            "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_01_.mp4.png",
+            "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_05_.mp4.png",
             "subtitle": "$mainAsset$/subtitles/newscast_05.vtt"
           },
           {

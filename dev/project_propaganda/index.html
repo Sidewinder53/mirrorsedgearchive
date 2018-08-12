@@ -104,15 +104,21 @@
           controls autoplay crossorigin="anonymous">
         </video>
       </div>
-    </div>
-
-    <div class="d-flex justify-content-between">
-      <h2 class="mt-2" id="vidTitle"></h2>
-      <div id="subToggle" class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="subCheck">
-        <label class="custom-control-label text-muted" for="subCheck">Subtitles</label>
+      <div id="vidFooter" class="card-footer">
+        <div class="d-flex justify-content-between">
+          <h4 class="mt-2" id="vidTitle"></h4>
+          <div id="subToggle" class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="subCheck">
+            <label class="custom-control-label" for="subCheck">Subtitles</label>
+          </div>
+        </div>
+      </div>
+      <div id="vidMeta" class="card-body">
+        <p id="vidDesc"></p>
       </div>
     </div>
+
+
 
 
     <div id="vidNav" class="card shadow">
