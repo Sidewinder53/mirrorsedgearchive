@@ -6,11 +6,17 @@ $(function() {
     gdb = db;
     $.each(db['types'].casts, function(i, category) {
       castList +=
-        '<p class="list-group-item category" id=' +
+        '<p class="list-group-item category collapsed" id="' +
         category.categoryName +
-        '>' +
+        '" data-toggle="collapse" href="#col-' +
+        category.categoryName +
+        '" role="button" aria-expanded="false" aria-controls="col-' +
+        category.categoryName +
+        '">' +
         category.categoryLabel +
-        '</p>';
+        '</p><div class="collapse" id="col-' +
+        category.categoryName +
+        '">';
       $.each(category['videos'], function(j, video) {
         castList +=
           '<p class="list-group-item video" id=' +
@@ -21,14 +27,21 @@ $(function() {
           video.videoLabel +
           '</p>';
       });
+      castList += '</div>';
     });
     $.each(db['types'].extras, function(i, category) {
       extrasList +=
-        '<p class="list-group-item category" id=' +
+        '<p class="list-group-item category collapsed" id="' +
         category.categoryName +
-        '>' +
+        '" data-toggle="collapse" href="#col-' +
+        category.categoryName +
+        '" role="button" aria-expanded="false" aria-controls="col-' +
+        category.categoryName +
+        '">' +
         category.categoryLabel +
-        '</p>';
+        '</p><div class="collapse" id="col-' +
+        category.categoryName +
+        '">';
       $.each(category['videos'], function(j, video) {
         extrasList +=
           '<p class="list-group-item video" id=' +
@@ -39,6 +52,7 @@ $(function() {
           video.videoLabel +
           '</p>';
       });
+      extrasList += '</div>';
     });
     $('#castList').append(castList);
     $('#extrasList').append(extrasList);
