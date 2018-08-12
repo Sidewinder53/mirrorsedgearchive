@@ -66,6 +66,13 @@
   padding-left: 30px;
   padding-bottom: 5px;
   padding-top: 5px;
+  z-index: 1;
+}
+
+.list-group-item.video:focus,
+.list-group-item.video:hover {
+  z-index: auto;
+  text-decoration: underline;
 }
 
 .list-group-item.category.collapsed {
