@@ -79,46 +79,46 @@ $(function() {
           if (category.categoryName === find.data('category')) {
             $.each(category['videos'], function(j, video) {
               if (video.videoName === find.attr('id')) {
-                let modernAssetURL,
-                  fallbackAssetURL,
+                let vp9AssetURL,
+                  h264AssetURL,
                   vidSrc = '';
-                if (video.videoURL['modern']) {
-                  if (video.videoURL['modern'].indexOf('$mainAsset$') != -1) {
-                    console.log('Modern asset is on main asset server.');
-                    modernAssetURL = video.videoURL['modern'].replace(
+                if (video.videoURL['vp9']) {
+                  if (video.videoURL['vp9'].indexOf('$mainAsset$') != -1) {
+                    console.log('vp9 asset is on main asset server.');
+                    vp9AssetURL = video.videoURL['vp9'].replace(
                       'mainAsset',
                       gdb['infrastructure'].mainAssetServer
                     );
                   } else {
-                    console.log('Modern asset is external.');
-                    modernAssetURL = video.videoURL['modern'];
+                    console.log('vp9 asset is external.');
+                    vp9AssetURL = video.videoURL['vp9'];
                   }
                   vidSrc +=
                     '<source id="vidFileMo" src="' +
-                    modernAssetURL +
+                    vp9AssetURL +
                     '" type="video/webm">';
                 } else {
-                  console.log('Modern asset does not exist.');
-                  modernAssetURL = '';
+                  console.log('vp9 asset does not exist.');
+                  vp9AssetURL = '';
                 }
-                if (video.videoURL['fallback']) {
-                  if (video.videoURL['fallback'].indexOf('$mainAsset$') != -1) {
-                    console.log('Fallback asset is on main asset server.');
-                    fallbackAssetURL = video.videoURL['fallback'].replace(
+                if (video.videoURL['h264']) {
+                  if (video.videoURL['h264'].indexOf('$mainAsset$') != -1) {
+                    console.log('h264 asset is on main asset server.');
+                    h264AssetURL = video.videoURL['h264'].replace(
                       '$mainAsset$',
                       gdb['infrastructure'].mainAssetServer
                     );
                   } else {
-                    console.log('Fallback asset is external.');
-                    fallbackAssetURL = video.videoURL['fallback'];
+                    console.log('h264 asset is external.');
+                    h264AssetURL = video.videoURL['h264'];
                   }
                   vidSrc +=
                     '<source id="vidFileFb" src="' +
-                    fallbackAssetURL +
+                    h264AssetURL +
                     '" type="video/webm">';
                 } else {
-                  console.log('Fallback asset does not exist.');
-                  fallbackAssetURL = '';
+                  console.log('h264 asset does not exist.');
+                  h264AssetURL = '';
                 }
                 $('#vidPlayer').attr('poster', getThumbnail(video));
                 if (video.description) {
@@ -180,6 +180,20 @@ $(function() {
       })
     );
 });
+
+function sourceOpen(_) {
+  //console.log(this.readyState); // open
+  var mediaSource = this;
+  var sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
+  fetchAB(vp9AssetURL, function(buf) {
+    sourceBuffer.addEventListener('updateend', function(_) {
+      mediaSource.endOfStream();
+      video.play();
+      //console.log(mediaSource.readyState); // ended
+    });
+    sourceBuffer.appendBuffer(buf);
+  });
+}
 
 function enableSubs() {
   if ($('#subCheck').get(0).checked) {
