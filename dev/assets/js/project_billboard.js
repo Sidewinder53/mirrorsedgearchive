@@ -2,13 +2,12 @@ var gdb = null;
 var psv = null;
 
 $(function() {
-  var castList = '';
-  // horExtrasList = '',
-  // verExtrasList = '';
+  var horBillboardList = '',
+    verBillboardList = '';
   $.get('data.json', function(db) {
     gdb = db;
-    $.each(db.newscasts, function(i, category) {
-      castList +=
+    $.each(db['types'].horizontalBillboards, function(i, category) {
+      horBillboardList +=
         '<p class="list-group-item category collapsed" id="' +
         category.categoryName +
         '" data-toggle="collapse" href="#col-' +
@@ -21,18 +20,44 @@ $(function() {
         category.categoryName +
         '">';
       $.each(category['videos'], function(j, video) {
-        castList +=
+        horBillboardList +=
           '<p class="list-group-item video" id=' +
           video.videoName +
-          ' data-category="' +
+          ' data-type="horizontalBillboards" data-category="' +
           category.categoryName +
           '">' +
           video.videoLabel +
           '</p>';
       });
-      castList += '</div>';
+      horBillboardList += '</div>';
     });
-    $('#castList').append(castList);
+    $.each(db['types'].verticalBillboards, function(i, category) {
+      verBillboardList +=
+        '<p class="list-group-item category collapsed" id="' +
+        category.categoryName +
+        '" data-toggle="collapse" href="#col-' +
+        category.categoryName +
+        '" role="button" aria-expanded="false" aria-controls="col-' +
+        category.categoryName +
+        '">' +
+        category.categoryLabel +
+        '</p><div class="collapse" id="col-' +
+        category.categoryName +
+        '">';
+      $.each(category['videos'], function(j, video) {
+        verBillboardList +=
+          '<p class="list-group-item video" id=' +
+          video.videoName +
+          ' data-type="verticalBillboards" data-category="' +
+          category.categoryName +
+          '">' +
+          video.videoLabel +
+          '</p>';
+      });
+      verBillboardList += '</div>';
+    });
+    $('#horBillboardList').append(horBillboardList);
+    $('#verBillboardList').append(verBillboardList);
     var queryParams = new URLSearchParams(window.location.search);
     if (queryParams.has('v')) {
       let v = queryParams.get('v').replace(/\W/g, '');
@@ -45,7 +70,6 @@ $(function() {
     $('[data-toggle="popover"]').popover();
   })
     .then(
-      $('#vidTypeSel').on('click', '.nav-item', function() {}),
       $('.vidList').on('click', '.list-group-item.video', function() {
         history.pushState(null, null, '?v=' + this.id);
         $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
@@ -58,8 +82,10 @@ $(function() {
           .css('background-color', '#fff')
           .css('color', '#000');
         find.css('background-color', '#007bff').css('color', '#fff');
-        let type = find.data('type') + 's';
-        $.each(gdb.newscasts, function(i, category) {
+        $.each(eval("gdb['types']." + find.data('type')), function(
+          i,
+          category
+        ) {
           if (category.categoryName === find.data('category')) {
             $.each(category['videos'], function(j, video) {
               if (video.videoName === find.attr('id')) {
@@ -113,11 +139,6 @@ $(function() {
                   $('#vidDesc')
                     .text('No description.')
                     .addClass('text-muted');
-                }
-                if (type === 'extras') {
-                  $('#vidPlayer').attr('loop', '');
-                } else {
-                  $('#vidPlayer').removeAttr('loop');
                 }
                 $('#vidPlayer').html(vidSrc);
                 if (video.subtitle) {
