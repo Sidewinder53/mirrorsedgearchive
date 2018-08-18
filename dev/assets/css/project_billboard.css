@@ -18,16 +18,36 @@
   position: relative;
 }
 
-#vidSel > ul > li > a {
+#vidSel > div > ul > li > a {
   border-radius: 0;
 }
 
-#vidNav {
-  display: none;
+#horBillboardTab:hover:not(.active) > svg > path,
+#verBillboardTab:hover:not(.active) > svg > path {
+  fill: unset !important;
+}
+
+#vidAd {
   top: 0;
-  left: -305px;
-  width: 300px;
+  left: -245px;
+  width: 240px;
   position: absolute;
+  opacity: 0.4;
+  transition: opacity 0.15s ease-in-out;
+}
+
+#vidAd > a > .card-footer {
+  text-align: center;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+#vidAd:hover > a {
+  text-decoration: none;
+}
+
+#vidAd:hover {
+  opacity: 1;
 }
 
 #vidSel {
@@ -53,9 +73,8 @@
   fill: #fff;
 }
 
-#castList,
-#horExtrasList,
-#verExtrasList {
+#horBillboardList,
+#verBillboardList {
   width: 100%;
   display: inline-block;
   max-height: 490px;

@@ -2,14 +2,14 @@
   "types": {
     "horizontalBillboards": [
       {
-        "categoryName": "Abstract",
+        "categoryName": "horAbstract",
         "categoryLabel": "Abstract",
         "videos": [
           {
             "videoName": "abstract_01a",
             "videoLabel": "One Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_01a_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_01a_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_01a_.mp4"
             }
           },
@@ -17,7 +17,7 @@
             "videoName": "abstract_01c",
             "videoLabel": "One Charlie",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_01c_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_01c_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_01c_.mp4"
             }
           },
@@ -25,7 +25,7 @@
             "videoName": "abstract_02b",
             "videoLabel": "Two Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_02b_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_02b_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_02b_.mp4"
             }
           },
@@ -33,7 +33,7 @@
             "videoName": "abstract_03a",
             "videoLabel": "Three Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_03a_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_03a_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_03a_.mp4"
             }
           },
@@ -41,7 +41,7 @@
             "videoName": "abstract_04b",
             "videoLabel": "Four Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_04b_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_04b_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_04b_.mp4"
             }
           },
@@ -49,7 +49,7 @@
             "videoName": "abstract_05a",
             "videoLabel": "Five Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_05a_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_05a_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_05a_.mp4"
             }
           },
@@ -57,7 +57,7 @@
             "videoName": "abstract_06a",
             "videoLabel": "Six Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/abstract_06a_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/abstract_06a_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/abstract_06a_.mp4"
             }
           },
@@ -65,7 +65,7 @@
             "videoName": "flow_02",
             "videoLabel": "Flow",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/flow_02_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/flow_02_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/flow_02_.mp4"
             }
           },
@@ -73,49 +73,49 @@
             "videoName": "pulse_01",
             "videoLabel": "Pulse",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/pulse_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/pulse_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/pulse_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Allcom",
+        "categoryName": "horAllcom",
         "categoryLabel": "AllCom",
         "videos": [
           {
             "videoName": "allcom01a",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/allcom01a_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/allcom01a_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/allcom01a_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Anansi",
+        "categoryName": "horAnansi",
         "categoryLabel": "Anansi",
         "videos": [
           {
             "videoName": "anansi_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/anansi_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/anansi_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/anansi_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Bryson",
+        "categoryName": "horBryson",
         "categoryLabel": "Bryson",
         "videos": [
           {
             "videoName": "bryson_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/bryson_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/bryson_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/bryson_01_.mp4"
             }
           },
@@ -123,49 +123,49 @@
             "videoName": "bryson_03_",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/bryson_03_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/bryson_03_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/bryson_03_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Callaghan",
+        "categoryName": "horCallaghan",
         "categoryLabel": "Callaghan",
         "videos": [
           {
             "videoName": "callaghan_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/callaghan_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/callaghan_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/callaghan_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Cascadialog",
+        "categoryName": "horCascadialog",
         "categoryLabel": "Cascadia Logistics",
         "videos": [
           {
             "videoName": "cascadia02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/cascadia02_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/cascadia02_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/cascadia02_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Elysium",
+        "categoryName": "horElysium",
         "categoryLabel": "Elysium",
         "videos": [
           {
             "videoName": "elysium_04_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/elysium_04_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/elysium_04_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/elysium_04_.mp4"
             }
           },
@@ -173,7 +173,7 @@
             "videoName": "elysium_06_",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/elysium_06_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/elysium_06_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/elysium_06_.mp4"
             }
           },
@@ -181,7 +181,7 @@
             "videoName": "elysiumbd_01_",
             "videoLabel": "Three",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/elysiumbd_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/elysiumbd_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/elysiumbd_01_.mp4"
             }
           },
@@ -189,77 +189,77 @@
             "videoName": "elysium_h_01_",
             "videoLabel": "Four",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/elysium_h_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/elysium_h_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/elysium_h_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Everdyne",
+        "categoryName": "horEverdyne",
         "categoryLabel": "Everdyne",
         "videos": [
           {
             "videoName": "everdyne_v_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/everdyne_v_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/everdyne_v_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/everdyne_v_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Krugersec",
+        "categoryName": "horKrugersec",
         "categoryLabel": "KrugerSec",
         "videos": [
           {
             "videoName": "krugersec02a_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/krugersec02a_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/krugersec02a_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/krugersec02a_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Pirandello",
+        "categoryName": "horPirandello",
         "categoryLabel": "Pirandello",
         "videos": [
           {
             "videoName": "pirandello_02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/pirandello_02_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/pirandello_02_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/pirandello_02_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Raposa",
+        "categoryName": "horRaposa",
         "categoryLabel": "Raposa",
         "videos": [
           {
             "videoName": "raposa03_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/raposa03_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/raposa03_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/raposa03_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Reflection",
+        "categoryName": "horReflection",
         "categoryLabel": "Reflection",
         "videos": [
           {
             "videoName": "reflection_act01_01b_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/reflection_act01_01b_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/reflection_act01_01b_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/reflection_act01_01b_.mp4"
             }
           },
@@ -267,7 +267,7 @@
             "videoName": "reflection_act02_01b_",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/reflection_act02_01b_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/reflection_act02_01b_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/reflection_act02_01b_.mp4"
             }
           },
@@ -275,7 +275,7 @@
             "videoName": "reflection_act02_01c_",
             "videoLabel": "Three",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/reflection_act02_01c_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/reflection_act02_01c_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/reflection_act02_01c_.mp4"
             }
           },
@@ -283,35 +283,35 @@
             "videoName": "reflection_act03_01b_",
             "videoLabel": "Four",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/reflection_act03_01b_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/reflection_act03_01b_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/reflection_act03_01b_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Silvine",
+        "categoryName": "horSilvine",
         "categoryLabel": "Silvine",
         "videos": [
           {
             "videoName": "silvine_02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/silvine_02_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/silvine_02_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/silvine_02_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "WFYO",
+        "categoryName": "horWFYO",
         "categoryLabel": "WFYO",
         "videos": [
           {
             "videoName": "wfyo_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/prod/propaganda/vp9/extras/wfyo_01_.webm",
+              "vp9": "$mainAsset$/prod/billboard/vp9/horizontal/wfyo_01_.webm",
               "h264": "$mainAsset$/mp4-ultrafast/extras/wfyo_01_.mp4"
             }
           }
@@ -320,14 +320,14 @@
     ],
     "verticalBillboards": [
       {
-        "categoryName": "Abstract",
+        "categoryName": "verAbstract",
         "categoryLabel": "Abstract",
         "videos": [
           {
             "videoName": "abstract_01b_",
             "videoLabel": "One Bravo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/abstract_01b_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/abstract_01b_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_01b_.mp4"
             }
           },
@@ -335,7 +335,7 @@
             "videoName": "abstract_02b_",
             "videoLabel": "Two Bravo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/abstract_02b_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/abstract_02b_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_02b_.mp4"
             }
           },
@@ -343,7 +343,7 @@
             "videoName": "abstract_04b_",
             "videoLabel": "Four Bravo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/abstract_04b_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/abstract_04b_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_04b_.mp4"
             }
           },
@@ -351,7 +351,7 @@
             "videoName": "abstract_05b_",
             "videoLabel": "Five Bravo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/abstract_05b_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/abstract_05b_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_05b_.mp4"
             }
           },
@@ -359,7 +359,7 @@
             "videoName": "abstract_06b_",
             "videoLabel": "Six Bravo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/abstract_06b_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/abstract_06b_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/abstract_06b_.mp4"
             }
           },
@@ -367,35 +367,35 @@
             "videoName": "flow_02_",
             "videoLabel": "Flow",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/flow_02_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/flow_02_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/flow_02_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Anansi",
+        "categoryName": "verAnansi",
         "categoryLabel": "Anansi",
         "videos": [
           {
             "videoName": "anansi_02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/anansi_02_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/anansi_02_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/anansi_02_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Bryson",
-        "categoryLabel": "One",
+        "categoryName": "verBryson",
+        "categoryLabel": "Bryson",
         "videos": [
           {
             "videoName": "bryson_02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/bryson_02_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/bryson_02_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/bryson_02_.mp4"
             }
           },
@@ -403,119 +403,119 @@
             "videoName": "bryson_04_",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/bryson_04_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/bryson_04_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/bryson_04_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Callaghan",
+        "categoryName": "verCallaghan",
         "categoryLabel": "Callaghan",
         "videos": [
           {
             "videoName": "callaghan_02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/callaghan_02_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/callaghan_02_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/callaghan_02_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Cascadia Logistics",
+        "categoryName": "verCascadialog",
         "categoryLabel": "Cascadia Logistics",
         "videos": [
           {
             "videoName": "cascadia03_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/cascadia03_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/cascadia03_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/cascadia03_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Elysium",
+        "categoryName": "verElysium",
         "categoryLabel": "Elysium",
         "videos": [
           {
             "videoName": "elysium_v_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/elysium_v_01_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/elysium_v_01_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/elysium_v_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Everdyne",
+        "categoryName": "verEverdyne",
         "categoryLabel": "Everdyne",
         "videos": [
           {
             "videoName": "everdyne_v_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/everdyne_v_01_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/everdyne_v_01_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/everdyne_v_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "KrugerSec",
+        "categoryName": "verKrugerSec",
         "categoryLabel": "KrugerSec",
         "videos": [
           {
             "videoName": "krugersec02b_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/krugersec02b_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/krugersec02b_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/krugersec02b_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Pirandello",
+        "categoryName": "verPirandello",
         "categoryLabel": "Pirandello",
         "videos": [
           {
             "videoName": "pirandello_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/pirandello_01_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/pirandello_01_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/pirandello_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Raposa",
+        "categoryName": "verRaposa",
         "categoryLabel": "Raposa",
         "videos": [
           {
             "videoName": "raposa04_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/raposa04_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/raposa04_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/raposa04_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Reflection",
+        "categoryName": "verReflection",
         "categoryLabel": "Reflection",
         "videos": [
           {
             "videoName": "reflection_act01_01e_",
             "videoLabel": "One Echo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/reflection_act01_01e_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/reflection_act01_01e_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/reflection_act01_01e_.mp4"
             }
           },
@@ -523,7 +523,7 @@
             "videoName": "reflection_act02_01d_",
             "videoLabel": "One Delta",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/reflection_act02_01d_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/reflection_act02_01d_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/reflection_act02_01d_.mp4"
             }
           },
@@ -531,7 +531,7 @@
             "videoName": "reflection_act02_01e_",
             "videoLabel": "Two Echo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/reflection_act02_01e_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/reflection_act02_01e_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/reflection_act02_01e_.mp4"
             }
           },
@@ -539,35 +539,35 @@
             "videoName": "reflection_act03_01e_",
             "videoLabel": "Three Echo",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/reflection_act03_01e_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/reflection_act03_01e_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/reflection_act03_01e_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "Silvine",
+        "categoryName": "verSilvine",
         "categoryLabel": "Silvine",
         "videos": [
           {
             "videoName": "silvine_01_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/silvine_01_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/silvine_01_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/silvine_01_.mp4"
             }
           }
         ]
       },
       {
-        "categoryName": "WFYO",
+        "categoryName": "verWFYO",
         "categoryLabel": "WFYO",
         "videos": [
           {
             "videoName": "wfyo_02_",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/vp9/extras/wfyo_02_.webm",
+              "vp9": "https://video-assets.mirrorsedgearchive.de/prod/billboard/vp9/extras/wfyo_02_.webm",
               "h264": "https://video-assets.mirrorsedgearchive.de/mp4-ultrafast/extras/wfyo_02_.mp4"
             }
           }
