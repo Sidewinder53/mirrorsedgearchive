@@ -86,7 +86,7 @@ $(function() {
                   if (video.videoURL['vp9'].indexOf('$mainAsset$') != -1) {
                     console.log('vp9 asset is on main asset server.');
                     vp9AssetURL = video.videoURL['vp9'].replace(
-                      'mainAsset',
+                      '$mainAsset$',
                       gdb['infrastructure'].mainAssetServer
                     );
                   } else {
