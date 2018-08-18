@@ -130,6 +130,12 @@ $(function() {
                     .text('No description.')
                     .addClass('text-muted');
                 }
+                console.log(type);
+                if (type === 'extras') {
+                  $('#vidPlayer').attr('loop', '');
+                } else {
+                  $('#vidPlayer').removeAttr('loop');
+                }
                 $('#vidPlayer').html(vidSrc);
                 if (video.subtitle) {
                   $('#subToggle').css('display', 'block');
