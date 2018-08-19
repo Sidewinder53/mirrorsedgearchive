@@ -36,6 +36,10 @@
   transition: opacity 0.15s ease-in-out;
 }
 
+#vidAd > a > img {
+  height: 100px;
+}
+
 #vidAd > a > .card-footer {
   text-align: center;
   padding: 0.5em;
