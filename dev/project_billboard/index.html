@@ -108,14 +108,22 @@
       </div>
       <div id="vidFooter" class="card-footer">
         <div class="row align-items-center">
-          <h4 class="mt-2 col" id="vidTitle"></h4>
-          <div class="col-">
-            <button type="button" class="btn btn-secondary btn-sm ml-3" data-toggle="popover" data-trigger="focus" title="Share this video"
-              data-placement="left" data-content="Share a video by sending the URL of this page to someone else.">
-              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
-              </svg>
-            </button>
+          <h4 class="mt-2 col-md-8 col-sm-12" id="vidTitle"></h4>
+          <div class="col-md-4 col-sm-12">
+            <div class="row justify-content-end align-items-center">
+              <div id="apToggle" class="custom-control custom-checkbox col-">
+                <input type="checkbox" class="custom-control-input" id="apCheck">
+                <label class="custom-control-label" for="apCheck">Autoplay</label>
+              </div>
+              <div class="col-">
+                <button type="button" class="btn btn-secondary btn-sm ml-3" data-toggle="popover" data-trigger="focus" title="Share this video"
+                  data-placement="left" data-content="Share a video by sending the URL of this page to someone else.">
+                  <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -126,7 +134,7 @@
     </div>
 
     <div id="vidAd">
-      <a href="/project_propaganda" class="card mt-2">
+      <a href="/project_propaganda" class="card">
         <img src="/assets/media/image/project_billboard/news.jpg">
         <div class="card-footer text-muted">
           Newscasts

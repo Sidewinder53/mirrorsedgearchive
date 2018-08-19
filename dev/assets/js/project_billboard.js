@@ -1,5 +1,5 @@
-var gdb = null;
-var psv = null;
+var gdb, psv, nv, nvc;
+gdb = psv = nv = nvc = null;
 
 $(function() {
   var horBillboardList = '',
@@ -78,6 +78,25 @@ $(function() {
     $('[data-toggle="popover"]').popover();
   }).then(
     $('.vidList').on('click', '.list-group-item.video', function() {
+      if (
+        $(this)
+          .next('.list-group-item.video')
+          .attr('id')
+      ) {
+        nv = $(this)
+          .next('.list-group-item.video')
+          .attr('id');
+        nvc = false;
+      } else {
+        nv = $(this)
+          .parent()
+          .next()
+          .next()
+          .children()
+          .eq(0)
+          .attr('id');
+        nvc = true;
+      }
       history.pushState(null, null, '?v=' + this.id);
       $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
       $('#vidIntro').css('display', 'none');
@@ -107,10 +126,10 @@ $(function() {
                   console.log('vp9 asset is external.');
                   vp9AssetURL = video.videoURL['vp9'];
                 }
-                vidSrc +=
-                  '<source id="vidFileMo" src="' +
-                  vp9AssetURL +
-                  '" type="video/webm">';
+                // vidSrc +=
+                //   '<source id="vidFileMo" src="' +
+                //   vp9AssetURL +
+                //   '" type="video/webm">';
               } else {
                 console.log('vp9 asset does not exist.');
                 vp9AssetURL = '';
@@ -129,7 +148,7 @@ $(function() {
                 vidSrc +=
                   '<source id="vidFileFb" src="' +
                   h264AssetURL +
-                  '" type="video/webm">';
+                  '" type="video/mp4">';
               } else {
                 console.log('h264 asset does not exist.');
                 h264AssetURL = '';
@@ -158,6 +177,22 @@ $(function() {
       });
       psv = find.attr('id');
       console.log(psv);
+    }),
+    $('#vidPlayer').bind('ended', function() {
+      if ($('#apCheck').prop('checked')) {
+        if (nvc) {
+          $('#' + psv)
+            .parent()
+            .collapse('hide');
+        }
+        $('#' + nv)
+          .parent()
+          .collapse('show');
+        $('#' + nv).click();
+      }
+    }),
+    $('#apCheck').change(function() {
+      toggleLoop($('#apCheck').prop('checked'));
     })
   );
 });
@@ -172,5 +207,13 @@ function getThumbnail(video) {
     }
   } else {
     return 'https://video-assets.mirrorsedgearchive.de/beta/billboard/static.jpg';
+  }
+}
+
+function toggleLoop(state) {
+  if (state) {
+    $('#vidPlayer').removeAttr('loop');
+  } else {
+    $('#vidPlayer').attr('loop', '');
   }
 }

@@ -28,6 +28,30 @@
   left: -305px;
   width: 300px;
   position: absolute;
+  z-index: 5;
+}
+
+#vidAd {
+  top: 0;
+  left: -205px;
+  width: 200px;
+  position: absolute;
+  opacity: 0.6;
+  transition: opacity 0.15s ease-in-out;
+}
+
+#vidAd > a > .card-footer {
+  text-align: center;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+#vidAd:hover > a {
+  text-decoration: none;
+}
+
+#vidAd:hover {
+  opacity: 1;
 }
 
 #vidSel {
@@ -116,6 +140,7 @@
 
 #subToggle {
   display: none;
+  margin-right: 16px;
 }
 
 @media only screen and (max-width: 1800px) {
