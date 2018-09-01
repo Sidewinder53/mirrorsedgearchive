@@ -9,10 +9,10 @@
           "videoLabel": "Kruger #01",
           "videoURL": {
             "vp9": "$mainAsset$/prod/propaganda/vp9/newscasts/krugerspeech_00_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_00_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_00_.mp4"
           },
           "description": "Gabriel Kruger instructs 'reformed' employees after they left juvenile.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_00_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_00_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_00_.vtt"
         }
       ]
@@ -26,7 +26,7 @@
           "videoLabel": "Newscast #01",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_01_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_01_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_01_.mp4"
           },
           "description": "The first newscast. Contains nothing relevant to the plot of the game, other than an early mention of \"Reflection\".",
           "timestamps": {
@@ -37,7 +37,7 @@
             "163": "REFLECTION - A STEP OR A LEAP FORWARD?",
             "202": "GLASS GIANTS BEATS CASCADIA PRIMALS"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_01_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_01_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_01_.vtt"
         },
         {
@@ -45,10 +45,10 @@
           "videoLabel": "Kruger #02",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/krugerspeech_01.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_01_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_01_.mp4"
           },
           "description": "Gabriel Kruger speaks about how great the upcoming \"Reflection\" technology is, and urges everyone to pre-order it.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_01_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_01_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_01_.vtt"
         },
         {
@@ -56,10 +56,10 @@
           "videoLabel": "Kruger #03",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/krugerspeech_02.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_02_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_02_.mp4"
           },
           "description": "Gabriel Kruger speaks about the security and laws of the city, and what would happen if you were to defy them.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_02_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_02_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_02_.vtt"
         }
       ]
@@ -73,7 +73,7 @@
           "videoLabel": "Newscast #02",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_02_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_02_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_02_.mp4"
           },
           "description": "Aurore talks about the Bauble Mall that has just been destroyed in a bombing.",
           "timestamps": {
@@ -84,7 +84,7 @@
             "164": "WHO CAN YOU TRUST?",
             "199": "PIRANDELLO HEIR BORN"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_02_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_02_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_02_.vtt"
         },
         {
@@ -92,10 +92,10 @@
           "videoLabel": "Rebecca #01",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/blacknovember_01_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/blacknovember_01_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/blacknovember_01_.mp4"
           },
           "description": "Rebecca speaks in a distorted voice about Black November and threatens the general public and tells them what to do.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_blacknovember_01_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_blacknovember_01_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/blacknovember_01_.vtt"
         },
         {
@@ -103,10 +103,10 @@
           "videoLabel": "Kruger #04",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/krugerspeech_05_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_05_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_05_.mp4"
           },
           "description": "Gabriel Kruger speaks about the bombing of the Bauble Mall, and that KrugerSec will fight back.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_05_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_05_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_05_.vtt"
         }
       ]
@@ -120,10 +120,10 @@
           "videoLabel": "Rebecca #02",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/blacknovember_02_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/blacknovember_02_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/blacknovember_02_.mp4"
           },
           "description": "Rebecca tries to convince the general public that they're being deceived by the Conglomerate.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_blacknovember_02_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_blacknovember_02_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/blacknovember_02_.vtt"
         }
       ]
@@ -137,7 +137,7 @@
           "videoLabel": "Newscast #03",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_03_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_03_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_03_.mp4"
           },
           "description": "Aurore reports Noah killed in the recent raid on Zephyr Transit Hub.",
           "timestamps": {
@@ -148,7 +148,7 @@
             "137": "BRYSON INDUSTRIES TO CONSTRUCT A NEW MEGAFACTORY",
             "163": "AURORA ANGELS POACHES STAR PLAYERS"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_03_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_03_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_03_.vtt"
         }
       ]
@@ -162,7 +162,7 @@
           "videoLabel": "Newscast #04",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_04_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_04_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_04_.mp4"
           },
           "description": "Aurore reports the recent kidnapping of Isabel Kruger.",
           "timestamps": {
@@ -172,7 +172,7 @@
             "156": "REFLECTION - PREPARING FOR LAUNCH DAY",
             "216": "WFYO REPORT RECORD EARNINGS"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_04_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_04_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_04_.vtt"
         },
         {
@@ -180,10 +180,10 @@
           "videoLabel": "Rebecca #03",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/blacknovember_03_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/blacknovember_03_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/blacknovember_03_.mp4"
           },
           "description": "Rebecca announces that they've kidnapped Isabel Kruger.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_blacknovember_03_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_blacknovember_03_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/blacknovember_03_.vtt"
         },
         {
@@ -191,10 +191,10 @@
           "videoLabel": "Kruger #05",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/krugerspeech_06_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_06_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_06_.mp4"
           },
           "description": "Gabriel Kruger talks about his kidnapped daughter and threatens Rebecca Thane.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_06_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_06_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_06_.vtt"
         }
       ]
@@ -208,7 +208,7 @@
           "videoLabel": "Newscast #05 (video N/A)",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_05_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_05_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_05_.mp4"
           },
           "description": "Aurore reports about Isabel Kruger who was freed from captivity by KrugerSec.",
           "timestamps": {
@@ -219,7 +219,7 @@
             "181": "REZONING RUMBLINGS UPSET NEARBY RESIDENTS",
             "235": "TRISHA MALUS HOSTS NEW ART EXHIBITION"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_05_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_05_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_05_.vtt"
         },
         {
@@ -227,10 +227,10 @@
           "videoLabel": "Kruger #06",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/krugerspeech_03.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_03_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_03_.mp4"
           },
           "description": "Gabriel Kruger comments on his daughter who was just freed from captivity.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_03_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_03_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_03_.vtt"
         },
         {
@@ -238,10 +238,10 @@
           "videoLabel": "Kruger #07",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/krugerspeech_04.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/krugerspeech_04_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/krugerspeech_04_.mp4"
           },
           "description": "Gabriel Kruger advertises Reflection technology again, and points out how important it was in the rescuing of Isabel Kruger.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_krugerspeech_04_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_krugerspeech_04_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/krugerspeech_04_.vtt"
         }
       ]
@@ -255,7 +255,7 @@
           "videoLabel": "Newscast #06",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_06_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_06_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_06_.mp4"
           },
           "description": "Aurore reports the recent bombing of The Shard.",
           "timestamps": {
@@ -265,7 +265,7 @@
             "110": "REFLECTION SALES EXCEEDS FORECASTS",
             "190": "HALE CITY MINE SHUT DOWN"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_06_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_06_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_06_.vtt"
         },
         {
@@ -273,10 +273,10 @@
           "videoLabel": "Rebecca #04",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/blacknovember_04_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/blacknovember_04_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/blacknovember_04_.mp4"
           },
           "description": "Rebecca comments about their bombing of The Shard.",
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_blacknovember_04_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_blacknovember_04_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/blacknovember_04_.vtt"
         }
       ]
@@ -290,7 +290,7 @@
           "videoLabel": "Newscast #07",
           "videoURL": {
             "vp9": "$mainAsset$/vp9/newscasts/newscast_07_.webm",
-            "h264": "$mainAsset$/mp4-ultrafast/newscasts/newscast_07_.mp4"
+            "h264": "$mainAsset$/beta/propaganda/h264-ultrafast/newscast_07_.mp4"
           },
           "description": "Aurore reports Gabriel Kruger missing, and about his successor as CEO of KrugerSec, Isabel Kruger.",
           "timestamps": {
@@ -301,13 +301,13 @@
             "145": "RESTORATION OF THE SHARD UNDERWAY",
             "168": "ISABEL KRUGER NEW HEAD OF KRUGERSEC, continued"
           },
-          "thumbnail": "$mainAsset$/mp4-ultrafast/newscasts/thumbs/_newscast_07_.mp4.png",
+          "thumbnail": "$mainAsset$/beta/propaganda/h264-ultrafast/thumbs/_newscast_07_.mp4.png",
           "subtitle": "$mainAsset$/prod/propaganda/subtitles/newscast_07_.vtt"
         }
       ]
     }
   ],
   "infrastructure": {
-    "mainAssetServer": "https://video-assets.mirrorsedgearchive.de"
+    "mainAssetServer": "aHR0cHM6Ly92aWRlby1hc3NldHMubWlycm9yc2VkZ2VhcmNoaXZlLmRl"
   }
 }

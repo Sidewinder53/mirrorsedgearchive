@@ -1,5 +1,5 @@
-var gdb, psv, nv, nvc;
-gdb = psv = nv = nvc = null;
+var gdb, psv, nv, nvc, chapter;
+gdb = psv = nv = nvc = chapter = null;
 
 $(function() {
   var castList = '';
@@ -87,7 +87,7 @@ $(function() {
                     console.log('vp9 asset is on main asset server.');
                     vp9AssetURL = video.videoURL['vp9'].replace(
                       '$mainAsset$',
-                      gdb['infrastructure'].mainAssetServer
+                      atob(gdb['infrastructure'].mainAssetServer)
                     );
                   } else {
                     console.log('vp9 asset is external.');
@@ -106,7 +106,7 @@ $(function() {
                     console.log('h264 asset is on main asset server.');
                     h264AssetURL = video.videoURL['h264'].replace(
                       '$mainAsset$',
-                      gdb['infrastructure'].mainAssetServer
+                      atob(gdb['infrastructure'].mainAssetServer)
                     );
                   } else {
                     console.log('h264 asset is external.');
@@ -147,16 +147,20 @@ $(function() {
                 $('#vidPlayer')
                   .get(0)
                   .load();
-                let timestamps = getTimeStamps(video);
-                if (timestamps) {
+                let ts = getTs(video);
+                let tsList = buildTimestampList(ts);
+                if (tsList) {
+                  tl = getTsNumArr(ts);
+                  chapter = 0;
                   $('#vidAd').fadeTo(400, 0, function() {
                     $('#vidNav')
                       .css('opacity', '0')
                       .css('display', 'block')
                       .fadeTo(400, 1);
-                    $('#tsList').html(timestamps);
+                    $('#tsList').html(tsList);
                   });
                 } else {
+                  tl = null;
                   $('#vidNav').fadeTo(400, 0, function() {
                     $(this).css('display', 'none');
                     $('#vidAd').fadeTo(100, 0.6);
@@ -173,9 +177,22 @@ $(function() {
       $('#subCheck').change(function() {
         enableSubs();
       }),
-      // $('#vidPlayer').bind('timeupdate', function() {
-      //   console.log('timeupdate');
-      // }),
+      $('#vidPlayer').bind('timeupdate', function(event) {
+        for (let index = 0; index < tl.length; index++) {
+          if (event.target.currentTime <= tl[index]) {
+            index = tl.length;
+            console.log(chapter);
+            if (index - 1 != chapter) {
+              chapter = index - 1;
+              console.log(chapter);
+              $('#tsList')
+                .children()
+                .eq(chapter)
+                .addClass('active');
+            }
+          }
+        }
+      }),
       $('#vidPlayer').bind('ended', function() {
         if ($('#apCheck').prop('checked')) {
           if (nvc) {
@@ -210,7 +227,7 @@ function enableSubs() {
       ) {
         subURL = $('#vidPlayer')
           .data('track')
-          .replace('$mainAsset$', gdb['infrastructure'].mainAssetServer);
+          .replace('$mainAsset$', atob(gdb['infrastructure'].mainAssetServer));
       } else {
         subURL = $('#vidPlayer').data('track');
       }
@@ -226,9 +243,21 @@ function enableSubs() {
   }
 }
 
-function getTimeStamps(video) {
+function getTs(video) {
+  return video.timestamps;
+}
+
+function getTsNumArr(ts) {
+  let arr = [];
+  $.each(ts, function(i, text) {
+    arr.push(i);
+  });
+  return arr;
+}
+
+function buildTimestampList(ts) {
   let timesList = '';
-  $.each(video.timestamps, function(i, timestamp) {
+  $.each(ts, function(i, timestamp) {
     timesList +=
       "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' data-time='" +
       i +
@@ -250,7 +279,7 @@ function getThumbnail(video) {
     if (video.thumbnail.indexOf('$mainAsset$') != -1) {
       return video.thumbnail.replace(
         '$mainAsset$',
-        gdb['infrastructure'].mainAssetServer
+        atob(gdb['infrastructure'].mainAssetServer)
       );
     }
   } else {
