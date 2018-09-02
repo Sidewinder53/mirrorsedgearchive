@@ -91,12 +91,6 @@
     </div>
   </nav>
 
-  <div class="container">
-    <div class="alert alert-info " role="alert">
-      This project is work in progress, subject to substantial change and best viewed on a large, Full HD viewport.
-    </div>
-  </div>
-
   <div class="container" id="mainDiv">
 
     <div class="card">
@@ -133,51 +127,55 @@
       </div>
     </div>
 
-    <div id="vidAd">
-      <a href="/project_propaganda" class="card">
-        <img src="/assets/media/image/project_billboard/news.jpg">
-        <div class="card-footer text-muted">
-          Newscasts
-        </div>
-      </a>
-    </div>
-
-
-    <div id="vidSel">
-      <div class="card shadow">
-        <div class="card-header">
-          <h5 class="mb-0">
-            Scene selection
-          </h5>
-        </div>
-
-        <ul id="vidTypeSel" class="nav nav-pills nav-justified" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active show" id="horBillboardTab" data-toggle="tab" href="#horBillboard" role="tab" aria-controls="horBillboard"
-              aria-selected="false"><svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path fill="#6F6F6F" d="M19 7v10H5V7M1 7v10a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2z" /></svg></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="verBillboardTab" data-toggle="tab" href="#verBillboard" role="tab" aria-controls="verBillboard" aria-selected="false">
-              <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path fill="#6F6F6F" d="M17 19H7V5h10m0-4H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z" /></svg>
-            </a>
-          </li>
-        </ul>
-
-        <div class="tab-content">
-
-          <div class="tab-pane show active" id="horBillboard" role="tabpanel" aria-labelledby="horBillboardTab">
-            <div class="list-group list-group-flush vidList" id="horBillboardList">
-            </div>
+    <div id="selContainer" class="container">
+      <div id="vidAd">
+        <a href="/project_propaganda" class="card">
+          <img src="/assets/media/image/project_billboard/news.jpg">
+          <div class="card-footer text-muted">
+            Newscasts
           </div>
-          <div class="tab-pane" id="verBillboard" role="tabpanel" aria-labelledby="verBillboardTab">
-            <div class="list-group list-group-flush vidList" id="verBillboardList">
+        </a>
+      </div>
+      <div id="vidSel">
+        <div class="card shadow">
+          <div class="card-header">
+            <h5 class="mb-0">
+              Scene selection
+            </h5>
+          </div>
+
+          <ul id="vidTypeSel" class="nav nav-pills nav-justified" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active show" id="horBillboardTab" data-toggle="tab" href="#horBillboard" role="tab" aria-controls="horBillboard"
+                aria-selected="false"><svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="#6F6F6F" d="M19 7v10H5V7M1 7v10a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2z" /></svg></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="verBillboardTab" data-toggle="tab" href="#verBillboard" role="tab" aria-controls="verBillboard" aria-selected="false">
+                <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="#6F6F6F" d="M17 19H7V5h10m0-4H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z" /></svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+
+            <div class="tab-pane show active" id="horBillboard" role="tabpanel" aria-labelledby="horBillboardTab">
+              <div class="list-group list-group-flush vidList" id="horBillboardList">
+              </div>
+            </div>
+            <div class="tab-pane" id="verBillboard" role="tabpanel" aria-labelledby="verBillboardTab">
+              <div class="list-group list-group-flush vidList" id="verBillboardList">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+
+
   </div>
 
   <div id="legal_footer" class="small text-secondary">
