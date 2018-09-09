@@ -2,6 +2,26 @@ var gdb, psv, nv, nvc;
 gdb = psv = nv = nvc = null;
 
 $(function() {
+  if (document.addEventListener) {
+    // IE >= 9; other browsers
+    $('#vidPlayer')
+      .get(0)
+      .addEventListener(
+        'contextmenu',
+        function(e) {
+          $('#vidRCM').css('display', 'block');
+          e.preventDefault();
+        },
+        false
+      );
+  } else {
+    // IE < 9
+    $('#vidPlayer')
+      .get(0)
+      .attachEvent('oncontextmenu', function() {
+        $('#vidRCM').css('display', 'block');
+      });
+  }
   var horBillboardList = '',
     verBillboardList = '';
   $.get('data.json', function(db) {
@@ -193,6 +213,9 @@ $(function() {
     }),
     $('#apCheck').change(function() {
       toggleLoop($('#apCheck').prop('checked'));
+    }),
+    $('#vidRCM').on('click', function() {
+      $('#vidRCM').css('display', 'none');
     })
   );
 });

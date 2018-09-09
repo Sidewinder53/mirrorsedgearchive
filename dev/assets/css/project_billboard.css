@@ -16,6 +16,7 @@
 
 #mainDiv {
   position: relative;
+  margin-top: 1em;
 }
 
 #vidSel > div > ul > li > a {
@@ -25,6 +26,25 @@
 #horBillboardTab:hover:not(.active) > svg > path,
 #verBillboardTab:hover:not(.active) > svg > path {
   fill: unset !important;
+}
+
+#vidRCM {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  padding: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+#vidInnerVC {
+  margin: 0 auto;
 }
 
 #vidAd {
@@ -161,6 +181,10 @@
 }
 
 @media only screen and (max-width: 767.98px) {
+  #vidRCM {
+    padding: 1em;
+  }
+
   #mainDiv {
     padding: 0;
   }
