@@ -231,7 +231,7 @@ function getThumbnail(video) {
       );
     }
   } else {
-    return 'https://video-assets.mirrorsedgearchive.de/beta/billboard/static.jpg';
+    return '/assets/media/image/project_billboard/static.jpg';
   }
 }
 
