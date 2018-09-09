@@ -19,6 +19,10 @@
   margin-top: 1em;
 }
 
+#vidAd {
+  display: none;
+}
+
 #vidSel > div > ul > li > a {
   border-radius: 0;
 }

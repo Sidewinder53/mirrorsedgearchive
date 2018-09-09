@@ -27,12 +27,15 @@
   background-position: center 56px;
 }
 
-.image-wrapper img {
+.image-wrapper img,
+.image-wrapper video {
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   position: absolute;
+  width: 100%;
+  height: auto;
 }
 
 #content {
@@ -65,8 +68,6 @@
 }
 
 img {
-  width: 100%;
-  height: auto;
 }
 
 #hero_text {
