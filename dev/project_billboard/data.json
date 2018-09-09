@@ -9,7 +9,7 @@
             "videoName": "abstract_01a",
             "videoLabel": "One Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/abstract_01a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_01a.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_01a.mp4"
             }
           },
@@ -17,7 +17,7 @@
             "videoName": "abstract_01c",
             "videoLabel": "One Charlie",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/abstract_01c.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_01c.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_01c.mp4"
             }
           },
@@ -25,7 +25,7 @@
             "videoName": "abstract_03a",
             "videoLabel": "Three Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/abstract_03a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_03a.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_03a.mp4"
             }
           },
@@ -33,7 +33,7 @@
             "videoName": "abstract_04a",
             "videoLabel": "Four Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/abstract_04a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_04a.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_04a.mp4"
             }
           },
@@ -41,7 +41,7 @@
             "videoName": "abstract_05a",
             "videoLabel": "Five Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/abstract_05a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_05a.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_05a.mp4"
             }
           },
@@ -49,7 +49,7 @@
             "videoName": "abstract_06a",
             "videoLabel": "Six Alpha",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/abstract_06a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_06a.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_06a.mp4"
             }
           },
@@ -57,7 +57,7 @@
             "videoName": "pulse_01",
             "videoLabel": "Pulse",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/pulse_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/pulse_01.webm",
               "h264": "$mainAsset$/horizontal/h264/pulse_01.mp4"
             }
           }
@@ -71,7 +71,7 @@
             "videoName": "allcom_01a",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/allcom_01a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/allcom_01a.webm",
               "h264": "$mainAsset$/horizontal/h264/allcom_01a.mp4"
             }
           }
@@ -85,7 +85,7 @@
             "videoName": "anansi_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/anansi_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/anansi_01.webm",
               "h264": "$mainAsset$/horizontal/h264/anansi_01.mp4"
             }
           }
@@ -99,7 +99,7 @@
             "videoName": "bryson_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/bryson_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/bryson_01.webm",
               "h264": "$mainAsset$/horizontal/h264/bryson_01.mp4"
             }
           },
@@ -107,7 +107,7 @@
             "videoName": "bryson_03",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/bryson_03.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/bryson_03.webm",
               "h264": "$mainAsset$/horizontal/h264/bryson_03.mp4"
             }
           }
@@ -121,7 +121,7 @@
             "videoName": "callaghan_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/callaghan_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/callaghan_01.webm",
               "h264": "$mainAsset$/horizontal/h264/callaghan_01.mp4"
             }
           }
@@ -135,7 +135,7 @@
             "videoName": "cascadia_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/cascadia_02.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/cascadia_02.webm",
               "h264": "$mainAsset$/horizontal/h264/cascadia_02.mp4"
             }
           }
@@ -149,7 +149,7 @@
             "videoName": "elysium_04",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/elysium_04.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/elysium_04.webm",
               "h264": "$mainAsset$/horizontal/h264/elysium_04.mp4"
             }
           },
@@ -157,7 +157,7 @@
             "videoName": "elysium_06",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/elysium_06.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/elysium_06.webm",
               "h264": "$mainAsset$/horizontal/h264/elysium_06.mp4"
             }
           },
@@ -165,7 +165,7 @@
             "videoName": "elysiumbd_01",
             "videoLabel": "Three",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/elysiumbd_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/elysiumbd_01.webm",
               "h264": "$mainAsset$/horizontal/h264/elysiumbd_01.mp4"
             }
           },
@@ -173,7 +173,7 @@
             "videoName": "elysium_h_01",
             "videoLabel": "Four",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/elysium_h_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/elysium_h_01.webm",
               "h264": "$mainAsset$/horizontal/h264/elysium_h_01.mp4"
             }
           }
@@ -187,7 +187,7 @@
             "videoName": "everdyne_h_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/everdyne_h_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/everdyne_h_01.webm",
               "h264": "$mainAsset$/horizontal/h264/everdyne_h_01.mp4"
             }
           }
@@ -201,7 +201,7 @@
             "videoName": "krugersec02a",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/krugersec02a.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/krugersec02a.webm",
               "h264": "$mainAsset$/horizontal/h264/krugersec02a.mp4"
             }
           }
@@ -215,7 +215,7 @@
             "videoName": "pirandello_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/pirandello_02.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/pirandello_02.webm",
               "h264": "$mainAsset$/horizontal/h264/pirandello_02.mp4"
             }
           }
@@ -229,7 +229,7 @@
             "videoName": "raposa_03",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/raposa_03.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/raposa_03.webm",
               "h264": "$mainAsset$/horizontal/h264/raposa_03.mp4"
             }
           }
@@ -243,7 +243,7 @@
             "videoName": "reflection_act01_01b",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/reflection_act01_01b.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/reflection_act01_01b.webm",
               "h264": "$mainAsset$/horizontal/h264/reflection_act01_01b.mp4"
             }
           },
@@ -251,7 +251,7 @@
             "videoName": "reflection_act02_01b",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/reflection_act02_01b.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/reflection_act02_01b.webm",
               "h264": "$mainAsset$/horizontal/h264/reflection_act02_01b.mp4"
             }
           },
@@ -259,7 +259,7 @@
             "videoName": "reflection_act02_01c",
             "videoLabel": "Three",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/reflection_act02_01c.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/reflection_act02_01c.webm",
               "h264": "$mainAsset$/horizontal/h264/reflection_act02_01c.mp4"
             }
           },
@@ -267,7 +267,7 @@
             "videoName": "reflection_act03_01b",
             "videoLabel": "Four",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/reflection_act03_01b.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/reflection_act03_01b.webm",
               "h264": "$mainAsset$/horizontal/h264/reflection_act03_01b.mp4"
             }
           }
@@ -281,7 +281,7 @@
             "videoName": "silvine_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/silvine_02.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/silvine_02.webm",
               "h264": "$mainAsset$/horizontal/h264/silvine_02.mp4"
             }
           }
@@ -295,7 +295,7 @@
             "videoName": "wfyo_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/horizontal/vp9/wfyo_01.webx",
+              "vp9": "$mainAsset$/horizontal/vp9/wfyo_01.webm",
               "h264": "$mainAsset$/horizontal/h264/wfyo_01.mp4"
             }
           }
@@ -311,7 +311,7 @@
             "videoName": "abstract_01b",
             "videoLabel": "One Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/abstract_01b.webx",
+              "vp9": "$mainAsset$/vertical/vp9/abstract_01b.webm",
               "h264": "$mainAsset$/vertical/h264/abstract_01b.mp4"
             }
           },
@@ -319,7 +319,7 @@
             "videoName": "abstract_02b",
             "videoLabel": "Two Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/abstract_02b.webx",
+              "vp9": "$mainAsset$/vertical/vp9/abstract_02b.webm",
               "h264": "$mainAsset$/vertical/h264/abstract_02b.mp4"
             }
           },
@@ -327,7 +327,7 @@
             "videoName": "abstract_04b",
             "videoLabel": "Four Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/abstract_04b.webx",
+              "vp9": "$mainAsset$/vertical/vp9/abstract_04b.webm",
               "h264": "$mainAsset$/vertical/h264/abstract_04b.mp4"
             }
           },
@@ -335,7 +335,7 @@
             "videoName": "abstract_05b",
             "videoLabel": "Five Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/abstract_05b.webx",
+              "vp9": "$mainAsset$/vertical/vp9/abstract_05b.webm",
               "h264": "$mainAsset$/vertical/h264/abstract_05b.mp4"
             }
           },
@@ -343,7 +343,7 @@
             "videoName": "abstract_06b",
             "videoLabel": "Six Bravo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/abstract_06b.webx",
+              "vp9": "$mainAsset$/vertical/vp9/abstract_06b.webm",
               "h264": "$mainAsset$/vertical/h264/abstract_06b.mp4"
             }
           },
@@ -351,7 +351,7 @@
             "videoName": "flow_02",
             "videoLabel": "Flow",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/flow_02.webx",
+              "vp9": "$mainAsset$/vertical/vp9/flow_02.webm",
               "h264": "$mainAsset$/vertical/h264/flow_02.mp4"
             }
           }
@@ -365,7 +365,7 @@
             "videoName": "anansi_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/anansi_02.webx",
+              "vp9": "$mainAsset$/vertical/vp9/anansi_02.webm",
               "h264": "$mainAsset$/vertical/h264/anansi_02.mp4"
             }
           }
@@ -379,7 +379,7 @@
             "videoName": "bryson_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/bryson_02.webx",
+              "vp9": "$mainAsset$/vertical/vp9/bryson_02.webm",
               "h264": "$mainAsset$/vertical/h264/bryson_02.mp4"
             }
           },
@@ -387,7 +387,7 @@
             "videoName": "bryson_04",
             "videoLabel": "Two",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/bryson_04.webx",
+              "vp9": "$mainAsset$/vertical/vp9/bryson_04.webm",
               "h264": "$mainAsset$/vertical/h264/bryson_04.mp4"
             }
           }
@@ -401,7 +401,7 @@
             "videoName": "callaghan_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/callaghan_02.webx",
+              "vp9": "$mainAsset$/vertical/vp9/callaghan_02.webm",
               "h264": "$mainAsset$/vertical/h264/callaghan_02.mp4"
             }
           }
@@ -415,7 +415,7 @@
             "videoName": "cascadia_03",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/cascadia_03.webx",
+              "vp9": "$mainAsset$/vertical/vp9/cascadia_03.webm",
               "h264": "$mainAsset$/vertical/h264/cascadia_03.mp4"
             }
           }
@@ -429,7 +429,7 @@
             "videoName": "elysium_v_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/elysium_v_01.webx",
+              "vp9": "$mainAsset$/vertical/vp9/elysium_v_01.webm",
               "h264": "$mainAsset$/vertical/h264/elysium_v_01.mp4"
             }
           }
@@ -443,7 +443,7 @@
             "videoName": "everdyne_v_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/everdyne_v_01.webx",
+              "vp9": "$mainAsset$/vertical/vp9/everdyne_v_01.webm",
               "h264": "$mainAsset$/vertical/h264/everdyne_v_01.mp4"
             }
           }
@@ -457,7 +457,7 @@
             "videoName": "krugersec_02b",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/krugersec_02b.webx",
+              "vp9": "$mainAsset$/vertical/vp9/krugersec_02b.webm",
               "h264": "$mainAsset$/vertical/h264/krugersec_02b.mp4"
             }
           }
@@ -471,7 +471,7 @@
             "videoName": "pirandello_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/pirandello_01.webx",
+              "vp9": "$mainAsset$/vertical/vp9/pirandello_01.webm",
               "h264": "$mainAsset$/vertical/h264/pirandello_01.mp4"
             }
           }
@@ -485,7 +485,7 @@
             "videoName": "raposa_04",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/raposa_04.webx",
+              "vp9": "$mainAsset$/vertical/vp9/raposa_04.webm",
               "h264": "$mainAsset$/vertical/h264/raposa_04.mp4"
             }
           }
@@ -499,7 +499,7 @@
             "videoName": "reflection_act01_01e",
             "videoLabel": "One Echo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/reflection_act01_01e.webx",
+              "vp9": "$mainAsset$/vertical/vp9/reflection_act01_01e.webm",
               "h264": "$mainAsset$/vertical/h264/reflection_act01_01e.mp4"
             }
           },
@@ -507,7 +507,7 @@
             "videoName": "reflection_act02_01d",
             "videoLabel": "One Delta",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/reflection_act02_01d.webx",
+              "vp9": "$mainAsset$/vertical/vp9/reflection_act02_01d.webm",
               "h264": "$mainAsset$/vertical/h264/reflection_act02_01d.mp4"
             }
           },
@@ -515,7 +515,7 @@
             "videoName": "reflection_act02_01e",
             "videoLabel": "Two Echo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/reflection_act02_01e.webx",
+              "vp9": "$mainAsset$/vertical/vp9/reflection_act02_01e.webm",
               "h264": "$mainAsset$/vertical/h264/reflection_act02_01e.mp4"
             }
           },
@@ -523,7 +523,7 @@
             "videoName": "reflection_act03_01e",
             "videoLabel": "Three Echo",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/reflection_act03_01e.webx",
+              "vp9": "$mainAsset$/vertical/vp9/reflection_act03_01e.webm",
               "h264": "$mainAsset$/vertical/h264/reflection_act03_01e.mp4"
             }
           }
@@ -537,7 +537,7 @@
             "videoName": "silvine_01",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/silvine_01.webx",
+              "vp9": "$mainAsset$/vertical/vp9/silvine_01.webm",
               "h264": "$mainAsset$/vertical/h264/silvine_01.mp4"
             }
           }
@@ -551,7 +551,7 @@
             "videoName": "wfyo_02",
             "videoLabel": "One",
             "videoURL": {
-              "vp9": "$mainAsset$/vertical/vp9/wfyo_02.webx",
+              "vp9": "$mainAsset$/vertical/vp9/wfyo_02.webm",
               "h264": "$mainAsset$/vertical/h264/wfyo_02.mp4"
             }
           }
