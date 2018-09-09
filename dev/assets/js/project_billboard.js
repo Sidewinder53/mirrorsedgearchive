@@ -180,8 +180,10 @@ $(function() {
                   .removeClass('text-muted');
               } else {
                 $('#vidDesc')
-                  .text('No description.')
-                  .addClass('text-muted');
+                  .html(
+                    'Created by <a href="https://pixeldust.se/" target="_blank">Pixeldust</a> (Joachim Ljunggren) for EA/DICE. Big thanks to derwangler who made this project possible.'
+                  )
+                  .removeClass('text-muted');
               }
               $('#vidPlayer').html(vidSrc);
               $('#vidTitle').text(
