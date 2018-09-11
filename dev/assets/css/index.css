@@ -86,6 +86,10 @@ img {
   transition: all 0.15s ease-in;
 }
 
+.carousel-item > picture > img {
+  width: 100%;
+}
+
 .carousel .carousel-indicators {
   opacity: 0;
 }
