@@ -14,6 +14,14 @@
             }
           },
           {
+            "videoName": "abstract_02a",
+            "videoLabel": "Two Alpha",
+            "videoURL": {
+              "vp9": "$mainAsset$/horizontal/vp9/abstract_02a.webm",
+              "h264": "$mainAsset$/horizontal/h264/abstract_02a.mp4"
+            }
+          },
+          {
             "videoName": "abstract_01c",
             "videoLabel": "One Charlie",
             "videoURL": {
@@ -51,6 +59,14 @@
             "videoURL": {
               "vp9": "$mainAsset$/horizontal/vp9/abstract_06a.webm",
               "h264": "$mainAsset$/horizontal/h264/abstract_06a.mp4"
+            }
+          },
+          {
+            "videoName": "flow_01",
+            "videoLabel": "Flow",
+            "videoURL": {
+              "vp9": "$mainAsset$/horizontal/vp9/flow_01.webm",
+              "h264": "$mainAsset$/horizontal/h264/flow_01.mp4"
             }
           },
           {
