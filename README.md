@@ -1,14 +1,19 @@
 ![The Mirror's Edge Archive Logo](https://puu.sh/B1GW8.svg)
-This is the web code base for the Mirror's Edge Archive, which is a huge collection of high-quality photos, concept art, trailers, gameplay-videos, audio, music, developer presentations, fan projects, maps and other resources from the video game franchise Mirror's Edge.
+This is the web code base for the Mirror's Edge Archive, which is a collection of fan projects and front-end to a comprehensive archive about the Mirror's Edge franchise.
+
+The archive consits of high-quality photos and wallpapers, concept art, videos (like gameplay previews, trailers and developers diaries), audio (like SFX and music), developer presentations and fan-made maps as well as other resources.
+
+Due to legal limitations the archive, which is accessible at https://archive.mirrorsedge.de/, and other resources which host copyrighted content are not part of this repository.
 
 For more information on how to contribute to this project please visit https://mirrorsedgearchive.de/contribute/
 
 ## Build instructions
 
 The Mirror's Edge Archive is built using plain HTML, CSS and JavaScript. Some pages use Bootstrap, which is loaded from an external host.
-For build automation we do use gulp and several gulp plugins. All dependenices can be installed by cloning this repository and executing the following command:
+The build toolchain has been built using gulp and numerous plugins. All dependenices can be installed by cloning this repository and executing the following command:
 
 ```sh
+> git clone https://github.com/Sidewinder53/mirrorsedgearchive.git
 > npm install
 ```
 
