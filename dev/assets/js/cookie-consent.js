@@ -1,7 +1,9 @@
 var _paq = _paq || [];
-_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+_paq.push([
+  "setDocumentTitle",
+  document.domain + "/" + document.title.replace("📂 ", "")
+]);
 _paq.push(["setCookieDomain", "*.mirrorsedgearchive.de"]);
-_paq.push(["setDomains", ["*.mirrorsedgearchive.de"]]);
 _paq.push(["trackPageView"]);
 _paq.push(["enableLinkTracking"]);
 (function() {
