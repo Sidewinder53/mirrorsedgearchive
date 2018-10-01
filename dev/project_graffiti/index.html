@@ -1,26 +1,35 @@
-<!DOCTYPE HTML>
 <!DOCTYPE html>
+<html lang="en-US">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Project Graffiti - The Mirror's Edge&trade; Archive &#x1F4C2;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>The Mirror's Edge&trade; Archive &#x1F4C2; - Project Graffiti</title>
-  <meta property="og:image" content="https://mirrorsedgearchive.de/project_graffiti/thumb.jpg" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+  <meta name="description" content="Create your own Mirror's Edge Catalyst&trade; Player Tag and 
+  download the result in stunning 2K image quality!">
+  <meta property="og:title" content="The Mirror's Edge&trade; Archive &#x1F4C2;">
+  <meta property="og:image" content="https://mirrorsedgearchive.de/assets/media/image/og/project_graffiti.jpg">
+  <meta property="og:description" content="Create your own Mirror's Edge Catalyst&trade; Player Tag and 
+    download the result in stunning 2K image quality!">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.css" integrity="sha256-9fDoj4QsTQj0X7U6T9oLzybDWYftbTH1UHl85DwrRWo="
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.8.94/css/materialdesignicons.min.css"
+    integrity="sha256-47cQLvKq8cQPVPo7P4P92YZDUBNd7TeeJ7OMObtnxxA=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.css" integrity="sha256-8MzLgSCjCMJ+Dlv9kUVxdXvtYI3+tUhrnGhDFH945/4="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.1.19/css/materialdesignicons.min.css"
-    integrity="sha256-L3NrnCWf0Pw+HvXutUdR0Vlj4pI5pM2s7tijm55+DzU=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/image-picker.css">
-  <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <script src="js/image-picker.js" type="text/javascript"></script>
-  <script src="js/magic.js" type="text/javascript"></script>
-  <script>$.getScript('/assets/js/cookie-consent.js');</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.0/image-picker.min.css"
+    integrity="sha256-9gsBfIc7vU7vWNMFSpwqOAdc7Q2E/k7NOS9V1G/cD8E=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.0/image-picker.min.js" integrity="sha256-raAg+MqNg4ng8kTy8iZn+74zZOL9hEJag0fLMCX31DE="
+    crossorigin="anonymous"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" type="text/css" href="/assets/css/global.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/project_graffiti.css">
+  <script type="text/javascript" src="/assets/js/cookie-consent.js"></script>
+  <script type="text/javascript" src="/assets/js/project_graffiti.js"></script>
 </head>
 
 <body>
@@ -127,7 +136,7 @@
     <div class="collapse" id="collapseIntro">
 
       <div id="introcard" class="card mar-bot2">
-        <img class="card-img-top" src="resources/img/header.jpg" alt="Card image cap">
+        <img class="card-img-top" src="/assets/media/image/project_graffiti/img/header.jpg" alt="Card image cap">
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Welcome, to the most versatile...</h6>
           <h2 class="card-title">Mirror's Edge Catalyst - Player Tag Generator</h2>
@@ -166,107 +175,180 @@
               <div class="picker">
                 <select id="emblemPicker" class="image-picker">
                   <optgroup label="">
-                    <option data-img-src="resources/img/random.png" data-img-alt="Random">random_emblem</option>
-                    <option data-img-src="resources/img/none.png" data-img-alt="None">no_emblem</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/img/random.png" data-img-alt="Random">random_emblem</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/img/none.png" data-img-alt="None">no_emblem</option>
                   </optgroup>
                   <optgroup label="Main mission">
-                    <option data-img-src="resources/thumbnails/emblems/bop-chaser.png" data-img-alt="Bird of Prey Chaser">bop-chaser</option>
-                    <option data-img-src="resources/thumbnails/emblems/singe-bird-wing.png" data-img-alt="Single Bird Wing">singe-bird-wing</option>
-                    <option data-img-src="resources/thumbnails/emblems/pigeon.png" data-img-alt="Pigeon">pigeon</option>
-                    <option data-img-src="resources/thumbnails/emblems/shattered-glass-panel.png" data-img-alt="Shattered Glass Panel">shattered-glass-panel</option>
-                    <option data-img-src="resources/thumbnails/emblems/shattered-protector-helmet.png" data-img-alt="Shattered Protector Helmet">shattered-protector-helmet</option>
-                    <option data-img-src="resources/thumbnails/emblems/c4.png" data-img-alt="C4">c4</option>
-                    <option data-img-src="resources/thumbnails/emblems/gift.png" data-img-alt="Gift">gift</option>
-                    <option data-img-src="resources/thumbnails/emblems/fly.png" data-img-alt="Fly">fly</option>
-                    <option data-img-src="resources/thumbnails/emblems/black-november.png" data-img-alt="Black November">black-november</option>
-                    <option data-img-src="resources/thumbnails/emblems/shattered-turret.png" data-img-alt="Shattered Turret">shattered-turret</option>
-                    <option data-img-src="resources/thumbnails/emblems/july-revolution.png" data-img-alt="July Revolution">july-revolution</option>
-                    <option data-img-src="resources/thumbnails/emblems/claw-marks.png" data-img-alt="Claw Marks">claw-marks</option>
-                    <option data-img-src="resources/thumbnails/emblems/cat-profile.png" data-img-alt="Cat Profile">cat-profile</option>
-                    <option data-img-src="resources/thumbnails/emblems/che-noah.png" data-img-alt="Che Noah">che-noah</option>
-                    <option data-img-src="resources/thumbnails/emblems/shatteret-shard-building.png" data-img-alt="Shattered Shard Building">shatteret-shard-building</option>
-                    <option data-img-src="resources/thumbnails/emblems/shatteret-padlock.png" data-img-alt="Shattered Padlock">shatteret-padlock</option>
-                    <option data-img-src="resources/thumbnails/emblems/double-dragon.png" data-img-alt="Double Dragon">double-dragon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/bop-chaser.png"
+                      data-img-alt="Bird of Prey Chaser">bop-chaser</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/singe-bird-wing.png"
+                      data-img-alt="Single Bird Wing">singe-bird-wing</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/pigeon.png"
+                      data-img-alt="Pigeon">pigeon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shattered-glass-panel.png"
+                      data-img-alt="Shattered Glass Panel">shattered-glass-panel</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shattered-protector-helmet.png"
+                      data-img-alt="Shattered Protector Helmet">shattered-protector-helmet</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/c4.png" data-img-alt="C4">c4</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/gift.png"
+                      data-img-alt="Gift">gift</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/fly.png" data-img-alt="Fly">fly</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/black-november.png"
+                      data-img-alt="Black November">black-november</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shattered-turret.png"
+                      data-img-alt="Shattered Turret">shattered-turret</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/july-revolution.png"
+                      data-img-alt="July Revolution">july-revolution</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/claw-marks.png"
+                      data-img-alt="Claw Marks">claw-marks</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/cat-profile.png"
+                      data-img-alt="Cat Profile">cat-profile</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/che-noah.png"
+                      data-img-alt="Che Noah">che-noah</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shatteret-shard-building.png"
+                      data-img-alt="Shattered Shard Building">shatteret-shard-building</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shatteret-padlock.png"
+                      data-img-alt="Shattered Padlock">shatteret-padlock</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/double-dragon.png"
+                      data-img-alt="Double Dragon">double-dragon</option>
                   </optgroup>
                   <optgroup label="Mastery">
-                    <option data-img-src="resources/thumbnails/emblems/angel-wings.png" data-img-alt="Angel Wings">angel-wings</option>
-                    <option data-img-src="resources/thumbnails/emblems/rising-sun.png" data-img-alt="Rising Sun">rising-sun</option>
-                    <option data-img-src="resources/thumbnails/emblems/butterfly.png" data-img-alt="Butterfly">butterfly</option>
-                    <option data-img-src="resources/thumbnails/emblems/open-hand-with-droplet.png" data-img-alt="Open Hand with Droplet">open-hand-with-droplet</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/angel-wings.png"
+                      data-img-alt="Angel Wings">angel-wings</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/rising-sun.png"
+                      data-img-alt="Rising Sun">rising-sun</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/butterfly.png"
+                      data-img-alt="Butterfly">butterfly</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/open-hand-with-droplet.png"
+                      data-img-alt="Open Hand with Droplet">open-hand-with-droplet</option>
                   </optgroup>
                   <optgroup label="Collectible &amp; Event">
-                    <option data-img-src="resources/thumbnails/emblems/key.png" data-img-alt="Key">key</option>
-                    <option data-img-src="resources/thumbnails/emblems/spider.png" data-img-alt="Spider">spider</option>
-                    <option data-img-src="resources/thumbnails/emblems/two-pigeons.png" data-img-alt="Two Pigeons">two-pigeons</option>
-                    <option data-img-src="resources/thumbnails/emblems/delivery.png" data-img-alt="Delivery">delivery</option>
-                    <option data-img-src="resources/thumbnails/emblems/geococcyx.png" data-img-alt="Geococcyx">geococcyx</option>
-                    <option data-img-src="resources/thumbnails/emblems/shattered-light-bulb.png" data-img-alt="Shattered Light Bulb">shattered-light-bulb</option>
-                    <option data-img-src="resources/thumbnails/emblems/closed-fist-revolutionary.png" data-img-alt="Closed Fist Revolutionary">closed-fist-revolutionary</option>
-                    <option data-img-src="resources/thumbnails/emblems/jacknife.png" data-img-alt="Jacknife">jacknife</option>
-                    <option data-img-src="resources/thumbnails/emblems/pickpocketing-hand.png" data-img-alt="Pickpocketing Hand">pickpocketing-hand</option>
-                    <option data-img-src="resources/thumbnails/emblems/destoyed-security-camera.png" data-img-alt="Destoyed Security Camera">destoyed-security-camera</option>
-                    <option data-img-src="resources/thumbnails/emblems/anchor.png" data-img-alt="Anchor">anchor</option>
-                    <option data-img-src="resources/thumbnails/emblems/battlefield-dog-tag.png" data-img-alt="Battlefield Dog Tag">battlefield-dog-tag</option>
-                    <option data-img-src="resources/thumbnails/emblems/big-thick-book.png" data-img-alt="Big Thick Book">big-thick-book</option>
-                    <option data-img-src="resources/thumbnails/emblems/cowboyhat-and-bandana.png" data-img-alt="Cowboy Hat and Bandana">cowboyhat-and-bandana</option>
-                    <option data-img-src="resources/thumbnails/emblems/leon.png" data-img-alt="Leon">leon</option>
-                    <option data-img-src="resources/thumbnails/emblems/mercury-god-helmet.png" data-img-alt="Mercury God Helmet">mercury-god-helmet</option>
-                    <option data-img-src="resources/thumbnails/emblems/mountain-peak.png" data-img-alt="Mountain Peak">mountain-peak</option>
-                    <option data-img-src="resources/thumbnails/emblems/rat.png" data-img-alt="Rat">rat</option>
-                    <option data-img-src="resources/thumbnails/emblems/thumbs-up.png" data-img-alt="Thumbs Up">thumbs-up</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/key.png" data-img-alt="Key">key</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/spider.png"
+                      data-img-alt="Spider">spider</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/two-pigeons.png"
+                      data-img-alt="Two Pigeons">two-pigeons</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/delivery.png"
+                      data-img-alt="Delivery">delivery</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/geococcyx.png"
+                      data-img-alt="Geococcyx">geococcyx</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shattered-light-bulb.png"
+                      data-img-alt="Shattered Light Bulb">shattered-light-bulb</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/closed-fist-revolutionary.png"
+                      data-img-alt="Closed Fist Revolutionary">closed-fist-revolutionary</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/jacknife.png"
+                      data-img-alt="Jacknife">jacknife</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/pickpocketing-hand.png"
+                      data-img-alt="Pickpocketing Hand">pickpocketing-hand</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/destoyed-security-camera.png"
+                      data-img-alt="Destoyed Security Camera">destoyed-security-camera</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/anchor.png"
+                      data-img-alt="Anchor">anchor</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/battlefield-dog-tag.png"
+                      data-img-alt="Battlefield Dog Tag">battlefield-dog-tag</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/big-thick-book.png"
+                      data-img-alt="Big Thick Book">big-thick-book</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/cowboyhat-and-bandana.png"
+                      data-img-alt="Cowboy Hat and Bandana">cowboyhat-and-bandana</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/leon.png"
+                      data-img-alt="Leon">leon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/mercury-god-helmet.png"
+                      data-img-alt="Mercury God Helmet">mercury-god-helmet</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/mountain-peak.png"
+                      data-img-alt="Mountain Peak">mountain-peak</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/rat.png" data-img-alt="Rat">rat</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/thumbs-up.png"
+                      data-img-alt="Thumbs Up">thumbs-up</option>
                   </optgroup>
                   <optgroup label="Social Play">
-                    <option data-img-src="resources/thumbnails/emblems/ghost.png" data-img-alt="Ghost">ghost</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/ghost.png"
+                      data-img-alt="Ghost">ghost</option>
                   </optgroup>
                   <optgroup label="Exclusive">
-                    <option data-img-src="resources/thumbnails/emblems/cheetah.png" data-img-alt="Cheetah">cheetah</option>
-                    <option data-img-src="resources/thumbnails/emblems/fist.png" data-img-alt="Fist">fist</option>
-                    <option data-img-src="resources/thumbnails/emblems/shattered-oldschool-footprint.png" data-img-alt="Shattered Oldschool Footprint">shattered-oldschool-footprint</option>
-                    <option data-img-src="resources/thumbnails/emblems/stallion.png" data-img-alt="Stallion">stallion</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/cheetah.png"
+                      data-img-alt="Cheetah">cheetah</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/fist.png"
+                      data-img-alt="Fist">fist</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/shattered-oldschool-footprint.png"
+                      data-img-alt="Shattered Oldschool Footprint">shattered-oldschool-footprint</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/stallion.png"
+                      data-img-alt="Stallion">stallion</option>
                   </optgroup>
                   <optgroup label="Misc (not available in the game)">
-                    <option data-img-src="resources/thumbnails/emblems/unused/feather.png" data-img-alt="Feather">feather</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bee.png" data-img-alt="Bee">bee</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/ikarus_portrait.png" data-img-alt="Icarus Portrait">ikarus_portrait</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/feather.png"
+                      data-img-alt="Feather">feather</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bee.png"
+                      data-img-alt="Bee">bee</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/ikarus_portrait.png"
+                      data-img-alt="Icarus Portrait">ikarus_portrait</option>
                   </optgroup>
                   <optgroup label="Unused / Developer exclusive">
-                    <option data-img-src="resources/thumbnails/emblems/unused/3-stars.png" data-img-alt="3 Stars">3-stars</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-apex.png" data-img-alt="Bird of Prey Apex">bop-apex</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-deer.png" data-img-alt="Deer">bop-deer</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-interceptor.png" data-img-alt="Bird of Prey Interceptor">bop-interceptor</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-longranger.png" data-img-alt="Bird of Prey Longranger">bop-longranger</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-lowflier.png" data-img-alt="Bird of Prey Lowflier">bop-lowflier</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-predator.png" data-img-alt="Bird of Prey Predator">bop-predator</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/bop-stalker.png" data-img-alt="Bird of Prey Stalker">bop-stalker</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/chains.png" data-img-alt="Chains">Chains</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/closed-fist.png" data-img-alt="Closed Fist">closed-fist</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/crocodile.png" data-img-alt="Crocodile">crocodile</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/dice-logo.png" data-img-alt="DICE Logo">dice-logo</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/ea-frostbite.png" data-img-alt="EA Frostbite">ea-frostbite</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/ea-logo.png" data-img-alt="EA Logo">ea-logo</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/falling-dominoes.png" data-img-alt="Falling Dominoes">falling-dominoes</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/feather-2.png" data-img-alt="Feather 2">feather-2</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/glass-pieces.png" data-img-alt="Glass Pieces">glass-pieces</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/huma-persepolis.png" data-img-alt="Huma Persepolis">huma-persepolis</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/shattered_senteniel_armor.png"
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/3-stars.png"
+                      data-img-alt="3 Stars">3-stars</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-apex.png"
+                      data-img-alt="Bird of Prey Apex">bop-apex</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-deer.png"
+                      data-img-alt="Deer">bop-deer</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-interceptor.png"
+                      data-img-alt="Bird of Prey Interceptor">bop-interceptor</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-longranger.png"
+                      data-img-alt="Bird of Prey Longranger">bop-longranger</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-lowflier.png"
+                      data-img-alt="Bird of Prey Lowflier">bop-lowflier</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-predator.png"
+                      data-img-alt="Bird of Prey Predator">bop-predator</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/bop-stalker.png"
+                      data-img-alt="Bird of Prey Stalker">bop-stalker</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/chains.png"
+                      data-img-alt="Chains">Chains</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/closed-fist.png"
+                      data-img-alt="Closed Fist">closed-fist</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/crocodile.png"
+                      data-img-alt="Crocodile">crocodile</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/dice-logo.png"
+                      data-img-alt="DICE Logo">dice-logo</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/ea-frostbite.png"
+                      data-img-alt="EA Frostbite">ea-frostbite</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/ea-logo.png"
+                      data-img-alt="EA Logo">ea-logo</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/falling-dominoes.png"
+                      data-img-alt="Falling Dominoes">falling-dominoes</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/feather-2.png"
+                      data-img-alt="Feather 2">feather-2</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/glass-pieces.png"
+                      data-img-alt="Glass Pieces">glass-pieces</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/huma-persepolis.png"
+                      data-img-alt="Huma Persepolis">huma-persepolis</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/shattered_senteniel_armor.png"
                       data-img-alt="Shattered Sentinel Armor">shattered_senteniel_armor</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/shattered-shock-protector-helmet.png"
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/shattered-shock-protector-helmet.png"
                       data-img-alt="Shattered Shock Protector Helmet">shattered-shock-protector-helmet</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/hunter.png" data-img-alt="Hunter">hunter</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/hood.png" data-img-alt="Hood">hood</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/thumbs-crossed.png" data-img-alt="Thumbs Crossed">thumbs-crossed</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/shattered_senteniel_helmet.png"
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/hunter.png"
+                      data-img-alt="Hunter">hunter</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/hood.png"
+                      data-img-alt="Hood">hood</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/thumbs-crossed.png"
+                      data-img-alt="Thumbs Crossed">thumbs-crossed</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/shattered_senteniel_helmet.png"
                       data-img-alt="Shattered Sentinel Helmet">shattered_senteniel_helmet</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/queen.png" data-img-alt="Queen">queen</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/target.png" data-img-alt="Target">target</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/me-logo.png" data-img-alt="ME Logo">me-logo</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/small-book.png" data-img-alt="Small Book">small-book</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/shattered-enforcer-helmet.png"
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/queen.png"
+                      data-img-alt="Queen">queen</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/target.png"
+                      data-img-alt="Target">target</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/me-logo.png"
+                      data-img-alt="ME Logo">me-logo</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/small-book.png"
+                      data-img-alt="Small Book">small-book</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/shattered-enforcer-helmet.png"
                       data-img-alt="Shattered Enforcer Helmet">shattered-enforcer-helmet</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/lion.png" data-img-alt="Lion">lion</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/tiger.png" data-img-alt="Tiger">tiger</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/pith-helmet.png" data-img-alt="Pith Helmet">pith-helmet</option>
-                    <option data-img-src="resources/thumbnails/emblems/unused/ram.png" data-img-alt="Ram">ram</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/lion.png"
+                      data-img-alt="Lion">lion</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/tiger.png"
+                      data-img-alt="Tiger">tiger</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/pith-helmet.png"
+                      data-img-alt="Pith Helmet">pith-helmet</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/emblems/unused/ram.png"
+                      data-img-alt="Ram">ram</option>
                   </optgroup>
                 </select>
               </div>
@@ -282,54 +364,92 @@
               <div class="picker">
                 <select id="framePicker" class="image-picker">
                   <optgroup label="">
-                    <option data-img-src="resources/img/random.png" data-img-alt="Random">random_frame</option>
-                    <option data-img-src="resources/img/none.png" data-img-alt="None">no_frame</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/img/random.png" data-img-alt="Random">random_frame</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/img/none.png" data-img-alt="None">no_frame</option>
                   </optgroup>
                   <optgroup label="Basic">
-                    <option data-img-src="resources/thumbnails/frames/basic_arrow.png" data-img-alt="Basic Arrow">basic_arrow</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_circle.png" data-img-alt="Basic Circle">basic_circle</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_diamond.png" data-img-alt="Basic Diamond">basic_diamond</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_hexagon.png" data-img-alt="Basic Hexagon">basic_hexagon</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_octagon.png" data-img-alt="Basic Octagon">basic_octagon</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_pentagon.png" data-img-alt="Basic Pentagon">basic_pentagon</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_shield.png" data-img-alt="Basic Shield">basic_shield</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_square.png" data-img-alt="Basic Square">basic_square</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_star.png" data-img-alt="Basic Star">basic_star</option>
-                    <option data-img-src="resources/thumbnails/frames/basic_triangle.png" data-img-alt="Basic Triangle">basic_triangle</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_arrow.png"
+                      data-img-alt="Basic Arrow">basic_arrow</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_circle.png"
+                      data-img-alt="Basic Circle">basic_circle</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_diamond.png"
+                      data-img-alt="Basic Diamond">basic_diamond</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_hexagon.png"
+                      data-img-alt="Basic Hexagon">basic_hexagon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_octagon.png"
+                      data-img-alt="Basic Octagon">basic_octagon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_pentagon.png"
+                      data-img-alt="Basic Pentagon">basic_pentagon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_shield.png"
+                      data-img-alt="Basic Shield">basic_shield</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_square.png"
+                      data-img-alt="Basic Square">basic_square</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_star.png"
+                      data-img-alt="Basic Star">basic_star</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/basic_triangle.png"
+                      data-img-alt="Basic Triangle">basic_triangle</option>
                   </optgroup>
                   <optgroup label="Advanced">
-                    <option data-img-src="resources/thumbnails/frames/evolved_arrow.png" data-img-alt="Evolved Arrow">evolved_arrow</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_celtic.png" data-img-alt="Evolved Celtic">evolved_celtic</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_circle.png" data-img-alt="Evolved Circle">evolved_circle</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_cross.png" data-img-alt="Evolved Cross">evolved_cross</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_crusher.png" data-img-alt="Evolved Crusher">evolved_crusher</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_frame.png" data-img-alt="Evolved Frame">evolved_frame</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_hexagon.png" data-img-alt="Evolved Hexagon">evolved_hexagon</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_hexangle.png" data-img-alt="Evolved Hexangle">evolved_hexangle</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_invincible.png" data-img-alt="Evolved Invincible">evolved_invincible</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_nova.png" data-img-alt="Evolved Nova">evolved_nova</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_shield.png" data-img-alt="Evolved Shield">evolved_shield</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_square.png" data-img-alt="Evolved Square">evolved_square</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_triburst.png" data-img-alt="Evolved Triburst">evolved_triburst</option>
-                    <option data-img-src="resources/thumbnails/frames/evolved_triforce.png" data-img-alt="Evolved Triforce">evolved_triforce</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_arrow.png"
+                      data-img-alt="Evolved Arrow">evolved_arrow</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_celtic.png"
+                      data-img-alt="Evolved Celtic">evolved_celtic</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_circle.png"
+                      data-img-alt="Evolved Circle">evolved_circle</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_cross.png"
+                      data-img-alt="Evolved Cross">evolved_cross</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_crusher.png"
+                      data-img-alt="Evolved Crusher">evolved_crusher</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_frame.png"
+                      data-img-alt="Evolved Frame">evolved_frame</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_hexagon.png"
+                      data-img-alt="Evolved Hexagon">evolved_hexagon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_hexangle.png"
+                      data-img-alt="Evolved Hexangle">evolved_hexangle</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_invincible.png"
+                      data-img-alt="Evolved Invincible">evolved_invincible</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_nova.png"
+                      data-img-alt="Evolved Nova">evolved_nova</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_shield.png"
+                      data-img-alt="Evolved Shield">evolved_shield</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_square.png"
+                      data-img-alt="Evolved Square">evolved_square</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_triburst.png"
+                      data-img-alt="Evolved Triburst">evolved_triburst</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/evolved_triforce.png"
+                      data-img-alt="Evolved Triforce">evolved_triforce</option>
                   </optgroup>
                   <optgroup label="Elite">
-                    <option data-img-src="resources/thumbnails/frames/elite_nova_prime.png" data-img-alt="Elite Nova Prime">elite_nova_prime</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_the_hood.png" data-img-alt="Elite The Hood">elite_the_hood</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_blades.png" data-img-alt="Elite Blades">elite_blades</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_shinobi.png" data-img-alt="Elite Shinobi">elite_shinobi</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_circle.png" data-img-alt="Elite Circle">elite_circle</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_hexagon.png" data-img-alt="Elite Hexagon">elite_hexagon</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_shift.png" data-img-alt="Elite Shift">elite_shift</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_arrow.png" data-img-alt="Elite Arrow">elite_arrow</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_razor_claw.png" data-img-alt="Elite Razor Claw">elite_razor_claw</option>
-                    <option data-img-src="resources/thumbnails/frames/elite_shield.png" data-img-alt="Elite Shield">elite_shield</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_nova_prime.png"
+                      data-img-alt="Elite Nova Prime">elite_nova_prime</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_the_hood.png"
+                      data-img-alt="Elite The Hood">elite_the_hood</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_blades.png"
+                      data-img-alt="Elite Blades">elite_blades</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_shinobi.png"
+                      data-img-alt="Elite Shinobi">elite_shinobi</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_circle.png"
+                      data-img-alt="Elite Circle">elite_circle</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_hexagon.png"
+                      data-img-alt="Elite Hexagon">elite_hexagon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_shift.png"
+                      data-img-alt="Elite Shift">elite_shift</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_arrow.png"
+                      data-img-alt="Elite Arrow">elite_arrow</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_razor_claw.png"
+                      data-img-alt="Elite Razor Claw">elite_razor_claw</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/elite_shield.png"
+                      data-img-alt="Elite Shield">elite_shield</option>
                   </optgroup>
                   <optgroup label="Unused">
-                    <option data-img-src="resources/thumbnails/frames/unused/elite_buzzsaw.png" data-img-alt="Elite Buzzsaw">elite_buzzsaw</option>
-                    <option data-img-src="resources/thumbnails/frames/unused/elite_prism.png" data-img-alt="Elite Prism">elite_prism</option>
-                    <option data-img-src="resources/thumbnails/frames/unused/elite_pentagon.png" data-img-alt="Elite Pentagon">elite_pentagon</option>
-                    <option data-img-src="resources/thumbnails/frames/unused/elite_shuriken.png" data-img-alt="Elite Shuriken">elite_shuriken</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/unused/elite_buzzsaw.png"
+                      data-img-alt="Elite Buzzsaw">elite_buzzsaw</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/unused/elite_prism.png"
+                      data-img-alt="Elite Prism">elite_prism</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/unused/elite_pentagon.png"
+                      data-img-alt="Elite Pentagon">elite_pentagon</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/frames/unused/elite_shuriken.png"
+                      data-img-alt="Elite Shuriken">elite_shuriken</option>
                   </optgroup>
                 </select>
               </div>
@@ -345,52 +465,81 @@
               <div id="backgroundPickerArea" class="picker">
                 <select id="backgroundPicker" class="image-picker">
                   <optgroup label="">
-                    <option data-img-src="resources/img/random.png" data-img-alt="Random">random_background</option>
-                    <option data-img-src="resources/img/none.png" data-img-alt="None">no_background</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/img/random.png" data-img-alt="Random">random_background</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/img/none.png" data-img-alt="None">no_background</option>
                   </optgroup>
                   <optgroup label="Starting">
-                    <option data-img-src="resources/thumbnails/backgrounds/starting/blocks_02.jpg" data-img-alt="Blocks 02">blocks_02</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/starting/crystaline_02.jpg" data-img-alt="Crystalline 02">crystaline_02</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/starting/organic_01.jpg" data-img-alt="Organic 01">organic_01</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/starting/spheres_04.jpg" data-img-alt="Spheres 04">spheres_04</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/starting/blocks_02.jpg"
+                      data-img-alt="Blocks 02">blocks_02</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/starting/crystaline_02.jpg"
+                      data-img-alt="Crystalline 02">crystaline_02</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/starting/organic_01.jpg"
+                      data-img-alt="Organic 01">organic_01</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/starting/spheres_04.jpg"
+                      data-img-alt="Spheres 04">spheres_04</option>
                   </optgroup>
                   <optgroup label="Basic">
-                    <option data-img-src="resources/thumbnails/backgrounds/basic/crystaline_07.jpg" data-img-alt="Crystalline 07">crystaline_07</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/basic/grid_05.jpg" data-img-alt="Grid 05">grid_05</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/basic/hex_03.jpg" data-img-alt="Hex 03">hex_03</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/basic/grid_04.jpg" data-img-alt="Grid 04">grid_04</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/basic/organic_04.jpg" data-img-alt="Organic 04">organic_04</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_01.jpg" data-img-alt="Spheres 01">spheres_01</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/basic/crystaline_07.jpg"
+                      data-img-alt="Crystalline 07">crystaline_07</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/basic/grid_05.jpg"
+                      data-img-alt="Grid 05">grid_05</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/basic/hex_03.jpg"
+                      data-img-alt="Hex 03">hex_03</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/basic/grid_04.jpg"
+                      data-img-alt="Grid 04">grid_04</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/basic/organic_04.jpg"
+                      data-img-alt="Organic 04">organic_04</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/spheres_01.jpg"
+                      data-img-alt="Spheres 01">spheres_01</option>
                   </optgroup>
                   <optgroup label="Advanced">
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_08.jpg" data-img-alt="Crystalline 08">crystaline_08</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/grid_03.jpg" data-img-alt="Grid 03">grid_03</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/organic_05.jpg" data-img-alt="Organic 05">organic_05</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_02.jpg" data-img-alt="Spheres 02">spheres_02</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/spheres_03.jpg" data-img-alt="Spheres 03">spheres_03</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/blocks_03.jpg" data-img-alt="Blocks 03">blocks_03</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/grid_02.jpg" data-img-alt="Grid 02">grid_02</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_01.jpg" data-img-alt="Crystalline 01">crystaline_01</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_03.jpg" data-img-alt="Crystalline 03">crystaline_03</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_04.jpg" data-img-alt="Crystalline 04">crystaline_04</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/crystaline_05.jpg" data-img-alt="Crystalline 05">crystaline_05</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/hex_02.jpg" data-img-alt="Hex 02">hex_02</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/advanced/organic_02.jpg" data-img-alt="Organic 02">organic_02</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/crystaline_08.jpg"
+                      data-img-alt="Crystalline 08">crystaline_08</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/grid_03.jpg"
+                      data-img-alt="Grid 03">grid_03</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/organic_05.jpg"
+                      data-img-alt="Organic 05">organic_05</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/spheres_02.jpg"
+                      data-img-alt="Spheres 02">spheres_02</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/spheres_03.jpg"
+                      data-img-alt="Spheres 03">spheres_03</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/blocks_03.jpg"
+                      data-img-alt="Blocks 03">blocks_03</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/grid_02.jpg"
+                      data-img-alt="Grid 02">grid_02</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/crystaline_01.jpg"
+                      data-img-alt="Crystalline 01">crystaline_01</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/crystaline_03.jpg"
+                      data-img-alt="Crystalline 03">crystaline_03</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/crystaline_04.jpg"
+                      data-img-alt="Crystalline 04">crystaline_04</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/crystaline_05.jpg"
+                      data-img-alt="Crystalline 05">crystaline_05</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/hex_02.jpg"
+                      data-img-alt="Hex 02">hex_02</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/advanced/organic_02.jpg"
+                      data-img-alt="Organic 02">organic_02</option>
                   </optgroup>
                   <optgroup label="Elite">
-                    <option data-img-src="resources/thumbnails/backgrounds/elite/blocks_01.jpg" data-img-alt="Blocks 01">blocks_01</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/elite/crystaline_06.jpg" data-img-alt="Crystalline 06">crystaline_06</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/elite/grid_01.jpg" data-img-alt="Grid 01">grid_01</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/elite/hex_01.jpg" data-img-alt="Hex 01">hex_01</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/elite/organic_03.jpg" data-img-alt="Organic 03">organic_03</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/elite/blocks_01.jpg"
+                      data-img-alt="Blocks 01">blocks_01</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/elite/crystaline_06.jpg"
+                      data-img-alt="Crystalline 06">crystaline_06</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/elite/grid_01.jpg"
+                      data-img-alt="Grid 01">grid_01</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/elite/hex_01.jpg"
+                      data-img-alt="Hex 01">hex_01</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/elite/organic_03.jpg"
+                      data-img-alt="Organic 03">organic_03</option>
                   </optgroup>
                   <optgroup label="Exclusive">
-                    <option data-img-src="resources/thumbnails/backgrounds/special/preorder_speedrunner_bg.jpg"
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/special/preorder_speedrunner_bg.jpg"
                       data-img-alt="Preorder Speedrunner Background">preorder_speedrunner_bg</option>
-                    <option data-img-src="resources/thumbnails/backgrounds/special/preorder_combat_bg.jpg" data-img-alt="Preorder Combat Background">preorder_combat_bg</option>
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/special/preorder_combat_bg.jpg"
+                      data-img-alt="Preorder Combat Background">preorder_combat_bg</option>
                   </optgroup>
                   <optgroup label="Unused">
-                    <option data-img-src="resources/thumbnails/backgrounds/special/unused/renewed_faith_reward_bg.jpg"
+                    <option data-img-src="/assets/media/image/project_graffiti/thumbnails/backgrounds/special/unused/renewed_faith_reward_bg.jpg"
                       data-img-alt="Renewed Faith Reward Background">renewed_faith_reward_bg</option>
                   </optgroup>
                 </select>
@@ -486,7 +635,8 @@
             <div id="emblem_col" class="col- preview_col">
               <div class="card">
                 <div class="thumbnail" id="emblem_preview_background">
-                  <img id="emblem_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Emblem preview">
+                  <img id="emblem_preview" class="card-img-top preview_image" src="/assets/media/image/project_graffiti/img/random.png"
+                    alt="Emblem preview">
                 </div>
                 <div class="card-body">
                   <p id="emblem_preview_label" class="card-text">Emblem</p>
@@ -496,7 +646,8 @@
             <div id="frame_col" class="col- preview_col">
               <div class="card">
                 <div class="thumbnail" id="frame_preview_frame">
-                  <img id="frame_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Frame preview">
+                  <img id="frame_preview" class="card-img-top preview_image" src="/assets/media/image/project_graffiti/img/random.png"
+                    alt="Frame preview">
                 </div>
                 <div class="card-body">
                   <p id="frame_preview_label" class="card-text">Frame</p>
@@ -506,7 +657,8 @@
             <div id="background_col" class="col- preview_col">
               <div class="card">
                 <div class="thumbnail" id="background_preview_background">
-                  <img id="background_preview" class="card-img-top preview_image" src="resources/img/random.png" alt="Background preview">
+                  <img id="background_preview" class="card-img-top preview_image" src="/assets/media/image/project_graffiti/img/random.png"
+                    alt="Background preview">
                 </div>
                 <div class="card-body">
                   <p id="background_preview_label" class="card-text">Background</p>
@@ -671,17 +823,12 @@
     </div>
   </div>
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4="
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs="
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js" integrity="sha256-y1avg/yeuGfbuDnEmsFLE9tXJCUJxZosA2PrbcfTGQo="
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js" integrity="sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js" integrity="sha256-HT7c4lBipI1Hkl/uvUrU1HQx4WF3oQnSafPjgR9Cn8A="
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.0.3/nouislider.min.js" integrity="sha256-oj880/QiddQHkKfC9iOmsu+Hu5V4KCHfS3RY3RaZdZc="
-    crossorigin="anonymous"></script>
-  <script src="js/wNumb.js"></script>
-
 </body>
 
 </html>

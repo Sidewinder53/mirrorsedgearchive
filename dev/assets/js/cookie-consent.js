@@ -1,7 +1,11 @@
 var _paq = _paq || [];
 _paq.push([
   "setDocumentTitle",
-  document.domain + "/" + document.title.replace("📂 ", "")
+  document.domain +
+    "/" +
+    document.title
+      .replace("The Mirror's Edge™ Archive 📂", "")
+      .replace(" - ", "")
 ]);
 _paq.push(["setCookieDomain", "*.mirrorsedgearchive.de"]);
 _paq.push(["trackPageView"]);
@@ -23,7 +27,6 @@ _paq.push(["enableLinkTracking"]);
 $.getScript(
   "https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js",
   function() {
-    console.log("Cookie consent loaded.");
     if (Cookies.get("cookie_consent") == "true") {
     } else if (Cookies.get("cookie_attempts") == "0") {
       Cookies.set("cookie_consent", "true", { expires: 30 });
