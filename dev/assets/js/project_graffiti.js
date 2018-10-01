@@ -455,7 +455,7 @@ $(document).ready(function() {
         bgY: $bgY,
         em: $em,
         unused: $include_random_assets,
-        version: "2"
+        version: "3"
       },
       success: function(msg) {
         if (msg == "deprecated") {

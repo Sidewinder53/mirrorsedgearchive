@@ -19,16 +19,20 @@ function clean($string) {
 	return preg_replace("/[^a-zA-Z0-9\/_ .\-]/", '', $string);
 }
 
+function modPath($string) {
+	return str_replace('/assets/media/image/project_graffiti/', '', $string)
+}
+
 if (isset($_POST['emblem'])) {
-	$emblem = clean($_POST['emblem']);
+	$emblem = modPath(clean($_POST['emblem']));
 }
 
 if (isset($_POST['frame'])) {
-	$frame = clean($_POST['frame']);
+	$frame = modPath(clean($_POST['frame']));
 }
 
 if (isset($_POST['background'])) {
-	$background = clean($_POST['background']);
+	$background = modPath(clean($_POST['background']));
 }
 
 if (isset($_POST['bgX'])) {
@@ -50,7 +54,7 @@ if (isset($_POST['version'])) {
 	$version = clean($_POST['version']);
 }
 
-if ($version < "2") {
+if ($version < "3") {
 	die("deprecated");
 }
 
