@@ -142,14 +142,14 @@ gulp.task('build-html-sandbox', function(cb) {
     [
       gulp.src('dev/**/*.html'),
       replace('<!-- {{STAMP}} -->', '<span id="beta-stamp">DEV</span>'),
-      replace(
-        '<!-- {{CERT}} -->',
-        '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
-          git.long() +
-          '" id="cert" class="text-secondary">Build: ' +
-          git.short() +
-          '</a>'
-      ),
+      // replace(
+      //   '<!-- {{CERT}} -->',
+      //   '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
+      //     git.long() +
+      //     '" id="cert" class="text-secondary">Build: ' +
+      //     git.short() +
+      //     '</a>'
+      // ),
       gulp.dest('dist')
     ],
     cb
