@@ -45,6 +45,7 @@ $(document).ready(function() {
             $(this).css("display", "flex");
           }
         });
+        $("#legal_footer").css("display", "block");
         $("#herocard").addClass("shadow");
         $(".card").css("border-width", "1px");
         $(".card .bg-light").css("background-color", "#f8f9fa");
@@ -63,8 +64,7 @@ $(document).ready(function() {
     $("#overview")
     .children()
     .each(function() {
-        $(this).css("display", "flex").css("border", "red solid 1px");
-        console.log($(this));
+        $(this).css("display", "flex")
       });
   $("#legal_footer").css("display", "block");
     $(".card").css("border-width", "1px");
