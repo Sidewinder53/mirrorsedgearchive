@@ -71,12 +71,16 @@
   padding-bottom: 1em;
 }
 
-#overview,
 #hero_text,
 #media_copyright,
 #nav-cont,
 #cookie_consent {
   opacity: 0;
+}
+
+#overview > *,
+#legal_footer {
+  display: none;
 }
 
 .carousel-indicators {

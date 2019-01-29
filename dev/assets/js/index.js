@@ -8,15 +8,21 @@ function shuffle(a) {
   return a;
 }
 
+$.fn.isInViewport = function() {
+  var elementTop = $(this).offset().top;
+  var elementBottom = elementTop + $(this).outerHeight();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
 $(document).ready(function() {
   var skipped = "false";
 
   if ($("#responsiveHero").css("display") != "none") {
     $("#hero")[0].play();
-    var cit =
-      '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_X.webp" type="image/webp"><img src="/assets/media/image/home/hero_img_X.jpg"></picture></div>';
-    var cis =
-      '<div class="carousel-item active"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_1.webp" type="image/webp"><img src="/assets/media/image/home/hero_img_1.jpg"></picture></div>';
+    var cit = '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_X.webp" type="image/webp"><img src="/assets/media/image/home/hero_img_X.jpg"></picture></div>';
+    var cis = '<div class="carousel-item active"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_1.webp" type="image/webp"><img src="/assets/media/image/home/hero_img_1.jpg"></picture></div>';
     enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
     for (i = 0; i < 4; i++) {
       cis += cit.replace(/hero_img_X/g, "hero_img_" + enu[i]);
@@ -26,10 +32,7 @@ $(document).ready(function() {
     $.getScript("/assets/js/cookie-consent.js", function() {
       if (Cookies.get("skip_intro") == "true") {
         skipped = "true";
-        $("#hero_text, #overview, #cookie_consent, #nav-cont").fadeTo(
-          "slow",
-          1
-        );
+        $("#hero_text, #overview, #cookie_consent, #nav-cont").fadeTo("slow", 1);
         $("#herocard").addClass("shadow");
         $(".card").css("border-width", "1px");
         $(".card .bg-light").css("background-color", "#f8f9fa");
@@ -44,18 +47,43 @@ $(document).ready(function() {
       }, 1000);
     });
   } else {
-    $("#hero_text, #overview, #cookie_consent, #nav-cont").fadeTo("slow", 1);
+    $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
+    $("#overview")
+    .children()
+    .each(function() {
+        $(this).css("display", "flex").css("border", "red solid 1px");
+        console.log($(this));
+      });
+  $("#legal_footer").css("display", "block");
     $(".card").css("border-width", "1px");
     setTimeout(function() {
       $("#faithHeroText").css("height", "5em");
     }, 1500);
   }
+
   $("#hero").on("timeupdate", function(event) {
     if (this.currentTime >= 1.5 && skipped == "false") {
-      $("#hero_text, #overview, #cookie_consent, #nav-cont").fadeTo("slow", 1);
+      $("#nav-cont, #hero_text").fadeTo("slow", 1, function() {
+        $("#overview")
+          .children()
+          .each(function() {
+            if ($(this).isInViewport()) {
+              $(this)
+                .css("display", "flex")
+                .css("opacity", 0)
+                .fadeTo("slow", 1);
+            } else {
+              $(this).css("display", "flex").css("border", "red solid 1px");
+              console.log($(this));
+            }
+          });
+        $("#cookie_consent").fadeTo("fast", 1);
+        $("#legal_footer").css("display", "block");
+      });
       $("#herocard").addClass("shadow");
       $(".card").css("border-width", "1px");
       Cookies.set("skip_intro", "true", { expires: 1 / 24 });
+      skipped = true;
     }
   });
 
