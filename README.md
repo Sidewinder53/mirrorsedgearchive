@@ -1,4 +1,4 @@
-![The Mirror's Edge Archive Logo](https://puu.sh/B1GW8.svg)
+![The Mirror's Edge Archive Logo](https://static.cloudlark.de/img/mea-logo-1.svg)
 This is the web code base for the Mirror's Edge Archive, which is a collection of fan projects and front-end to a comprehensive archive about the Mirror's Edge franchise.
 
 The archive consits of high-quality photos and wallpapers, concept art, videos (like gameplay previews, trailers and developers diaries), audio (like SFX and music), developer presentations and fan-made maps as well as other resources.
