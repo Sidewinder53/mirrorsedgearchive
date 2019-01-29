@@ -73,8 +73,7 @@ $(document).ready(function() {
                 .css("opacity", 0)
                 .fadeTo("slow", 1);
             } else {
-              $(this).css("display", "flex").css("border", "red solid 1px");
-              console.log($(this));
+              $(this).css("display", "flex");
             }
           });
         $("#cookie_consent").fadeTo("fast", 1);
