@@ -26,7 +26,7 @@ const libs = {
   css: {
     "bootstrap": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css\" integrity=\"sha256-azvvU9xKluwHFJ0Cpgtf0CYzK7zgtOznnzxV4924X1w=\" crossorigin=\"anonymous\" />",
     "image-picker": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.1/image-picker.min.css\" integrity=\"sha256-8b3s+ez6wXPJKBWlHOEW2aXyB1eYluL1V3wqh+vHpis=\" crossorigin=\"anonymous\" />",
-    "noUiSlider": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js\" integrity=\"sha256-V76+FCDgnqVqafUQ74coiR7qA3Gd6ZlVuFgdwcGCGlc=\" crossorigin=\"anonymous\"></script>",
+    "noUiSlider": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css\" integrity=\"sha256-MyPOSprr9/vRwXTYc0saw86ylzGM2HVRKWUfHIFta74=\" crossorigin=\"anonymous\" />",
     "MaterialDesign-Webfont": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.4.93/css/materialdesignicons.min.css\" integrity=\"sha256-BVPVD2kLy26oAu5Cp2vJr7E1yQx77nQeniURt0TxfTQ=\" crossorigin=\"anonymous\" />"
   }
 };
