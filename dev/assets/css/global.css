@@ -38,7 +38,8 @@ body {
   flex: 0 1 auto;
 }
 
-#legal_footer > div > div > div > a {
+#legal_footer > div > div > div > a,
+#legal_footer > div > div > div > span > a {
   text-decoration: underline;
 }
 
