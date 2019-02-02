@@ -5,7 +5,6 @@
   <script>
     window.onload = function () {
       if (document.referrer.match(/^https?:\/\/([^\/]+\.)?mirrorsedgearchive\.de(\/|$)/i) || window.location.hostname == 'localhost') {
-        console.log("Valid ref.");
         var n = get("t");
         null != n && !0 === ValidURL(n) ? (document.getElementById("main").style.display = "block", URLrep(n)) : window.location.replace("/"), $("#continue-button").click(function () { window.location.replace(n) })
       } else {
