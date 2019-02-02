@@ -18,7 +18,6 @@ $(document).ready(function() {
   function animateValue(id, start, end, duration) {
     var obj = document.getElementById(id);
     obj.classList.remove('preBlurIt');
-    obj.classList.add('blurIt');
     var lpad = end.toString().length;
     var range = end - start;
     var minTimer = 50;
@@ -33,10 +32,6 @@ $(document).ready(function() {
       var remaining = Math.max((endTime - now) / duration, 0);
       var value = Math.round(end - remaining * range);
       obj.innerHTML = value.pad(lpad);
-      if (value == end) {
-        clearInterval(timer);
-        obj.classList.remove('blurIt');
-      }
     }
 
     var timer = setInterval(run, stepTime);
