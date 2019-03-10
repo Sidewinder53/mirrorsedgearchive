@@ -143,7 +143,7 @@ gulp.task('build-html', function(cb) {
       replace('<!-- {{lib-css:noUiSlider}} -->', libs.css["noUiSlider"]),
       replace('<!-- {{lib-css:MaterialDesign-Webfont}} -->', libs.css["MaterialDesign-Webfont"]),
       replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
-      
+
       gulp.dest('dist')
     ],
     cb
@@ -154,7 +154,6 @@ gulp.task('build-html-prod', function(cb) {
   pump(
     [
       gulp.src('dev/**/*.html'),
-      replace('<!-- {{STAMP}} -->', ''),
       replace(
         '<!-- {{CERT}} -->',
         '&nbsp;&#8729;&nbsp;<a href="https://github.com/Sidewinder53/mirrorsedgearchive/commit/' +
@@ -163,7 +162,23 @@ gulp.task('build-html-prod', function(cb) {
           git.short() +
           '</a>'
       ),
-      gulp.dest('dist')
+      replace('{{stamp_title}}', 'Build ID: ' + git.short()),
+      replace('{{stamp_text}}', 'DEV'),
+      
+      replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
+      replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
+      replace('<!-- {{lib-js:image-picker}} -->', libs.javascript["image-picker"]),
+      replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
+      replace('<!-- {{lib-js:wNumb}} -->', libs.javascript["wNumb"]),
+      replace('<!-- {{lib-js:cookies}} -->', libs.javascript["cookies"]),
+
+      replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
+      replace('<!-- {{lib-css:image-picker}} -->', libs.css["image-picker"]),
+      replace('<!-- {{lib-css:noUiSlider}} -->', libs.css["noUiSlider"]),
+      replace('<!-- {{lib-css:MaterialDesign-Webfont}} -->', libs.css["MaterialDesign-Webfont"]),
+      replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
+
+      gulp.dest('dist'),
     ],
     cb
   );
@@ -182,7 +197,21 @@ gulp.task('build-html-sandbox', function(cb) {
           git.short() +
           '</a>'
       ),
-      gulp.dest('dist')
+
+      replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
+      replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
+      replace('<!-- {{lib-js:image-picker}} -->', libs.javascript["image-picker"]),
+      replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
+      replace('<!-- {{lib-js:wNumb}} -->', libs.javascript["wNumb"]),
+      replace('<!-- {{lib-js:cookies}} -->', libs.javascript["cookies"]),
+
+      replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
+      replace('<!-- {{lib-css:image-picker}} -->', libs.css["image-picker"]),
+      replace('<!-- {{lib-css:noUiSlider}} -->', libs.css["noUiSlider"]),
+      replace('<!-- {{lib-css:MaterialDesign-Webfont}} -->', libs.css["MaterialDesign-Webfont"]),
+      replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
+
+      gulp.dest('dist'),
     ],
     cb
   );
