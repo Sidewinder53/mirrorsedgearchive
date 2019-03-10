@@ -14,6 +14,10 @@
 	width: 100%;
 }
 
+.card-footer-btn-center {
+	width: 285px;
+}
+
 .image-wrapper {
 	display: block;
 	max-width: 100%;
@@ -45,6 +49,10 @@
 
 .container {
 	padding: 0!important;
+}
+
+.card-header > div > h5 {
+	margin-bottom: 0;
 }
 
 @media (max-width: 767px) { 
