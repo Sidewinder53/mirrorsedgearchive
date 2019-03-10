@@ -16,7 +16,7 @@ gulp.task('default', ['browser-sync']);
 const libs = {
   javascript: {
     "jQuery": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js\" integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\" crossorigin=\"anonymous\"></script>",
-    "bootstrap-bundle": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js\" integrity=\"sha256-MSYVjWgrr6UL/9eQfQvOyt6/gsxb6dpwI1zqM5DbLCs=\" crossorigin=\"anonymous\"></script>",
+    "bootstrap-bundle": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js\" integrity=\"sha256-fzFFyH01cBVPYzl16KT40wqjhgPtq6FFUB6ckN2+GGw=\" crossorigin=\"anonymous\"></script>",
     "cookies": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js\" integrity=\"sha384-ujpAYcyxFaJsZN5668lLgOpEH8vtWrbOq8fvj+WZ2kD71LJwGa/9QP/suPPF1hTI\" crossorigin=\"anonymous\"></script>",
     "image-picker": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.1/image-picker.min.js\" integrity=\"sha256-P13mkADbtcK0GtB1ZJQUEkvYmdA1Vr8C1qgIreybN1U=\" crossorigin=\"anonymous\"></script>",
     "noUiSlider": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js\" integrity=\"sha256-V76+FCDgnqVqafUQ74coiR7qA3Gd6ZlVuFgdwcGCGlc=\" crossorigin=\"anonymous\"></script>",
@@ -24,10 +24,10 @@ const libs = {
     "polyfill": "<script src=\"https://polyfill.io/v3/polyfill.min.js?flags=gated&rum=true&features=default\" crossorigin=\"anonymous\"></script>"
   },
   css: {
-    "bootstrap": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css\" integrity=\"sha256-azvvU9xKluwHFJ0Cpgtf0CYzK7zgtOznnzxV4924X1w=\" crossorigin=\"anonymous\" />",
+    "bootstrap": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=\" crossorigin=\"anonymous\" />",
     "image-picker": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.1/image-picker.min.css\" integrity=\"sha256-8b3s+ez6wXPJKBWlHOEW2aXyB1eYluL1V3wqh+vHpis=\" crossorigin=\"anonymous\" />",
     "noUiSlider": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css\" integrity=\"sha256-MyPOSprr9/vRwXTYc0saw86ylzGM2HVRKWUfHIFta74=\" crossorigin=\"anonymous\" />",
-    "MaterialDesign-Webfont": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.4.93/css/materialdesignicons.min.css\" integrity=\"sha256-BVPVD2kLy26oAu5Cp2vJr7E1yQx77nQeniURt0TxfTQ=\" crossorigin=\"anonymous\" />"
+    "MaterialDesign-Webfont": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.5.95/css/materialdesignicons.min.css\" integrity=\"sha256-gaCvS3Gc1xMFmZIK3NtGwbruVVajvayTTME6yrHanTA=\" crossorigin=\"anonymous\" />"
   }
 };
 
