@@ -3,7 +3,7 @@ This is the web code base for the Mirror's Edge Archive, which is a collection o
 
 The archive consits of high-quality photos and wallpapers, concept art, videos (like gameplay previews, trailers and developers diaries), audio (like SFX and music), developer presentations and fan-made maps as well as other resources.
 
-Due to legal limitations the archive, which is accessible at https://archive.mirrorsedge.de/, and other resources which host copyrighted content are not part of this repository.
+Due to legal limitations the archive, which is accessible at https://mirrorsedgearchive.de/, and other resources which host copyrighted content are not part of this repository.
 
 For more information on how to contribute to this project please visit https://mirrorsedgearchive.de/contribute/
 
