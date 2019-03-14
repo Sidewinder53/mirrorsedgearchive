@@ -1,0 +1,28 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build-prod
+  displayName: 'Install NPM and run gulpfile'
+  
+- task: CopyFiles@2
+  inputs:
+    Contents: 'dist/**/*'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy distributable resources to Artifact Staging Directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: MEA-build-artifacts
+  displayName: 'Publish Staged Artifacts to "MEA-build-artifacts"'
