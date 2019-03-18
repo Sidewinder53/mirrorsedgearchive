@@ -29,15 +29,10 @@
         position: absolute;
         top: 56px;
         left: 0;
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.8);
         display: absolute;
         padding: 2em 2em 0.5em 2em;
-      }
-
-      small {
-        color: rgb(139, 139, 139);
-        font-size: x-small;
-        font-weight: 100;
+        max-width: 350px;
       }
 
       h1 {
@@ -59,6 +54,23 @@
 
         to {
           color: #cd2027;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        #main {
+          
+          padding: 1em;
+          margin: 0;
+          top: unset;
+          bottom: 0;
+          opacity: 1;
+          max-width: unset;
+        }
+
+        .credit {
+          top: 10px;
+          bottom: unset;
         }
       }
 
@@ -148,17 +160,15 @@
     <div id="header">
       The Mirror's Edge Archive
     </div>
-    <div class="focuspoint" data-focus-x="0.00" data-focus-y="0.00" data-image-w="3840" data-image-h="2160">
-      <div class="credit"><a href="https://flic.kr/ps/3i6WBG">&#x1F5BC; by Daniel Pritchard</a></div>
-      <img src="\assets\media\image\error\elevator_collapsing.jpg">
+    <div class="focuspoint" data-focus-x="0.00" data-focus-y="0.10" data-image-w="3840" data-image-h="2160">
+      <div class="credit"><a href="https://flic.kr/p/26dkrak">&#x1F5BC; by Daniel Pritchard</a></div>
+      <img src="https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527798531/mea/evacuate_1.jpg">
     </div>
     <div id="main">
-      <h1>400</h1>
-      <h3>Bad request</h3>
-      <p>The request could not be understood by the server.</p>
-      <small>Request ID:
-        <span id="traceback_id">Unknown</span>
-      </small>
+      <h1>451</h1>
+      <h3>Unavailable For Legal Reasons</h3>
+      <p>The Mirror's Edge Archive is currently unavailable due to a DMCA takedown notice by Electronic Arts. Further information regarding
+        this incident will be published on <a href="https://legal.cloudlark.de/dmca-notices">legal.cloudlark.de</a>.</p>
     </div>
   </body>
 
