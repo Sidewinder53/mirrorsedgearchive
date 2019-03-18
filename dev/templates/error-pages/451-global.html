@@ -35,12 +35,6 @@
         max-width: 350px;
       }
 
-      small {
-        color: rgb(139, 139, 139);
-        font-size: x-small;
-        font-weight: 100;
-      }
-
       h1 {
         font-size: 400%;
         margin: 0;
@@ -60,6 +54,23 @@
 
         to {
           color: #cd2027;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        #main {
+          
+          padding: 1em;
+          margin: 0;
+          top: unset;
+          bottom: 0;
+          opacity: 1;
+          max-width: unset;
+        }
+
+        .credit {
+          top: 10px;
+          bottom: unset;
         }
       }
 
@@ -116,8 +127,8 @@
           margin: 0;
           top: unset;
           bottom: 0;
-          opacity: 1;
           max-width: unset;
+          background: rgba(255, 255, 255, 0.95);
         }
 
         .credit {
@@ -129,6 +140,7 @@
       }
     </style>
     <!-- {{lib-js:jQuery}} -->
+    </script>
     <script>
       !function ($) { var t = { reCalcOnWindowResize: !0, throttleDuration: 17 }, n = function (t) { var n = t.find("img").attr("src"); t.data("imageSrc", n), i(n, function (n, i) { t.data({ imageW: i.width, imageH: i.height }), r(t) }) }, i = function (t, n) { $("<img />").one("load", function () { n(null, { width: this.width, height: this.height }) }).attr("src", t) }, a = function (t, n) { var i = !1; return function () { var a = Array.prototype.slice.call(arguments, 0); if (i) return !1; i = !0, setTimeout(function () { i = !1, t.apply(null, a) }, n) } }, o = function (t, n, i, a, o) { var r = Math.floor(n / 2), e = (a + 1) / 2, u = Math.floor(i / t), f = Math.floor(e * u); o && (f = u - f); var c = f - r, s = u - f, h = n - r; return s < h && (c -= h - s), c < 0 && (c = 0), -100 * c / n + "%" }, r = function (t) { var i = t.data("imageW"), a = t.data("imageH"), r = t.data("imageSrc"); if (!i && !a && !r) return n(t); var e = t.width(), u = t.height(), f = parseFloat(t.data("focusX")), c = parseFloat(t.data("focusY")), s = t.find("img").first(), h = 0, d = 0; if (!(e > 0 && u > 0 && i > 0 && a > 0)) return !1; var l = i / e, w = a / u; s.css({ "max-width": "", "max-height": "" }), i > e && a > u && s.css(l > w ? "max-height" : "max-width", "100%"), l > w ? h = o(w, e, i, f) : l < w && (d = o(l, u, a, c, !0)), s.css({ top: d, left: h }) }, e = $(window), u = function (t, n) { var i = n.throttleDuration ? a(function () { r(t) }, n.throttleDuration) : function () { r(t) }, o = !1; return r(t), { adjustFocus: function () { return r(t) }, windowOn: function () { if (!o) return e.on("resize", i), o = !0 }, windowOff: function () { if (o) return e.off("resize", i), o = !1, !0 } } }; $.fn.focusPoint = function (n) { if ("string" == typeof n) return this.each(function () { $(this).data("focusPoint")[n]() }); var i = $.extend({}, t, n); return this.each(function () { var t = $(this), n = u(t, i); t.data("focusPoint") && t.data("focusPoint").windowOff(), t.data("focusPoint", n), i.reCalcOnWindowResize && n.windowOn() }) }, $.fn.adjustFocus = function () { return this.each(function () { r($(this)) }) } }(jQuery);
       $(document).ready(function () {
@@ -150,13 +162,13 @@
     </div>
     <div class="focuspoint" data-focus-x="0.00" data-focus-y="0.10" data-image-w="3840" data-image-h="2160">
       <div class="credit"><a href="https://flic.kr/p/26dkrak">&#x1F5BC; by Daniel Pritchard</a></div>
-      <img src="/assets/media/image/error/evac_faith.jpg">
+      <img src="https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527798531/mea/evacuate_1.jpg">
     </div>
     <div id="main">
       <h1>451</h1>
       <h3>Unavailable For Legal Reasons</h3>
-      <p>This resource is currently unavailable due to a DMCA takedown notice. Further information regarding this
-        incident will be published on the homepage of the Mirror's Edge Archive.</p>
+      <p>The Mirror's Edge Archive is currently unavailable due to a DMCA takedown notice by Electronic Arts. Further information regarding
+        this incident will be published on <a href="https://legal.cloudlark.de/dmca-notices">legal.cloudlark.de</a>.</p>
     </div>
   </body>
 
