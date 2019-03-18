@@ -20,7 +20,7 @@ function clean($string) {
 }
 
 function modPath($string) {
-	return str_replace('/assets/media/image/project_graffiti/', '', $string)
+	return str_replace('/assets/media/image/project_graffiti/', '', $string);
 }
 
 if (isset($_POST['emblem'])) {
