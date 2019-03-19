@@ -1,11 +1,11 @@
 var gdb, psv, nv, nvc, chapter;
 gdb = psv = nv = nvc = chapter = null;
 
-$(function() {
+$(function () {
   var castList = '';
-  $.get('data.json', function(db) {
+  $.get('data.json', function (db) {
     gdb = db;
-    $.each(db.newscasts, function(i, category) {
+    $.each(db.newscasts, function (i, category) {
       castList +=
         '<p class="list-group-item category collapsed" id="' +
         category.categoryName +
@@ -18,7 +18,7 @@ $(function() {
         '</p><div class="collapse" id="col-' +
         category.categoryName +
         '">';
-      $.each(category['videos'], function(j, video) {
+      $.each(category['videos'], function (j, video) {
         castList +=
           '<p class="list-group-item video" id=' +
           video.videoName +
@@ -43,24 +43,14 @@ $(function() {
     $('[data-toggle="popover"]').popover();
   })
     .then(
-      $('.vidList').on('click', '.list-group-item.video', function() {
+      $('.vidList').on('click', '.list-group-item.video', function () {
         if (
-          $(this)
-            .next('.list-group-item.video')
-            .attr('id')
+          $(this).next('.list-group-item.video').attr('id')
         ) {
-          nv = $(this)
-            .next('.list-group-item.video')
-            .attr('id');
+          nv = $(this).next('.list-group-item.video').attr('id');
           nvc = false;
         } else {
-          nv = $(this)
-            .parent()
-            .next()
-            .next()
-            .children()
-            .eq(0)
-            .attr('id');
+          nv = $(this).parent().next().next().children().eq(0).attr('id');
           nvc = true;
         }
         history.pushState(null, null, '?v=' + this.id);
@@ -75,22 +65,22 @@ $(function() {
           .css('color', '#000');
         find.css('background-color', '#007bff').css('color', '#fff');
         let type = find.data('type') + 's';
-        $.each(gdb.newscasts, function(i, category) {
+        $.each(gdb.newscasts, function (i, category) {
           if (category.categoryName === find.data('category')) {
-            $.each(category['videos'], function(j, video) {
+            $.each(category['videos'], function (j, video) {
               if (video.videoName === find.attr('id')) {
                 let vp9AssetURL,
                   h264AssetURL,
                   vidSrc = '';
                 if (video.videoURL['vp9']) {
                   if (video.videoURL['vp9'].indexOf('$mainAsset$') != -1) {
-                    console.log('vp9 asset is on main asset server.');
+                    console.log('[DEBUG] vp9 asset is on main asset server.');
                     vp9AssetURL = video.videoURL['vp9'].replace(
                       '$mainAsset$',
                       atob(gdb['infrastructure'].mainAssetServer)
                     );
                   } else {
-                    console.log('vp9 asset is external.');
+                    console.log('[DEBUG] vp9 asset is external.');
                     vp9AssetURL = video.videoURL['vp9'];
                   }
                   vidSrc +=
@@ -98,18 +88,18 @@ $(function() {
                     vp9AssetURL +
                     '" type="video/webm">';
                 } else {
-                  console.log('vp9 asset does not exist.');
+                  console.log('[DEBUG] vp9 asset does not exist.');
                   vp9AssetURL = '';
                 }
                 if (video.videoURL['h264']) {
                   if (video.videoURL['h264'].indexOf('$mainAsset$') != -1) {
-                    console.log('h264 asset is on main asset server.');
+                    console.log('[DEBUG] h264 asset is on main asset server.');
                     h264AssetURL = video.videoURL['h264'].replace(
                       '$mainAsset$',
                       atob(gdb['infrastructure'].mainAssetServer)
                     );
                   } else {
-                    console.log('h264 asset is external.');
+                    console.log('[DEBUG] h264 asset is external.');
                     h264AssetURL = video.videoURL['h264'];
                   }
                   vidSrc +=
@@ -117,7 +107,7 @@ $(function() {
                     h264AssetURL +
                     '" type="video/webm">';
                 } else {
-                  console.log('h264 asset does not exist.');
+                  console.log('[DEBUG] h264 asset does not exist.');
                   h264AssetURL = '';
                 }
                 $('#vidPlayer').attr('poster', getThumbnail(video));
@@ -144,28 +134,32 @@ $(function() {
                   category.categoryLabel + ' - ' + video.videoLabel
                 );
                 $('#vidTitle').css('display', 'block');
-                $('#vidPlayer')
-                  .get(0)
-                  .load();
                 let ts = getTs(video);
                 let tsList = buildTimestampList(ts);
                 if (tsList) {
                   tl = getTsNumArr(ts);
-                  chapter = 0;
-                  $('#vidAd').fadeTo(400, 0, function() {
+                  chapter = null;
+                  $('#vidAd').fadeTo(400, 0, function () {
                     $('#vidNav')
                       .css('opacity', '0')
                       .css('display', 'block')
                       .fadeTo(400, 1);
                     $('#tsList').html(tsList);
+                    $('#vidPlayer')
+                      .get(0)
+                      .load();
                   });
                 } else {
                   tl = null;
-                  $('#vidNav').fadeTo(400, 0, function() {
+                  $('#vidNav').fadeTo(400, 0, function () {
                     $(this).css('display', 'none');
                     $('#vidAd').fadeTo(100, 0.6);
+                    $('#vidPlayer')
+                      .get(0)
+                      .load();
                   });
                 }
+
               }
             });
           }
@@ -174,26 +168,27 @@ $(function() {
       })
     )
     .then(
-      $('#subCheck').change(function() {
+      $('#subCheck').change(function () {
         enableSubs();
       }),
-      $('#vidPlayer').bind('timeupdate', function(event) {
-        for (let index = 0; index < tl.length; index++) {
-          if (event.target.currentTime <= tl[index]) {
-            index = tl.length;
-            console.log(chapter);
-            if (index - 1 != chapter) {
-              chapter = index - 1;
-              console.log(chapter);
+      $('#vidPlayer').bind('timeupdate', function (event) {
+        for (let index = tl.length; index >= 0; index--) {
+          if (event.target.currentTime + 0.5 >= tl[index] && event.target.currentTime + 0.5 <= tl[index + 1]) {
+            if (index != chapter) {
+              chapter = index;
+              $("#tsList > a").each(function () {
+                $(this).removeClass('active');
+              });
+              console.log("[DEBUG] playback chapter: " + index);
               $('#tsList')
                 .children()
-                .eq(chapter)
+                .eq(index)
                 .addClass('active');
             }
           }
         }
       }),
-      $('#vidPlayer').bind('ended', function() {
+      $('#vidPlayer').bind('ended', function () {
         if ($('#apCheck').prop('checked')) {
           if (nvc) {
             $('#' + psv)
@@ -206,7 +201,11 @@ $(function() {
           $('#' + nv).click();
         }
       }),
-      $('#tsList').on('click', '.timestamps', function() {
+      $('#tsList').on('click', '.timestamps', function () {
+        $("#tsList > a").each(function () {
+          $(this).removeClass('active');
+        });
+        $(this).addClass('active');
         $('#vidPlayer').get(0).currentTime = $(this).data('time');
         $('#vidPlayer')
           .get(0)
@@ -233,8 +232,8 @@ function enableSubs() {
       }
       $('#vidPlayer').append(
         '<track kind="subtitles" label="English" src="' +
-          subURL +
-          '" srclang="en" default>'
+        subURL +
+        '" srclang="en" default>'
       );
       $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
     }
@@ -249,7 +248,7 @@ function getTs(video) {
 
 function getTsNumArr(ts) {
   let arr = [];
-  $.each(ts, function(i, text) {
+  $.each(ts, function (i, text) {
     arr.push(i);
   });
   return arr;
@@ -257,7 +256,7 @@ function getTsNumArr(ts) {
 
 function buildTimestampList(ts) {
   let timesList = '';
-  $.each(ts, function(i, timestamp) {
+  $.each(ts, function (i, timestamp) {
     timesList +=
       "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' data-time='" +
       i +
@@ -291,7 +290,7 @@ function secToDIN(s) {
   return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s;
 }
 
-String.prototype.hashCode = function() {
+String.prototype.hashCode = function () {
   var hash = 0;
   if (this.length == 0) return hash;
   for (i = 0; i < this.length; i++) {
