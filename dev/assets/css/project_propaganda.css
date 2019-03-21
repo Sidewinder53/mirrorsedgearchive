@@ -18,6 +18,21 @@
   position: relative;
 }
 
+#vidRCM {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  padding: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
 #vidSel > ul > li > a {
   border-radius: 0;
 }

@@ -2,6 +2,26 @@ var gdb, psv, nv, nvc, chapter;
 gdb = psv = nv = nvc = chapter = null;
 
 $(function () {
+  if (document.addEventListener) {
+    // IE >= 9; other browsers
+    $('#vidPlayer')
+      .get(0)
+      .addEventListener(
+        'contextmenu',
+        function (e) {
+          $('#vidRCM').css('display', 'block');
+          e.preventDefault();
+        },
+        false
+      );
+  } else {
+    // IE < 9
+    $('#vidPlayer')
+      .get(0)
+      .attachEvent('oncontextmenu', function () {
+        $('#vidRCM').css('display', 'block');
+      });
+  }
   var castList = '';
   $.get('data.json', function (db) {
     gdb = db;
@@ -44,12 +64,13 @@ $(function () {
   })
     .then(
       $('.vidList').on('click', '.list-group-item.video', function () {
-        if (
-          $(this).next('.list-group-item.video').attr('id')
-        ) {
+        $('#vidNav').fadeTo(400, 0);
+        console.log("STEP");
+        if ($(this).next('.list-group-item.video').attr('id')) {
           nv = $(this).next('.list-group-item.video').attr('id');
           nvc = false;
-        } else {
+        }
+        else {
           nv = $(this).parent().next().next().children().eq(0).attr('id');
           nvc = true;
         }
@@ -134,32 +155,30 @@ $(function () {
                   category.categoryLabel + ' - ' + video.videoLabel
                 );
                 $('#vidTitle').css('display', 'block');
-                let ts = getTs(video);
+                let ts = video.timestamps;
                 let tsList = buildTimestampList(ts);
                 if (tsList) {
                   tl = getTsNumArr(ts);
                   chapter = null;
                   $('#vidAd').fadeTo(400, 0, function () {
+                    $('#tsList').html(tsList);
+                    $("#tsList > a").eq(0).addClass("active")
                     $('#vidNav')
                       .css('opacity', '0')
                       .css('display', 'block')
                       .fadeTo(400, 1);
-                    $('#tsList').html(tsList);
                     $('#vidPlayer')
                       .get(0)
                       .load();
                   });
                 } else {
                   tl = null;
-                  $('#vidNav').fadeTo(400, 0, function () {
-                    $(this).css('display', 'none');
-                    $('#vidAd').fadeTo(100, 0.6);
-                    $('#vidPlayer')
-                      .get(0)
-                      .load();
-                  });
+                  $(this).css('display', 'none');
+                  $('#vidAd').fadeTo(100, 0.6);
+                  $('#vidPlayer')
+                    .get(0)
+                    .load();
                 }
-
               }
             });
           }
@@ -210,6 +229,9 @@ $(function () {
         $('#vidPlayer')
           .get(0)
           .play();
+      }),
+      $('#vidRCM').on('click', function () {
+        $('#vidRCM').css('display', 'none');
       })
     );
 });
@@ -240,10 +262,6 @@ function enableSubs() {
   } else {
     $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
   }
-}
-
-function getTs(video) {
-  return video.timestamps;
 }
 
 function getTsNumArr(ts) {
