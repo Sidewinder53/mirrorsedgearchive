@@ -64,8 +64,10 @@ $(function () {
   })
     .then(
       $('.vidList').on('click', '.list-group-item.video', function () {
+        if ($('#vidPlayer').get(0).paused == false) {
+          $('#vidPlayer').get(0).pause();
+        }
         $('#vidNav').fadeTo(400, 0);
-        console.log("STEP");
         if ($(this).next('.list-group-item.video').attr('id')) {
           nv = $(this).next('.list-group-item.video').attr('id');
           nvc = false;
@@ -191,8 +193,8 @@ $(function () {
         enableSubs();
       }),
       $('#vidPlayer').bind('timeupdate', function (event) {
-        for (let index = tl.length; index >= 0; index--) {
-          if (event.target.currentTime + 0.5 >= tl[index] && event.target.currentTime + 0.5 <= tl[index + 1]) {
+        for (let index = tl.length - 1; index >= 0; index--) {
+          if (event.target.currentTime + 0.5 >= tl[index] && (event.target.currentTime + 0.5 <= tl[index + 1] || index == tl.length - 1)) {
             if (index != chapter) {
               chapter = index;
               $("#tsList > a").each(function () {
