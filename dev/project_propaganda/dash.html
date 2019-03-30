@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Project Propaganda - DASH Test</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.5.0-beta3/shaka-player.compiled.js" integrity="sha256-6m9r3bvghyaaVlFC924WK0+EdI3ktvIta86PCV3eam8="
+    crossorigin="anonymous"></script>
+  <!-- {{lib-js:cookies}} -->
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    #main {
+      margin: 1rem;
+    }
+
+    #header {
+      background-color: #455A64;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      color: #ffffff;
+      padding: .8125rem;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    h5 {
+      margin-bottom: 0;
+      color: rgb(59, 59, 59);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"> The Mirror's Edge Archive Operations</div>
+  <div id="main">
+    <h5>Proof of Concept</h5>
+    <h1>MPEG-DASH Player</h1>
+    <hr>
+    <p>
+      <b>Codecs</b>: VP9 & H264 (Profile: Main, Level: 3.1)<br>
+      <b>ClearKey/CENC</b>: not set<br>
+      <b>Fetching quality</b>: <span id="quality-label">0000</span><br>
+      <b>Fetching codec</b>: audio:<span id="codec-audio">0000</span> video:<span id="codec-video">0000</span><br>
+      <b>Override quality (persistent)</b>: <select disabled id="quality-select">
+        <option value="auto">Auto</option>
+      </select>
+    </p>
+    <video id="video" width="1000" height="500" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" controls autoplay loop></video>
+    <br><a href="https://video-assets.mirrorsedgearchive.de/beta/propaganda/dash/dev/manifest.mpd">Manifest URL</a> &bullet; Streaming from video.mea-assets.storage.cloudlark.corp
+  </div>
+  <script>
+    var select = document.getElementById("quality-select");
+    var manifestUri = 'https://video-assets.mirrorsedgearchive.de/beta/propaganda/dash/dev/manifest.mpd';
+    var tracks = null;
+
+    function initApp() {
+      shaka.polyfill.installAll();
+
+      if (shaka.Player.isBrowserSupported()) {
+        initPlayer();
+      } else {
+        console.error('Browser not supported!');
+      }
+    }
+
+    function initPlayer() {
+      var video = document.getElementById('video');
+      var player = new shaka.Player(video);
+      var bandwidth = getBandwidthCookie();
+      var abrEnabled = getAbrCookie();
+      console.log('ABR: ' + abrEnabled)
+      console.log('BW:  ' + bandwidth + ' b/s');
+
+      player.configure({
+        abr: {
+          defaultBandwidthEstimate: bandwidth,
+          enabled: abrEnabled
+        },
+        streaming: {
+          bufferingGoal: 5
+        }
+      });
+
+      window.player = player;
+
+      player.addEventListener('error', onErrorEvent);
+
+      player.load(manifestUri).then(function () {
+        console.log('The video has now been loaded!');
+        tracks = player.getVariantTracks()
+        tracks.forEach(function (element, index) {
+          let option = document.createElement("option");
+          option.text = element.height + 'p';
+          option.value = index;
+          select.add(option);
+        });
+        if (!abrEnabled) {
+          select.selectedIndex = 0;
+        }
+      }).catch(onError);  
+    }
+
+    function onErrorEvent(event) {
+      onError(event.detail);
+    }
+
+    function onError(error) {
+      console.error('Error code', error.code, 'object', error);
+    }
+
+    function getBandwidthCookie() {
+      let bandwidth = Cookies.get('bandwidth');
+      if (bandwidth != undefined) {
+        return Number(bandwidth);
+      } else {
+        return 500000;
+      }
+    }
+
+    function getAbrCookie() {
+      let abrEnabled = Cookies.get('abrEnabled');
+      if (abrEnabled != undefined) {
+        return abrEnabled;
+      } else {
+        return true;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+
+    select.addEventListener("change", function () {
+      if (select.value != null && select.value != undefined && select.value != 'auto') {
+        Cookies.set('abrEnabled', 'false');
+        let index = select.value;
+        let selectedTrack = tracks[index + 1];
+        player.selectVariantTrack(selectedTrack);
+        console.log("change to " + select.options[select.selectedIndex].text);
+        // document.cookie = "bandwidth=" + selectedTrack.bandwidth;
+      } else if (select.value == 'auto') {
+        Cookies.set('abrEnabled', 'true');
+      }
+    });
+
+    document.querySelector("#video").addEventListener('timeupdate', function () {
+      tracks = player.getVariantTracks()
+      let estimate = Math.floor(player.getStats().estimatedBandwidth);
+      console.log("Bandwidth: " + estimate)
+      Cookies.set('bandwidth', estimate)
+      tracks.forEach(function (element, index) {
+        if (element.active) {
+          document.querySelector('#quality-label').innerHTML = element.height + 'p';
+          document.querySelector('#codec-audio').innerHTML = element.audioCodec;
+          document.querySelector('#codec-video').innerHTML = element.videoCodec;
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>
