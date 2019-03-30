@@ -1,31 +1,17 @@
-var gdb, psv, nv, nvc, chapter;
-gdb = psv = nv = nvc = chapter = null;
+// Global variables
+var database = null;
+var previousVideo = null;
+var nextVideo = null;
+var jumpCategory = null;
+var chapter = null;
 
 $(function () {
-  if (document.addEventListener) {
-    // IE >= 9; other browsers
-    $('#vidPlayer')
-      .get(0)
-      .addEventListener(
-        'contextmenu',
-        function (e) {
-          $('#vidRCM').css('display', 'block');
-          e.preventDefault();
-        },
-        false
-      );
-  } else {
-    // IE < 9
-    $('#vidPlayer')
-      .get(0)
-      .attachEvent('oncontextmenu', function () {
-        $('#vidRCM').css('display', 'block');
-      });
-  }
-  var castList = '';
-  $.get('data.json', function (db) {
-    gdb = db;
-    $.each(db.newscasts, function (i, category) {
+  $.get('data.json', function (fetchedDatabase) {
+    database = fetchedDatabase;
+  }).then(function () {
+    let castList = '';
+
+    $.each(database.newscasts, function (i, category) {
       castList +=
         '<p class="list-group-item category collapsed" id="' +
         category.categoryName +
@@ -38,6 +24,7 @@ $(function () {
         '</p><div class="collapse" id="col-' +
         category.categoryName +
         '">';
+
       $.each(category['videos'], function (j, video) {
         castList +=
           '<p class="list-group-item video" id=' +
@@ -48,194 +35,214 @@ $(function () {
           video.videoLabel +
           '</p>';
       });
+
       castList += '</div>';
     });
+
     $('#castList').append(castList);
-    var queryParams = new URLSearchParams(window.location.search);
+
+    // Search for videoID in query and play video if any
+    let queryParams = new URLSearchParams(window.location.search);
     if (queryParams.has('v')) {
       let v = queryParams.get('v').replace(/\W/g, '');
-
       $('#' + v).click();
-      $('#' + v)
-        .parent()
-        .collapse('show');
+      $('#' + v).parent().collapse('show');
     }
-    $('[data-toggle="popover"]').popover();
-  })
-    .then(
-      $('.vidList').on('click', '.list-group-item.video', function () {
-        if ($('#vidPlayer').get(0).paused == false) {
-          $('#vidPlayer').get(0).pause();
-        }
-        $('#vidNav').fadeTo(400, 0);
-        if ($(this).next('.list-group-item.video').attr('id')) {
-          nv = $(this).next('.list-group-item.video').attr('id');
-          nvc = false;
-        }
-        else {
-          nv = $(this).parent().next().next().children().eq(0).attr('id');
-          nvc = true;
-        }
-        history.pushState(null, null, '?v=' + this.id);
-        $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
-        $('#vidIntro').css('display', 'none');
-        $('#vidContainer')
-          .css('background-color', '#000')
-          .css('background-image', 'none');
-        let find = $(this);
-        $('#' + psv)
-          .css('background-color', '#fff')
-          .css('color', '#000');
-        find.css('background-color', '#007bff').css('color', '#fff');
-        let type = find.data('type') + 's';
-        $.each(gdb.newscasts, function (i, category) {
-          if (category.categoryName === find.data('category')) {
-            $.each(category['videos'], function (j, video) {
-              if (video.videoName === find.attr('id')) {
-                let vp9AssetURL,
-                  h264AssetURL,
-                  vidSrc = '';
-                if (video.videoURL['vp9']) {
-                  if (video.videoURL['vp9'].indexOf('$mainAsset$') != -1) {
-                    console.log('[DEBUG] vp9 asset is on main asset server.');
-                    vp9AssetURL = video.videoURL['vp9'].replace(
-                      '$mainAsset$',
-                      atob(gdb['infrastructure'].mainAssetServer)
-                    );
-                  } else {
-                    console.log('[DEBUG] vp9 asset is external.');
-                    vp9AssetURL = video.videoURL['vp9'];
-                  }
-                  vidSrc +=
-                    '<source id="vidFileMo" src="' +
-                    vp9AssetURL +
-                    '" type="video/webm">';
-                } else {
-                  console.log('[DEBUG] vp9 asset does not exist.');
-                  vp9AssetURL = '';
-                }
-                if (video.videoURL['h264']) {
-                  if (video.videoURL['h264'].indexOf('$mainAsset$') != -1) {
-                    console.log('[DEBUG] h264 asset is on main asset server.');
-                    h264AssetURL = video.videoURL['h264'].replace(
-                      '$mainAsset$',
-                      atob(gdb['infrastructure'].mainAssetServer)
-                    );
-                  } else {
-                    console.log('[DEBUG] h264 asset is external.');
-                    h264AssetURL = video.videoURL['h264'];
-                  }
-                  vidSrc +=
-                    '<source id="vidFileFb" src="' +
-                    h264AssetURL +
-                    '" type="video/webm">';
-                } else {
-                  console.log('[DEBUG] h264 asset does not exist.');
-                  h264AssetURL = '';
-                }
-                $('#vidPlayer').attr('poster', getThumbnail(video));
-                if (video.description) {
-                  $('#vidDesc')
-                    .text(video.description)
-                    .removeClass('text-muted');
-                } else {
-                  $('#vidDesc')
-                    .text('No description.')
-                    .addClass('text-muted');
-                }
-                $('#vidPlayer').html(vidSrc);
-                if (video.subtitle) {
-                  $('#subToggle').css('display', 'block');
-                  $('#vidPlayer').data('track', video.subtitle);
-                  if ($('#subCheck').get(0).checked) {
-                    enableSubs();
-                  }
-                } else {
-                  $('#subToggle').css('display', 'none');
-                }
-                $('#vidTitle').text(
-                  category.categoryLabel + ' - ' + video.videoLabel
+
+  });
+
+  $('.vidList').on('click', '.list-group-item.video', function () {
+
+    // Pause player and hide navigation
+    $('#vidPlayer').get(0).pause();
+    $('#vidNav').hide();
+
+    history.pushState(null, null, '?v=' + this.id);
+
+    $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
+    $('#vidIntro').css('display', 'none');
+    $('#vidContainer')
+      .css('background-color', '#000')
+      .css('background-image', 'none');
+
+    let selectedVideoElement = this;
+
+    // Change highlight states
+    $(previousVideo).css('background-color', '#fff').css('color', '#000');
+    $(selectedVideoElement).css('background-color', '#007bff').css('color', '#fff');
+
+    previousVideo = selectedVideoElement;
+    let videoAsset = new Object();
+
+    $.each(database.newscasts, function (i, category) {
+      if (category.categoryName === $(selectedVideoElement).data('category')) {
+        $.each(category['videos'], function (j, video) {
+          if (video.videoName === $(selectedVideoElement).attr('id')) {
+            if (video.videoURL['vp9']) {
+              if (video.videoURL['vp9'].indexOf('$mainAsset$') != -1) {
+                videoAsset.VP9 = video.videoURL['vp9'].replace(
+                  '$mainAsset$',
+                  database['infrastructure'].mainAssetServer
                 );
-                $('#vidTitle').css('display', 'block');
-                let ts = video.timestamps;
-                let tsList = buildTimestampList(ts);
-                if (tsList) {
-                  tl = getTsNumArr(ts);
-                  chapter = null;
-                  $('#vidAd').fadeTo(400, 0, function () {
-                    $('#tsList').html(tsList);
-                    $("#tsList > a").eq(0).addClass("active")
-                    $('#vidNav')
-                      .css('opacity', '0')
-                      .css('display', 'block')
-                      .fadeTo(400, 1);
-                    $('#vidPlayer')
-                      .get(0)
-                      .load();
-                  });
-                } else {
-                  tl = null;
-                  $(this).css('display', 'none');
-                  $('#vidAd').fadeTo(100, 0.6);
-                  $('#vidPlayer')
-                    .get(0)
-                    .load();
-                }
+              } else {
+                videoAsset.VP9 = video.videoURL['vp9'];
               }
-            });
-          }
-        });
-        psv = find.attr('id');
-      })
-    )
-    .then(
-      $('#subCheck').change(function () {
-        enableSubs();
-      }),
-      $('#vidPlayer').bind('timeupdate', function (event) {
-        for (let index = tl.length - 1; index >= 0; index--) {
-          if (event.target.currentTime + 0.5 >= tl[index] && (event.target.currentTime + 0.5 <= tl[index + 1] || index == tl.length - 1)) {
-            if (index != chapter) {
-              chapter = index;
-              $("#tsList > a").each(function () {
-                $(this).removeClass('active');
-              });
-              console.log("[DEBUG] playback chapter: " + index);
-              $('#tsList')
-                .children()
-                .eq(index)
-                .addClass('active');
             }
+
+            if (video.videoURL['h264']) {
+              if (video.videoURL['h264'].indexOf('$mainAsset$') != -1) {
+                videoAsset.H264 = video.videoURL['h264'].replace(
+                  '$mainAsset$',
+                  database['infrastructure'].mainAssetServer
+                );
+              } else {
+                videoAsset.H264 = video.videoURL['h264'];
+              }
+            }
+
+            if (video.thumbnail) {
+              if (video.thumbnail.indexOf('$mainAsset$') != -1) {
+                videoAsset.thumbnail = video.thumbnail.replace(
+                  '$mainAsset$',
+                  database['infrastructure'].mainAssetServer
+                );
+              } else {
+                videoAsset.thumbnail = video.thumbnail;
+              }
+            } else {
+              videoAsset.thumbnail = 'https://video-assets.mirrorsedgearchive.de/placeholder.jpg';
+            }
+
+            $('#vidPlayer').attr('poster', videoAsset.thumbnail);
+            $('#vidTitle').text(category.categoryLabel + ' - ' + video.videoLabel);
+            $('#vidTitle').css('display', 'block');
+
+            videoAsset.html = '';
+
+            if (videoAsset.hasOwnProperty('VP9')) {
+              videoAsset.html +=
+                '<source id="vidFileMo" src="' +
+                videoAsset.VP9 +
+                '" type="video/webm">';
+            }
+
+            if (videoAsset.hasOwnProperty('H264')) {
+              videoAsset.html +=
+                '<source id="vidFileFb" src="' +
+                videoAsset.H264 +
+                '" type="video/mp4">';
+            }
+
+            // Apply sourced video asset to document
+            $('#vidPlayer').html(videoAsset.html);
+
+            if (video.description) {
+              $('#vidDesc')
+                .text(video.description)
+                .removeClass('text-muted');
+            } else {
+              $('#vidDesc')
+                .text('No description.')
+                .addClass('text-muted');
+            }
+
+            if (video.subtitle) {
+              $('#subToggle').css('display', 'block');
+              $('#vidPlayer').data('track', video.subtitle);
+              if ($('#subCheck').get(0).checked) {
+                enableSubs();
+              }
+            } else {
+              $('#subToggle').css('display', 'none');
+            }
+
+            let timestamps = video.timestamps;
+            let timestampList = buildTimestampList(timestamps);
+            if (timestampList) {
+              tl = getTsNumArr(timestamps);
+              chapter = null;
+              $('#vidAd').fadeTo(400, 0, function () {
+                $('#tsList').html(timestampList);
+                $("#tsList > a").eq(0).addClass("active");
+                $('#vidNav')
+                  .css('opacity', '0')
+                  .css('display', 'block')
+                  .fadeTo(100, 1);
+              });
+            } else {
+              $('#tsList').html(null);
+              tl = null;
+              $('#vidNav').css('display', 'none');
+              $('#vidAd').fadeTo(100, 0.6);
+            }
+
+            // Play video
+            $('#vidPlayer').get(0).load();
           }
-        }
-      }),
-      $('#vidPlayer').bind('ended', function () {
-        if ($('#apCheck').prop('checked')) {
-          if (nvc) {
-            $('#' + psv)
-              .parent()
-              .collapse('hide');
-          }
-          $('#' + nv)
-            .parent()
-            .collapse('show');
-          $('#' + nv).click();
-        }
-      }),
-      $('#tsList').on('click', '.timestamps', function () {
-        $("#tsList > a").each(function () {
-          $(this).removeClass('active');
         });
-        $(this).addClass('active');
-        $('#vidPlayer').get(0).currentTime = $(this).data('time');
-        $('#vidPlayer')
-          .get(0)
-          .play();
-      }),
-      $('#vidRCM').on('click', function () {
-        $('#vidRCM').css('display', 'none');
-      })
-    );
+      }
+    });
+    if ($(this).next('.list-group-item.video').attr('id')) {
+      nextVideo = $(this).next('.list-group-item.video').attr('id');
+      jumpCategory = false;
+    } else {
+      nextVideo = $(this).parent().next().next().children().eq(0).attr('id');
+      jumpCategory = true;
+    }
+  })
+
+  $('#subCheck').change(function () {
+    enableSubs();
+  })
+
+  $('#vidPlayer').bind('timeupdate', function (event) {
+    for (let index = tl.length - 1; index >= 0; index--) {
+      if (event.target.currentTime + 0.5 >= tl[index] && (event.target.currentTime + 0.5 <= tl[index + 1] || index == tl.length - 1)) {
+        if (index != chapter) {
+          chapter = index;
+          $("#tsList > a").each(function () {
+            $(this).removeClass('active');
+          });
+          console.log("[DEBUG] playback chapter: " + index);
+          $('#tsList')
+            .children()
+            .eq(index)
+            .addClass('active');
+        }
+      }
+    }
+  }),
+    $('#vidPlayer').bind('ended', function () {
+      if ($('#apCheck').prop('checked')) {
+        if (jumpCategory) {
+          $(previousVideo).parent().collapse('hide');
+        }
+        $('#' + nextVideo)
+          .parent()
+          .collapse('show');
+        $('#' + nextVideo).click();
+      }
+    }),
+    $('#tsList').on('click', '.timestamps', function () {
+      $("#tsList > a").each(function () {
+        $(this).removeClass('active');
+      });
+      $(this).addClass('active');
+      $('#vidPlayer').get(0).currentTime = $(this).data('time');
+      $('#vidPlayer')
+        .get(0)
+        .play();
+    }),
+    $('#vidRCM').on('click', function () {
+      $('#vidRCM').css('display', 'none');
+    })
+
+  $('#vidPlayer').contextmenu(function (e) {
+    $('#vidRCM').css('display', 'block');
+    e.preventDefault();
+  });
+
+  $('[data-toggle="popover"]').popover();
 });
 
 function enableSubs() {
@@ -250,7 +257,7 @@ function enableSubs() {
       ) {
         subURL = $('#vidPlayer')
           .data('track')
-          .replace('$mainAsset$', atob(gdb['infrastructure'].mainAssetServer));
+          .replace('$mainAsset$', database['infrastructure'].mainAssetServer);
       } else {
         subURL = $('#vidPlayer').data('track');
       }
@@ -290,19 +297,6 @@ function buildTimestampList(ts) {
     return timesList;
   } else {
     return null;
-  }
-}
-
-function getThumbnail(video) {
-  if (video.thumbnail) {
-    if (video.thumbnail.indexOf('$mainAsset$') != -1) {
-      return video.thumbnail.replace(
-        '$mainAsset$',
-        atob(gdb['infrastructure'].mainAssetServer)
-      );
-    }
-  } else {
-    return 'https://video-assets.mirrorsedgearchive.de/placeholder.jpg';
   }
 }
 
