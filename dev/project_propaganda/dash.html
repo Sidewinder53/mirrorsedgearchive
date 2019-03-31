@@ -50,14 +50,14 @@
     <p>
       <b>Codecs</b>: VP9 & H264 (Profile: Main, Level: 3.1)<br>
       <b>ClearKey/CENC</b>: not set<br>
-      <b>Fetching quality</b>: <span id="quality-label">0000</span><br>
-      <b>Fetching codec</b>: audio:<span id="codec-audio">0000</span> video:<span id="codec-video">0000</span><br>
+      <b>Playing</b>: <span id="quality-playing">000p</span> &bullet; <b>Fetching</b>: <span id="quality-fetching">000p</span><br>
+      <b>Audio codec</b>: <span id="codec-audio">0000</span> &bullet; <b>Video codec:</b> <span id="codec-video">0000</span><br>
       <b>Override quality (persistent)</b>: <select disabled id="quality-select">
         <option value="auto">Auto</option>
       </select>
     </p>
     <video id="video" width="1000" height="500" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" controls autoplay loop></video>
-    <br><a href="https://video-assets.mirrorsedgearchive.de/beta/propaganda/dash/dev/manifest.mpd">Manifest URL</a> &bullet; Streaming from video.mea-assets.storage.cloudlark.corp
+    <br><a href="https://video-assets.mirrorsedgearchive.de/beta/propaganda/dash/dev/manifest.mpd">Manifest URL</a> &bullet; Streaming from video.mea-assets.storage.cloudlark.corp trough <a href="https://video-assets.mirrorsedgearchive.de/cdn-cgi/trace">CDN</a>
   </div>
   <script>
     var select = document.getElementById("quality-select");
@@ -86,11 +86,12 @@
         abr: {
           defaultBandwidthEstimate: bandwidth,
           enabled: abrEnabled
-        },
-        streaming: {
-          bufferingGoal: 5
         }
       });
+
+        // streaming: {
+        //   bufferingGoal: 5
+        // }
 
       window.player = player;
 
@@ -155,11 +156,12 @@
     document.querySelector("#video").addEventListener('timeupdate', function () {
       tracks = player.getVariantTracks()
       let estimate = Math.floor(player.getStats().estimatedBandwidth);
-      console.log("Bandwidth: " + estimate)
+      console.log("BW: " + estimate + " b/s")
       Cookies.set('bandwidth', estimate)
       tracks.forEach(function (element, index) {
         if (element.active) {
-          document.querySelector('#quality-label').innerHTML = element.height + 'p';
+          document.querySelector('#quality-fetching').innerHTML = element.height + 'p';
+          document.querySelector('#quality-playing').innerHTML = document.querySelector('#video').videoHeight + "p"
           document.querySelector('#codec-audio').innerHTML = element.audioCodec;
           document.querySelector('#codec-video').innerHTML = element.videoCodec;
         }
