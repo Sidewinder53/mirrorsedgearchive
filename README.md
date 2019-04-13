@@ -7,6 +7,10 @@ Due to legal limitations, the archive (which is accessible at [archive.mirrorsed
 
 For more information on how to contribute to this project please visit [mirrorsedgearchive.de/contribute/](https://mirrorsedgearchive.de/contribute/)
 
+We are testing cross-browser compatibility with [BrowserStack](https://www.browserstack.com/)
+
+<img src="https://static.cloudlark.de/img/browserstack-logo-1.svg" width="200px">
+
 ## Build instructions
 
 The Mirror's Edge Archive is built using plain HTML, CSS and JavaScript. Some pages use Bootstrap, which is loaded from an external host.
