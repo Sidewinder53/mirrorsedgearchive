@@ -56,19 +56,19 @@
         <option value="auto">Auto</option>
       </select>
     </p>
-    <video id="video" width="1000" height="500" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" controls autoplay loop></video>
+    <video id="video" width="1000" height="500" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" controls loop></video>
     <br><a href="https://video-assets.mirrorsedgearchive.de/beta/propaganda/dash/dev/manifest.mpd">Manifest URL</a> &bullet; Streaming from video.mea-assets.storage.cloudlark.corp
     trough <a href="https://video-assets.mirrorsedgearchive.de/cdn-cgi/trace">CDN</a>
   </div>
   <script>
     var select = document.getElementById("quality-select");
-    var manifestUri = 'https://video-assets.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/krugerspeech_00_.mpd';
+    var manifestUri = 'https://video-assets.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/krugerspeech_00_/krugerspeech_00_.mpd';
     var tracks = null;
 
     function initApp() {
       shaka.polyfill.installAll();
 
-      if (shaka.Player.isBrowserSupported()) {
+      if ('MediaSource' in window && 'MediaKeys' in window && shaka.Player.isBrowserSupported()) {
         initPlayer();
       } else {
         console.error('Browser not supported!');
@@ -82,6 +82,11 @@
       var abrEnabled = getAbrCookie();
       console.log('ABR: ' + abrEnabled)
       console.log('BW:  ' + bandwidth + ' b/s');
+      // var rawkeys = {
+      //   '3c31c663708304f5a8efc1829a1b8284': '7aadb33f311142b976a30326d47e7ba6',
+      //   '389307f288c0b4a37391999e50345c1f': '8145cfbe28de4893cde9cdc9dfa4f73b'
+      // }
+      var keys = JSON.parse(atob("eyIzYzMxYzY2MzcwODMwNGY1YThlZmMxODI5YTFiODI4NCI6IjdhYWRiMzNmMzExMTQyYjk3NmEzMDMyNmQ0N2U3YmE2IiwiMzg5MzA3ZjI4OGMwYjRhMzczOTE5OTllNTAzNDVjMWYiOiI4MTQ1Y2ZiZTI4ZGU0ODkzY2RlOWNkYzlkZmE0ZjczYiJ9"));
 
       player.configure({
         abr: {
@@ -89,11 +94,7 @@
           enabled: abrEnabled
         },
         drm: {
-          clearKeys: {
-            'f3c5e0361e6654b28f8049c778b23946': 'a4631a153a443df9eed0593043db7519',
-            'abba271e8bcf552bbd2e86a434a9a5d9': '69eaa802a6763af979e8d1940fb88392',
-            '6d76f25cb17f5e16b8eaef6bbf582d8e': 'cb541084c99731aef4fff74500c12ead'
-          }
+          clearKeys: keys
         }
       });
 

@@ -8,6 +8,8 @@
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <!-- {{lib-js:jQuery}} -->
   <!-- {{lib-css:bootstrap}} -->
+  <!-- {{lib-css:MaterialDesign-Webfont}} -->
+  <!-- {{lib-js:shakaPlayer}} -->
   <script src="/assets/js/project_propaganda.js"></script>
   <link rel="stylesheet" href="/assets/css/project_propaganda.css" type="text/css" />
   <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
@@ -80,15 +82,11 @@
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="alert alert-info " role="alert"> This project is work in progress, subject to substantial change and best viewed on a large, Full HD viewport. </div>
-  </div>
   <div class="container" id="mainDiv">
     <div class="card">
       <div id="vidIntro" class="text-muted h3 text-center">Select a video to get started.</div>
       <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
-        <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" controlslist="nodownload" class="embed-responsive-item" controls
-          autoplay crossorigin="anonymous">
+        <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" class="embed-responsive-item" controls autoplay>
         </video>
         <div id="vidRCM">
           <div class="media">
@@ -97,7 +95,7 @@
                 d="M10.08,10.86C10.13,10.53 10.24,10.24 10.38,10C10.5,9.74 10.72,9.53 10.97,9.37C11.21,9.22 11.5,9.15 11.88,9.14C12.11,9.15 12.32,9.19 12.5,9.27C12.71,9.36 12.89,9.5 13.03,9.63C13.17,9.78 13.28,9.96 13.37,10.16C13.46,10.36 13.5,10.58 13.5,10.8H15.3C15.28,10.33 15.19,9.9 15,9.5C14.85,9.12 14.62,8.78 14.32,8.5C14,8.22 13.66,8 13.24,7.84C12.82,7.68 12.36,7.61 11.85,7.61C11.2,7.61 10.63,7.72 10.15,7.95C9.67,8.18 9.27,8.5 8.95,8.87C8.63,9.26 8.39,9.71 8.24,10.23C8.09,10.75 8,11.29 8,11.87V12.14C8,12.72 8.08,13.26 8.23,13.78C8.38,14.3 8.62,14.75 8.94,15.13C9.26,15.5 9.66,15.82 10.14,16.04C10.62,16.26 11.19,16.38 11.84,16.38C12.31,16.38 12.75,16.3 13.16,16.15C13.57,16 13.93,15.79 14.24,15.5C14.55,15.25 14.8,14.94 15,14.58C15.16,14.22 15.27,13.84 15.28,13.43H13.5C13.5,13.64 13.43,13.83 13.34,14C13.25,14.19 13.13,14.34 13,14.47C12.83,14.6 12.66,14.7 12.46,14.77C12.27,14.84 12.07,14.86 11.86,14.87C11.5,14.86 11.2,14.79 10.97,14.64C10.72,14.5 10.5,14.27 10.38,14C10.24,13.77 10.13,13.47 10.08,13.14C10.03,12.81 10,12.47 10,12.14V11.87C10,11.5 10.03,11.19 10.08,10.86M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20Z" />
             </svg>
             <div class="media-body">
-              <h5 class="media-heading"> This video is the intellectual property of Electronic Arts Inc.</h5>
+              <h5 class="media-heading">This video is the intellectual property of Electronic Arts Inc.</h5>
               <p>You may not redistribute it without permission from the copyright holder.</p>
             </div>
           </div>
@@ -105,8 +103,8 @@
       </div>
       <div id="vidFooter" class="card-footer">
         <div class="row align-items-center">
-          <h4 class="mt-2 col-md-8 col-sm-12" id="vidTitle"></h4>
-          <div class="col-md-4 col-sm-12">
+          <h4 class="mt-2 col-md-7 col-sm-12" id="vidTitle"></h4>
+          <div class="col-md-5 col-sm-12">
             <div class="row justify-content-end align-items-center">
               <div id="subToggle" class="custom-control custom-checkbox col-">
                 <input type="checkbox" class="custom-control-input" id="subCheck">
@@ -116,8 +114,18 @@
                 <input type="checkbox" class="custom-control-input" id="apCheck">
                 <label class="custom-control-label" for="apCheck">Autoplay</label>
               </div>
+              <div class="col- ml-3 mr-2">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text mdi mdi-settings" for="qualitySelect"></label>
+                  </div>
+                  <select class="custom-select" id="qualitySelect">
+                    <option value="auto" selected>Auto</option>
+                  </select>
+                </div>
+              </div>
               <div class="col-">
-                <button type="button" class="btn btn-secondary btn-sm ml-3 mr-2" data-toggle="popover" data-trigger="focus" title="Share this video" data-placement="left"
+                <button type="button" class="btn btn-secondary btn-sm ml-2 mr-2" data-toggle="popover" data-trigger="focus" title="Share this video" data-placement="left"
                   data-content="Share a video by sending the URL of this page to someone else.">
                   <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                     <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
@@ -130,29 +138,79 @@
       </div>
       <div id="vidMeta" class="card-body">
         <p id="vidDesc"></p>
-        <p id="vidAttr">Video, audio and images are &copy; 2016 Electronic Arts Inc. &bullet; Video extraction technique by derwangler</p>
+        <p id="vidAttr">Video &copy; 2016 Electronic Arts Inc.</p>
+        <p id="vidCENC"><span id="vidStat" href="#" class="card-link mdi mdi-play-protected-content" data-toggle="modal" data-target="#compLearnMore"
+            title="Content protected using MPEG-CENC" class=""></span></p>
       </div>
     </div>
-    <div id="vidAd">
-      <a href="/project_billboard" class="card">
-        <img src="/assets/media/image/project_propaganda/billboard.jpg">
-        <div class="card-footer text-muted"> Billboards </div>
-      </a>
-    </div>
-    <div id="vidNav" class="card shadow">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0"> Navigation </h5>
+    <div id="leftSideBar">
+      <div class="card mb-3 shadow" id="vidCompStatus">
+        <div class="card-header text-white bg-danger d-flex justify-content-between" data-toggle="collapse" data-target="#collapseCompStatus" aria-expanded="true"
+          aria-controls="collapseCompStatus">
+          <h5 class="mdi mdi-lock-alert mb-0">&nbsp;Limited video quality</h5>
+          <span id="vidCompStatusChev" class="mdi mdi-24px mdi-chevron-down">
+        </div>
+        <div class="collapse show" id="collapseCompStatus">
+          <div class="card-body">
+            <p class="card-text">Your browser does not support playing protected media. Video resolution is limited to 300p.</p>
+            <p class="lead small text-secondary">Switch to Firefox or Chrome - <a href="#" class="card-link" data-toggle="modal" data-target="#compLearnMore">Learn more</a></p>
+          </div>
+        </div>
       </div>
-      <div id="tsList" class="list-group list-group-flush">
-        <button type="button" class="list-group-item list-group-item-action text-center" disabled>Select a video to get started</button>
+      <div id="vidNav" class="card shadow">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">Navigation</h5>
+        </div>
+        <div id="tsList" class="list-group list-group-flush">
+          <button type="button" class="list-group-item list-group-item-action text-center" disabled>Select a video to get started</button>
+        </div>
       </div>
+      <!-- <div id="vidAd">
+        <a href="/project_billboard" class="card">
+          <img src="/assets/media/image/project_propaganda/billboard.jpg">
+          <div class="card-footer text-muted"> Billboards </div>
+        </a>
+      </div> -->
     </div>
     <div id="vidSel" class="card shadow">
       <div class="card-header">
-        <h5 class="mb-0"> Scene selection </h5>
+        <h5 class="mb-0">Scene selection</h5>
       </div>
       <div class="tab-content">
         <div class="list-group list-group-flush vidList" id="castList"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="compLearnMore" tabindex="-1" role="dialog" aria-labelledby="compLearnMoreLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="compLearnMoreLabel">Information about protected content on this page</h5>
+        </div>
+        <div class="modal-body">
+          <p>Videos on this page are protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
+              href="https://www.google.com/chrome/">Google Chrome</a>, <a href="https://www.opera.com">Opera</a> and many others. Visitors using a non-supported browser will see a
+            fallback video in 300p, that's about 20% of the maximum quality.</p>
+          <br>
+          <hr>
+          <p class="font-weight-bold">Why is media on this page protected/encrypted?</p>
+          <p>When we started this project, we weighed the pros and cons of protecting content and concluded that it is our duty to protect media on this site from unauthorized
+            redistribution. We understand that not everyone will be content with this decision. Please <a
+              href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new">provide your feedback</a> on this situation if you think we should have made a different
+            decision.</p>
+          <p class="font-weight-bold">What are the technical implications of this?</p>
+          <p>Content on this page is served trough <abbr title="Media Source Extensions" class="initialism">MSE</abbr> and <abbr title="Encrypted Media Extensions"
+              class="initialism">EME</abbr> using a ClearKey implementation. Even though support for this feature is required by the <a
+              href="https://www.w3.org/TR/encrypted-media/">W3C standard</a>, some browsers such as Microsoft Edge or Apple Safari on iOS provide limited or no support. Such
+            browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p. We may lift this limitation in the future if we notice that the
+            original videos circulate online.</p>
+          <p class="font-weight-bold">You some kind of Netflix? 🤨</p>
+          <p>No, we are not. We do not use any proprietary <abbr title="Digital Rights Management" class="initialism">DRM</abbr> solutions, such as Widevine or PlayReady. MPEG-CENC
+            is a completely open, standardized container format requiring no proprietary code.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>

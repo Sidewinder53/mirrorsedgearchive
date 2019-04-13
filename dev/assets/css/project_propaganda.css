@@ -37,22 +37,55 @@
   border-radius: 0;
 }
 
+#vidCENC {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+#vidCENC {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#vidCENC>span::before {
+  font-size: 16pt;
+  vertical-align: middle;
+  color: #28a745;
+  line-height: 21px;
+}
+
 #vidNav {
   display: none;
+}
+
+#leftSideBar {
   top: 0;
   left: -305px;
   width: 300px;
   position: absolute;
-  z-index: 5;
 }
 
 #vidAd {
-  top: 0;
-  left: -205px;
-  width: 200px;
-  position: absolute;
+  display: none;
   opacity: 0.6;
   transition: opacity 0.15s ease-in-out;
+}
+#vidCompStatus {
+  display: none;
+}
+
+#vidCompStatus>.card-header {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
+  height: 49px;
+}
+
+#vidCompStatusChev:before {
+  line-height: 10px;
+  margin-top: 8px;
 }
 
 #vidAd>a>img {
@@ -135,6 +168,15 @@
   font-size: small;
 }
 
+.small-light {
+  font-size: small;
+  color: rgb(150, 150, 150);
+}
+
+#vidCompStatus>.card>.card-body {
+  padding: 1rem 1.25rem;
+}
+
 .list-group-item.video:focus, .list-group-item.video:hover {
   z-index: auto;
 }
@@ -152,6 +194,10 @@
   border: none;
 }
 
+#vidStat {
+  cursor: pointer;
+}
+
 .video {
   padding-bottom: 3px;
   padding-top: 3px;
@@ -159,7 +205,6 @@
 }
 
 #subToggle {
-  display: none;
   margin-right: 16px;
 }
 

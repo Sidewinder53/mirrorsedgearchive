@@ -21,7 +21,8 @@ const libs = {
     "image-picker": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.1/image-picker.min.js\" integrity=\"sha256-P13mkADbtcK0GtB1ZJQUEkvYmdA1Vr8C1qgIreybN1U=\" crossorigin=\"anonymous\"></script>",
     "noUiSlider": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js\" integrity=\"sha256-V76+FCDgnqVqafUQ74coiR7qA3Gd6ZlVuFgdwcGCGlc=\" crossorigin=\"anonymous\"></script>",
     "wNumb": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js\" integrity=\"sha256-HT7c4lBipI1Hkl/uvUrU1HQx4WF3oQnSafPjgR9Cn8A=\" crossorigin=\"anonymous\"></script>",
-    "polyfill": "<script src=\"https://polyfill.io/v3/polyfill.min.js?flags=gated&rum=true&features=default\" crossorigin=\"anonymous\"></script>"
+    "polyfill": "<script src=\"https://polyfill.io/v3/polyfill.min.js?flags=gated&rum=true&features=default\" crossorigin=\"anonymous\"></script>",
+    "shakaPlayer": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.5.0-beta3/shaka-player.compiled.js\" integrity=\"sha256-6m9r3bvghyaaVlFC924WK0+EdI3ktvIta86PCV3eam8=\" crossorigin=\"anonymous\"></script>"
   },
   css: {
     "bootstrap": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=\" crossorigin=\"anonymous\" />",
@@ -105,7 +106,7 @@ gulp.task('build-js', function(cb) {
   pump(
     [
       gulp.src('dev/assets/js/*.js'),
-      uglify({ ecma: 8 }),
+      uglify({ ecma: 6 }),
       gulp.dest('dist/assets/js')
     ],
     cb
@@ -132,6 +133,7 @@ gulp.task('build-html', function(cb) {
       replace('{{stamp_text}}', 'DEV'),
       
       replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
+      replace('<!-- {{lib-js:shakaPlayer}} -->', libs.javascript["shakaPlayer"]),
       replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
       replace('<!-- {{lib-js:image-picker}} -->', libs.javascript["image-picker"]),
       replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
