@@ -445,7 +445,7 @@ $(document).ready(function() {
     console.log($em);
 
     request = $.ajax({
-      url: "https://mirrorsedgearchive.de/project_graffiti/generate.php",
+      url: "/project_graffiti/generate.php",
       type: "post",
       data: {
         emblem: $selected_emblem_path,
