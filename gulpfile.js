@@ -168,6 +168,7 @@ gulp.task('build-html-prod', function(cb) {
       replace('{{stamp_text}}', 'DEV'),
       
       replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
+      replace('<!-- {{lib-js:shakaPlayer}} -->', libs.javascript["shakaPlayer"]),
       replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
       replace('<!-- {{lib-js:image-picker}} -->', libs.javascript["image-picker"]),
       replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
@@ -201,6 +202,7 @@ gulp.task('build-html-sandbox', function(cb) {
       ),
 
       replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
+      replace('<!-- {{lib-js:shakaPlayer}} -->', libs.javascript["shakaPlayer"]),
       replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
       replace('<!-- {{lib-js:image-picker}} -->', libs.javascript["image-picker"]),
       replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
