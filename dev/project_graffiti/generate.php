@@ -3,7 +3,7 @@
 $ref = $_SERVER['HTTP_REFERER'];
 $refData = parse_url($ref);
 
-if($refData['host'] !== 'mirrorsedgearchive.de') {
+if($refData['host'] !== 'mirrorsedgearchive.de' && $refData['host'] !== 'www.mirrorsedgearchive.de') {
 	die("Unauthorized request");
 	exit();
 }
