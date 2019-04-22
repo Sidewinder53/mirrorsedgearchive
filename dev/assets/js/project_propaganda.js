@@ -1,21 +1,19 @@
+'use strict';
+
 // Global variables
 var database = null;
 var previousVideo = null;
 var nextVideo = null;
 var jumpCategory = null;
 var chapter = null;
+var timestampList = null;
+var protectedPlaybackAvailable = false;
 
 document.addEventListener('DOMContentLoaded', initApp);
 
-$(function () {
-  $.get('dashData.json', function (fetchedDatabase) {
-    database = fetchedDatabase;
-  })
-});
-
 function initApp() {
   // Fetch database
-  $.get('dashData.json', function (fetchedDatabase) {
+  $.get('data.json', function (fetchedDatabase) {
     database = fetchedDatabase;
     let castList = '';
 
@@ -46,7 +44,7 @@ function initApp() {
       castList += '</div>';
     });
     $('#castList').append(castList);
-    console.log("[PropP] Successfully built cast list")
+    console.log("[PropP] Built newscast list")
 
     // Search for videoID in query and play video if any
     let queryParams = new URLSearchParams(window.location.search);
@@ -64,9 +62,8 @@ function initApp() {
   let comp_eme = false;
   let comp_emeVP9 = false;
   let comp_emeH264 = false;
-  let comp_protectedPlayback = false;
 
-  console.log("%c🛂 Checking browser compatibility...", "font-weight: bold;")
+  console.log("🛂 Checking browser compatibility...")
 
   if (window.HTMLVideoElement) {
     console.log("✔️ HTML5 Video Element");
@@ -113,28 +110,33 @@ function initApp() {
           console.log("✔️ Protected content available");
           console.log("✔️ Video playback available");
           $("#vidCENC").css('display', 'block')
-          comp_protectedPlayback = true;
+          protectedPlaybackAvailable = true;
           shaka.polyfill.installAll();
           console.log("⚙️ Initializing Shaka Player...")
           initPlayer();
           hookBindings();
+          hookDashBindings();
         } else {
-          console.log("%c❌ Protected content unavailable", "font-weight: bold;");
+          console.log("❌ Protected content unavailable");
           $("#vidCompStatus").css('display', 'flex');
           $("#vidIntro").addClass('font-weight-bold');
           $("#vidIntro").html("Fallback video is not available in this build.");
+          hookBindings();
+          hookFallbackBindings();
           console.log("✔️ Video playback available");
         }
       })
     } else {
-      console.log("%c❌ Protected content unavailable", "font-weight: bold;");
+      console.log("❌ Protected content unavailable");
       $("#vidCompStatus").css('display', 'flex');
       $("#vidIntro").addClass('font-weight-bold');
       $("#vidIntro").html("Fallback video is not available in this build.");
+      hookBindings();
+      hookFallbackBindings();
       console.log("✔️ Video playback available");
     }
   } else {
-    console.log("%c❌ Video playback unavailable", "font-weight: bold;");
+    console.log("❌ Video playback unavailable");
     // TODO Display fatal error
   }
   // End of compatibility checks
@@ -144,9 +146,8 @@ function initPlayer() {
   var video = $('#vidPlayer').get(0);
   var player = new shaka.Player(video);
   var bandwidth = getBandwidthCookie();
-  var abrEnabled = getAbrCookie();
-  console.log('[Shaka] ABR enabled:   ' + abrEnabled)
-  console.log('[Shaka] ABR bandwidth: ' + bandwidth + ' b/s');
+  window.abrEnabled = getAbrCookie();
+  console.log('[Shaka] ABR enabled: ' + abrEnabled + ' | ABR bandwidth: ' + bandwidth + ' b/s')
   var keys = JSON.parse(atob("eyIzYzMxYzY2MzcwODMwNGY1YThlZmMxODI5YTFiODI4NCI6IjdhYWRiMzNmMzExMTQyYjk3NmEzMDMyNmQ0N2U3YmE2IiwiMzg5MzA3ZjI4OGMwYjRhMzczOTE5OTllNTAzNDVjMWYiOiI4MTQ1Y2ZiZTI4ZGU0ODkzY2RlOWNkYzlkZmE0ZjczYiJ9"));
 
   player.configure({
@@ -165,26 +166,44 @@ function initPlayer() {
 function loadManifest(manifestUri) {
   player.load(manifestUri).then(function () {
     console.log('[PropP] Manifest loaded.');
-    tracks = player.getVariantTracks()
-    tracks.sort(function(a, b) {
-      if (a.height < b.height) {
-        return -1;
-      }
-      if (a.height > b.height) {
-        return 1;
-      }
-    })
+    window.tracks = player.getVariantTracks()
+
+    // Populate quality select menu
+    let options = [];
+    $("#qualitySelect").html("");
     tracks.forEach(function (element, index) {
-      let option = document.createElement("option");
-      option.text = element.height + 'p';
-      option.value = index;
-      $("#qualitySelect").get(0).add(option);
+      options.push([element.height, index])
     });
-    // if (!abrEnabled) {
-    //   select.selectedIndex = 0;
-    // }
+    options.sort(sortQualities);
+    $("#qualitySelect").append(new Option("Auto", "auto"));
+    options.forEach(function (element) {
+      $("#qualitySelect").append(new Option(element[0] + "p", element[1]));
+    })
+
+    // Restore ABR status
+    if (abrEnabled == true) {
+      $("#qualitySelect").get(0).selectedIndex = 0;
+    } else {
+
+    }
+
+    // Restore subtitle status
+    if (Cookies.get("subtitles") == "true" && $("#subCheck").get(0).checked == false) {
+      console.log("[PropP] Subtitle state restored, subtitles enabled.")
+      $("#subCheck").click();
+    }
   }).catch(onError);
 }
+
+function sortQualities(a, b) {
+  if (a[0] === b[0]) {
+    return 0;
+  }
+  else {
+    return (a[0] < b[0]) ? -1 : 1;
+  }
+}
+
 
 function onErrorEvent(event) {
   onError(event.detail);
@@ -205,66 +224,15 @@ function getBandwidthCookie() {
 
 function getAbrCookie() {
   let abrEnabled = Cookies.get('abrEnabled');
-  if (abrEnabled != undefined) {
-    return abrEnabled;
+  if (abrEnabled == "false") {
+    return false;
   } else {
+    Cookies.set('abrEnabled', true, { path: '/project_propaganda' })
     return true;
   }
 }
 
-function enableSubs() {
-  if ($('#subCheck').get(0).checked) {
-    if ($('#vidPlayer').get(0).textTracks[0]) {
-      $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
-    } else {
-      if (
-        $('#vidPlayer')
-          .data('track')
-          .indexOf('$mainAsset$') != -1
-      ) {
-        subURL = $('#vidPlayer')
-          .data('track')
-          .replace('$mainAsset$', database['infrastructure'].mainAssetServer);
-      } else {
-        subURL = $('#vidPlayer').data('track');
-      }
-      $('#vidPlayer').append(
-        '<track kind="subtitles" label="English" src="' +
-        subURL +
-        '" srclang="en" default>'
-      );
-      $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
-    }
-  } else {
-    $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
-  }
-}
-
-function getTsNumArr(ts) {
-  let arr = [];
-  $.each(ts, function (i, text) {
-    arr.push(i);
-  });
-  return arr;
-}
-
 function hookBindings() {
-
-  $("#qualitySelect").change(function () {
-    let select = $("#qualitySelect").get(0)
-    if (select.value != null && select.value != undefined && select.value != 'auto') {
-      player.configure({ abr: { enabled: false } });
-      Cookies.set('abrEnabled', 'false');
-      let index = select.value;
-      let selectedTrack = tracks[index + 1];
-      player.selectVariantTrack(selectedTrack);
-      console.log("change to " + select.options[select.selectedIndex].text);
-      // document.cookie = "bandwidth=" + selectedTrack.bandwidth;
-    } else if (select.value == 'auto') {
-      Cookies.set('abrEnabled', 'true');
-    }
-  });
-
   // Enable popovers
   $('[data-toggle="popover"]').popover();
 
@@ -277,30 +245,6 @@ function hookBindings() {
   // Hide copyright notice on regular click
   $('#vidRCM').on('click', function () {
     $('#vidRCM').css('display', 'none');
-  })
-
-  // Bind player timeupdates to chapter tracking function
-  $('#vidPlayer').bind('timeupdate', function (event) {
-    let estimate = Math.floor(player.getStats().estimatedBandwidth);
-    if (estimate != undefined && !isNaN(estimate)) {
-      console.log("[Shaka-DEBUG] ABR estimated bandwidth: " + estimate + " b/s")
-      Cookies.set('bandwidth', estimate)
-    }
-    // for (let index = timestampList.length - 1; index >= 0; index--) {
-    //   if (event.target.currentTime + 0.5 >= timestampList[index] && (event.target.currentTime + 0.5 <= timestampList[index + 1] || index == timestampList.length - 1)) {
-    //     if (index != chapter) {
-    //       chapter = index;
-    //       $("#tsList > a").each(function () {
-    //         $(this).removeClass('active');
-    //       });
-    //       console.log("[DEBUG] playback chapter: " + index);
-    //       $('#tsList')
-    //         .children()
-    //         .eq(index)
-    //         .addClass('active');
-    //     }
-    //   }
-    // }
   })
 
   // Bind video end to autoplay check
@@ -328,7 +272,7 @@ function hookBindings() {
       .play();
   })
 
-
+  // Bind clicks on video list element to video load
   $('.vidList').on('click', '.list-group-item.video', function () {
 
     // Pause player and hide navigation
@@ -382,11 +326,15 @@ function hookBindings() {
       if (category.categoryName === $(selectedVideoElement).data('category')) {
         $.each(category['videos'], function (j, video) {
           if (video.name === $(selectedVideoElement).attr('id')) {
-            var manifestUri = video.manifest.replace('$(main)', database['infrastructure'].mainAssetServer);
-            loadManifest(manifestUri);
+            if (protectedPlaybackAvailable == true) {
+              var manifestUri = video.manifest.replace('$(main)', database['infrastructure'].mainAssetServer);
+              loadManifest(manifestUri);
+            } else {
+              playFallback(video);
+            }
+            $('#vidTitle').text(category.categoryLabel + ' - ' + video.label);
+            $('#vidTitle').css('display', 'block');
             if (video.description) {
-              $('#vidTitle').text(category.categoryLabel + ' - ' + video.label);
-              $('#vidTitle').css('display', 'block');
               $('#vidDesc')
                 .text(video.description)
                 .removeClass('text-muted');
@@ -396,14 +344,20 @@ function hookBindings() {
                 .addClass('text-muted');
             }
 
+            if (video.thumbnail) {
+              $("#vidPlayer").attr("poster", video.thumbnail.replace('$(main)', database['infrastructure'].mainAssetServer));
+            } else {
+              $("#vidPlayer").attr("poster", "https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg")
+            }
+
             if (video.timestamps) {
               let timestamps = video.timestamps;
-              let timestampList = buildTimestampList(timestamps);
-              if (timestampList) {
-                tl = getTsNumArr(timestamps);
+              let timestampDom = buildTimestampList(timestamps);
+              if (timestampDom) {
+                timestampList = getTsNumArr(timestamps);
                 chapter = null;
                 $('#vidAd').css('display', 'none');
-                $('#tsList').html(timestampList);
+                $('#tsList').html(timestampDom);
                 $("#tsList > a").eq(0).addClass("active");
                 $('#vidNav')
                   .css('opacity', '0')
@@ -411,7 +365,7 @@ function hookBindings() {
                   .fadeTo(100, 1);
               } else {
                 $('#tsList').html(null);
-                tl = null;
+                timestampList = null;
                 $('#vidNav').css('display', 'none');
                 $('#vidAd').css('display', 'block');
               }
@@ -429,6 +383,82 @@ function hookBindings() {
         })
       }
     })
+  })
+}
+
+function hookDashBindings() {
+  // Bind player timeupdates to chapter tracking function
+  $('#vidPlayer').bind('timeupdate', function (event) {
+    let estimate = Math.floor(player.getStats().estimatedBandwidth);
+    if (estimate != undefined && !isNaN(estimate) && abrEnabled == true) {
+      console.log("[Shaka-DEBUG] ABR bandwidth: " + estimate + " b/s | Fetching: " + player.getStats().height + "p | Playing: " + $("#vidPlayer").get(0).videoHeight + "p")
+      Cookies.set('bandwidth', estimate, { path: '/project_propaganda' });
+    } else {
+      console.log("[Shaka-DEBUG] Current quality: " + player.getStats().height + "p")
+    }
+    if (timestampList) {
+      for (let index = timestampList.length - 1; index >= 0; index--) {
+        if (event.target.currentTime + 0.5 >= timestampList[index] && (event.target.currentTime + 0.5 <= timestampList[index + 1] || index == timestampList.length - 1)) {
+          if (index != chapter) {
+            chapter = index;
+            $("#tsList > a").each(function () {
+              $(this).removeClass('active');
+            });
+            console.log("[PropP-DEBUG] playback chapter: " + index);
+            $('#tsList')
+              .children()
+              .eq(index)
+              .addClass('active');
+          }
+        }
+      }
+    }
+  })
+
+  $("#qualitySelect").change(function () {
+    let select = $("#qualitySelect").get(0);
+    if (select.value != null && select.value != undefined && select.value != 'fallback' && select.value != 'auto') {
+      player.configure({ abr: { enabled: false } });
+      window.abrEnabled = false;
+      Cookies.set('abrEnabled', 'false', { path: '/project_propaganda' });
+      player.selectVariantTrack(tracks[$("#qualitySelect option:selected").val()], true);
+      console.log("[Shaka] ABR disabled, changed to " + select.options[select.selectedIndex].text);
+      Cookies.set('bandwidth', player.getStats().streamBandwidth, { path: '/project_propaganda' });
+    } else if (select.value == 'auto') {
+      window.abrEnabled = true;
+      player.configure({ abr: { enabled: true } });
+      console.log("[Shaka] ABR enabled, changed to auto");
+      Cookies.set('abrEnabled', 'true', { path: '/project_propaganda' });
+    }
+  });
+
+  // Bind checkbox toggle to subtitle state update
+  $('#subCheck').change(function () {
+    if (this.checked) {
+      player.setTextTrackVisibility(true);
+      Cookies.set('subtitles', true, { path: '/project_propaganda' });
+    } else {
+      player.setTextTrackVisibility(false);
+      Cookies.set('subtitles', false, { path: '/project_propaganda' })
+    }
+  })
+}
+
+function hookFallbackBindings() {
+  // Bind checkbox toggle to subtitle state update
+  $('#subCheck').change(function () {
+    if (this.checked) {
+      Cookies.set('subtitles', true, { path: '/project_propaganda' });
+      if ($('#vidPlayer').get(0).textTracks[0]) {
+        $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+      } else {
+        $('#vidPlayer').append('<track kind="subtitles" label="English" src="' + $('#vidPlayer').data('track') + '" srclang="en" default>');
+        $('#vidPlayer').get(0).textTracks[0].mode = 'showing';
+      }
+    } else {
+      $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
+      Cookies.set('subtitles', false, { path: '/project_propaganda' })
+    }
   })
 }
 
@@ -451,8 +481,24 @@ function buildTimestampList(ts) {
   }
 }
 
+function playFallback(video) {
+  $("#vidPlayer").attr('src', video.fallback.replace('$(main)', database['infrastructure'].mainAssetServer));
+  $("#vidPlayer").data('track', video.track.replace('$(main)', database['infrastructure'].mainAssetServer))
+  $("#qualitySelect").html("");
+  $("#qualitySelect").attr("disabled", true);
+  $("#qualitySelect").append(new Option("300p", "fallback"));
+}
+
 function secToDIN(s) {
   return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s;
+}
+
+function getTsNumArr(ts) {
+  let arr = [];
+  $.each(ts, function (i, text) {
+    arr.push(i);
+  });
+  return arr;
 }
 
 String.prototype.hashCode = function () {

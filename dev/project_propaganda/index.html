@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>The Mirror's Edge Archive &#x1F4C2; - Project Propaganda</title>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
   <!-- {{lib-js:jQuery}} -->
   <!-- {{lib-css:bootstrap}} -->
   <!-- {{lib-css:MaterialDesign-Webfont}} -->
@@ -103,17 +103,9 @@
       </div>
       <div id="vidFooter" class="card-footer">
         <div class="row align-items-center">
-          <h4 class="mt-2 col-md-7 col-sm-12" id="vidTitle"></h4>
-          <div class="col-md-5 col-sm-12">
+          <h4 class="mt-2 col-lg-5 col-md-12 d-flex justify-content-center d-flex justify-content-md-start" id="vidTitle"></h4>
+          <div class="col-lg-7 col-md-12 d-flex justify-content-center d-flex justify-content-md-end" id="vidCtrlArea">
             <div class="row justify-content-end align-items-center">
-              <div id="subToggle" class="custom-control custom-checkbox col-">
-                <input type="checkbox" class="custom-control-input" id="subCheck">
-                <label class="custom-control-label" for="subCheck">Subtitles</label>
-              </div>
-              <div id="apToggle" class="custom-control custom-checkbox col-">
-                <input type="checkbox" class="custom-control-input" id="apCheck">
-                <label class="custom-control-label" for="apCheck">Autoplay</label>
-              </div>
               <div class="col- ml-3 mr-2">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -124,13 +116,25 @@
                   </select>
                 </div>
               </div>
-              <div class="col-">
-                <button type="button" class="btn btn-secondary btn-sm ml-2 mr-2" data-toggle="popover" data-trigger="focus" title="Share this video" data-placement="left"
-                  data-content="Share a video by sending the URL of this page to someone else.">
-                  <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                    <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
-                  </svg>
-                </button>
+              <div class="input-group input-group-flex" role="group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input id="subCheck" type="checkbox" aria-label="Checkbox for following text input">
+                    <label class="form-check-label" for="subCheck">&nbsp;Subtitles</label>
+                  </div>
+                  <div class="input-group-text d-none d-md-block">
+                    <input id="apCheck" type="checkbox" aria-label="Checkbox for following text input">
+                    <label class="form-check-label" for="apCheck">&nbsp;Autoplay</label>
+                  </div>
+                </div>
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-secondary mr-2" data-toggle="popover" data-trigger="focus" title="Share this video" data-placement="left"
+                    data-content="Share a video by sending the URL of this page to someone else.">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                      <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -138,9 +142,9 @@
       </div>
       <div id="vidMeta" class="card-body">
         <p id="vidDesc"></p>
-        <p id="vidAttr">Video &copy; 2016 Electronic Arts Inc.</p>
-        <p id="vidCENC"><span id="vidStat" href="#" class="card-link mdi mdi-play-protected-content" data-toggle="modal" data-target="#compLearnMore"
-            title="Content protected using MPEG-CENC" class=""></span></p>
+        <p id="vidAttr">Video &copy; 2016 Electronic Arts Inc. &bullet; media extraction by derwangler</p>
+        <p id="vidCENC"><a id="vidStat" href="#" class="card-link mdi mdi-play-protected-content badge badge-light text-secondary" data-toggle="modal" data-target="#compLearnMore"
+            title="Media container protected using MPEG-CENC">&nbsp;MPEG-CENC</span></a>
       </div>
     </div>
     <div id="leftSideBar">
@@ -188,16 +192,16 @@
           <h5 class="modal-title" id="compLearnMoreLabel">Information about protected content on this page</h5>
         </div>
         <div class="modal-body">
-          <p>Videos on this page are protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
-              href="https://www.google.com/chrome/">Google Chrome</a>, <a href="https://www.opera.com">Opera</a> and many others. Visitors using a non-supported browser will see a
-            fallback video in 300p, that's about 20% of the maximum quality.</p>
+          <p>Media on this page is protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
+              href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.opera.com">Opera</a>. Visitors using a non-supported browser will be able to view a
+            fallback video in 300p, that's about 20% of the maximum resolution. If you want to learn more about content protection, its reasons and implementation on this page,
+            continue reading below.</p>
           <br>
           <hr>
           <p class="font-weight-bold">Why is media on this page protected/encrypted?</p>
-          <p>When we started this project, we weighed the pros and cons of protecting content and concluded that it is our duty to protect media on this site from unauthorized
-            redistribution. We understand that not everyone will be content with this decision. Please <a
-              href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new">provide your feedback</a> on this situation if you think we should have made a different
-            decision.</p>
+          <p>When we started this project, we weighed up the pros and cons of protecting content and concluded that it is our duty to protect media on this site from unauthorized
+            redistribution. We understand that not everyone is content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new">provide
+              your feedback</a> if you think we should have made a different decision.</p>
           <p class="font-weight-bold">What are the technical implications of this?</p>
           <p>Content on this page is served trough <abbr title="Media Source Extensions" class="initialism">MSE</abbr> and <abbr title="Encrypted Media Extensions"
               class="initialism">EME</abbr> using a ClearKey implementation. Even though support for this feature is required by the <a
@@ -205,8 +209,8 @@
             browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p. We may lift this limitation in the future if we notice that the
             original videos circulate online.</p>
           <p class="font-weight-bold">You some kind of Netflix? 🤨</p>
-          <p>No, we are not. We do not use any proprietary <abbr title="Digital Rights Management" class="initialism">DRM</abbr> solutions, such as Widevine or PlayReady. MPEG-CENC
-            is a completely open, standardized container format requiring no proprietary code.</p>
+          <p>No, we are not. We do not use any proprietary <abbr title="Digital Rights Management" class="initialism">DRM</abbr> solutions, such as Google Widevine or Microsoft
+            PlayReady. MPEG-CENC is a completely open, standardized container format requiring no proprietary code.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

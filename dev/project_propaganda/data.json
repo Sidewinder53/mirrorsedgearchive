@@ -7,8 +7,9 @@
         {
           "name": "krugerspeech_00",
           "label": "Kruger #01",
-          "manifest": "$(main)/krugerspeech_00_.mpd",
-          "fallback": "$(main)/krugerspeech_00_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_00_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_00_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_00_/t-english.vtt",
           "description": "Gabriel Kruger instructs 'reformed' employees after they left juvenile.",
           "thumbnail": "$(main)/krugerspeech_00_/i-1200x600-thumb.jpg"
         }
@@ -21,8 +22,9 @@
         {
           "name": "newscast_01",
           "label": "Newscast #01",
-          "manifest": "$(main)/newscast_01_.mpd",
-          "fallback": "$(main)/newscast_01_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_01_/m-main.mpd",
+          "fallback": "$(main)/newscast_01_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_01_/t-english.vtt",
           "description": "The first newscast. Contains nothing relevant to the plot of the game, other than an early mention of \"Reflection\".",
           "timestamps": {
             "0": "INTRODUCTION",
@@ -37,16 +39,18 @@
         {
           "name": "krugerspeech_01",
           "label": "Kruger #02",
-          "manifest": "$(main)/krugerspeech_01_.mpd",
-          "fallback": "$(main)/krugerspeech_01_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_01_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_01_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_01_/t-english.vtt",
           "description": "Gabriel Kruger speaks about how great the upcoming \"Reflection\" technology is, and urges everyone to pre-order it.",
           "thumbnail": "$(main)/krugerspeech_01_/i-1200x600-thumb.jpg"
         },
         {
           "name": "krugerspeech_02",
           "label": "Kruger #03",
-          "manifest": "$(main)/krugerspeech_02_.mpd",
-          "fallback": "$(main)/krugerspeech_02_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_02_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_02_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_02_/t-english.vtt",
           "description": "Gabriel Kruger speaks about the security and laws of the city, and what would happen if you were to defy them.",
           "thumbnail": "$(main)/krugerspeech_02_/i-1200x600-thumb.jpg"
         }
@@ -59,8 +63,9 @@
         {
           "name": "newscast_02",
           "label": "Newscast #02",
-          "manifest": "$(main)/newscast_02_.mpd",
-          "fallback": "$(main)/newscast_02_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_02_/m-main.mpd",
+          "fallback": "$(main)/newscast_02_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_02_/t-english.vtt",
           "description": "Aurore talks about the Bauble Mall that has just been destroyed in a bombing.",
           "timestamps": {
             "0": "INTRODUCTION",
@@ -75,16 +80,18 @@
         {
           "name": "blacknovember_01",
           "label": "Rebecca #01",
-          "manifest": "$(main)/blacknovember_01_.mpd",
-          "fallback": "$(main)/blacknovember_01_/v-600x300-150k.mp4",
+          "manifest": "$(main)/blacknovember_01_/m-main.mpd",
+          "fallback": "$(main)/blacknovember_01_/v-600x300-170k.mp4",
+          "track": "$(main)/blacknovember_01_/t-english.vtt",
           "description": "Rebecca speaks in a distorted voice about Black November and threatens the general public and tells them what to do.",
           "thumbnail": "$(main)/blacknovember_01_/i-1200x600-thumb.jpg"
         },
         {
           "name": "krugerspeech_05",
           "label": "Kruger #04",
-          "manifest": "$(main)/krugerspeech_05_.mpd",
-          "fallback": "$(main)/krugerspeech_05_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_05_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_05_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_05_/t-english.vtt",
           "description": "Gabriel Kruger speaks about the bombing of the Bauble Mall, and that KrugerSec will fight back.",
           "thumbnail": "$(main)/krugerspeech_05_/i-1200x600-thumb.jpg"
         }
@@ -97,8 +104,9 @@
         {
           "name": "blacknovember_02",
           "label": "Rebecca #02",
-          "manifest": "$(main)/blacknovember_02_.mpd",
-          "fallback": "$(main)/blacknovember_02_/v-600x300-150k.mp4",
+          "manifest": "$(main)/blacknovember_02_/m-main.mpd",
+          "fallback": "$(main)/blacknovember_02_/v-600x300-170k.mp4",
+          "track": "$(main)/blacknovember_02_/t-english.vtt",
           "description": "Rebecca tries to convince the general public that they're being deceived by the Conglomerate.",
           "thumbnail": "$(main)/blacknovember_02_/i-1200x600-thumb.jpg"
         }
@@ -111,8 +119,9 @@
         {
           "name": "newscast_03",
           "label": "Newscast #03",
-          "manifest": "$(main)/newscast_03_.mpd",
-          "fallback": "$(main)/newscast_03_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_03_/m-main.mpd",
+          "fallback": "$(main)/newscast_03_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_03_/t-english.vtt",
           "description": "Aurore reports Noah killed in the recent raid on Zephyr Transit Hub.",
           "timestamps": {
             "0": "INTRODUCTION",
@@ -133,8 +142,9 @@
         {
           "name": "newscast_04",
           "label": "Newscast #04",
-          "manifest": "$(main)/newscast_04_.mpd",
-          "fallback": "$(main)/newscast_04_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_04_/m-main.mpd",
+          "fallback": "$(main)/newscast_04_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_04_/t-english.vtt",
           "description": "Aurore reports the recent kidnapping of Isabel Kruger.",
           "timestamps": {
             "0": "INTRODUCTION",
@@ -148,16 +158,18 @@
         {
           "name": "blacknovember_03",
           "label": "Rebecca #03",
-          "manifest": "$(main)/blacknovember_03_.mpd",
-          "fallback": "$(main)/blacknovember_03_/v-600x300-150k.mp4",
+          "manifest": "$(main)/blacknovember_03_/m-main.mpd",
+          "fallback": "$(main)/blacknovember_03_/v-600x300-170k.mp4",
+          "track": "$(main)/blacknovember_03_/t-english.vtt",
           "description": "Rebecca announces that they've kidnapped Isabel Kruger.",
           "thumbnail": "$(main)/blacknovember_03_/i-1200x600-thumb.jpg"
         },
         {
           "name": "krugerspeech_06",
           "label": "Kruger #05",
-          "manifest": "$(main)/krugerspeech_06_.mpd",
-          "fallback": "$(main)/krugerspeech_06_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_06_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_06_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_06_/t-english.vtt",
           "description": "Gabriel Kruger talks about his kidnapped daughter and threatens Rebecca Thane.",
           "thumbnail": "$(main)/krugerspeech_06_/i-1200x600-thumb.jpg"
         }
@@ -170,8 +182,9 @@
         {
           "name": "newscast_05",
           "label": "Newscast #05 (video N/A)",
-          "manifest": "$(main)/newscast_05_.mpd",
-          "fallback": "$(main)/newscast_05_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_05_/m-main.mpd",
+          "fallback": "$(main)/newscast_05_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_05_/t-english.vtt",
           "description": "Aurore reports about Isabel Kruger who was freed from captivity by KrugerSec.",
           "timestamps": {
             "0": "INTRODUCTION",
@@ -186,16 +199,18 @@
         {
           "name": "krugerspeech_03",
           "label": "Kruger #06",
-          "manifest": "$(main)/krugerspeech_03_.mpd",
-          "fallback": "$(main)/krugerspeech_03_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_03_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_03_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_03_/t-english.vtt",
           "description": "Gabriel Kruger comments on his daughter who was just freed from captivity.",
           "thumbnail": "$(main)/krugerspeech_03_/i-1200x600-thumb.jpg"
         },
         {
           "name": "krugerspeech_04",
           "label": "Kruger #07",
-          "manifest": "$(main)/krugerspeech_04_.mpd",
-          "fallback": "$(main)/krugerspeech_04_/v-600x300-150k.mp4",
+          "manifest": "$(main)/krugerspeech_04_/m-main.mpd",
+          "fallback": "$(main)/krugerspeech_04_/v-600x300-170k.mp4",
+          "track": "$(main)/krugerspeech_04_/t-english.vtt",
           "description": "Gabriel Kruger advertises Reflection technology again, and points out how important it was in the rescuing of Isabel Kruger.",
           "thumbnail": "$(main)/krugerspeech_04_/i-1200x600-thumb.jpg"
         }
@@ -208,8 +223,9 @@
         {
           "name": "newscast_06",
           "label": "Newscast #06",
-          "manifest": "$(main)/newscast_06_.mpd",
-          "fallback": "$(main)/newscast_06_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_06_/m-main.mpd",
+          "fallback": "$(main)/newscast_06_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_06_/t-english.vtt",
           "description": "Aurore reports the recent bombing of The Shard.",
           "timestamps": {
             "0": "INTRODUCTION",
@@ -223,8 +239,9 @@
         {
           "name": "blacknovember_04",
           "label": "Rebecca #04",
-          "manifest": "$(main)/blacknovember_04_.mpd",
-          "fallback": "$(main)/blacknovember_04_/v-600x300-150k.mp4",
+          "manifest": "$(main)/blacknovember_04_/m-main.mpd",
+          "fallback": "$(main)/blacknovember_04_/v-600x300-170k.mp4",
+          "track": "$(main)/blacknovember_04_/t-english.vtt",
           "description": "Rebecca comments about their bombing of The Shard.",
           "thumbnail": "$(main)/blacknovember_04_/i-1200x600-thumb.jpg"
         }
@@ -237,8 +254,9 @@
         {
           "name": "newscast_07",
           "label": "Newscast #07",
-          "manifest": "$(main)/newscast_07_.mpd",
-          "fallback": "$(main)/newscast_07_/v-600x300-150k.mp4",
+          "manifest": "$(main)/newscast_07_/m-main.mpd",
+          "fallback": "$(main)/newscast_07_/v-600x300-170k.mp4",
+          "track": "$(main)/newscast_07_/t-english.vtt",
           "description": "Aurore reports Gabriel Kruger missing, and about his successor as CEO of KrugerSec, Isabel Kruger.",
           "timestamps": {
             "0": "INTRODUCTION",

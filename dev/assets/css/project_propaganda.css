@@ -48,11 +48,10 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-#vidCENC>span::before {
-  font-size: 16pt;
+#vidCENC> a::before {
+  font-size: 14pt;
   vertical-align: middle;
   color: #28a745;
-  line-height: 21px;
 }
 
 #vidNav {
@@ -196,6 +195,22 @@
 
 #vidStat {
   cursor: pointer;
+  line-height: 18px;
+}
+
+.btn-group-toggle > label {
+  cursor: pointer;
+}
+
+.input-group-flex {
+  width: unset;
+}
+
+#vidCtrlArea {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .video {
@@ -230,3 +245,16 @@
     width: 100% !important;
   }
 }
+
+/* @media only screen and (max-width: 767.98px) {
+  #playerContainer {
+    padding: 0;
+  }
+  #playerContainer > .card {
+    border-radius: 0;
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+  }
+} */
