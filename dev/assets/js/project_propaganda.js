@@ -112,7 +112,8 @@ function initApp() {
           $("#vidCENC").css('display', 'block')
           protectedPlaybackAvailable = true;
           shaka.polyfill.installAll();
-          console.log("⚙️ Initializing Shaka Player...")
+          console.log("⚙️ Initializing Shaka Player...");
+          console.log("🛑 ============== SHAKA DEBUG ACTIVE ==============");
           initPlayer();
           hookBindings();
           hookDashBindings();
@@ -146,8 +147,9 @@ function initPlayer() {
   var video = $('#vidPlayer').get(0);
   var player = new shaka.Player(video);
   var bandwidth = getBandwidthCookie();
+  var trackOverride = getTrackOverrideCookie();
   window.abrEnabled = getAbrCookie();
-  console.log('[Shaka] ABR enabled: ' + abrEnabled + ' | ABR bandwidth: ' + bandwidth + ' b/s')
+  console.log('[Shaka] ABR enabled: ' + abrEnabled + ' | ABR bandwidth: ' + Math.round(bandwidth/100000) / 10 + ' Mbit/s')
   var keys = JSON.parse(atob("eyIzYzMxYzY2MzcwODMwNGY1YThlZmMxODI5YTFiODI4NCI6IjdhYWRiMzNmMzExMTQyYjk3NmEzMDMyNmQ0N2U3YmE2IiwiMzg5MzA3ZjI4OGMwYjRhMzczOTE5OTllNTAzNDVjMWYiOiI4MTQ1Y2ZiZTI4ZGU0ODkzY2RlOWNkYzlkZmE0ZjczYiJ9"));
 
   player.configure({
@@ -219,6 +221,15 @@ function getBandwidthCookie() {
     return Number(bandwidth);
   } else {
     return 500000;
+  }
+}
+
+function getTrackOverrideCookie() {
+  let trackOverride = Cookies.get('trackOverride');
+  if (trackOverride != undefined) {
+    return trackOverride;
+  } else {
+    return null;
   }
 }
 
@@ -391,10 +402,10 @@ function hookDashBindings() {
   $('#vidPlayer').bind('timeupdate', function (event) {
     let estimate = Math.floor(player.getStats().estimatedBandwidth);
     if (estimate != undefined && !isNaN(estimate) && abrEnabled == true) {
-      console.log("[Shaka-DEBUG] ABR bandwidth: " + estimate + " b/s | Fetching: " + player.getStats().height + "p | Playing: " + $("#vidPlayer").get(0).videoHeight + "p")
+      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime*100)/100 + "s > ABR bandwidth: " + Math.round(estimate/100000) / 10 + " Mbit/s | Fetching: " + player.getStats().height + "p | Playing: " + $("#vidPlayer").get(0).videoHeight + "p")
       Cookies.set('bandwidth', estimate, { path: '/project_propaganda' });
-    } else {
-      console.log("[Shaka-DEBUG] Current quality: " + player.getStats().height + "p")
+    } else if (!isNaN(player.getStats().height)) {
+      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime*100)/100 + "s > Current quality: " + player.getStats().height + "p")
     }
     if (timestampList) {
       for (let index = timestampList.length - 1; index >= 0; index--) {
@@ -421,6 +432,7 @@ function hookDashBindings() {
       player.configure({ abr: { enabled: false } });
       window.abrEnabled = false;
       Cookies.set('abrEnabled', 'false', { path: '/project_propaganda' });
+      Cookies.set('trackOverride', select.options[select.selectedIndex].text.substring(0, 3), { path: '/project_propaganda' });
       player.selectVariantTrack(tracks[$("#qualitySelect option:selected").val()], true);
       console.log("[Shaka] ABR disabled, changed to " + select.options[select.selectedIndex].text);
       Cookies.set('bandwidth', player.getStats().streamBandwidth, { path: '/project_propaganda' });
@@ -435,10 +447,10 @@ function hookDashBindings() {
   // Bind checkbox toggle to subtitle state update
   $('#subCheck').change(function () {
     if (this.checked) {
-      player.setTextTrackVisibility(true);
+      player.setTextTrackVisibility(1);
       Cookies.set('subtitles', true, { path: '/project_propaganda' });
     } else {
-      player.setTextTrackVisibility(false);
+      player.setTextTrackVisibility(0);
       Cookies.set('subtitles', false, { path: '/project_propaganda' })
     }
   })
@@ -483,7 +495,7 @@ function buildTimestampList(ts) {
 
 function playFallback(video) {
   $("#vidPlayer").attr('src', video.fallback.replace('$(main)', database['infrastructure'].mainAssetServer));
-  $("#vidPlayer").data('track', video.track.replace('$(main)', database['infrastructure'].mainAssetServer))
+  $('#vidPlayer').append('<track kind="subtitles" label="English" src="' + video.track.replace('$(main)', database['infrastructure'].mainAssetServer) + '" srclang="en" default>');
   $("#qualitySelect").html("");
   $("#qualitySelect").attr("disabled", true);
   $("#qualitySelect").append(new Option("300p", "fallback"));
