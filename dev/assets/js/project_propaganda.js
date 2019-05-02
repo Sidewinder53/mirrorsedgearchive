@@ -341,6 +341,7 @@ function hookBindings() {
               var manifestUri = video.manifest.replace('$(main)', database['infrastructure'].mainAssetServer);
               loadManifest(manifestUri);
             } else {
+              $("#subCheck").parent().addClass("d-none");
               playFallback(video);
             }
             $('#vidTitle').text(category.categoryLabel + ' - ' + video.label);
@@ -494,6 +495,7 @@ function buildTimestampList(ts) {
 }
 
 function playFallback(video) {
+  $('#vidPlayer').empty();
   $("#vidPlayer").attr('src', video.fallback.replace('$(main)', database['infrastructure'].mainAssetServer));
   $('#vidPlayer').append('<track kind="subtitles" label="English" src="' + video.track.replace('$(main)', database['infrastructure'].mainAssetServer) + '" srclang="en" default>');
   $("#qualitySelect").html("");
