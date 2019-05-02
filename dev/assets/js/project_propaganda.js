@@ -1,5 +1,14 @@
 'use strict';
 
+if (document.documentMode) {
+  const origToString = Object.prototype.toString;
+  Object.prototype.toString = function () {
+      if (this === null)
+          return '[object Null]';
+      return origToString.call(this);
+  };
+}
+
 // Global variables
 var database = null;
 var previousVideo = null;
@@ -472,7 +481,11 @@ function hookFallbackBindings() {
       $('#vidPlayer').get(0).textTracks[0].mode = 'hidden';
       Cookies.set('subtitles', false, { path: '/project_propaganda' })
     }
-  })
+  });
+
+  $('#vidPlayer').get(0).addEventListener("loadedmetadata", function() {
+
+ });
 }
 
 function buildTimestampList(ts) {
@@ -497,10 +510,21 @@ function buildTimestampList(ts) {
 function playFallback(video) {
   $('#vidPlayer').empty();
   $("#vidPlayer").attr('src', video.fallback.replace('$(main)', database['infrastructure'].mainAssetServer));
-  $('#vidPlayer').append('<track kind="subtitles" label="English" src="' + video.track.replace('$(main)', database['infrastructure'].mainAssetServer) + '" srclang="en" default>');
+  // $('#vidPlayer').append('<track kind="subtitles" label="English" src="' + video.track.replace('$(main)', database['infrastructure'].mainAssetServer) + '" srclang="en" default>');
+  var track = document.createElement("track");
+  track.kind = "Subtitles";
+  track.label = "English";
+  track.srclang = "en";
+  track.src = video.track.replace('$(main)', database['infrastructure'].mainAssetServer);
+  track.addEventListener("load", function() {
+     this.mode = "showing";
+     video.textTracks[0].mode = "showing"; // thanks Firefox
+  });
+  $('#vidPlayer').get(0).appendChild(track);
+  $('#vidPlayer').get(0).load();
   $("#qualitySelect").html("");
   $("#qualitySelect").attr("disabled", true);
-  $("#qualitySelect").append(new Option("300p", "fallback"));
+  $("#qualitySelect").html(new Option("300p", "fallback"));
 }
 
 function secToDIN(s) {

@@ -204,7 +204,7 @@
 }
 
 .input-group-flex {
-  width: unset;
+  width: auto;
 }
 
 #vidCtrlArea {
