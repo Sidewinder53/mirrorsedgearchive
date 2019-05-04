@@ -72,7 +72,7 @@ gulp.task(
   'build-full',
   gulpsync.sync([
     'cleanup',
-    ['build-js', 'build-css', 'build-html'],
+    ['build-js', 'build-css', 'build-html', 'build-wellknown'],
     ['optimize', 'optimizeWEBP'],
     'copy'
   ])
@@ -82,7 +82,7 @@ gulp.task(
   'build-prod',
   gulpsync.sync([
     'cleanup',
-    ['build-js', 'build-css', 'build-html-prod'],
+    ['build-js', 'build-css', 'build-html-prod', 'build-wellknown'],
     ['optimize', 'optimizeWEBP'],
     'copy'
   ])
@@ -92,7 +92,7 @@ gulp.task(
   'build-sandbox',
   gulpsync.sync([
     'cleanup',
-    ['build-js', 'build-css', 'build-html-sandbox'],
+    ['build-js', 'build-css', 'build-html-sandbox', 'build-wellknown'],
     ['optimize', 'optimizeWEBP'],
     'copy'
   ])
@@ -182,6 +182,16 @@ gulp.task('build-html-prod', function(cb) {
       replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
 
       gulp.dest('dist'),
+    ],
+    cb
+  );
+});
+
+gulp.task('build-wellknown', function(cb) {
+  pump(
+    [
+      gulp.src('dev/.well-known/**/*'),
+      gulp.dest('dist/.well-known/'),
     ],
     cb
   );
