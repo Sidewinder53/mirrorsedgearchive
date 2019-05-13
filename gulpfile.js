@@ -22,7 +22,8 @@ const libs = {
     "noUiSlider": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js\" integrity=\"sha256-V76+FCDgnqVqafUQ74coiR7qA3Gd6ZlVuFgdwcGCGlc=\" crossorigin=\"anonymous\"></script>",
     "wNumb": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js\" integrity=\"sha256-HT7c4lBipI1Hkl/uvUrU1HQx4WF3oQnSafPjgR9Cn8A=\" crossorigin=\"anonymous\"></script>",
     "polyfill": "<script src=\"https://polyfill.io/v3/polyfill.min.js?flags=gated&rum=true&features=default\" crossorigin=\"anonymous\"></script>",
-    "shakaPlayer": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.5.0-beta3/shaka-player.compiled.js\" integrity=\"sha256-6m9r3bvghyaaVlFC924WK0+EdI3ktvIta86PCV3eam8=\" crossorigin=\"anonymous\"></script>"
+    "shakaPlayer": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.5.0/shaka-player.compiled.js\" integrity=\"sha256-Xacgy5kyBTaEYPgZJsbHOhL6R9WOu3CWRs5xi4ztwUY=\" crossorigin=\"anonymous\"></script>",
+    "ftpolyfill": "<script src=\"https://polyfill.io/v3/polyfill.min.js\" crossorigin=\"anonymous\"></script>"
   },
   css: {
     "bootstrap": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=\" crossorigin=\"anonymous\" />",
@@ -131,7 +132,7 @@ gulp.task('build-html', function(cb) {
       cache('htmlcache'),
       replace('{{stamp_title}}', 'Build ID: ' + git.short()),
       replace('{{stamp_text}}', 'DEV'),
-      
+
       replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
       replace('<!-- {{lib-js:shakaPlayer}} -->', libs.javascript["shakaPlayer"]),
       replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
@@ -139,6 +140,7 @@ gulp.task('build-html', function(cb) {
       replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
       replace('<!-- {{lib-js:wNumb}} -->', libs.javascript["wNumb"]),
       replace('<!-- {{lib-js:cookies}} -->', libs.javascript["cookies"]),
+      replace('<!-- {{lib-js:ftpolyfill}} -->', libs.javascript["ftpolyfill"]),
 
       replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
       replace('<!-- {{lib-css:image-picker}} -->', libs.css["image-picker"]),
@@ -166,7 +168,7 @@ gulp.task('build-html-prod', function(cb) {
       ),
       replace('{{stamp_title}}', 'Build ID: ' + git.short()),
       replace('{{stamp_text}}', 'DEV'),
-      
+
       replace('<!-- {{lib-js:jQuery}} -->', libs.javascript["jQuery"]),
       replace('<!-- {{lib-js:shakaPlayer}} -->', libs.javascript["shakaPlayer"]),
       replace('<!-- {{lib-js:bootstrap-bundle}} -->', libs.javascript["bootstrap-bundle"]),
@@ -174,6 +176,7 @@ gulp.task('build-html-prod', function(cb) {
       replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
       replace('<!-- {{lib-js:wNumb}} -->', libs.javascript["wNumb"]),
       replace('<!-- {{lib-js:cookies}} -->', libs.javascript["cookies"]),
+      replace('<!-- {{lib-js:ftpolyfill}} -->', libs.javascript["ftpolyfill"]),
 
       replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
       replace('<!-- {{lib-css:image-picker}} -->', libs.css["image-picker"]),
@@ -218,6 +221,7 @@ gulp.task('build-html-sandbox', function(cb) {
       replace('<!-- {{lib-js:noUiSlider}} -->', libs.javascript["noUiSlider"]),
       replace('<!-- {{lib-js:wNumb}} -->', libs.javascript["wNumb"]),
       replace('<!-- {{lib-js:cookies}} -->', libs.javascript["cookies"]),
+      replace('<!-- {{lib-js:ftpolyfill}} -->', libs.javascript["ftpolyfill"]),
 
       replace('<!-- {{lib-css:bootstrap}} -->', libs.css["bootstrap"]),
       replace('<!-- {{lib-css:image-picker}} -->', libs.css["image-picker"]),
