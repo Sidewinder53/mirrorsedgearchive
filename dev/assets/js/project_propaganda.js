@@ -52,7 +52,7 @@ function initApp() {
       });
       castList += '</div>';
     });
-    $('#castList').append(castList);
+    $('#castList').html(castList);
     console.log("[PropP] Built newscast list")
 
     // Search for videoID in query and play video if any
@@ -63,6 +63,9 @@ function initApp() {
       $('#' + v).click();
       $('#' + v).parent().collapse('show');
     }
+  }).fail(function() {
+    $('#castList').addClass("text-center pt-1 text-danger font-weight-bold")
+    $('#castList').html("Loading failed. <small>#ERR_CSTL_REQF</small>");
   });
 
   // Compatibility checks
@@ -255,6 +258,7 @@ function getAbrCookie() {
 function hookBindings() {
   // Enable popovers
   $('[data-toggle="popover"]').popover();
+  console.log("[PropP-DEBUG] Enabled popovers and tooltips.")
 
   // Show copyright notice on right click
   $('#vidPlayer').contextmenu(function (e) {
@@ -379,6 +383,7 @@ function hookBindings() {
                 chapter = null;
                 $('#vidAd').css('display', 'none');
                 $('#tsList').html(timestampDom);
+                $('[data-toggle="tooltip"]').tooltip();
                 $("#tsList > a").eq(0).addClass("active");
                 $('#vidNav')
                   .css('opacity', '0')
@@ -491,8 +496,10 @@ function hookFallbackBindings() {
 function buildTimestampList(ts) {
   let timesList = '';
   $.each(ts, function (i, timestamp) {
+    var image = "https://video-assets.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/newscast_01_/i-1200x600-thumb.jpg"
     timesList +=
-      "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' data-time='" +
+      "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' " +
+      "data-toggle='tooltip' data-placement='right' title='<img src=" + image + "></img>' data-time='" +
       i +
       "'><div class='d-flex w-100 justify-content-between' ><span>" +
       timestamp +

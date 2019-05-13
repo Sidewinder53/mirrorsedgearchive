@@ -207,6 +207,10 @@
   width: auto;
 }
 
+#castListSpinner {
+  opacity: 0.75;
+}
+
 #vidCtrlArea {
   user-select: none;
   -webkit-user-select: none;
