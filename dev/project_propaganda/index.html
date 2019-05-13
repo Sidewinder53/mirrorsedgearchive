@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>The Mirror's Edge Archive &#x1F4C2; - Project Propaganda</title>
-  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <!-- {{lib-js:ftpolyfill}} -->
   <!-- {{lib-js:jQuery}} -->
   <!-- {{lib-css:bootstrap}} -->
   <!-- {{lib-css:MaterialDesign-Webfont}} -->
@@ -181,7 +181,14 @@
         <h5 class="mb-0">Scene selection</h5>
       </div>
       <div class="tab-content">
-        <div class="list-group list-group-flush vidList" id="castList"></div>
+        <div class="list-group list-group-flush vidList" id="castList">
+          <div class="text-center" id="castListSpinner">
+            <div class="spinner-border mt-2" role="status">
+            </div>
+            <br>
+            <strong>Loading...</strong>
+          </div>
+        </div>
       </div>
     </div>
   </div>
