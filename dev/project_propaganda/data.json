@@ -181,11 +181,11 @@
       "videos": [
         {
           "name": "newscast_05",
-          "label": "Newscast #05 (video N/A)",
+          "label": "Newscast #05",
           "manifest": "$(main)/newscast_05_/m-main.mpd",
           "fallback": "$(main)/newscast_05_/v-600x300-170k.mp4",
           "track": "$(main)/newscast_05_/t-english.vtt",
-          "description": "Aurore reports about Isabel Kruger who was freed from captivity by KrugerSec.",
+          "description": "There is no official video for this newscast. The video shown has been arranged by the Mirror's Edge Archive team. Aurore reports about Isabel Kruger who was freed from captivity by KrugerSec.",
           "timestamps": {
             "0": "INTRODUCTION",
             "39": "KRUGERSEC FORCES FREE ISABEL KRUGER",
