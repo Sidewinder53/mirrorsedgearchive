@@ -3,9 +3,9 @@
 if (document.documentMode) {
   const origToString = Object.prototype.toString;
   Object.prototype.toString = function () {
-      if (this === null)
-          return '[object Null]';
-      return origToString.call(this);
+    if (this === null)
+      return '[object Null]';
+    return origToString.call(this);
   };
 }
 
@@ -63,7 +63,7 @@ function initApp() {
       $('#' + v).click();
       $('#' + v).parent().collapse('show');
     }
-  }).fail(function() {
+  }).fail(function () {
     $('#castList').addClass("text-center pt-1 text-danger font-weight-bold")
     $('#castList').html("Loading failed. <small>#ERR_CSTL_REQF</small>");
   });
@@ -161,8 +161,11 @@ function initPlayer() {
   var bandwidth = getBandwidthCookie();
   var trackOverride = getTrackOverrideCookie();
   window.abrEnabled = getAbrCookie();
-  console.log('[Shaka] ABR enabled: ' + abrEnabled + ' | ABR bandwidth: ' + Math.round(bandwidth/100000) / 10 + ' Mbit/s')
-  var keys = JSON.parse(atob("eyIzYzMxYzY2MzcwODMwNGY1YThlZmMxODI5YTFiODI4NCI6IjdhYWRiMzNmMzExMTQyYjk3NmEzMDMyNmQ0N2U3YmE2IiwiMzg5MzA3ZjI4OGMwYjRhMzczOTE5OTllNTAzNDVjMWYiOiI4MTQ1Y2ZiZTI4ZGU0ODkzY2RlOWNkYzlkZmE0ZjczYiJ9"));
+  console.log('[Shaka] ABR enabled: ' + abrEnabled + ' | ABR bandwidth: ' + Math.round(bandwidth / 100000) / 10 + ' Mbit/s')
+  var keys = {
+    '3c31c663708304f5a8efc1829a1b8284': '7aadb33f311142b976a30326d47e7ba6',
+    '389307f288c0b4a37391999e50345c1f': '8145cfbe28de4893cde9cdc9dfa4f73b'
+  }
 
   player.configure({
     abr: {
@@ -300,7 +303,7 @@ function hookBindings() {
   $('.vidList').on('click', '.list-group-item.video', function () {
 
     // Pause player and hide navigation
-    $('#vidPlayer').get(0).pause();
+    // $('#vidPlayer').get(0).pause();
     $('#vidNav').hide();
 
     history.pushState(null, null, '?v=' + this.id);
@@ -417,10 +420,10 @@ function hookDashBindings() {
   $('#vidPlayer').bind('timeupdate', function (event) {
     let estimate = Math.floor(player.getStats().estimatedBandwidth);
     if (estimate != undefined && !isNaN(estimate) && abrEnabled == true) {
-      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime*100)/100 + "s > ABR bandwidth: " + Math.round(estimate/100000) / 10 + " Mbit/s | Fetching: " + player.getStats().height + "p | Playing: " + $("#vidPlayer").get(0).videoHeight + "p")
+      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > ABR bandwidth: " + Math.round(estimate / 100000) / 10 + " Mbit/s | Fetching: " + player.getStats().height + "p | Playing: " + $("#vidPlayer").get(0).videoHeight + "p")
       Cookies.set('bandwidth', estimate, { path: '/project_propaganda' });
     } else if (!isNaN(player.getStats().height)) {
-      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime*100)/100 + "s > Current quality: " + player.getStats().height + "p")
+      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > Current quality: " + player.getStats().height + "p")
     }
     if (timestampList) {
       for (let index = timestampList.length - 1; index >= 0; index--) {
@@ -488,9 +491,9 @@ function hookFallbackBindings() {
     }
   });
 
-  $('#vidPlayer').get(0).addEventListener("loadedmetadata", function() {
+  $('#vidPlayer').get(0).addEventListener("loadedmetadata", function () {
 
- });
+  });
 }
 
 function buildTimestampList(ts) {
@@ -499,9 +502,7 @@ function buildTimestampList(ts) {
     var image = "https://video-assets.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/newscast_01_/i-1200x600-thumb.jpg"
     timesList +=
       "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' " +
-      "data-toggle='tooltip' data-placement='right' title='<img src=" + image + "></img>' data-time='" +
-      i +
-      "'><div class='d-flex w-100 justify-content-between' ><span>" +
+      "data-time='" + i + "'><div class='d-flex w-100 justify-content-between' ><span>" +
       timestamp +
       '</span><small>' +
       secToDIN(i) +
@@ -523,9 +524,9 @@ function playFallback(video) {
   track.label = "English";
   track.srclang = "en";
   track.src = video.track.replace('$(main)', database['infrastructure'].mainAssetServer);
-  track.addEventListener("load", function() {
-     this.mode = "showing";
-     video.textTracks[0].mode = "showing"; // thanks Firefox
+  track.addEventListener("load", function () {
+    this.mode = "showing";
+    video.textTracks[0].mode = "showing"; // thanks Firefox
   });
   $('#vidPlayer').get(0).appendChild(track);
   $('#vidPlayer').get(0).load();
