@@ -179,13 +179,13 @@ function initPlayer() {
   window.player = player;
   player.addEventListener('error', onErrorEvent);
 
-  $("#shareBtn").on('click', function() {
+  $("#shareBtn").on('click', function () {
     if (navigator.share) {
       console.log('[PropP] ✔️ WebShare API supported.');
       navigator.share({
-          title: 'Mirror\'s Edge Catalyst - News broadcasts',
-          text: $('#vidTitle').html(),
-          url: window.location.href,
+        title: 'The Mirror\'s Edge Archive - News broadcasts',
+        text: 'News broadcast from Mirror\'s Edge Catalyst: ' + $('#vidTitle').html(),
+        url: window.location.href,
       })
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));
@@ -307,7 +307,9 @@ function hookBindings() {
   // Bind video end to autoplay check
   $('#vidPlayer').bind('ended', function () {
     if ($('#apCheck').prop('checked')) {
+      console.log('[PropP-DEBUG] [Autoplay] Detected autoplay intent.')
       if (jumpCategory) {
+        console.log('[PropP-DEBUG] [Autoplay] Next video in subsequent category, collapsing current category and jumping to next video.')
         $(previousVideo).parent().collapse('hide');
       }
       $('#' + nextVideo)
@@ -429,19 +431,19 @@ function hookBindings() {
                 $('#vidAd').css('display', 'block');
               }
 
-              if ($(this).next('.list-group-item.video').attr('id')) {
-                nextVideo = $(this).next('.list-group-item.video').attr('id');
-                jumpCategory = false;
-              } else {
-                nextVideo = $(this).parent().next().next().children().eq(0).attr('id');
-                jumpCategory = true;
-              }
             }
 
           }
         })
       }
     })
+    if ($(this).next('.list-group-item.video').attr('id')) {
+      nextVideo = $(this).next('.list-group-item.video').attr('id');
+      jumpCategory = false;
+    } else {
+      nextVideo = $(this).parent().next().next().children().eq(0).attr('id');
+      jumpCategory = true;
+    }
   })
 }
 
