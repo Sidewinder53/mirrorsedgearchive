@@ -1,5 +1,6 @@
 'use strict';
 
+// Workaround for polyfill conflict on IE11
 if (document.documentMode) {
   const origToString = Object.prototype.toString;
   Object.prototype.toString = function () {
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', initApp);
 
 function initApp() {
   // Fetch database
-  $.get('data.json', function (fetchedDatabase) {
+  $.get('./videoData.json', function (fetchedDatabase) {
     database = fetchedDatabase;
     let castList = '';
 
@@ -159,7 +160,6 @@ function initPlayer() {
   var video = $('#vidPlayer').get(0);
   var player = new shaka.Player(video);
   var bandwidth = getBandwidthCookie();
-  var trackOverride = getTrackOverrideCookie();
   window.abrEnabled = getAbrCookie();
   console.log('[Shaka] ABR enabled: ' + abrEnabled + ' | ABR bandwidth: ' + Math.round(bandwidth / 100000) / 10 + ' Mbit/s')
   var keys = {
@@ -184,18 +184,27 @@ function loadManifest(manifestUri) {
   player.load(manifestUri).then(function () {
     console.log('[PropP] Manifest loaded.');
     window.tracks = player.getVariantTracks()
+    var trackOverride = getTrackOverrideCookie();
 
     // Populate quality select menu
     let options = [];
+    let trackOverrideIndex;
     $("#qualitySelect").html("");
     tracks.forEach(function (element, index) {
       options.push([element.height, index])
+      if (window.abrEnabled == false) {
+        if (element.height == trackOverride) {
+          player.selectVariantTrack(element);
+          trackOverrideIndex = index;
+        }
+      }
     });
     options.sort(sortQualities);
     $("#qualitySelect").append(new Option("Auto", "auto"));
     options.forEach(function (element) {
       $("#qualitySelect").append(new Option(element[0] + "p", element[1]));
     })
+    $("#qualitySelect").get(0).selectedIndex = trackOverrideIndex;
 
     // Restore ABR status
     if (abrEnabled == true) {
@@ -208,6 +217,11 @@ function loadManifest(manifestUri) {
     if (Cookies.get("subtitles") == "true" && $("#subCheck").get(0).checked == false) {
       console.log("[PropP] Subtitle state restored, subtitles enabled.")
       $("#subCheck").click();
+    } else if (Cookies.get("subtitles") == undefined) {
+      if (!navigator.language.includes('en')) {
+        console.log("[PropP] Subtitles state undefined, UA non-english > Subtitles enabled.")
+        $("#subCheck").click();
+      }
     }
   }).catch(onError);
 }
@@ -504,7 +518,7 @@ function buildTimestampList(ts) {
       "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' " +
       "data-time='" + i + "'><div class='d-flex w-100 justify-content-between' ><span>" +
       timestamp +
-      '</span><small>' +
+      '</span><small class="align-self-center">' +
       secToDIN(i) +
       '</small></div></a>';
   });
