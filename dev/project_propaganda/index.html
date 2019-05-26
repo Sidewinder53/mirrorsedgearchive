@@ -157,7 +157,7 @@
           </div>
           <div class="collapse show" id="collapseCompStatus">
             <div class="card-body">
-              <p class="card-text">Your browser does not support playing protected media. Video resolution is limited to 300p.</p>
+              <p class="card-text">Your browser does not support playing protected media. Video resolution is limited.</p>
               <p class="lead small text-secondary">Switch to Firefox or Chrome - <a href="#" class="card-link" data-toggle="modal" data-target="#compLearnMore">Learn more</a></p>
             </div>
           </div>
@@ -200,13 +200,15 @@
         <div class="modal-header">
           <h5 class="modal-title" id="compLearnMoreLabel">Information about protected content on this page</h5>
         </div>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 id="compTitleH" class="display-4 mdi">&nbsp;<span>Playback supported</span></h1>
+          </div>
+        </div>
         <div class="modal-body">
           <p>Media on this page is protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
               href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.opera.com">Opera</a>. Visitors using a non-supported browser will be able to view a
-            fallback video in 300p. Please switch to a modern browser if you are affected. If you want to learn more about content protection, its reasons and implementation on
-            this page, continue reading below.</p>
-          <br>
-          <hr>
+            fallback video in 300p.<br><br>If you want to learn more about content protection, its reasons and implementation on this page, continue reading below.</p>
           <p class="font-weight-bold">Why is media on this page protected/encrypted?</p>
           <p>When we started this project, we weighed up the pros and cons of protecting content and concluded that it is our duty to protect media on this site from unauthorized
             redistribution. We understand that not everyone is content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new">provide

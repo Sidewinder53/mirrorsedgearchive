@@ -130,24 +130,28 @@ function initApp() {
           initPlayer();
           hookBindings();
           hookDashBindings();
+          $('#compTitleH > span').text('HD video available');
+          $('#compTitleH').addClass('mdi-play-protected-content');
         } else {
           console.log("❌ Protected content unavailable");
           $("#vidCompStatus").css('display', 'flex');
           $("#vidIntro").addClass('font-weight-bold');
-          $("#vidIntro").html("Fallback video is not available in this build.");
           hookBindings();
           hookFallbackBindings();
           console.log("✔️ Video playback available");
+          $('#compTitleH > span').text('HD video unavailable');
+          $('#compTitleH').addClass('mdi-lock-alert');
         }
       })
     } else {
       console.log("❌ Protected content unavailable");
       $("#vidCompStatus").css('display', 'flex');
       $("#vidIntro").addClass('font-weight-bold');
-      $("#vidIntro").html("Fallback video is not available in this build.");
       hookBindings();
       hookFallbackBindings();
       console.log("✔️ Video playback available");
+      $('#compTitleH > span').text('HD video unavailable');
+      $('#compTitleH').addClass('mdi-lock-alert');
     }
   } else {
     console.log("❌ Video playback unavailable");
@@ -186,9 +190,7 @@ function initPlayer() {
         title: 'The Mirror\'s Edge Archive - News broadcasts',
         text: 'News broadcast from Mirror\'s Edge Catalyst: ' + $('#vidTitle').html(),
         url: window.location.href,
-      })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing', error));
+      });
     } else {
       console.log('[PropP] ❌ WebShare API unsupported.');
       $(this).popover('show');
