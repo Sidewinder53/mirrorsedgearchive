@@ -35,7 +35,7 @@ const libs = {
 
 gulp.task(
   'browser-sync',
-  gulpsync.sync([['build-js', 'build-css', 'build-html'], 'copy']),
+  gulpsync.sync([['build-js-dev', 'build-css', 'build-html'], 'copy']),
   function() {
     browserSync.init({
       notify: false,
@@ -54,7 +54,7 @@ gulp.task(
   }
 );
 
-gulp.task('watch-js', ['build-js'], function(cb) {
+gulp.task('watch-js', ['build-js-dev'], function(cb) {
   browserSync.reload();
   cb();
 });
@@ -108,6 +108,16 @@ gulp.task('build-js', function(cb) {
     [
       gulp.src('dev/assets/js/*.js'),
       uglify({ ecma: 6 }),
+      gulp.dest('dist/assets/js')
+    ],
+    cb
+  );
+});
+
+gulp.task('build-js-dev', function(cb) {
+  pump(
+    [
+      gulp.src('dev/assets/js/*.js'),
       gulp.dest('dist/assets/js')
     ],
     cb
