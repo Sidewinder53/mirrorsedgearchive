@@ -178,6 +178,22 @@ function initPlayer() {
   });
   window.player = player;
   player.addEventListener('error', onErrorEvent);
+
+  $("#shareBtn").on('click', function() {
+    if (navigator.share) {
+      console.log('[PropP] ✔️ WebShare API supported.');
+      navigator.share({
+          title: 'Mirror\'s Edge Catalyst - News broadcasts',
+          text: $('#vidTitle').html(),
+          url: window.location.href,
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+      console.log('[PropP] ❌ WebShare API unsupported.');
+      $(this).popover('show');
+    }
+  })
 }
 
 function loadManifest(manifestUri) {

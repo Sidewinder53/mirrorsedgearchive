@@ -82,13 +82,13 @@
       </div>
     </div>
   </nav>
-  <div class="container" id="mainDiv">
+  <div class="container px-sm-3 px-0" id="mainDiv">
     <div class="card">
       <div id="vidIntro" class="text-muted h3 text-center">Select a video to get started.</div>
       <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
         <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" class="embed-responsive-item" controls autoplay>
         </video>
-        <div id="vidRCM">
+        <div id="vidRCM" class="">
           <div class="media">
             <svg class="mr-3" style="width:48px;height:48px" viewBox="0 0 24 24">
               <path fill="#fff"
@@ -122,14 +122,14 @@
                     <input id="subCheck" type="checkbox" aria-label="Checkbox for following text input">
                     <label class="form-check-label" for="subCheck">&nbsp;Subtitles</label>
                   </div>
-                  <div class="input-group-text d-none d-md-block">
+                  <div class="input-group-text d-none d-md-flex">
                     <input id="apCheck" type="checkbox" aria-label="Checkbox for following text input">
                     <label class="form-check-label" for="apCheck">&nbsp;Autoplay</label>
                   </div>
                 </div>
                 <div class="input-group-append">
-                  <button type="button" class="btn btn-secondary mr-2" data-toggle="popover" data-trigger="focus" title="Share this video" data-placement="left"
-                    data-content="Share a video by sending the URL of this page to someone else.">
+                  <button type="button" class="btn btn-secondary mr-2" title="Sharing this video" data-content="Share this video by send the URL of this page to someone."
+                    id="shareBtn" data-trigger="focus">
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                       <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
                     </svg>
@@ -147,46 +147,48 @@
             title="Media container protected using MPEG-CENC">&nbsp;MPEG-CENC</span></a>
       </div>
     </div>
-    <div id="leftSideBar">
-      <div class="card mb-3 shadow" id="vidCompStatus">
-        <div class="card-header text-white bg-danger d-flex justify-content-between" data-toggle="collapse" data-target="#collapseCompStatus" aria-expanded="true"
-          aria-controls="collapseCompStatus">
-          <h5 class="mdi mdi-lock-alert mb-0">&nbsp;Limited video quality</h5>
-          <span id="vidCompStatusChev" class="mdi mdi-24px mdi-chevron-down">
-        </div>
-        <div class="collapse show" id="collapseCompStatus">
-          <div class="card-body">
-            <p class="card-text">Your browser does not support playing protected media. Video resolution is limited to 300p.</p>
-            <p class="lead small text-secondary">Switch to Firefox or Chrome - <a href="#" class="card-link" data-toggle="modal" data-target="#compLearnMore">Learn more</a></p>
+    <div class="container">
+      <div id="leftSideBar">
+        <div class="card mb-3 shadow" id="vidCompStatus">
+          <div class="card-header text-white bg-danger d-flex justify-content-between" data-toggle="collapse" data-target="#collapseCompStatus" aria-expanded="true"
+            aria-controls="collapseCompStatus">
+            <h5 class="mdi mdi-lock-alert mb-0">&nbsp;Limited video quality</h5>
+            <span id="vidCompStatusChev" class="mdi mdi-24px mdi-chevron-down">
+          </div>
+          <div class="collapse show" id="collapseCompStatus">
+            <div class="card-body">
+              <p class="card-text">Your browser does not support playing protected media. Video resolution is limited to 300p.</p>
+              <p class="lead small text-secondary">Switch to Firefox or Chrome - <a href="#" class="card-link" data-toggle="modal" data-target="#compLearnMore">Learn more</a></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div id="vidNav" class="card shadow">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">Navigation</h5>
+        <div id="vidNav" class="card shadow">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">Navigation</h5>
+          </div>
+          <div id="tsList" class="list-group list-group-flush">
+            <button type="button" class="list-group-item list-group-item-action text-center" disabled>Select a video to get started</button>
+          </div>
         </div>
-        <div id="tsList" class="list-group list-group-flush">
-          <button type="button" class="list-group-item list-group-item-action text-center" disabled>Select a video to get started</button>
+        <!-- <div id="vidAd">
+          <a href="/project_billboard" class="card">
+            <img src="/assets/media/image/project_propaganda/billboard.jpg">
+            <div class="card-footer text-muted"> Billboards </div>
+          </a>
+        </div> -->
+      </div>
+      <div id="vidSel" class="card shadow">
+        <div class="card-header">
+          <h5 class="mb-0">Scene selection</h5>
         </div>
-      </div>
-      <!-- <div id="vidAd">
-        <a href="/project_billboard" class="card">
-          <img src="/assets/media/image/project_propaganda/billboard.jpg">
-          <div class="card-footer text-muted"> Billboards </div>
-        </a>
-      </div> -->
-    </div>
-    <div id="vidSel" class="card shadow">
-      <div class="card-header">
-        <h5 class="mb-0">Scene selection</h5>
-      </div>
-      <div class="tab-content">
-        <div class="list-group list-group-flush vidList" id="castList">
-          <div class="text-center" id="castListSpinner">
-            <div class="spinner-border mt-2" role="status">
+        <div class="tab-content">
+          <div class="list-group list-group-flush vidList" id="castList">
+            <div class="text-center" id="castListSpinner">
+              <div class="spinner-border mt-2" role="status">
+              </div>
+              <br>
+              <strong>Loading...</strong>
             </div>
-            <br>
-            <strong>Loading...</strong>
           </div>
         </div>
       </div>
@@ -201,8 +203,8 @@
         <div class="modal-body">
           <p>Media on this page is protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
               href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.opera.com">Opera</a>. Visitors using a non-supported browser will be able to view a
-            fallback video in 300p. Please switch to a modern browser if you are affected. If you want to learn more about content protection, its reasons and
-            implementation on this page, continue reading below.</p>
+            fallback video in 300p. Please switch to a modern browser if you are affected. If you want to learn more about content protection, its reasons and implementation on
+            this page, continue reading below.</p>
           <br>
           <hr>
           <p class="font-weight-bold">Why is media on this page protected/encrypted?</p>

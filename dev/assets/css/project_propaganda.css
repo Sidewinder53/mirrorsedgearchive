@@ -23,7 +23,6 @@
   top: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  padding: 30px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
@@ -235,6 +234,13 @@
   }
 }
 
+@media only screen and (max-width: 576px) {
+  #mainDiv > .card {
+    border-left: none;
+    border-right: none;
+  }
+}
+
 @media only screen and (max-width: 1650px) {
   #leftSideBar {
     position: unset;
@@ -246,14 +252,17 @@
   #vidContainer {
     width: 100%;
   }
+
   #vidSel {
     position: static;
     margin: 1em 0;
     width: 100%;
   }
+
   #vidNav {
     position: static;
     margin: 1em 0 0.5em 0;
     width: 100% !important;
   }
+
 }
