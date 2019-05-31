@@ -555,6 +555,7 @@ function playFallback(video) {
   track.kind = "Subtitles";
   track.label = "English";
   track.srclang = "en";
+  track.default = true;
   track.src = video.track.replace('$(main)', database['infrastructure'].mainAssetServer);
   track.addEventListener("load", function () {
     this.mode = "showing";
