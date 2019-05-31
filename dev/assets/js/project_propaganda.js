@@ -161,7 +161,7 @@ function initApp() {
 }
 
 function initPlayer() {
-  var video = $('#vidPlayer').get(0);
+  var video = document.querySelector('#vidPlayer');
   var player = new shaka.Player(video);
   var bandwidth = getBandwidthCookie();
   window.abrEnabled = getAbrCookie();
@@ -236,10 +236,8 @@ function loadManifest(manifestUri) {
       console.log("[PropP] Subtitle state restored, subtitles enabled.")
       $("#subCheck").click();
     } else if (Cookies.get("subtitles") == undefined) {
-      if (!navigator.language.includes('en')) {
-        console.log("[PropP] Subtitles state undefined, UA non-english > Subtitles enabled.")
-        $("#subCheck").click();
-      }
+      console.log("[PropP] Subtitles state undefined > Subtitles enabled.")
+      $("#subCheck").click();
     }
   }).catch(onError);
 }
@@ -267,7 +265,7 @@ function getBandwidthCookie() {
   if (bandwidth != undefined) {
     return Number(bandwidth);
   } else {
-    return 500000;
+    return 1000000;
   }
 }
 
@@ -454,7 +452,7 @@ function hookDashBindings() {
   $('#vidPlayer').bind('timeupdate', function (event) {
     let estimate = Math.floor(player.getStats().estimatedBandwidth);
     if (estimate != undefined && !isNaN(estimate) && abrEnabled == true) {
-      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > ABR bandwidth: " + Math.round(estimate / 100000) / 10 + " Mbit/s | Fetching: " + player.getStats().height + "p | Playing: " + $("#vidPlayer").get(0).videoHeight + "p")
+      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > ABR BW: " + Math.round(estimate / 100000) / 10 + " Mbit/s | F: " + player.getStats().height + "p | P: " + $("#vidPlayer").get(0).videoHeight + "p")
       Cookies.set('bandwidth', estimate, { path: '/project_propaganda' });
     } else if (!isNaN(player.getStats().height)) {
       console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > Current quality: " + player.getStats().height + "p")

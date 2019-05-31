@@ -227,6 +227,10 @@
   margin-right: 16px;
 }
 
+#tsList > a > div > small {
+  padding-left: 1rem;
+}
+
 @media only screen and (max-width: 1800px) {
   #vidNav {
     width: 230px;
