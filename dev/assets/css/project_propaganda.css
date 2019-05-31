@@ -247,7 +247,7 @@
 
 @media only screen and (max-width: 1650px) {
   #leftSideBar {
-    position: unset;
+    position: static;
     display: block;
     width: 100%;
     margin-top: 1.25rem;

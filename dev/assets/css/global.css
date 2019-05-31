@@ -10,7 +10,8 @@ body {
 }
 
 ::selection {
-  background: #cd2027; /* WebKit/Blink Browsers */
+  background: #cd2027;
+  /* WebKit/Blink Browsers */
   color: white;
 }
 
@@ -30,16 +31,15 @@ body {
   margin-top: 0.75em;
 }
 
-#legal_footer > div > .media {
+#legal_footer>div>.media {
   align-items: flex-end;
 }
 
-#legal_footer > div > div > .media-body {
+#legal_footer>div>div>.media-body {
   flex: 0 1 auto;
 }
 
-#legal_footer > div > div > div > a,
-#legal_footer > div > div > div > span > a {
+#legal_footer>div>div>div>a, #legal_footer>div>div>div>span>a {
   text-decoration: underline;
 }
 
@@ -47,7 +47,7 @@ body {
   padding: 0.375rem;
 }
 
-.btn-footer > svg {
+.btn-footer>svg {
   vertical-align: middle;
 }
 
@@ -87,17 +87,16 @@ a:hover svg path {
   cursor: default;
 }
 
-.dropdown-item.active,
-.dropdown-item:active {
+.dropdown-item.active, .dropdown-item:active {
   color: #000;
   text-decoration: none;
   background-color: #efefef;
 }
+
 @media (max-width: 576px) {
   #legal_footer {
     height: auto;
   }
-
   body {
     margin-bottom: 250px;
   }
@@ -107,7 +106,6 @@ a:hover svg path {
   #legal_footer {
     height: 160px;
   }
-
   body {
     margin-bottom: 180px;
   }
@@ -117,11 +115,9 @@ a:hover svg path {
   body {
     background-size: auto;
   }
-
   body {
     margin-bottom: 150px;
   }
-
   #legal_footer {
     height: 130px;
   }
@@ -131,7 +127,6 @@ a:hover svg path {
   body {
     margin-bottom: 130px;
   }
-
   #legal_footer {
     height: 110px;
   }
@@ -141,8 +136,20 @@ a:hover svg path {
   body {
     margin-bottom: 120px;
   }
-
   #legal_footer {
     height: 100px;
   }
+}
+
+#unsupported_ie {
+  height: 4rem;
+}
+
+#unsupported_ie>div>div>div.col-.pt-2>svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+#unsupported_ie > div > div > div.col > p > a {
+  color: #a3cfff;
 }
