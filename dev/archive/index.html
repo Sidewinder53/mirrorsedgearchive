@@ -18,6 +18,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" type="text/css" href="/assets/css/global.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/archive.css">
+  <script type="text/javascript" src="/assets/js/cookie-consent.js"></script>
 </head>
 
 <body>
@@ -31,13 +32,11 @@
               <path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
 						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255" />
             </g>
-          </svg>
-          The Mirror's Edge Archive
-        </a>
+          </svg> The Mirror's Edge Archive </a>
         <!-- {{STAMP}} -->
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -46,10 +45,7 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Projects
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a>
             <div class="dropdown-menu shadow" aria-labelledby="navbarDropdownProjects">
               <h6 class="dropdown-header">Interactive</h6>
               <a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
@@ -65,14 +61,10 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownArchive" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Archives
-            </a>
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Archives </a>
             <div class="dropdown-menu shadow" aria-labelledby="navbarDropdownArchive">
               <h6 class="dropdown-header">Internal</h6>
-              <a class="dropdown-item active" href="/archive">Main Archive
-                <span class="sr-only">(current)</span>
+              <a class="dropdown-item active" href="/archive">Main Archive <span class="sr-only">(current)</span>
               </a>
               <a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
               <div class="dropdown-divider"></div>
@@ -88,18 +80,16 @@
           <li class="nav-item">
             <a class="nav-link" href="/contribute">
               <svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
-                <path fill="rgba(0,0,0,.5)" d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
-              </svg>
-              &nbsp;Contribute / Contact
-            </a>
+                <path fill="rgba(0,0,0,.5)"
+                  d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
+              </svg> &nbsp;Contribute / Contact </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
   <div class="container" id="content">
-
+    <div id="cookie_consent_placeholder"></div>
     <div class="card">
       <div id="hero_area">
         <video id="hero" class="card-img-top" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAADCAQAAAAwuEffAAAAD0lEQVR42mNkIAAYKVYAAAEpAASm7CjdAAAAAElFTkSuQmCC"
@@ -110,23 +100,16 @@
       </div>
       <div class="card-body">
         <span class="d-inline-flex">Welcome to the Mirror's Edge Archive, the source of</span>
-        <div id="total_files" class="d-inline-flex preBlurIt">0000</div> files, totaling
-        <div id="total_size" class="d-inline-flex preBlurIt">00000</div> MB of high-quality photos, concept art,
-        trailers, gameplay, audio, music, developer presentations, fan
-        projects, maps and other resources. Please note the following fair-use rules:</p>
+        <div id="total_files" class="d-inline-flex preBlurIt">0000</div> files, totaling <div id="total_size" class="d-inline-flex preBlurIt">00000</div> MB of high-quality photos,
+        concept art, trailers, gameplay, audio, music, developer presentations, fan projects, maps and other resources. Please note the following fair-use rules:</p>
         <ul>
-          <li>This service is provided free of charge, therefore we cannot provide any guarantee of availability. You
-            are free to share the contents of this archive, but we ask you to refrain from embedding them into other sites, as
-            links may change or this mirror could go down (see <a href="/out/?t=https://en.wikipedia.org/wiki/Link_rot" target="_blank">link rot</a>).
-            The easiest way to distribute content, is to use <a href="/out/?t=https://docs.google.com/spreadsheets/d/1vrKixs_ItQlLnGK6_D22qP3NhRPiD8n7SATX81CGzzs/preview"
-              target="_blank">a free hosting service</a>.</li>
-          <li>We provide this archive to the public without any access restrictions. It will stay this way as long as
-            people
-            don't abuse this service.</li>
+          <li>This service is provided free of charge, therefore we cannot provide any guarantee of availability. You are free to share the contents of this archive, but we ask you
+            to refrain from embedding them into other sites, as links may change or this mirror could go down (see <a href="/out/?t=https://en.wikipedia.org/wiki/Link_rot"
+              target="_blank">link rot</a>). The easiest way to distribute content, is to use <a
+              href="/out/?t=https://docs.google.com/spreadsheets/d/1vrKixs_ItQlLnGK6_D22qP3NhRPiD8n7SATX81CGzzs/preview" target="_blank">a free hosting service</a>.</li>
+          <li>We provide this archive to the public without any access restrictions. It will stay this way as long as people don't abuse this service.</li>
         </ul>
-        <p>
-          If you read and understood above terms, you may click the button below to get started.
-        </p>
+        <p> If you read and understood above terms, you may click the button below to get started. </p>
       </div>
       <div class="card-footer text-right">
         <a href="https://archive.mirrorsedgearchive.de/" class="btn btn-primary">
@@ -135,42 +118,31 @@
           </svg>&nbsp;Understood, let's go!</a>
       </div>
     </div>
-
     <div id="cookie_consent_placeholder"></div>
   </div>
-
   <div id="legal_footer" class="small text-secondary">
     <div class="container">
       <div class="media">
         <div class="media-body">
-          <a href="/legal/terms-of-use.html" class="text-secondary">Terms of use</a>&nbsp;&#8729;&nbsp;
-          <a href="/legal/privacy-policy.html" class="text-secondary" href="">Privacy &amp; cookies</a>&nbsp;&#8729;&nbsp;
-          <a href="/legal/takedown.html" class="text-secondary" href="">DMCA</a>&nbsp;&#8729;&nbsp;
-          <span class="d-md-none">
-            <a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub
-              repository</a>&nbsp;&#8729;&nbsp;
-          </span>
+          <a href="/legal/terms-of-use.html" class="text-secondary">Terms of use</a>&nbsp;&#8729;&nbsp; <a href="/legal/privacy-policy.html" class="text-secondary" href="">Privacy
+            &amp; cookies</a>&nbsp;&#8729;&nbsp; <a href="/legal/takedown.html" class="text-secondary" href="">DMCA</a>&nbsp;&#8729;&nbsp; <span class="d-md-none">
+            <a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub repository</a>&nbsp;&#8729;&nbsp; </span>
           <a href="/out/?t=https://www.reddit.com/r/mirrorsedge/" class="text-secondary" href="">/r/mirrorsedge</a>
           <!-- {{CERT}} -->
-          <div id="legal_text">This non-profit, open-source project is for entertainment purposes only and not
-            affiliated with EA Digital Illusions
-            CE, Electronic Arts or the Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital
-            Illusions
-            CE. All trademarks and registered trademarks belong to their respective owners. The Mirror's Edge Archive
-            is
-            distributed under the
-            <a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">GPL
-              v3.0</a>.</div>
+          <div id="legal_text">This non-profit, open-source project is for entertainment purposes only and not affiliated with EA Digital Illusions CE, Electronic Arts or the
+            Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All trademarks and registered trademarks belong to their respective owners.
+            The Mirror's Edge Archive is distributed under the <a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">GPL v3.0</a>.
+          </div>
         </div>
         <a href="https://github.com/Sidewinder53/mirrorsedgearchive" role="button" class="btn btn-light btn-footer d-none d-xl-block">
           <svg style="width:28px;height:28px" viewBox="0 0 24 24">
-            <path fill="#6c757d" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+            <path fill="#6c757d"
+              d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
           </svg>
         </a>
       </div>
     </div>
   </div>
-
   <!-- {{lib-js:bootstrap-bundle}} -->
   <script src="/assets/js/archive.js"></script>
 </body>
