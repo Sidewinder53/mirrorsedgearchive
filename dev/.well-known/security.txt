@@ -1,3 +1,0 @@
-Contact: mailto:security@mirrorsedgearchive.de
-Preferred-Languages: en, de
-Canonical: https://mirrrosedgearchive.de/.well-known/security.txt
