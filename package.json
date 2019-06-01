@@ -5,11 +5,13 @@
   "main": "index.html",
   "scripts": {
     "dev": "npm run cleanup && parcel index.html",
+    "build": "npm run cleanup && parcel build index.html",
     "cleanup": "del /s /q .cache >nul 2>&1 && del /s /q dist >nul 2>&1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "sass": "^1.20.3"
   },
   "dependencies": {
@@ -22,7 +24,7 @@
     "popper.js": "^1.15.0"
   },
   "staticPath": {
-    "source": "/assets",
-    "target": "/dist/assets"
+    "source": "./assets",
+    "target": "./dist/assets"
   }
 }
