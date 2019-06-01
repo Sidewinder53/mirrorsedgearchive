@@ -1,4 +1,5 @@
-import $ from 'jquery';
+var jquery = require("jquery");
+window.$ = window.jQuery = jquery;
 import Cookies from 'cookies.js';
 import 'bootstrap';
 
