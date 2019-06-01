@@ -1,8 +1,3 @@
-var jquery = require("jquery");
-window.$ = window.jQuery = jquery;
-import Cookies from 'cookies.js';
-import 'bootstrap';
-
 function shuffle(a) {
   for (var i = a.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
