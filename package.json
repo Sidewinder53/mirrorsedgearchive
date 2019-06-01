@@ -30,12 +30,6 @@
     "git-rev-sync": "^1.12.0",
     "jquery": "^3.4.1",
     "natives": "^1.1.6",
-    "parcel-plugin-copy": "^1.0.2",
-    "parcel-plugin-purifycss": "^1.0.5",
     "popper.js": "^1.15.0"
-  },
-  "staticPath": {
-    "source": "./assets",
-    "target": "./dist/assets"
   }
 }
