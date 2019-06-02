@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "dev": "parcel *.html",
-    "build": "parcel build *.html",
-    "cleanup": "del /s /q .cache >nul 2>&1 && del /s /q dist >nul 2>&1"
+    "dev": "gulp devServer",
+    "build": "gulp build",
+    "cleanup": "gulp cleanup"
   },
   "author": "",
   "license": "ISC",

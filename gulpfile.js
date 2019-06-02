@@ -6,6 +6,7 @@ const rev = require('gulp-rev');
 const del = require('del');
 const replace = require('gulp-replace');
 const liveServer = require('live-server');
+const imagemin = require('gulp-imagemin');
 // const nunjucksRender = require('gulp-nunjucks-render');
 
 function devServer() {
@@ -70,11 +71,35 @@ function packCSS() {
       .pipe(dest('dist/assets/css'));
 }
 
+function optimizeImg() {
+  return src('dev/assets/media/image/**/*')
+  // Todo set up imagemin
+  // .pipe(imagemin())
+  .pipe(dest('dist/assets/media/image'));
+}
+
 function copyFonts() {
   return src('node_modules/@mdi/font/fonts/*')
     .pipe(dest('dist/assets/fonts'))
 }
 
-exports.default = series(cleanup, parallel(packJS, packCSS, copyFonts), insertBundle);
-exports.build = series(cleanup, parallel(packJS, packCSS, copyFonts), insertBundle);
-exports.devServer = series(series(cleanup, parallel(packJS, packCSS, copyFonts), insertBundle), devServer);
+function copyAV() {
+  return src('dev/assets/media/audio/**/*').pipe(dest('dist/assets/media/audio')),
+    src('dev/assets/media/video/**/*').pipe(dest('dist/assets/media/video'));
+}
+
+const copyAndPack = series(
+  parallel(
+    packJS,
+    packCSS,
+    copyFonts,
+    copyAV,
+    optimizeImg
+  ),
+  insertBundle
+);
+
+exports.default = series(cleanup, copyAndPack);
+exports.build = series(cleanup, copyAndPack);
+exports.devServer = series(cleanup, copyAndPack, devServer);
+exports.cleanup = cleanup;
