@@ -7,7 +7,7 @@ const del = require('del');
 const replace = require('gulp-replace');
 const liveServer = require('live-server');
 const imagemin = require('gulp-imagemin');
-// const nunjucksRender = require('gulp-nunjucks-render');
+const nunjucksRender = require('gulp-nunjucks-render');
 
 function devServer() {
   liveServer.start({ root: './dist' })
