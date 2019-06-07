@@ -43,10 +43,6 @@
 	margin-top: 13.5em;
 }
 
-.row {
-	margin-top: 1em;
-}
-
 .container {
 	padding: 0!important;
 }
@@ -55,7 +51,7 @@
 	margin-bottom: 0;
 }
 
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
 	#main {
 		margin: 0.5em;
 	}
