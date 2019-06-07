@@ -272,6 +272,6 @@
     }
   ],
   "infrastructure": {
-    "mainAssetServer": "https://video-assets.mirrorsedgearchive.de/beta/propaganda/mpeg-dash"
+    "mainAssetServer": "https://video-assets.mirrorsedgearchive.de/prod/propaganda/mpeg-dash"
   }
 }
