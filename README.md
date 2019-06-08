@@ -13,6 +13,10 @@ We are testing cross-browser compatibility with [BrowserStack](https://www.brows
 
 ## Build instructions
 
+Build pipeline & release automation by [Azure DevOps](https://dev.azure.com/cloudlark/mirrorsedgearchive).
+
+<img src="https://vsrm.dev.azure.com/cloudlark/_apis/public/Release/badge/70dbfa67-3af7-4823-97b8-a474e59f0749/1/1"> <img src="https://dev.azure.com/cloudlark/mirrorsedgearchive/_apis/build/status/Sidewinder53.mirrorsedgearchive?branchName=master">
+
 The Mirror's Edge Archive is built using plain HTML, CSS and JavaScript. Some pages use Bootstrap, which is loaded from an external host.
 The build toolchain has been built using gulp and numerous plugins. All dependenices can be installed by cloning this repository and executing the following command:
 
