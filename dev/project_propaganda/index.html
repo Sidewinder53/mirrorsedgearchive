@@ -25,15 +25,15 @@
   <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light">
+<body class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <div id="brand-area">
         <a class="navbar-brand" href="/">
           <svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
             <g>
-              <path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
+              <path fill="rgba(255,255,255,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
                 c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255" />
             </g>
           </svg> The Mirror's Edge Archive </a>
@@ -84,7 +84,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/contribute">
               <svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
-                <path fill="rgba(0,0,0,.5)"
+                <path fill="rgba(255,255,255,.5)"
                   d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
               </svg> &nbsp;Contribute / Contact </a>
           </li>
@@ -92,9 +92,9 @@
       </div>
     </div>
   </nav>
-  <div class="container px-sm-3 px-0" id="mainDiv">
+  <div class="container px-sm-3 px-0 mt-3" id="mainDiv">
     <div id="cookie_consent_placeholder"></div>
-    <div class="card">
+    <div class="card" id="vidCard">
       <div id="vidIntro" class="text-muted h3 text-center">Select a video to get started.</div>
       <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
         <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" class="embed-responsive-item" controls autoplay
