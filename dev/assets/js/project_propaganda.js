@@ -131,7 +131,7 @@ function initApp() {
           hookBindings();
           hookDashBindings();
           $('#compTitleH > span').text('HD video available');
-          $('#compTitleH').addClass('mdi-play-protected-content');
+          $('#compTitleH').addClass('mdi-play-protected-content text-success');
         } else {
           console.log("❌ Protected content unavailable");
           $("#vidCompStatus").css('display', 'flex');
@@ -140,7 +140,7 @@ function initApp() {
           hookFallbackBindings();
           console.log("✔️ Video playback available");
           $('#compTitleH > span').text('HD video unavailable');
-          $('#compTitleH').addClass('mdi-lock-alert');
+          $('#compTitleH').addClass('mdi-lock-alert text-danger');
         }
       })
     } else {
@@ -151,7 +151,7 @@ function initApp() {
       hookFallbackBindings();
       console.log("✔️ Video playback available");
       $('#compTitleH > span').text('HD video unavailable');
-      $('#compTitleH').addClass('mdi-lock-alert');
+      $('#compTitleH').addClass('mdi-lock-alert text-danger');
     }
   } else {
     console.log("❌ Video playback unavailable");
@@ -193,7 +193,14 @@ function initPlayer() {
       });
     } else {
       console.log('[PropP] ❌ WebShare API unsupported.');
+      var urlDummy = document.createElement('input'), text = window.location.href;
+      document.body.appendChild(urlDummy);
+      urlDummy.value = text;
+      urlDummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(urlDummy);
       $(this).popover('show');
+      setTimeout(function() {$('#shareBtn').popover('hide')}, 3000);
     }
   })
 }
@@ -210,17 +217,17 @@ function loadManifest(manifestUri) {
     $("#qualitySelect").html("");
     tracks.forEach(function (element, index) {
       options.push([element.height, index])
-      if (window.abrEnabled == false) {
-        if (element.height == trackOverride) {
-          player.selectVariantTrack(element);
-          trackOverrideIndex = index;
-        }
-      }
     });
     options.sort(sortQualities);
     $("#qualitySelect").append(new Option("Auto", "auto"));
-    options.forEach(function (element) {
+    options.forEach(function (element, index) {
       $("#qualitySelect").append(new Option(element[0] + "p", element[1]));
+      if (window.abrEnabled == false) {
+        if (element[0].toString() == trackOverride) {
+          player.selectVariantTrack(tracks[element[1]]);
+          trackOverrideIndex = index + 1;
+        }
+      }
     })
     $("#qualitySelect").get(0).selectedIndex = trackOverrideIndex;
 
