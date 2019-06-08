@@ -142,8 +142,7 @@
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-secondary mr-2" title="Sharing this video" data-content="Share this video by send the URL of this page to someone." id="shareBtn"
-                data-trigger="focus">
+              <button type="button" class="btn btn-secondary mr-2" role="button" title="Sharing this video" data-content="Link copied to clipboard!" id="shareBtn" data-trigger="focus">
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                   <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
                 </svg>
@@ -169,7 +168,7 @@
           </div>
           <div class="collapse show" id="collapseCompStatus">
             <div class="card-body">
-              <p class="card-text">Your browser does not support playing protected media. Video resolution is limited.</p>
+              <p class="card-text">Your browser does not support playing protected media. Video quality is limited.</p>
               <p class="lead small text-secondary">Switch to Firefox or Chrome - <a href="#" class="card-link" data-toggle="modal" data-target="#compLearnMore">Learn more</a></p>
             </div>
           </div>
@@ -212,25 +211,26 @@
         <div class="modal-header">
           <h5 class="modal-title" id="compLearnMoreLabel">Information about protected content on this page</h5>
         </div>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid py-3 mb-1">
           <div class="container">
-            <h1 id="compTitleH" class="display-4 mdi">&nbsp;<span>Playback supported</span></h1>
+            <h1 id="compTitleH" class="display-4 mdi">&nbsp;<span class="text-body">Playback supported</span></h1>
           </div>
         </div>
         <div class="modal-body">
-          <p>Media on this page is protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
-              href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.opera.com">Opera</a>. Visitors using a non-supported browser will be able to view a
-            fallback video in 300p.<br><br>If you want to learn more about content protection, its reasons and implementation on this page, continue reading below.</p>
+          <p>Media on this page is protected and can thus only be played in supported, modern webbrowsers, such as <a href="https://www.mozilla.org/de/firefox/new"
+              target="_blank">Mozilla Firefox</a> or <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> (limitations apply, iOS incompatible). Unsupported
+            browsers will load a fallback video in 300p. Continue reading below to learn more about why we chose to do this.</p>
+          <hr>
           <p class="font-weight-bold">Why is media on this page protected/encrypted?</p>
           <p>When we started this project, we weighed up the pros and cons of protecting content and concluded that it is our duty to protect media on this site from unauthorized
-            redistribution. We understand that not everyone is content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new">provide
-              your feedback</a> if you think we should have made a different decision.</p>
+            redistribution. We understand that not everyone is content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new"
+              target="_blank">provide your feedback</a> if you think we should have made a different decision.</p>
           <p class="font-weight-bold">What are the technical implications of this?</p>
           <p>Content on this page is served trough <abbr title="Media Source Extensions" class="initialism">MSE</abbr> and <abbr title="Encrypted Media Extensions"
               class="initialism">EME</abbr> using a ClearKey implementation. Even though support for this feature is required by the <a
-              href="https://www.w3.org/TR/encrypted-media/">W3C standard</a>, some browsers such as Microsoft Edge or Apple Safari on iOS provide limited or no support. Such
-            browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p. We may lift this limitation in the future if we notice that the
-            original videos circulate online.</p>
+              href="https://www.w3.org/TR/encrypted-media/" target="_blank">W3C standard</a>, some browsers such as Microsoft Edge or Apple Safari on iOS provide limited or no
+            support. Such browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p. We may lift this limitation in the future if we
+            notice that the original videos circulate online.</p>
           <p class="font-weight-bold">You some kind of Netflix? 🤨</p>
           <p>No, we are not. We do not use any proprietary <abbr title="Digital Rights Management" class="initialism">DRM</abbr> solutions, such as Google Widevine or Microsoft
             PlayReady. MPEG-CENC is a completely open, standardized container format requiring no proprietary code.</p>
