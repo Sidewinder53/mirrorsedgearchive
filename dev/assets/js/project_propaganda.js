@@ -313,6 +313,7 @@ function hookBindings() {
 
   // Bind video end to autoplay check
   $('#vidPlayer').bind('ended', function () {
+    _paq.push(['trackEvent', 'Scene', 'Ended', previousVideo.id]);
     if ($('#apCheck').prop('checked')) {
       console.log('[PropP-DEBUG] [Autoplay] Detected autoplay intent.')
       if (jumpCategory) {
@@ -346,6 +347,7 @@ function hookBindings() {
     $('#vidNav').hide();
 
     history.pushState(null, null, '?v=' + this.id);
+    _paq.push(['trackEvent', 'Scene', 'Play', this.id]);
 
     $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
     $('#vidIntro').css('display', 'none');
