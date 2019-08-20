@@ -3,8 +3,6 @@ $(document).ready(function() {
     var total_size = Math.floor(data['total_size'] / 1000000);
     animateValue('total_size', 0, total_size, 2000);
     animateValue('total_files', 0, data['total_files'], 2000);
-    // $('#total_size').html(data['total_size']);
-    // $('#total_files').html(data['total_files']);
   });
 
   Number.prototype.pad = function(size) {
@@ -17,15 +15,14 @@ $(document).ready(function() {
 
   function animateValue(id, start, end, duration) {
     var obj = document.getElementById(id);
-    obj.classList.remove('preBlurIt');
     var lpad = end.toString().length;
     var range = end - start;
-    var minTimer = 50;
-    var stepTime = Math.abs(Math.floor(duration / range));
+    var minTimer = 100;
+    var stepTime = Math.abs(Math.floor(duration / range) * 20);
     stepTime = Math.max(stepTime, minTimer);
     var startTime = new Date().getTime();
     var endTime = startTime + duration;
-    var timer;
+
 
     function run() {
       var now = new Date().getTime();
