@@ -3,7 +3,7 @@
 }
 
 .team-member > .media > img {
-	clip-path: ellipse(32px);
+	border-radius: 50%;
 	width: 64px;
 }
 
