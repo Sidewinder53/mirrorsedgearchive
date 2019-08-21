@@ -8,7 +8,7 @@ function shuffle(a) {
   return a;
 }
 
-$.fn.isInViewport = function() {
+$.fn.isInViewport = function () {
   var elementTop = $(this).offset().top;
   var elementBottom = elementTop + $(this).outerHeight();
   var viewportTop = $(window).scrollTop();
@@ -16,42 +16,42 @@ $.fn.isInViewport = function() {
   return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
   var skipped = "false";
 
   if ($("#responsiveHero").css("display") != "none") {
     $("#hero")[0].play();
-    // var cit = '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_X.webp" type="image/webp"><img src="/assets/media/image/home/hero_img_X.jpg"></picture></div>';
-    // var cis = '<div class="carousel-item active"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_1.webp" type="image/webp"><img src="/assets/media/image/home/hero_img_1.jpg"></picture></div>';
-    // var enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
-    // for (i = 0; i < 4; i++) {
-    //   cis += cit.replace(/hero_img_X/g, "hero_img_" + enu[i]);
-    // }
+    var cit = '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_X.jpg" type="image/jpg"><img src="/assets/media/image/home/hero_img_X.jpg"></picture></div>';
+    var cis = '<div class="carousel-item active"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_1.jpg" type="image/jpg"><img src="/assets/media/image/home/hero_img_1.jpg"></picture></div>';
+    enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
+    for (i = 0; i < 4; i++) {
+      cis += cit.replace(/hero_img_X/g, "hero_img_" + enu[i]);
+    }
 
-    $("#heroSlides > .carousel-inner").html('<div class="carousel-item active"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_1.jpg" type="image/jpg"><img src="/assets/media/image/home/hero_img_1.jpg"></picture></div>');
-    $.getScript("/assets/js/cookie-consent.js", function() {
+    $("#heroSlides > .carousel-inner").html(cis);
+    $.getScript("/assets/js/cookie-consent.js", function () {
       if (Cookies.get("skip_intro") == "true") {
         skipped = "true";
         $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
         $("#overview")
-        .children()
-        .each(function() {
-          if ($(this).isInViewport()) {
-            $(this)
-              .css("display", "flex")
-              .css("opacity", 0)
-              .fadeTo("slow", 1);
-          } else {
-            $(this).css("display", "flex");
-          }
-        });
+          .children()
+          .each(function () {
+            if ($(this).isInViewport()) {
+              $(this)
+                .css("display", "flex")
+                .css("opacity", 0)
+                .fadeTo("slow", 1);
+            } else {
+              $(this).css("display", "flex");
+            }
+          });
         $("#legal_footer").css("display", "block");
         $("#herocard").addClass("shadow");
         $(".card").css("border-width", "1px");
         $(".card .bg-light").css("background-color", "#f8f9fa");
       }
 
-      setTimeout(function() {
+      setTimeout(function () {
         if ($("#hero").get(0).paused == true) {
           $("#hero_text, #overview, #nav-cont").fadeTo("slow", 1);
           $("#herocard").addClass("shadow");
@@ -62,23 +62,23 @@ $(document).ready(function() {
   } else {
     $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
     $("#overview")
-    .children()
-    .each(function() {
+      .children()
+      .each(function () {
         $(this).css("display", "flex")
       });
-  $("#legal_footer").css("display", "block");
+    $("#legal_footer").css("display", "block");
     $(".card").css("border-width", "1px");
-    setTimeout(function() {
+    setTimeout(function () {
       $("#faithHeroText").css("height", "5em");
     }, 1500);
   }
 
-  $("#hero").on("timeupdate", function(event) {
+  $("#hero").on("timeupdate", function (event) {
     if (this.currentTime >= 1.5 && skipped == "false") {
-      $("#nav-cont, #hero_text").fadeTo("slow", 1, function() {
+      $("#nav-cont, #hero_text").fadeTo("slow", 1, function () {
         $("#overview")
           .children()
-          .each(function() {
+          .each(function () {
             if ($(this).isInViewport()) {
               $(this)
                 .css("display", "flex")
@@ -98,7 +98,7 @@ $(document).ready(function() {
     }
   });
 
-  $("video").on("ended", function() {
+  $("video").on("ended", function () {
     $("#heroSlides").carousel({ interval: 3000 });
     $("#hero").addClass("d-none");
     $("#heroSlides").removeClass("d-none");

@@ -2,12 +2,13 @@ const { src, dest, series, parallel, watch } = require('gulp');
 const concat = require('gulp-concat');
 const minify = require('gulp-minify');
 const cleanCss = require('gulp-clean-css');
+const purgecss = require('gulp-purgecss')
 const rev = require('gulp-rev');
 const del = require('del');
 const replace = require('gulp-replace');
 const liveServer = require('live-server');
 const imagemin = require('gulp-imagemin');
-const nunjucksRender = require('gulp-nunjucks-render');
+const nunjucks = require('gulp-nunjucks-render');
 
 function devServer() {
   liveServer.start({ root: './dist' })
@@ -23,8 +24,9 @@ function cleanup() {
 function insertBundle() {
   var bundleManifest = require('./dist/assets/rev-manifest.json');
   return src('./index.html')
-    .pipe(replace('<!-- {{baseBundleJS}} -->', '<script src="/assets/js/' + bundleManifest['baseBundle-min.js'] + '"></script>'))
-    .pipe(replace('<!-- {{baseBundleCSS}} -->', '<link rel="stylesheet" type="text/css" href="/assets/css/' + bundleManifest['baseBundle.css'] + '">'))
+    .pipe(nunjucks())
+    .pipe(replace('<!-- {( baseBundleJS )} -->', '<script src="/assets/js/' + bundleManifest['baseBundle.js'] + '"></script>'))
+    .pipe(replace('<!-- {( baseBundleCSS )} -->', '<link rel="stylesheet" type="text/css" href="/assets/css/' + bundleManifest['baseBundle.css'] + '">'))
     .pipe(dest('./dist/'))
 }
 
@@ -35,7 +37,7 @@ function packJS() {
     'node_modules/js-cookie/src/js.cookie.js'
   ])
     .pipe(concat('baseBundle.js'))
-    .pipe(minify())
+    // .pipe(minify())
     .pipe(rev())
     .pipe(dest('dist/assets/js'))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
@@ -56,7 +58,11 @@ function packCSS() {
     'dev/assets/css/global.css'
   ])
     .pipe(concat('baseBundle.css'))
-    .pipe(cleanCss())
+    // .pipe(purgecss({
+    //   content: ['./index.html', './dev/assets/*.js'],
+    //   whitelist: ['close', 'alert-secondary', 'fade', 'show', 'alert-dismissible']
+    // }))
+    // .pipe(cleanCss())
     .pipe(rev())
     .pipe(dest('dist/assets/css'))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
@@ -73,9 +79,9 @@ function packCSS() {
 
 function optimizeImg() {
   return src('dev/assets/media/image/**/*')
-  // Todo set up imagemin
-  // .pipe(imagemin())
-  .pipe(dest('dist/assets/media/image'));
+    // Todo set up imagemin
+    // .pipe(imagemin())
+    .pipe(dest('dist/assets/media/image'));
 }
 
 function copyFonts() {
