@@ -6,11 +6,11 @@
   <title>{{ title }} - The Mirror's Edge Archive &#x1F4C2;</title>
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{{ description }}">
+  <meta name="description" content="{% if description %}{{description}}{% else %}The most extensive collection of high-quality Mirror's Edge resources including concept art, interactive fan projects, developer presentations and much more!{% endif %}">
   <link rel="license" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">
   <meta property="og:title" content="{{ title }} - The Mirror's Edge Archive &#x1F4C2;">
-  <meta property="og:image" content="https://mirrorsedgearchive.de/assets/media/image/og/generic.jpg">
-  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:image" content="{% if thumbnail %}{{thumbnail}}{% else %}https://mirrorsedgearchive.de/assets/media/image/og/generic.jpg{% endif %}">
+  <meta property="og:description" content="{% if description %} {{ description }} {% else %}The most extensive collection of high-quality Mirror's Edge resources including concept art, interactive fan projects, developer presentations and much more!{% endif %}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/favicon.png">
   <!-- {( baseBundleCSS )} -->
