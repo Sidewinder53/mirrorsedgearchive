@@ -23,7 +23,7 @@ function cleanup() {
 function insertBundle() {
   var bundleManifest = require('./dist/assets/rev-manifest.json');
   return src('./index.html')
-    .pipe(replace('<!-- {{baseBundleJS}} -->', '<script src="/assets/js/' + bundleManifest['baseBundle.js'] + '"></script>'))
+    .pipe(replace('<!-- {{baseBundleJS}} -->', '<script src="/assets/js/' + bundleManifest['baseBundle-min.js'] + '"></script>'))
     .pipe(replace('<!-- {{baseBundleCSS}} -->', '<link rel="stylesheet" type="text/css" href="/assets/css/' + bundleManifest['baseBundle.css'] + '">'))
     .pipe(dest('./dist/'))
 }
