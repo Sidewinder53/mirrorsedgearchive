@@ -1,0 +1,1 @@
+$('.slider').slider({ showInstruction: false });

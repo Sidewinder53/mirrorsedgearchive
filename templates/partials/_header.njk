@@ -92,7 +92,7 @@
   ]
 %}
 
-{% block header %}
+{%- block header %}
   <nav class="navbar navbar-expand-lg navbar-light" id="home">
     <div id="nav-cont" class="container">
       <div id="brand-area">
@@ -112,10 +112,10 @@
           {%- for item in navItems %}
             {%- if item.type == 'category-link' %}
               <li class="nav-item">
-                <a class="nav-link {% if item.name == pageInfo.category %}active{% endif %}" href="{{ item.href }}">{{ item.label }}{% if item.name == pageInfo.category %}<span class="sr-only">(current)</span>{% endif %}</a>
+                <a class="nav-link {%- if item.name == pageInfo.category %} active{% endif %}" href="{{ item.href }}">{{ item.label }}{% if item.name == pageInfo.category %}<span class="sr-only">(current)</span>{% endif %}</a>
               </li>
             {%- elif item.type == 'category-dropdown' %}
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown {%- if item.name == pageInfo.category %} active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ item.label }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ item.label }}
                 </a>
@@ -126,7 +126,7 @@
                     {% elif dropdownItem.type == 'dropdown-divider' %}
                       <div class="dropdown-divider"></div>
                     {% elif dropdownItem.type == 'dropdown-item' %}
-                      <a class="dropdown-item" href="{{ dropdownItem.href }}">{{ dropdownItem.label }}</a>
+                      <a class="dropdown-item {%- if dropdownItem.name == pageInfo.name %} active{% endif %}" href="{{ dropdownItem.href }}">{{ dropdownItem.label }}</a>
                     {%- endif -%}
                   {%- endfor -%}
                 </div>

@@ -29,7 +29,7 @@ $(document).ready(function () {
     }
 
     $("#heroSlides > .carousel-inner").html(cis);
-    $.getScript("/assets/js/cookie-consent.js", function () {
+    // $.getScript("/assets/js/cookie-consent.js", function () {
       if (Cookies.get("skip_intro") == "true") {
         skipped = "true";
         $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
@@ -58,7 +58,7 @@ $(document).ready(function () {
           $(".card").css("border-width", "1px");
         }
       }, 1000);
-    });
+    // });
   } else {
     $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
     $("#overview")

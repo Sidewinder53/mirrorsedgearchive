@@ -15,8 +15,8 @@ const tap = require('gulp-tap');
 
 function devServer() {
   liveServer.start({ root: './dist' })
-  watch('./dev/*', function () {
-    series(cleanup, parallel(packJS, packCSS, copyFonts))
+  watch('./dev/**/*', function () {
+    return series(cleanup, copyAndPack);
   });
 }
 
@@ -24,10 +24,11 @@ function cleanup() {
   return del('dist');
 }
 
-function insertBundle() {
+function processTemplate() {
   var bundleManifest = require('./dist/assets/rev-manifest.json');
   return src([
     './dev/index.html',
+    './dev/development_vs_release/index.html',
     './dev/development_vs_release/index.html'
   ], {
       base: './dev/'
@@ -37,8 +38,6 @@ function insertBundle() {
         manifest: bundleManifest
       }
     }))
-    .pipe(replace('<!-- {( baseBundleJS )} -->', '<script src="/assets/js/' + bundleManifest['baseBundle.js'] + '"></script>'))
-    .pipe(replace('<!-- {( baseBundleCSS )} -->', '<link rel="stylesheet" type="text/css" href="/assets/css/' + bundleManifest['baseBundle.css'] + '">'))
     .pipe(dest('./dist/'))
 }
 
@@ -46,7 +45,8 @@ function packBundleJS() {
   return src([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
-    'node_modules/js-cookie/src/js.cookie.js'
+    'node_modules/js-cookie/src/js.cookie.js',
+    'dev/assets/js/cookie-consent.js'
   ])
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.js'))
     // .pipe(minify())
@@ -68,7 +68,7 @@ function packLocalJS() {
   ], { base: 'dev' })
     // minify
     .pipe(rev())
-    .pipe(dest('./dist/assets/js'))
+    .pipe(dest('./dist'))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true,
     }))
@@ -123,7 +123,7 @@ function packLocalCSS() {
   ], { base: 'dev' })
     .pipe(cleanCss())
     .pipe(rev())
-    .pipe(dest('./dist/assets/css'))
+    .pipe(dest('./dist/'))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true,
     }))
@@ -178,10 +178,10 @@ const copyAndPack = series(
   ),
   series(
     copyFonts,
-    // copyAV,
+    copyAV,
     optimizeImg
   ),
-  insertBundle
+  processTemplate
 );
 
 exports.default = series(cleanup, copyAndPack);

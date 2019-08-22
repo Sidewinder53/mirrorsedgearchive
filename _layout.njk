@@ -13,8 +13,10 @@
   <meta property="og:description" content="{% if pageInfo.description %} {{ pageInfo.description }} {% else %}The most extensive collection of high-quality Mirror's Edge resources including concept art, interactive fan projects, developer presentations and much more!{% endif %}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <!-- {( baseBundleCSS )} -->
-  <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/{{- manifest['assets/vendor/bundles/baseBundle.css'] }}">
+  {%- for item in pageInfo.reqStylesheets %}
+  <link rel="stylesheet" type="text/css" href="/{{- manifest[item] }}">
+  {%- endfor %}
 </head>
 
 <body>
@@ -25,8 +27,10 @@
 
   {%- include "./templates/partials/_footer.njk" %}
 
-  <script src="/assets/vendor/js/{{ manifest['baseBundle.js'] }}"></script>
-  <script src="/assets/js/index.js" defer></script>
+  <script src="/{{- manifest['assets/vendor/bundles/baseBundle.js'] }}"></script>
+  {%- for item in pageInfo.reqScripts %}
+  <script src="/{{- manifest[item] }}"></script>
+  {%- endfor %}
 </body>
 
 </html>
