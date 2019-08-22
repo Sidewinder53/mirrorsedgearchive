@@ -101,7 +101,7 @@ function packVendorJS() {
     .pipe(rev())
     .pipe(dest('./dist/assets/vendor/'))
     .pipe(tap(function (file) {
-      file.base = file.base.substring(0, file.base.length-14);
+      file.base = file.base.substring(0, file.base.length - 14);
     }))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true
@@ -115,11 +115,11 @@ function packBundleCSS() {
     'src/assets/css/global.css'
   ], { base: '/' })
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
-    // .pipe(purgecss({
-    //   content: ['./index.html', './src/assets/*.js'],
-    //   whitelist: ['close', 'alert-secondary', 'fade', 'show', 'alert-dismissible']
-    // }))
-    // .pipe(cleanCss())
+    .pipe(purgecss({
+      content: ['./src/**/*.html', './src/**/*.js'],
+      whitelist: ['close', 'alert-secondary', 'fade', 'show', 'alert-dismissible']
+    }))
+    .pipe(cleanCss())
     .pipe(rev())
     .pipe(dest('./'))
     .pipe(tap(function (file) {
@@ -156,7 +156,7 @@ function packVendorCSS() {
     .pipe(rev())
     .pipe(dest('./dist/assets/vendor/'))
     .pipe(tap(function (file) {
-      file.base = file.base.substring(0, file.base.length-14);
+      file.base = file.base.substring(0, file.base.length - 14);
     }))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true

@@ -1,12 +1,3 @@
-::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
 #vidPlayer {
   display: none;
 }
@@ -25,14 +16,6 @@ html {
 
 #mainDiv {
   position: relative;
-}
-
-#legal_footer {
-  bottom: -100px!important;
-}
-
-#vidCard {
-  border: none;
 }
 
 #vidRCM {
