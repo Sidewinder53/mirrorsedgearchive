@@ -72,6 +72,7 @@ a:hover svg path {
   font-weight: bold;
   transform: rotate(-10deg);
   background-color: rgba(255, 255, 255, 0.5);
+  color: #cd2027;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {

@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "del": "^5.0.0",
+    "git-rev-sync": "^1.12.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-clone": "^2.0.1",
@@ -36,7 +37,6 @@
   "dependencies": {
     "@mdi/font": "^4.1.95",
     "bootstrap": "^4.3.1",
-    "git-rev-sync": "^1.12.0",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
     "jquery": "^3.4.1",

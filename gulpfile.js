@@ -6,6 +6,7 @@ const purgecss = require('gulp-purgecss')
 const rev = require('gulp-rev');
 const del = require('del');
 const replace = require('gulp-replace');
+const git = require('git-rev-sync')
 const liveServer = require('live-server');
 const imagemin = require('gulp-imagemin');
 const nunjucks = require('gulp-nunjucks-render');
@@ -35,9 +36,16 @@ function processTemplate() {
     })
     .pipe(nunjucks({
       data: {
-        manifest: bundleManifest
+        manifest: bundleManifest,
+        git: {
+          long: git.long(),
+          short: git.short(),
+          production: false
+        }
       }
     }))
+    .pipe(replace('{{stamp_title}}', 'Build ID: ' + git.short()))
+    .pipe(replace('{{stamp_text}}', 'DEV'))
     .pipe(dest('./dist/'))
 }
 
@@ -115,10 +123,19 @@ function packBundleCSS() {
     'src/assets/css/global.css'
   ], { base: '/' })
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
-    .pipe(purgecss({
-      content: ['./src/**/*.html', './src/**/*.js'],
-      whitelist: ['close', 'alert-secondary', 'fade', 'show', 'alert-dismissible']
-    }))
+    // PurgeCSS has been disabled as it causes a whole bunch of problems and requires a humongous whitelist to work with 3rd-party frameworks
+    // .pipe(purgecss({
+    //   content: ['./src/**/*.html', './src/**/*.js'],
+    //   whitelist: [
+    //     '.carousel-item-next',
+    //     'carousel-item-prev',
+    //     'carousel-item.active',
+    //     'close',
+    //     'alert-secondary',
+    //     'fade',
+    //     'show',
+    //     'alert-dismissible']
+    // }))
     .pipe(cleanCss())
     .pipe(rev())
     .pipe(dest('./'))
