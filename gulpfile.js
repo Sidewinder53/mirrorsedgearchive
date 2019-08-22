@@ -29,7 +29,7 @@ function processTemplate() {
   return src([
     './src/index.html',
     './src/development_vs_release/index.html',
-    './src/development_vs_release/index.html'
+    './src/project_propaganda/index.html'
   ], {
       base: './src/'
     })
@@ -49,7 +49,12 @@ function packBundleJS() {
     'src/assets/js/cookie-consent.js'
   ])
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.js'))
-    // .pipe(minify())
+    .pipe(minify({
+      noSource: true,
+      ext: {
+        min: '.js'
+      }
+    }))
     .pipe(rev())
     .pipe(dest('./'))
     .pipe(tap(function (file) {
@@ -66,7 +71,12 @@ function packLocalJS() {
     'src/assets/js/*.js',
     '!src/assets/js/global.js'
   ], { base: 'src' })
-    // minify
+    .pipe(minify({
+      noSource: true,
+      ext: {
+        min: '.js'
+      }
+    }))
     .pipe(rev())
     .pipe(dest('./dist'))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
@@ -78,10 +88,16 @@ function packLocalJS() {
 function packVendorJS() {
   return src([
     'node_modules/img-slider/distr/imgslider.min.js',
-    'node_modules/image-picker/image-picker/image-picker.js'
+    'node_modules/image-picker/image-picker/image-picker.js',
+    'node_modules/shaka-player/dist/shaka-player.compiled.js'
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
-    // minify
+    .pipe(minify({
+      noSource: true,
+      ext: {
+        min: '.js'
+      }
+    }))
     .pipe(rev())
     .pipe(dest('./dist/assets/vendor/'))
     .pipe(tap(function (file) {
@@ -96,7 +112,6 @@ function packVendorJS() {
 function packBundleCSS() {
   return src([
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    'node_modules/@mdi/font/css/materialdesignicons.min.css',
     'src/assets/css/global.css'
   ], { base: '/' })
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
@@ -133,7 +148,8 @@ function packLocalCSS() {
 function packVendorCSS() {
   return src([
     'node_modules/img-slider/distr/imgslider.min.css',
-    'node_modules/image-picker/image-picker/image-picker.css'
+    'node_modules/image-picker/image-picker/image-picker.css',
+    'node_modules/@mdi/font/css/materialdesignicons.min.css'
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
     .pipe(cleanCss())
@@ -157,7 +173,14 @@ function optimizeImg() {
 
 function copyFonts() {
   return src('node_modules/@mdi/font/fonts/*')
-    .pipe(dest('dist/assets/fonts'))
+    .pipe(dest('dist/assets/vendor/fonts/'))
+}
+
+function copyStaticAssets() {
+  return src([
+    'src/**/*.json'
+  ])
+    .pipe(dest('dist/'))
 }
 
 function copyAV() {
@@ -166,6 +189,9 @@ function copyAV() {
 }
 
 const copyAndPack = series(
+  series(
+    copyStaticAssets
+  ),
   series(
     packVendorJS,
     packBundleJS,
