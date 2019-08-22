@@ -103,7 +103,7 @@ function packVendorJS() {
     .pipe(tap(function (file) {
       console.log(file.path);
       console.log(file.base);
-      file.base = file.base.replace('assets\\vendor', '');
+      file.base = file.base.substring(0, file.base.length-14);
     }))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true
