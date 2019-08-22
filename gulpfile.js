@@ -101,6 +101,8 @@ function packVendorJS() {
     .pipe(rev())
     .pipe(dest('./dist/assets/vendor/'))
     .pipe(tap(function (file) {
+      console.log(file.path);
+      console.log(file.base);
       file.base = file.base.replace('assets\\vendor', '');
     }))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
