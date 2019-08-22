@@ -11,13 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "del": "^3.0.0",
+    "del": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-clone": "^2.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-flatten": "^0.4.0",
-    "gulp-imagemin": "^6.0.0",
+    "gulp-imagemin": "^6.1.0",
     "gulp-livereload": "^4.0.1",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-purgecss": "^1.2.0",
@@ -34,13 +34,13 @@
     "shaka-player": "^2.5.4"
   },
   "dependencies": {
-    "@mdi/font": "^3.6.95",
+    "@mdi/font": "^4.1.95",
     "bootstrap": "^4.3.1",
     "git-rev-sync": "^1.12.0",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
-    "jquery": "^3.3.1",
-    "js-cookie": "^2.2.0",
+    "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1",
     "natives": "^1.1.6",
     "popper.js": "^1.15.0"
   }
