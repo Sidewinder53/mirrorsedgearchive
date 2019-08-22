@@ -105,3 +105,4 @@ $(document).ready(function () {
     $("#media_copyright").fadeTo("slow", 1);
   });
 });
+

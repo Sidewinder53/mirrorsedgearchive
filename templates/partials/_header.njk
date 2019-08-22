@@ -1,0 +1,150 @@
+{% set navItems = [
+    {
+      type: 'category-link',
+      name: 'home',
+      label: 'Home',
+      href: '/'
+    },
+    {
+      type: 'category-dropdown',
+      name: 'projects',
+      label: 'Projects',
+      contents: [
+        {
+          type: 'dropdown-header',
+          label: 'Interactive'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'development_vs_release',
+          label: 'Development vs. Release',
+          href: '/development_vs_release'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'project_graffiti',
+          label: 'Player Tag Generator',
+          href: '/project_graffiti'
+        },
+        {
+          type: 'dropdown-divider'
+        },
+        {
+          type: 'dropdown-header',
+          label: 'Media'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'project_propaganda',
+          label: 'News broadcasts',
+          href: '/project_propaganda'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'project_billboard',
+          label: 'Billboards',
+          href: '/project_billboard'
+        }
+      ]
+    },
+    {
+      type: 'category-dropdown',
+      name: 'archives',
+      label: 'Archives',
+      contents: [
+        {
+          type: 'dropdown-header',
+          label: 'Internal'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'archive',
+          label: 'Main Archive',
+          href: '/archive'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'project_doomsday',
+          label: 'Website & Forums',
+          href: '/project_doomsday'
+        },
+        {
+          type: 'dropdown-divider'
+        },
+        {
+          type: 'dropdown-header',
+          label: 'External'
+        },
+        {
+          type: 'dropdown-item',
+          name: 'internet_archive',
+          label: 'Internet Archive',
+          href: '/out/?t=https://archive.org/details/@sidewinder51'
+        }
+      ]
+    },
+    {
+      type: 'category-link',
+      name: 'credits',
+      label: 'Credits',
+      href: '/credits'
+    }
+  ]
+%}
+
+{% block header %}
+  <nav class="navbar navbar-expand-lg navbar-light" id="home">
+    <div id="nav-cont" class="container">
+      <div id="brand-area">
+        <a class="navbar-brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="d-inline-block align-top" viewBox="0 0 1000 1000">
+            <path fill="rgba(0,0,0,.9)" d="M135 255s3 64 199 259l-65 141 173-50 92 241 100-254h232s-93-122-306-173c-213-50-329-81-425-164"/>
+          </svg>
+          <span>The Mirror's Edge Archive</span>
+        </a>
+        <!-- {(STAMP)} -->
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          {%- for item in navItems %}
+            {%- if item.type == 'category-link' %}
+              <li class="nav-item">
+                <a class="nav-link {% if item.name == pageInfo.category %}active{% endif %}" href="{{ item.href }}">{{ item.label }}{% if item.name == pageInfo.category %}<span class="sr-only">(current)</span>{% endif %}</a>
+              </li>
+            {%- elif item.type == 'category-dropdown' %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ item.label }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ item.label }}
+                </a>
+                <div class="dropdown-menu shadow" aria-labelledby="navbarDropdown{{ item.label }}">
+                  {%- for dropdownItem in item.contents -%}
+                    {% if dropdownItem.type == 'dropdown-header' %}
+                      <h6 class="dropdown-header">{{ dropdownItem.label }}</h6>
+                    {% elif dropdownItem.type == 'dropdown-divider' %}
+                      <div class="dropdown-divider"></div>
+                    {% elif dropdownItem.type == 'dropdown-item' %}
+                      <a class="dropdown-item" href="{{ dropdownItem.href }}">{{ dropdownItem.label }}</a>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </li>
+            {% endif -%}
+          {% endfor -%}
+        </ul>
+        <ul class="nav navbar-nav ml-auto justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/contribute">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" class="d-inline-block align-top mr-1" viewBox="0 0 24 24">
+                <path fill="rgba(0,0,0,.5)" d="M13 13c-2 0-6 1-6 3v2h12v-2c0-2-4-3-6-3m6.6.2c.8.7 1.4 1.6 1.4 2.8v2h3v-2c0-1.5-2.4-2.5-4.4-2.8M13 11a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m5 0a3 3 0 0 0 3-3 3 3 0 0 0-3-3l-1 .1a5 5 0 0 1 0 5.7l1 .2M8 10H5V7H3v3H0v2h3v3h2v-3h3v-2z"/>
+              </svg>
+              <span>Contribute / Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endblock %}

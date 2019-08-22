@@ -9,9 +9,12 @@ body {
   overflow-y: scroll;
 }
 
+#nav-cont {
+  user-select: none;
+}
+
 ::selection {
   background: #cd2027;
-  /* WebKit/Blink Browsers */
   color: white;
 }
 

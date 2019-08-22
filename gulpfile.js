@@ -9,6 +9,9 @@ const replace = require('gulp-replace');
 const liveServer = require('live-server');
 const imagemin = require('gulp-imagemin');
 const nunjucks = require('gulp-nunjucks-render');
+const flatten = require('gulp-flatten');
+const tap = require('gulp-tap');
+
 
 function devServer() {
   liveServer.start({ root: './dist' })
@@ -23,58 +26,126 @@ function cleanup() {
 
 function insertBundle() {
   var bundleManifest = require('./dist/assets/rev-manifest.json');
-  return src('./index.html')
-    .pipe(nunjucks())
+  return src([
+    './dev/index.html',
+    './dev/development_vs_release/index.html'
+  ], {
+      base: './dev/'
+    })
+    .pipe(nunjucks({
+      data: {
+        manifest: bundleManifest
+      }
+    }))
     .pipe(replace('<!-- {( baseBundleJS )} -->', '<script src="/assets/js/' + bundleManifest['baseBundle.js'] + '"></script>'))
     .pipe(replace('<!-- {( baseBundleCSS )} -->', '<link rel="stylesheet" type="text/css" href="/assets/css/' + bundleManifest['baseBundle.css'] + '">'))
     .pipe(dest('./dist/'))
 }
 
-function packJS() {
+function packBundleJS() {
   return src([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
     'node_modules/js-cookie/src/js.cookie.js'
   ])
-    .pipe(concat('baseBundle.js'))
+    .pipe(concat('dist/assets/vendor/bundles/baseBundle.js'))
     // .pipe(minify())
     .pipe(rev())
-    .pipe(dest('dist/assets/js'))
+    .pipe(dest('./'))
+    .pipe(tap(function (file) {
+      file.base = file.base + '\\dist'
+    }))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true
     }))
-    .pipe(dest('./')),
-    src([
-      'dev/assets/js/*.js',
-    ])
-      .pipe(minify())
-      .pipe(dest('dist/assets/js'));;
+    .pipe(dest('./'));
 }
 
-function packCSS() {
+function packLocalJS() {
+  return src([
+    'dev/assets/js/*.js',
+    '!dev/assets/js/global.js'
+  ], { base: 'dev' })
+    // minify
+    .pipe(rev())
+    .pipe(dest('./dist/assets/js'))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true,
+    }))
+    .pipe(dest('./'));
+}
+
+function packVendorJS() {
+  return src([
+    'node_modules/img-slider/distr/imgslider.min.js',
+    'node_modules/image-picker/image-picker/image-picker.js'
+  ], { base: 'node_modules' })
+    .pipe(flatten({ includeParents: 1 }))
+    // minify
+    .pipe(rev())
+    .pipe(dest('./dist/assets/vendor/'))
+    .pipe(tap(function (file) {
+      file.base = file.base.replace('assets\\vendor', '');
+    }))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(dest('./'))
+}
+
+function packBundleCSS() {
   return src([
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/@mdi/font/css/materialdesignicons.min.css',
     'dev/assets/css/global.css'
-  ])
-    .pipe(concat('baseBundle.css'))
+  ], { base: '/' })
+    .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
     // .pipe(purgecss({
     //   content: ['./index.html', './dev/assets/*.js'],
     //   whitelist: ['close', 'alert-secondary', 'fade', 'show', 'alert-dismissible']
     // }))
     // .pipe(cleanCss())
     .pipe(rev())
-    .pipe(dest('dist/assets/css'))
+    .pipe(dest('./'))
+    .pipe(tap(function (file) {
+      file.base = file.base + '\\dist'
+    }))
     .pipe(rev.manifest('dist/assets/rev-manifest.json', {
       merge: true
     }))
-    .pipe(dest('./')),
-    src([
-      'dev/assets/css/*.css',
-      '!dev/assets/css/global.css'
-    ])
-      .pipe(cleanCss())
-      .pipe(dest('dist/assets/css'));
+    .pipe(dest('./'));
+}
+
+function packLocalCSS() {
+  return src([
+    'dev/assets/css/*.css',
+    '!dev/assets/css/global.css'
+  ], { base: 'dev' })
+    .pipe(cleanCss())
+    .pipe(rev())
+    .pipe(dest('./dist/assets/css'))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true,
+    }))
+    .pipe(dest('./'));
+}
+
+function packVendorCSS() {
+  return src([
+    'node_modules/img-slider/distr/imgslider.min.css',
+    'node_modules/image-picker/image-picker/image-picker.css'
+  ], { base: 'node_modules' })
+    .pipe(flatten({ includeParents: 1 }))
+    .pipe(cleanCss())
+    .pipe(rev())
+    .pipe(dest('./dist/assets/vendor/'))
+    .pipe(tap(function (file) {
+      file.base = file.base.replace('assets\\vendor', '');
+    }))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(dest('./'))
 }
 
 function optimizeImg() {
@@ -96,10 +167,18 @@ function copyAV() {
 
 const copyAndPack = series(
   parallel(
-    packJS,
-    packCSS,
+    packVendorJS,
+    packBundleJS,
+    packLocalJS
+  ),
+  parallel(
+    packBundleCSS,
+    packVendorCSS,
+    packLocalCSS,
+  ),
+  series(
     copyFonts,
-    copyAV,
+    // copyAV,
     optimizeImg
   ),
   insertBundle
