@@ -166,12 +166,12 @@ function copyAV() {
 }
 
 const copyAndPack = series(
-  parallel(
+  series(
     packVendorJS,
     packBundleJS,
     packLocalJS
   ),
-  parallel(
+  series(
     packBundleCSS,
     packVendorCSS,
     packLocalCSS,
