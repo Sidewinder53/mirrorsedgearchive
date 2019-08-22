@@ -15,7 +15,7 @@ const tap = require('gulp-tap');
 
 function devServer() {
   liveServer.start({ root: './dist' })
-  watch('./dev/**/*', function () {
+  watch('./src/**/*', function () {
     return series(cleanup, copyAndPack);
   });
 }
@@ -27,11 +27,11 @@ function cleanup() {
 function processTemplate() {
   var bundleManifest = require('./dist/assets/rev-manifest.json');
   return src([
-    './dev/index.html',
-    './dev/development_vs_release/index.html',
-    './dev/development_vs_release/index.html'
+    './src/index.html',
+    './src/development_vs_release/index.html',
+    './src/development_vs_release/index.html'
   ], {
-      base: './dev/'
+      base: './src/'
     })
     .pipe(nunjucks({
       data: {
@@ -46,7 +46,7 @@ function packBundleJS() {
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
     'node_modules/js-cookie/src/js.cookie.js',
-    'dev/assets/js/cookie-consent.js'
+    'src/assets/js/cookie-consent.js'
   ])
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.js'))
     // .pipe(minify())
@@ -63,9 +63,9 @@ function packBundleJS() {
 
 function packLocalJS() {
   return src([
-    'dev/assets/js/*.js',
-    '!dev/assets/js/global.js'
-  ], { base: 'dev' })
+    'src/assets/js/*.js',
+    '!src/assets/js/global.js'
+  ], { base: 'src' })
     // minify
     .pipe(rev())
     .pipe(dest('./dist'))
@@ -97,11 +97,11 @@ function packBundleCSS() {
   return src([
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/@mdi/font/css/materialdesignicons.min.css',
-    'dev/assets/css/global.css'
+    'src/assets/css/global.css'
   ], { base: '/' })
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
     // .pipe(purgecss({
-    //   content: ['./index.html', './dev/assets/*.js'],
+    //   content: ['./index.html', './src/assets/*.js'],
     //   whitelist: ['close', 'alert-secondary', 'fade', 'show', 'alert-dismissible']
     // }))
     // .pipe(cleanCss())
@@ -118,9 +118,9 @@ function packBundleCSS() {
 
 function packLocalCSS() {
   return src([
-    'dev/assets/css/*.css',
-    '!dev/assets/css/global.css'
-  ], { base: 'dev' })
+    'src/assets/css/*.css',
+    '!src/assets/css/global.css'
+  ], { base: 'src' })
     .pipe(cleanCss())
     .pipe(rev())
     .pipe(dest('./dist/'))
@@ -149,7 +149,7 @@ function packVendorCSS() {
 }
 
 function optimizeImg() {
-  return src('dev/assets/media/image/**/*')
+  return src('src/assets/media/image/**/*')
     // Todo set up imagemin
     // .pipe(imagemin())
     .pipe(dest('dist/assets/media/image'));
@@ -161,8 +161,8 @@ function copyFonts() {
 }
 
 function copyAV() {
-  return src('dev/assets/media/audio/**/*').pipe(dest('dist/assets/media/audio')),
-    src('dev/assets/media/video/**/*').pipe(dest('dist/assets/media/video'));
+  return src('src/assets/media/audio/**/*').pipe(dest('dist/assets/media/audio')),
+    src('src/assets/media/video/**/*').pipe(dest('dist/assets/media/video'));
 }
 
 const copyAndPack = series(

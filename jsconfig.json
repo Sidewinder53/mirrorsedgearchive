@@ -1,6 +1,20 @@
 {
-  "compilerOptions": { "baseUrl": ".", "paths": { "*": ["types/*"] } },
+  "compilerOptions": {
+    "target": "ES6",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
   "typeAcquisition": {
-    "include": ["jquery"]
-  }
+    "include": [
+      "jquery"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
 }

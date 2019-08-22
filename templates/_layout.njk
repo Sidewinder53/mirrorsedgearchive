@@ -20,12 +20,12 @@
 </head>
 
 <body>
-  {%- include "./templates/partials/_header.njk" -%}
+  {%- include "./partials/_header.njk" -%}
 
   {%- block content %}
   {% endblock -%}
 
-  {%- include "./templates/partials/_footer.njk" %}
+  {%- include "./partials/_footer.njk" %}
 
   <script src="/{{- manifest['assets/vendor/bundles/baseBundle.js'] }}"></script>
   {%- for item in pageInfo.reqScripts %}
