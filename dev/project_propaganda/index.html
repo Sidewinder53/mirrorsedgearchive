@@ -11,12 +11,12 @@
   <!-- {{lib-css:MaterialDesign-Webfont}} -->
   <!-- {{lib-js:shakaPlayer}} -->
   <meta property="og:title" content="Mirror's Edge Catalyst Newscasts" />
-  <meta property="og:description" content="A collection of all the newscasts from Mirror's Edge Catalyst." />
+  <meta property="og:description" content="A collection of all newscasts from Mirror's Edge Catalyst." />
   <meta property="og:url" content="https://mirrorsedgearchive.de/project_propaganda" />
   <meta property="og:image" content="https://mirrorsedgearchive.de/assets/media/image/home/project_propaganda.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mirror's Edge Catalyst Newscasts" />
-  <meta name="twitter:description" content="A collection of all the newscasts from Mirror's Edge Catalyst." />
+  <meta name="twitter:description" content="A collection of all newscasts from Mirror's Edge Catalyst." />
   <meta name="twitter:url" content="https://mirrorsedgearchive.de/project_propaganda" />
   <meta name="twitter:image" content="https://mirrorsedgearchive.de/assets/media/image/home/project_propaganda.jpg">
   <script src="/assets/js/project_propaganda.js"></script>
@@ -25,15 +25,15 @@
   <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light">
+<body class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <div id="brand-area">
         <a class="navbar-brand" href="/">
           <svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
             <g>
-              <path fill="rgba(0,0,0,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
+              <path fill="rgba(255,255,255,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
                 c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255" />
             </g>
           </svg> The Mirror's Edge Archive </a>
@@ -84,7 +84,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/contribute">
               <svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
-                <path fill="rgba(0,0,0,.5)"
+                <path fill="rgba(255,255,255,.5)"
                   d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
               </svg> &nbsp;Contribute / Contact </a>
           </li>
@@ -92,9 +92,9 @@
       </div>
     </div>
   </nav>
-  <div class="container px-sm-3 px-0" id="mainDiv">
+  <div class="container px-sm-3 px-0 mt-0 mt-sm-3" id="mainDiv">
     <div id="cookie_consent_placeholder"></div>
-    <div class="card">
+    <div class="card" id="vidCard">
       <div id="vidIntro" class="text-muted h3 text-center">Select a video to get started.</div>
       <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
         <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg" class="embed-responsive-item" controls autoplay
@@ -142,8 +142,7 @@
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-secondary mr-2" title="Sharing this video" data-content="Share this video by send the URL of this page to someone." id="shareBtn"
-                data-trigger="focus">
+              <button type="button" class="btn btn-secondary mr-2" role="button" title="Sharing this video" data-content="Link copied to clipboard!" id="shareBtn" data-trigger="focus">
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                   <path fill="#fff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
                 </svg>
@@ -169,7 +168,7 @@
           </div>
           <div class="collapse show" id="collapseCompStatus">
             <div class="card-body">
-              <p class="card-text">Your browser does not support playing protected media. Video resolution is limited.</p>
+              <p class="card-text">Your browser does not support playing protected media. Video quality is limited.</p>
               <p class="lead small text-secondary">Switch to Firefox or Chrome - <a href="#" class="card-link" data-toggle="modal" data-target="#compLearnMore">Learn more</a></p>
             </div>
           </div>
@@ -212,25 +211,26 @@
         <div class="modal-header">
           <h5 class="modal-title" id="compLearnMoreLabel">Information about protected content on this page</h5>
         </div>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid py-3 mb-1">
           <div class="container">
-            <h1 id="compTitleH" class="display-4 mdi">&nbsp;<span>Playback supported</span></h1>
+            <h1 id="compTitleH" class="display-4 mdi">&nbsp;<span class="text-body">Playback supported</span></h1>
           </div>
         </div>
         <div class="modal-body">
-          <p>Media on this page is protected and can only be played in supported browsers, such as <a href="https://www.mozilla.org/de/firefox/new">Mozilla Firefox</a>, <a
-              href="https://www.google.com/chrome/">Google Chrome</a> and <a href="https://www.opera.com">Opera</a>. Visitors using a non-supported browser will be able to view a
-            fallback video in 300p.<br><br>If you want to learn more about content protection, its reasons and implementation on this page, continue reading below.</p>
+          <p>Media on this page is protected and can thus only be played in supported, modern webbrowsers, such as <a href="https://www.mozilla.org/de/firefox/new"
+              target="_blank">Mozilla Firefox</a> or <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> (limitations apply, iOS incompatible). Unsupported
+            browsers will load a fallback video in 300p. Continue reading below to learn more about why we chose to do this.</p>
+          <hr>
           <p class="font-weight-bold">Why is media on this page protected/encrypted?</p>
           <p>When we started this project, we weighed up the pros and cons of protecting content and concluded that it is our duty to protect media on this site from unauthorized
-            redistribution. We understand that not everyone is content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new">provide
-              your feedback</a> if you think we should have made a different decision.</p>
+            redistribution. We understand that not everyone is content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new"
+              target="_blank">provide your feedback</a> if you think we should have made a different decision.</p>
           <p class="font-weight-bold">What are the technical implications of this?</p>
           <p>Content on this page is served trough <abbr title="Media Source Extensions" class="initialism">MSE</abbr> and <abbr title="Encrypted Media Extensions"
               class="initialism">EME</abbr> using a ClearKey implementation. Even though support for this feature is required by the <a
-              href="https://www.w3.org/TR/encrypted-media/">W3C standard</a>, some browsers such as Microsoft Edge or Apple Safari on iOS provide limited or no support. Such
-            browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p. We may lift this limitation in the future if we notice that the
-            original videos circulate online.</p>
+              href="https://www.w3.org/TR/encrypted-media/" target="_blank">W3C standard</a>, some browsers such as Microsoft Edge or Apple Safari on iOS provide limited or no
+            support. Such browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p. We may lift this limitation in the future if we
+            notice that the original videos circulate online.</p>
           <p class="font-weight-bold">You some kind of Netflix? 🤨</p>
           <p>No, we are not. We do not use any proprietary <abbr title="Digital Rights Management" class="initialism">DRM</abbr> solutions, such as Google Widevine or Microsoft
             PlayReady. MPEG-CENC is a completely open, standardized container format requiring no proprietary code.</p>
@@ -246,7 +246,7 @@
       <div class="media">
         <div class="media-body">
           <a href="/legal/terms-of-use.html" class="text-secondary">Terms of use</a>&nbsp;&#8729;&nbsp; <a href="/legal/privacy-policy.html" class="text-secondary" href="">Privacy
-            &amp; cookies</a>&nbsp;&#8729;&nbsp; <a href="/legal/takedown.html" class="text-secondary" href="">DMCA</a>&nbsp;&#8729;&nbsp; <span class="d-md-none">
+            &amp; cookies</a>&nbsp;&#8729;&nbsp; <a href="/legal/takedown.html" class="text-secondary" href="">Takdeown</a>&nbsp;&#8729;&nbsp; <span class="d-md-none">
             <a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub repository</a>&nbsp;&#8729;&nbsp; </span>
           <a href="/out/?t=https://www.reddit.com/r/mirrorsedge/" class="text-secondary" href="">/r/mirrorsedge</a>
           <!-- {{CERT}} -->

@@ -1,9 +1,18 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 #vidPlayer {
   display: none;
 }
 
 #vidContainer {
-  background-image: url('https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg');
+  background-image: url('https://video-assets.mirrorsedgearchive.de/prod/propaganda/static.jpg');
   background-size: cover;
 }
 
@@ -16,6 +25,14 @@
 
 #mainDiv {
   position: relative;
+}
+
+#legal_footer {
+  bottom: -100px!important;
+}
+
+#vidCard {
+  border: none;
 }
 
 #vidRCM {

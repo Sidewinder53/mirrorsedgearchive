@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rotate</title>
+  <!-- {{lib-css:image-picker}} -->
+  <!-- {{lib-js:jQuery}} -->
+  <!-- {{lib-js:image-picker}} -->
+  <style>
+    .thumbnail {
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="emblem_select">Emblem:</label>
+  <select id="emblem_select"></select>
+  <br>
+  <label for="frame_select">Frame:</label>
+  <select id="frame_select"></select>
+  <br>
+  <label for="background_select">Background:</label>
+  <select id="background_select">
+  </select>
+  <br>
+  <button id="submit">Render image</button>
+  <br>
+  <img id="outputImage" style="background-color: black; border: solid 1px red; min-width: 514px; min-height: 514px;">
+  <script type='module'>
+    import { buildInputFile, execute } from 'https://cdn.jsdelivr.net/npm/wasm-imagemagick/dist/bundles/magickApi.js';
+    var assetpack;
+    var category;
+    var groupEl;
+    var assetStore = {};
+    var cwd = [];
+
+    function loadJSON(callback) {
+      var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+      xobj.open('GET', 'store.json', true);
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+          callback(xobj.responseText);
+        }
+      }
+      xobj.send(null);
+    }
+
+    function dec2hex(dec) {
+      return ('0' + dec.toString(16)).substr(-2)
+    }
+
+    function getThumbExt(fileName) {
+      let ext;
+      if (category === 'background_select') {
+        return fileName.replace('.png', '.jpg');
+      } else {
+        return fileName;
+      }
+    }
+
+    // generateId :: Integer -> String
+    function generateId(len) {
+      var arr = new Uint8Array((len || 40) / 2)
+      window.crypto.getRandomValues(arr)
+      return Array.from(arr, dec2hex).join('')
+    }
+
+    function detectPrimaryStoreObject(storeObjectName) {
+      switch (storeObjectName) {
+        case 'backgrounds':
+          category = 'background_select';
+          break;
+        case 'emblems':
+          category = 'emblem_select';
+          break;
+        case 'frames':
+          category = 'frame_select';
+          break;
+        case 'masks':
+          category = 'null';
+          break;
+      }
+    }
+
+    function parseStoreObject(storeObject, mainIndex, fileIndex) {
+      var actualIndex = -1;
+
+      switch (fileIndex) {
+        case -1:
+          actualIndex = 0;
+          break;
+        case -2:
+          actualIndex = mainIndex;
+          break;
+        default:
+          actualIndex = fileIndex;
+          break;
+      }
+
+      if (storeObject[actualIndex].type === "directory") {
+        console.log('=== DIR OPEN ===');
+        console.log(storeObject[actualIndex]);
+        cwd.push(storeObject[actualIndex].name);
+        detectPrimaryStoreObject(storeObject[actualIndex].name);
+        if (category != "null") {
+          groupEl = document.createElement("optgroup");
+          groupEl.label = storeObject[actualIndex].name;
+          groupEl.id = generateId(8);
+          document.getElementById(category).appendChild(groupEl);
+          parseStoreObject(storeObject[actualIndex].contents, mainIndex, -1);
+        }
+        if (actualIndex + 1 < storeObject.length) {
+          console.log('=== DIR UP ===');
+          cwd.pop();
+          parseStoreObject(storeObject, actualIndex + 1, -2);
+        } else {
+          console.log('=== DIR UP ===');
+          cwd.pop();
+        }
+      } else if (storeObject[actualIndex].type === "file") {
+        console.log(storeObject[actualIndex]);
+        let optionEl = document.createElement("option");
+        let optionID = generateId(16);
+        optionEl.setAttribute(
+          'data-img-src',
+          '/assets/media/image/project_graffiti/thumbnails/' + cwd.toString().replace(/,/g, '/') + '/' + getThumbExt(storeObject[actualIndex].name)
+        );
+        optionEl.innerHTML = storeObject[actualIndex].name;
+        optionEl.id = optionID;
+        document.getElementById(groupEl.id).appendChild(optionEl);
+        assetStore[optionID] = 'assetpack/' + cwd.toString().replace(/,/g, '/') + '/' + storeObject[actualIndex].name;
+        if (actualIndex + 1 < storeObject.length) {
+          parseStoreObject(storeObject, mainIndex, actualIndex + 1);
+        }
+      }
+    }
+
+    let DoMagickCall = async function () {
+      // const fetchedFrame = await fetch("./assetpack/frames/evolved_crusher.png");
+      // const fetchedMask = await fetch("./assetpack/frames/evolved_crusher.png");
+      // const fetchedEmblem = await fetch("./assetpack/frames/evolved_crusher.png");
+      // const fetchedBackground = await fetch("./assetpack/frames/evolved_crusher.png");
+
+      // const frameSource = new Uint8Array(await fetchedFrame.arrayBuffer());
+      // const maskSource = new Uint8Array(await fetchedMask.arrayBuffer());
+      // const emblemSource = new Uint8Array(await fetchedEmblem.arrayBuffer());
+      // const backgroundSource = new Uint8Array(await fetchedBackground.arrayBuffer());
+
+      // const files = [
+        //   { 'name': 'frame.png', 'content': frameSource },
+        //   { 'name': 'mask.png', 'content': maskSource },
+        //   { 'name': 'emblem.png', 'content': emblemSource },
+        //   { 'name': 'background.png', 'content': backgroundSource }
+        // ];
+
+        // const commands = ["convert", "frame.png", "-rotate", '90', 'step1.png'];
+
+        let frame = document.getElementById('frame_select').options[document.getElementById('frame_select').selectedIndex].getAttribute("data-img-src");
+        let mask = await fetch("./assetpack/frames/evolved_crusher.png");
+        let emblem = await fetch("./assetpack/frames/evolved_crusher.png");
+        let background = await fetch("./assetpack/frames/evolved_crusher.png");
+
+        let step1Result = await execute({
+        inputFiles: [await buildInputFile('./assetpack/frames/evolved_crusher.png', 'frame.png')],
+        commands: ['convert frame.png -alpha extract step1.png']
+      });
+
+      console.log('Step 1');
+      console.log(await step1Result);
+
+      let step2Result = await execute({
+        inputFiles: [
+          { name: 'step1.png', content: step1Result.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/masks/cheetah.png', 'mask.png')
+        ],
+        commands: ['composite step1.png mask.png -compose Darken step2.png']
+      });
+
+      console.log('Step 2');
+      console.log(await step2Result);
+
+      let step3Result = await execute({
+        inputFiles: [
+          { name: 'step2.png', content: step2Result.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/frames/evolved_crusher.png', 'frame.png')
+        ],
+        commands: ['composite step2.png -compose CopyOpacity frame.png step3.png']
+      });
+
+      console.log('Step 3');
+      console.log(await step3Result);
+
+      let step4Result = await execute({
+        inputFiles: [
+          { name: 'step3.png', content: step3Result.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/emblems/cheetah.png', 'emblem.png')
+        ],
+        commands: ['composite step3.png emblem.png -resize 512 step4.png']
+      });
+
+      console.log('Step 4');
+      console.log(await step4Result);
+
+      let step5prepResult = await execute({
+        inputFiles: [
+          await buildInputFile('./assetpack/backgrounds/elite/organic_03.png', 'background.png')
+        ],
+        commands: ['convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png']
+      });
+
+      console.log('Step 5 prep');
+      console.log(await step5prepResult);
+
+      let step5Result = await execute({
+        inputFiles: [
+          { name: 'step4.png', content: step4Result.outputFiles[0].buffer },
+          { name: 'step5prep.png', content: step5prepResult.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/backgrounds/elite/organic_03.png', 'background.png')
+        ],
+        commands: ['composite -gravity center step4.png step5prep.png step5.png']
+      });
+
+      console.log('Step 5');
+      console.log(await step5Result);
+
+      // let processedFiles = await Magick.Call(files, commands);
+      let outputImage = new Blob([step5Result.outputFiles[0].buffer], { type: "image/png" });
+      var urlCreator = window.URL || window.webkitURL;
+      var imageUrl = urlCreator.createObjectURL(outputImage);
+      var img = document.querySelector("#outputImage");
+      img.src = imageUrl;
+
+
+      // let firstOutputImage = processedFiles[0];
+      // console.log("created image");
+      // const outputImage = document.getElementById('outputImage');
+      // outputImage.src = URL.createObjectURL(firstOutputImage['blob']);
+    }
+
+    // Main Thread
+
+    loadJSON(function (response) {
+      assetpack = JSON.parse(response);
+      parseStoreObject(assetpack, 0, -1);
+      $("select").imagepicker();
+      console.log(assetStore);
+    });
+
+    document.getElementById("submit").addEventListener("click", function () {
+      DoMagickCall();
+    });
+
+  </script>
+</body>
+
+</html>
