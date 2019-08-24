@@ -2,27 +2,36 @@ const { src, dest, series, parallel, watch } = require('gulp');
 const concat = require('gulp-concat');
 const minify = require('gulp-minify');
 const cleanCss = require('gulp-clean-css');
-const purgecss = require('gulp-purgecss')
+const purgecss = require('gulp-purgecss');
 const rev = require('gulp-rev');
 const del = require('del');
+const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const git = require('git-rev-sync')
 const liveServer = require('live-server');
 const imagemin = require('gulp-imagemin');
+const mozjpeg = require('imagemin-mozjpeg');
+const pngquant = require('imagemin-pngquant');
+const webp = require('imagemin-webp');
 const nunjucks = require('gulp-nunjucks-render');
 const flatten = require('gulp-flatten');
 const tap = require('gulp-tap');
+const cache = require('gulp-cache');
 
 
 function devServer() {
   liveServer.start({ root: './dist' })
   watch('./src/**/*', function () {
-    return series(cleanup, copyAndPack);
+    return series(prepare, copyAndPack);
   });
 }
 
-function cleanup() {
+function prepare() {
   return del('dist');
+}
+
+function cleanup() {
+  return cache.clearAll();
 }
 
 function processTemplate() {
@@ -182,10 +191,57 @@ function packVendorCSS() {
 }
 
 function optimizeImg() {
-  return src('src/assets/media/image/**/*')
-    // Todo set up imagemin
-    // .pipe(imagemin())
-    .pipe(dest('dist/assets/media/image'));
+  return src([
+    'src/assets/media/image/**/*.jpg',
+    'src/assets/media/image/**/*.png'
+  ], { base: 'src' })
+    .pipe(cache(imagemin([
+      pngquant({quality: [0.4, 0.6]}),
+      mozjpeg({quality: 70})
+      // imagemin.svgo({
+      //   plugins: [
+      //     {removeViewBox: true},
+      //     {cleanupIDs: false}
+      //   ]
+      // })
+    ],
+      {
+        verbose: true
+      })),
+      {
+        name: "jpgpng"
+      }
+    )
+    .pipe(rev())
+    .pipe(dest('dist'))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(dest('./'));
+}
+
+function optimizeImgToWebp() {
+  return src([
+    'src/assets/media/image/**/*.jpg',
+    'src/assets/media/image/**/*.png'
+  ], { base: 'src' })
+    .pipe(cache(imagemin(
+      [webp()],
+      {
+        verbose: true
+      }
+    ),
+      {
+        name: "webp"
+      }
+    ))
+    .pipe(rename({ extname: '.webp' }))
+    .pipe(rev())
+    .pipe(dest('dist'))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(dest('./'));
 }
 
 function copyFonts() {
@@ -206,28 +262,31 @@ function copyAV() {
 }
 
 const copyAndPack = series(
-  series(
-    copyStaticAssets
-  ),
-  series(
-    packVendorJS,
-    packBundleJS,
-    packLocalJS
-  ),
-  series(
-    packBundleCSS,
-    packVendorCSS,
-    packLocalCSS,
-  ),
-  series(
-    copyFonts,
-    copyAV,
-    optimizeImg
-  ),
-  processTemplate
+  // series(
+  //   copyStaticAssets
+  // ),
+  // series(
+  //   packVendorJS,
+  //   packBundleJS,
+  //   packLocalJS
+  // ),
+  // series(
+  //   packBundleCSS,
+  //   packVendorCSS,
+  //   packLocalCSS,
+  // ),
+  // series(
+  // copyFonts,
+  // copyAV,
+  optimizeImg,
+  optimizeImgToWebp
+  // ),
+  // processTemplate
 );
 
-exports.default = series(cleanup, copyAndPack);
-exports.build = series(cleanup, copyAndPack);
-exports.devServer = series(cleanup, copyAndPack, devServer);
+exports.default = series(prepare, copyAndPack);
+exports.build = series(prepare, copyAndPack);
+exports.buildProd = series(prepare, cleanup, copyAndPack)
+exports.devServer = series(prepare, copyAndPack, devServer);
+exports.prepare = prepare;
 exports.cleanup = cleanup;
