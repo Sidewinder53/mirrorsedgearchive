@@ -262,26 +262,26 @@ function copyAV() {
 }
 
 const copyAndPack = series(
-  // series(
-  //   copyStaticAssets
-  // ),
-  // series(
-  //   packVendorJS,
-  //   packBundleJS,
-  //   packLocalJS
-  // ),
-  // series(
-  //   packBundleCSS,
-  //   packVendorCSS,
-  //   packLocalCSS,
-  // ),
-  // series(
-  // copyFonts,
-  // copyAV,
+  series(
+    copyStaticAssets
+  ),
+  series(
+    packVendorJS,
+    packBundleJS,
+    packLocalJS
+  ),
+  series(
+    packBundleCSS,
+    packVendorCSS,
+    packLocalCSS,
+  ),
+  series(
+  copyFonts,
+  copyAV,
   optimizeImg,
   optimizeImgToWebp
-  // ),
-  // processTemplate
+  ),
+  processTemplate
 );
 
 exports.default = series(prepare, copyAndPack);

@@ -10,246 +10,252 @@
 {%- extends "templates/_layout.njk" %}
 
 {%- block content %}
-  <div id="faithHero">
-    <div class="image-wrapper-100 image-wrapper">
-      <picture>
-        <source media="(max-width: 575px)" srcset="/assets/media/image/home/faithHero-576.png" type="image/png">
-        <source media="(min-width: 576px)" srcset="/assets/media/image/home/faithHero-768.png" type="image/png">
-        <img src="/assets/media/image/home/faithHero.jpg">
-      </picture>
-    </div>
-    <div id="faithHeroText">
-      <h1 class="display-1">Meet Faith.</h1>
-      <p class="lead">She keeps this project <i>running</i>.</p>
-    </div>
+<div id="faithHero">
+  <div class="image-wrapper-100 image-wrapper">
+    <picture>
+      <source media="(max-width: 575px)" srcset="/{{- manifest['assets/media/image/home/faithHero-576.webp'] }}"
+        type="image/webp">
+      <source media="(max-width: 575px)" srcset="/{{- manifest['assets/media/image/home/faithHero-576.png'] }}"
+        type="image/png">
+      <source media="(min-width: 576px)" srcset="/{{- manifest['assets/media/image/home/faithHero-768.webp'] }}"
+        type="image/webp">
+      <source media="(min-width: 576px)" srcset="/{{- manifest['assets/media/image/home/faithHero-768.png'] }}"
+        type="image/png">
+      <img src="/assets/media/image/home/faithHero.jpg">
+    </picture>
   </div>
+  <div id="faithHeroText">
+    <h1 class="display-1">Meet Faith.</h1>
+    <p class="lead">She keeps this project <i>running</i>.</p>
+  </div>
+</div>
 
-  <div class="container" id="content">
+<div class="container" id="content">
 
-    <noscript>
-      <div class="alert alert-danger" role="alert">
-        <strong>This site requires JavaScript and cookies to be enabled.</strong> Disabling external content will
-        compromise your experience.
-      </div>
-    </noscript>
+  <noscript>
+    <div class="alert alert-danger" role="alert">
+      <strong>This site requires JavaScript and cookies to be enabled.</strong> Disabling external content will
+      compromise your experience.
+    </div>
+  </noscript>
 
-    <div class="row">
-      <div class="col">
-        <div id="herocard" class="card">
-          <div id="responsiveHero" class="bg-light">
-            <video id="hero" class="card-img-top"
-              poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAADklEQVR42mNkQAOMBAUAAJkABIju2IYAAAAASUVORK5CYII="
-              muted playsinline preload="none">
-              <source src="/assets/media/video/home/hero.webm" type="video/webm">
-              <source src="/assets/media/video/home/hero.mp4" type="video/mp4">
-            </video>
-            <div id="heroSlides" class="carousel slide d-none" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#heroSlides" data-slide-to="0" class="active"></li>
-                <li data-target="#heroSlides" data-slide-to="1"></li>
-                <li data-target="#heroSlides" data-slide-to="2"></li>
-                <li data-target="#heroSlides" data-slide-to="3"></li>
-                <li data-target="#heroSlides" data-slide-to="4"></li>
-              </ol>
-              <div class="carousel-inner">
-              </div>
-              <div id="media_copyright" class="card-header">
-                <small>© 2008 - 2016 Electronic Arts, presented game art created by
-                  <a target="_blank" href="/out/?t=https://antongrandert.artstation.com">Anton Grandert</a>,
-                  <a target="_blank" href="/out/?t=https://perh.artstation.com">Per Haagensen</a> and
-                  <a target="_blank" href="/out/?t=http://nickshardlow.com/mirrors-edge-catalyst/">Nick Shardlow</a>
-                </small>
-              </div>
+  <div class="row">
+    <div class="col">
+      <div id="herocard" class="card">
+        <div id="responsiveHero" class="bg-light">
+          <video id="hero" class="card-img-top"
+            poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAADklEQVR42mNkQAOMBAUAAJkABIju2IYAAAAASUVORK5CYII="
+            muted playsinline preload="none">
+            <source src="/assets/media/video/home/hero.webm" type="video/webm">
+            <source src="/assets/media/video/home/hero.mp4" type="video/mp4">
+          </video>
+          <div id="heroSlides" class="carousel slide d-none" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#heroSlides" data-slide-to="0" class="active"></li>
+              <li data-target="#heroSlides" data-slide-to="1"></li>
+              <li data-target="#heroSlides" data-slide-to="2"></li>
+              <li data-target="#heroSlides" data-slide-to="3"></li>
+              <li data-target="#heroSlides" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+            </div>
+            <div id="media_copyright" class="card-header">
+              <small>© 2008 - 2016 Electronic Arts, presented game art created by
+                <a target="_blank" href="/out/?t=https://antongrandert.artstation.com">Anton Grandert</a>,
+                <a target="_blank" href="/out/?t=https://perh.artstation.com">Per Haagensen</a> and
+                <a target="_blank" href="/out/?t=http://nickshardlow.com/mirrors-edge-catalyst/">Nick Shardlow</a>
+              </small>
             </div>
           </div>
-          <div id="hero_text" class="card-body bg-light">
-            <p class="card-text">
-              <h1 class="display-4">Welcome to the Mirror's Edge Archive.</h1>
-              Whether you are an avid Player, an untiring speedrunner or just someone who likes to know a bit more about
-              this franchise, you've just found the most extensive collection of Mirror's Edge resources. This project
-              is a community effort maintained by <a href="/contribute">members of /r/mirrorsedge</a>.
-            </p>
-          </div>
         </div>
-        <div id="cookie_consent_placeholder"></div>
+        <div id="hero_text" class="card-body bg-light">
+          <p class="card-text">
+            <h1 class="display-4">Welcome to the Mirror's Edge Archive.</h1>
+            Whether you are an avid Player, an untiring speedrunner or just someone who likes to know a bit more about
+            this franchise, you've just found the most extensive collection of Mirror's Edge resources. This project
+            is a community effort maintained by <a href="/contribute">members of /r/mirrorsedge</a>.
+          </p>
+        </div>
+      </div>
+      <div id="cookie_consent_placeholder"></div>
+    </div>
+  </div>
+
+  <div id="overview">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Archive</li>
+    </ol>
+    <div class="card-group">
+      <div class="card">
+        <div class="image-wrapper">
+          <picture class="card-img-top">
+            <source srcset="/assets/media/image/home/archive.jpg" type="image/webp">
+            <source srcset="/assets/media/image/home/archive.jpg" type="image/jpeg">
+            <img src="/assets/media/image/home/archive.jpg">
+          </picture>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">The Mirror's Edge Archive</h5>
+          <p class="card-text">A huge collection of high-quality photos, concept art, trailers, gameplay-videos,
+            audio, music, developer presentations, fan projects, maps and other resources from both Mirror's Edge
+            games.</p>
+        </div>
+        <div class="card-footer">
+          <a href="archive" class="btn btn-outline-primary btn-block">Check it out!</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image-wrapper">
+          <picture class="card-img-top">
+            <source srcset="/assets/media/image/home/kahle_archive.jpg" type="image/webp">
+            <source srcset="/assets/media/image/home/kahle_archive.jpg" type="image/jpeg">
+            <img src="/assets/media/image/home/kahle_archive.jpg">
+          </picture>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">The Mirror's Edge Vault</h5>
+          <p class="card-text">The things we deem most important! Special editions of Mirror's Edge games and the
+            most crucial bits of our archive, saved in the worlds largest Internet Archive!</p>
+        </div>
+        <div class="card-footer">
+          <a target="_blank" href="/out/?t=https://archive.org/details/@sidewinder51"
+            class="btn btn-outline-primary btn-block">Check
+            it out!</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image-wrapper">
+          <picture class="card-img-top">
+            <source srcset="/assets/media/image/home/forums.jpg" type="image/webp">
+            <source srcset="/assets/media/image/home/forums.jpg" type="image/jpeg">
+            <img src="/assets/media/image/home/forums.jpg">
+          </picture>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Website & Forums
+            <span class="badge badge-primary">Mirror</span>
+            <span class="badge badge-danger">Updated</span>
+          </h5>
+          <p class="card-text">EA took down the Mirror's Edge Catalyst forums in September 2017, and followed up
+            with the entire website in March 2019. You can now browse a mirror of both sites, right here.</p>
+        </div>
+        <div class="card-footer">
+          <a href="project_doomsday" class="btn btn-outline-primary btn-block">Check it out!</a>
+        </div>
       </div>
     </div>
-
-    <div id="overview">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">Home</a>
-        </li>
-        <li class="breadcrumb-item active">Archive</li>
-      </ol>
-      <div class="card-group">
-        <div class="card">
-          <div class="image-wrapper">
-            <picture class="card-img-top">
-              <source srcset="/assets/media/image/home/archive.jpg" type="image/webp">
-              <source srcset="/assets/media/image/home/archive.jpg" type="image/jpeg">
-              <img src="/assets/media/image/home/archive.jpg">
-            </picture>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">The Mirror's Edge Archive</h5>
-            <p class="card-text">A huge collection of high-quality photos, concept art, trailers, gameplay-videos,
-              audio, music, developer presentations, fan projects, maps and other resources from both Mirror's Edge
-              games.</p>
-          </div>
-          <div class="card-footer">
-            <a href="archive" class="btn btn-outline-primary btn-block">Check it out!</a>
-          </div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a name="projects" href="#">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Projects</li>
+    </ol>
+    <div class="card-group">
+      <div class="card">
+        <div class="image-wrapper">
+          <picture class="card-img-top">
+            <source srcset="/assets/media/image/home/comparison.jpg" type="image/webp">
+            <source srcset="/assets/media/image/home/comparison.jpg" type="image/jpeg">
+            <img src="/assets/media/image/home/comparison.jpg">
+          </picture>
         </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <picture class="card-img-top">
-              <source srcset="/assets/media/image/home/kahle_archive.jpg" type="image/webp">
-              <source srcset="/assets/media/image/home/kahle_archive.jpg" type="image/jpeg">
-              <img src="/assets/media/image/home/kahle_archive.jpg">
-            </picture>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">The Mirror's Edge Vault</h5>
-            <p class="card-text">The things we deem most important! Special editions of Mirror's Edge games and the
-              most crucial bits of our archive, saved in the worlds largest Internet Archive!</p>
-          </div>
-          <div class="card-footer">
-            <a target="_blank" href="/out/?t=https://archive.org/details/@sidewinder51"
-              class="btn btn-outline-primary btn-block">Check
-              it out!</a>
-          </div>
+        <div class="card-body">
+          <h5 class="card-title">Development vs. Release
+            <span class="badge badge-success">Interactive</span>
+          </h5>
+          <p class="card-text">A comparison of how Mirror's Edge looked during development vs. today!</p>
         </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <picture class="card-img-top">
-              <source srcset="/assets/media/image/home/forums.jpg" type="image/webp">
-              <source srcset="/assets/media/image/home/forums.jpg" type="image/jpeg">
-              <img src="/assets/media/image/home/forums.jpg">
-            </picture>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Website & Forums
-              <span class="badge badge-primary">Mirror</span>
-              <span class="badge badge-danger">Updated</span>
-            </h5>
-            <p class="card-text">EA took down the Mirror's Edge Catalyst forums in September 2017, and followed up
-              with the entire website in March 2019. You can now browse a mirror of both sites, right here.</p>
-          </div>
-          <div class="card-footer">
-            <a href="project_doomsday" class="btn btn-outline-primary btn-block">Check it out!</a>
-          </div>
+        <div class="card-footer">
+          <a href="development_vs_release/" class="btn btn-outline-primary btn-block">Check it out!</a>
         </div>
       </div>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a name="projects" href="#">Home</a>
-        </li>
-        <li class="breadcrumb-item active">Projects</li>
-      </ol>
-      <div class="card-group">
-        <div class="card">
-          <div class="image-wrapper">
-            <picture class="card-img-top">
-              <source srcset="/assets/media/image/home/comparison.jpg" type="image/webp">
-              <source srcset="/assets/media/image/home/comparison.jpg" type="image/jpeg">
-              <img src="/assets/media/image/home/comparison.jpg">
-            </picture>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Development vs. Release
-              <span class="badge badge-success">Interactive</span>
-            </h5>
-            <p class="card-text">A comparison of how Mirror's Edge looked during development vs. today!</p>
-          </div>
-          <div class="card-footer">
-            <a href="development_vs_release/" class="btn btn-outline-primary btn-block">Check it out!</a>
-          </div>
+      <div class="card">
+        <div class="image-wrapper">
+          <picture class="card-img-top">
+            <source srcset="/assets/media/image/home/graffiti.jpg" type="image/webp">
+            <source srcset="/assets/media/image/home/graffiti.jpg" type="image/jpeg">
+            <img src="/assets/media/image/home/graffiti.jpg">
+          </picture>
         </div>
-        <div class="card">
-          <div class="image-wrapper">
-            <picture class="card-img-top">
-              <source srcset="/assets/media/image/home/graffiti.jpg" type="image/webp">
-              <source srcset="/assets/media/image/home/graffiti.jpg" type="image/jpeg">
-              <img src="/assets/media/image/home/graffiti.jpg">
-            </picture>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Player Tag Generator
-              <span class="badge badge-success">Interactive</span>
-            </h5>
-            <p class="card-text">Create your own Player Tag and download the result in stunning 2K image quality!</p>
-          </div>
-          <div class="card-footer">
-            <a href="project_graffiti/" class="btn btn-outline-primary btn-block">Check it out!</a>
-          </div>
+        <div class="card-body">
+          <h5 class="card-title">Player Tag Generator
+            <span class="badge badge-success">Interactive</span>
+          </h5>
+          <p class="card-text">Create your own Player Tag and download the result in stunning 2K image quality!</p>
         </div>
-        <div class="card">
-          <div class="image-wrapper bg-light">
-            <video poster="/assets/media/image/home/project_billboard.jpg"
-              src="/assets/media/video/home/project_billboard.webm" type="video/webm" autoplay loop muted></video>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Billboards
-              <span class="badge badge-info">Media</span>
-            </h5>
-            <p class="card-text">A collection of various billboards from Mirror's Edge Catalyst
-              <br>
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="/project_billboard" class="btn btn-outline-primary btn-block">Check it out!</a>
-          </div>
+        <div class="card-footer">
+          <a href="project_graffiti/" class="btn btn-outline-primary btn-block">Check it out!</a>
         </div>
       </div>
-      <div class="card-group">
-        <div class="card">
-          <div class="image-wrapper">
-            <video poster="/assets/media/image/home/project_propaganda.jpg"
-              src="/assets/media/video/home/project_propaganda.webm" type="video/webm" autoplay loop muted></video>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">News broadcasts
-              <span class="badge badge-info">Media</span>
-            </h5>
-            <p class="card-text">Newscasts and announcements by KrugerSec & Black November from Mirror's Edge Catalyst
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="/project_propaganda" class="btn btn-outline-primary btn-block">Check it out!</a>
-          </div>
+      <div class="card">
+        <div class="image-wrapper bg-light">
+          <video poster="/assets/media/image/home/project_billboard.jpg"
+            src="/assets/media/video/home/project_billboard.webm" type="video/webm" autoplay loop muted></video>
         </div>
-        <div class="card">
-          <div class="image-wrapper bg-light">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Project Aggregator
-              <span class="badge badge-secondary">Coming soon &trade;</span>
-            </h5>
-            <p class="card-text blur">To be announced. But since you seem to know your stuff, wanna help out?
-              <br>
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-outline-dark btn-block disabled">Check it out!</a>
-          </div>
+        <div class="card-body">
+          <h5 class="card-title">Billboards
+            <span class="badge badge-info">Media</span>
+          </h5>
+          <p class="card-text">A collection of various billboards from Mirror's Edge Catalyst
+            <br>
+          </p>
         </div>
-        <div class="card">
-          <div class="image-wrapper bg-light">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Project Navigator
-              <span class="badge badge-secondary">Coming soon &trade;</span>
-            </h5>
-            <p class="card-text blur">To be announced. But since you seem to know your stuff, wanna help out?
-              <br>
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-outline-dark btn-block disabled">Check it out!</a>
-          </div>
+        <div class="card-footer">
+          <a href="/project_billboard" class="btn btn-outline-primary btn-block">Check it out!</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-group">
+      <div class="card">
+        <div class="image-wrapper">
+          <video poster="/assets/media/image/home/project_propaganda.jpg"
+            src="/assets/media/video/home/project_propaganda.webm" type="video/webm" autoplay loop muted></video>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">News broadcasts
+            <span class="badge badge-info">Media</span>
+          </h5>
+          <p class="card-text">Newscasts and announcements by KrugerSec & Black November from Mirror's Edge Catalyst
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="/project_propaganda" class="btn btn-outline-primary btn-block">Check it out!</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image-wrapper bg-light">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Project Aggregator
+            <span class="badge badge-secondary">Coming soon &trade;</span>
+          </h5>
+          <p class="card-text blur">To be announced. But since you seem to know your stuff, wanna help out?
+            <br>
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-outline-dark btn-block disabled">Check it out!</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image-wrapper bg-light">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Project Navigator
+            <span class="badge badge-secondary">Coming soon &trade;</span>
+          </h5>
+          <p class="card-text blur">To be announced. But since you seem to know your stuff, wanna help out?
+            <br>
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-outline-dark btn-block disabled">Check it out!</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}
