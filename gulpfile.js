@@ -8,22 +8,36 @@ const del = require('del');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const git = require('git-rev-sync')
-const liveServer = require('live-server');
 const imagemin = require('gulp-imagemin');
 const mozjpeg = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
+const svgo = require('imagemin-svgo');
 const webp = require('imagemin-webp');
 const nunjucks = require('gulp-nunjucks-render');
 const flatten = require('gulp-flatten');
 const tap = require('gulp-tap');
 const cache = require('gulp-cache');
+const browserSync = require('browser-sync').create();
+
+const production = false;
+const watchHTML = () => watch('./src/**/*.html', series(processTemplate, reload));
+const watchCSS = () => watch('./src/**/*.css', series(packBundleCSS, packVendorCSS, packLocalCSS, processTemplate, reload));
+const watchJS = () => watch('./src/**/*.js', series(packVendorJS, packBundleJS, packLocalJS, processTemplate, reload));
+const watchImg = () => watch(['./src/**/*.jpg', './src/**/*.png'], series(optimizeImg, optimizeImgToWebp, processTemplate, reload));
 
 
-function devServer() {
-  liveServer.start({ root: './dist' })
-  watch('./src/**/*', function () {
-    return series(prepare, copyAndPack);
+function serve(done) {
+  browserSync.init({
+    server: {
+      baseDir: "./dist/"
+    }
   });
+  done();
+};
+
+function reload(done) {
+  browserSync.reload();
+  done();
 }
 
 function prepare() {
@@ -35,7 +49,9 @@ function cleanup() {
 }
 
 function processTemplate() {
+  delete require.cache[require.resolve('./dist/assets/rev-manifest.json')]
   var bundleManifest = require('./dist/assets/rev-manifest.json');
+
   return src([
     './src/index.html',
     './src/development_vs_release/index.html',
@@ -55,7 +71,7 @@ function processTemplate() {
     }))
     .pipe(replace('{{stamp_title}}', 'Build ID: ' + git.short()))
     .pipe(replace('{{stamp_text}}', 'DEV'))
-    .pipe(dest('./dist/'))
+    .pipe(dest('./dist/'));
 }
 
 function packBundleJS() {
@@ -127,11 +143,25 @@ function packVendorJS() {
 }
 
 function packBundleCSS() {
+  delete require.cache[require.resolve('./dist/assets/rev-manifest.json')]
+  var bundleManifest = require('./dist/assets/rev-manifest.json');
+
   return src([
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'src/assets/css/global.css'
   ], { base: '/' })
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
+      .pipe(nunjucks({
+        data: {
+          manifest: bundleManifest,
+          git: {
+            long: git.long(),
+            short: git.short(),
+            production: false
+          }
+        },
+        ext: '.css'
+      }))
     // PurgeCSS has been disabled as it causes a whole bunch of problems and requires a humongous whitelist to work with 3rd-party frameworks
     // .pipe(purgecss({
     //   content: ['./src/**/*.html', './src/**/*.js'],
@@ -193,17 +223,13 @@ function packVendorCSS() {
 function optimizeImg() {
   return src([
     'src/assets/media/image/**/*.jpg',
-    'src/assets/media/image/**/*.png'
+    'src/assets/media/image/**/*.png',
+    'src/assets/media/image/**/*.svg'
   ], { base: 'src' })
     .pipe(cache(imagemin([
-      pngquant({quality: [0.4, 0.6]}),
-      mozjpeg({quality: 70})
-      // imagemin.svgo({
-      //   plugins: [
-      //     {removeViewBox: true},
-      //     {cleanupIDs: false}
-      //   ]
-      // })
+      pngquant({ quality: [0.4, 0.6] }),
+      mozjpeg({ quality: 70 }),
+      svgo()
     ],
       {
         verbose: true
@@ -276,17 +302,18 @@ const copyAndPack = series(
     packLocalCSS,
   ),
   series(
-  copyFonts,
-  copyAV,
-  optimizeImg,
-  optimizeImgToWebp
+    copyFonts,
+    copyAV,
+    optimizeImg,
+    optimizeImgToWebp
   ),
   processTemplate
 );
 
 exports.default = series(prepare, copyAndPack);
 exports.build = series(prepare, copyAndPack);
+exports.buildQuick = series(prepare);
 exports.buildProd = series(prepare, cleanup, copyAndPack)
-exports.devServer = series(prepare, copyAndPack, devServer);
+exports.devServer = series(prepare, copyAndPack, serve, parallel(watchHTML, watchCSS, watchJS, watchImg));
 exports.prepare = prepare;
 exports.cleanup = cleanup;

@@ -21,43 +21,48 @@ $(document).ready(function () {
 
   if ($("#responsiveHero").css("display") != "none") {
     $("#hero")[0].play();
-    var cit = '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_X.jpg" type="image/jpg"><img src="/assets/media/image/home/hero_img_X.jpg"></picture></div>';
-    var cis = '<div class="carousel-item active"><picture class="d-block w-100"><source srcset="/assets/media/image/home/hero_img_1.jpg" type="image/jpg"><img src="/assets/media/image/home/hero_img_1.jpg"></picture></div>';
-    enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
-    for (i = 0; i < 4; i++) {
-      cis += cit.replace(/hero_img_X/g, "hero_img_" + enu[i]);
-    }
 
-    $("#heroSlides > .carousel-inner").html(cis);
-    // $.getScript("/assets/js/cookie-consent.js", function () {
-      if (Cookies.get("skip_intro") == "true") {
-        skipped = "true";
-        $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
-        $("#overview")
-          .children()
-          .each(function () {
-            if ($(this).isInViewport()) {
-              $(this)
-                .css("display", "flex")
-                .css("opacity", 0)
-                .fadeTo("slow", 1);
-            } else {
-              $(this).css("display", "flex");
-            }
-          });
-        $("#legal_footer").css("display", "block");
-        $("#herocard").addClass("shadow");
-        $(".card").css("border-width", "1px");
-        $(".card .bg-light").css("background-color", "#f8f9fa");
+    $.getJSON("/assets/rev-manifest.json", function (bundleManifest) {
+      let carouselImageObject = '';
+
+      enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
+      for (i = 0; i < 4; i++) {
+        carouselImageObject += '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/' + bundleManifest["assets/media/image/home/hero_img_" + enu[i] + ".webp"] + '" type="image/webp"><source srcset="/' + bundleManifest["assets/media/image/home/hero_img_" + enu[i] + ".jpg"] + '" type="image/jpg"><img src="/{{- manifest["assets/media/image/home/hero_img_1.jpg"] }}"></picture></div>';
       }
 
-      setTimeout(function () {
-        if ($("#hero").get(0).paused == true) {
-          $("#hero_text, #overview, #nav-cont").fadeTo("slow", 1);
-          $("#herocard").addClass("shadow");
-          $(".card").css("border-width", "1px");
-        }
-      }, 1000);
+      $("#heroSlides > .carousel-inner").append(carouselImageObject);
+    }).fail(function () {
+      console.log("Fetching rev-manifest.json failed");
+    });
+
+    if (Cookies.get("skip_intro") == "true") {
+      skipped = "true";
+      $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
+      $("#overview")
+        .children()
+        .each(function () {
+          if ($(this).isInViewport()) {
+            $(this)
+              .css("display", "flex")
+              .css("opacity", 0)
+              .fadeTo("slow", 1);
+          } else {
+            $(this).css("display", "flex");
+          }
+        });
+      $("#legal_footer").css("display", "block");
+      $("#herocard").addClass("shadow");
+      $(".card").css("border-width", "1px");
+      $(".card .bg-light").css("background-color", "#f8f9fa");
+    }
+
+    setTimeout(function () {
+      if ($("#hero").get(0).paused == true) {
+        $("#hero_text, #overview, #nav-cont").fadeTo("slow", 1);
+        $("#herocard").addClass("shadow");
+        $(".card").css("border-width", "1px");
+      }
+    }, 1000);
     // });
   } else {
     $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);

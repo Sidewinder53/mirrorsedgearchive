@@ -10,7 +10,16 @@
 {%- extends "templates/_layout.njk" %}
 
 {%- block content %}
-<div id="faithHero">
+
+<div id="scriptWarning" class="container">
+  <noscript>
+    <div class="alert alert-danger" role="alert">
+      <strong>This site requires JavaScript and cookies to be enabled.</strong>
+    </div>
+  </noscript>
+</div>
+
+<div id="mobileHero">
   <div class="image-wrapper-100 image-wrapper">
     <picture>
       <source media="(max-width: 575px)" srcset="/{{- manifest['assets/media/image/home/faithHero-576.webp'] }}"
@@ -21,65 +30,64 @@
         type="image/webp">
       <source media="(min-width: 576px)" srcset="/{{- manifest['assets/media/image/home/faithHero-768.png'] }}"
         type="image/png">
-      <img src="/assets/media/image/home/faithHero.jpg">
+      <img src="//{{- manifest['assets/media/image/home/faithHero.jpg'] }}">
     </picture>
   </div>
-  <div id="faithHeroText">
-    <h1 class="display-1">Meet Faith.</h1>
+  <div id="mobileHeroText">
+    <h1 class="display-1">Meet Faith</h1>
     <p class="lead">She keeps this project <i>running</i>.</p>
+  </div>
+</div>
+
+<div id="containeredHero" class="container mt-3">
+  <div id="herocard" class="card">
+    <div id="desktopHero" class="bg-light">
+      <video id="hero" class="card-img-top"
+        poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAADklEQVR42mNkQAOMBAUAAJkABIju2IYAAAAASUVORK5CYII="
+        muted playsinline>
+        <source src="/assets/media/video/home/hero.webm" type="video/webm">
+        <source src="/assets/media/video/home/hero.mp4" type="video/mp4">
+      </video>
+      <div id="heroSlides" class="carousel slide d-none" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#heroSlides" data-slide-to="0" class="active"></li>
+          <li data-target="#heroSlides" data-slide-to="1"></li>
+          <li data-target="#heroSlides" data-slide-to="2"></li>
+          <li data-target="#heroSlides" data-slide-to="3"></li>
+          <li data-target="#heroSlides" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+              <picture class="d-block w-100">
+                <source srcset="/{{- manifest['assets/media/image/home/hero_img_1.webp'] }}" type="image/webp">
+                <source srcset="/{{- manifest['assets/media/image/home/hero_img_1.jpg'] }}" type="image/jpg">
+                <img src="/{{- manifest['assets/media/image/home/hero_img_1.jpg'] }}">
+              </picture>
+            </div>
+        </div>
+        <div id="media_copyright" class="card-header">
+          <small>© 2008 - 2016 Electronic Arts, presented game art created by
+            <a target="_blank" href="/out/?t=https://antongrandert.artstation.com">Anton Grandert</a>,
+            <a target="_blank" href="/out/?t=https://perh.artstation.com">Per Haagensen</a> and
+            <a target="_blank" href="/out/?t=http://nickshardlow.com/mirrors-edge-catalyst/">Nick Shardlow</a>
+          </small>
+        </div>
+      </div>
+    </div>
+    <div id="hero_text" class="card-body bg-light">
+      <p class="card-text">
+        <h1 class="display-4">Welcome to the Mirror's Edge Archive.</h1>
+        Whether you are an avid Player, an untiring speedrunner or just someone who likes to know a bit more about
+        this franchise, you've just found the most extensive collection of Mirror's Edge resources. This project
+        is a community effort maintained by <a href="/contribute">members of /r/mirrorsedge</a>.
+      </p>
+    </div>
   </div>
 </div>
 
 <div class="container" id="content">
 
-  <noscript>
-    <div class="alert alert-danger" role="alert">
-      <strong>This site requires JavaScript and cookies to be enabled.</strong> Disabling external content will
-      compromise your experience.
-    </div>
-  </noscript>
-
-  <div class="row">
-    <div class="col">
-      <div id="herocard" class="card">
-        <div id="responsiveHero" class="bg-light">
-          <video id="hero" class="card-img-top"
-            poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAADklEQVR42mNkQAOMBAUAAJkABIju2IYAAAAASUVORK5CYII="
-            muted playsinline preload="none">
-            <source src="/assets/media/video/home/hero.webm" type="video/webm">
-            <source src="/assets/media/video/home/hero.mp4" type="video/mp4">
-          </video>
-          <div id="heroSlides" class="carousel slide d-none" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#heroSlides" data-slide-to="0" class="active"></li>
-              <li data-target="#heroSlides" data-slide-to="1"></li>
-              <li data-target="#heroSlides" data-slide-to="2"></li>
-              <li data-target="#heroSlides" data-slide-to="3"></li>
-              <li data-target="#heroSlides" data-slide-to="4"></li>
-            </ol>
-            <div class="carousel-inner">
-            </div>
-            <div id="media_copyright" class="card-header">
-              <small>© 2008 - 2016 Electronic Arts, presented game art created by
-                <a target="_blank" href="/out/?t=https://antongrandert.artstation.com">Anton Grandert</a>,
-                <a target="_blank" href="/out/?t=https://perh.artstation.com">Per Haagensen</a> and
-                <a target="_blank" href="/out/?t=http://nickshardlow.com/mirrors-edge-catalyst/">Nick Shardlow</a>
-              </small>
-            </div>
-          </div>
-        </div>
-        <div id="hero_text" class="card-body bg-light">
-          <p class="card-text">
-            <h1 class="display-4">Welcome to the Mirror's Edge Archive.</h1>
-            Whether you are an avid Player, an untiring speedrunner or just someone who likes to know a bit more about
-            this franchise, you've just found the most extensive collection of Mirror's Edge resources. This project
-            is a community effort maintained by <a href="/contribute">members of /r/mirrorsedge</a>.
-          </p>
-        </div>
-      </div>
-      <div id="cookie_consent_placeholder"></div>
-    </div>
-  </div>
+  <div id="cookie_consent_placeholder"></div>
 
   <div id="overview">
     <ol class="breadcrumb">
@@ -92,8 +100,8 @@
       <div class="card">
         <div class="image-wrapper">
           <picture class="card-img-top">
-            <source srcset="/assets/media/image/home/archive.jpg" type="image/webp">
-            <source srcset="/assets/media/image/home/archive.jpg" type="image/jpeg">
+            <source srcset="/{{- manifest['assets/media/image/home/archive.webp'] }}" type="image/webp">
+            <source srcset="/{{- manifest['assets/media/image/home/archive.jpg'] }}" type="image/jpeg">
             <img src="/assets/media/image/home/archive.jpg">
           </picture>
         </div>
@@ -110,8 +118,8 @@
       <div class="card">
         <div class="image-wrapper">
           <picture class="card-img-top">
-            <source srcset="/assets/media/image/home/kahle_archive.jpg" type="image/webp">
-            <source srcset="/assets/media/image/home/kahle_archive.jpg" type="image/jpeg">
+            <source srcset="/{{- manifest['assets/media/image/home/kahle_archive.webp'] }}" type="image/webp">
+            <source srcset="/{{- manifest['assets/media/image/home/kahle_archive.jpg'] }}" type="image/jpeg">
             <img src="/assets/media/image/home/kahle_archive.jpg">
           </picture>
         </div>
@@ -129,8 +137,8 @@
       <div class="card">
         <div class="image-wrapper">
           <picture class="card-img-top">
-            <source srcset="/assets/media/image/home/forums.jpg" type="image/webp">
-            <source srcset="/assets/media/image/home/forums.jpg" type="image/jpeg">
+            <source srcset="/{{- manifest['assets/media/image/home/forums.webp'] }}" type="image/webp">
+            <source srcset="/{{- manifest['assets/media/image/home/forums.jpg'] }}" type="image/jpeg">
             <img src="/assets/media/image/home/forums.jpg">
           </picture>
         </div>
@@ -157,8 +165,8 @@
       <div class="card">
         <div class="image-wrapper">
           <picture class="card-img-top">
-            <source srcset="/assets/media/image/home/comparison.jpg" type="image/webp">
-            <source srcset="/assets/media/image/home/comparison.jpg" type="image/jpeg">
+            <source srcset="/{{- manifest['assets/media/image/home/comparison.webp'] }}" type="image/webp">
+            <source srcset="/{{- manifest['assets/media/image/home/comparison.jpg'] }}" type="image/jpeg">
             <img src="/assets/media/image/home/comparison.jpg">
           </picture>
         </div>
@@ -175,8 +183,8 @@
       <div class="card">
         <div class="image-wrapper">
           <picture class="card-img-top">
-            <source srcset="/assets/media/image/home/graffiti.jpg" type="image/webp">
-            <source srcset="/assets/media/image/home/graffiti.jpg" type="image/jpeg">
+            <source srcset="/{{- manifest['assets/media/image/home/graffiti.webp'] }}" type="image/webp">
+            <source srcset="/{{- manifest['assets/media/image/home/graffiti.jpg'] }}" type="image/jpeg">
             <img src="/assets/media/image/home/graffiti.jpg">
           </picture>
         </div>

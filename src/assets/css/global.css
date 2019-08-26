@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background: url('/assets/media/image/bg.svg') no-repeat;
+  background: url("/{{- manifest['assets/media/image/background.svg'] }}") no-repeat;
   background-size: contain;
   overflow-y: scroll;
 }
@@ -23,7 +23,7 @@ body {
   padding-left: 0.5rem;
   background-color: #f8f9fa;
   padding: 1em;
-  box-shadow: 0px 3px 15px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.75);
   align-items: center;
   position: absolute;
   bottom: 0;
@@ -42,7 +42,7 @@ body {
   flex: 0 1 auto;
 }
 
-#legal_footer>div>div>div>a, #legal_footer>div>div>div>span>a {
+#legal_footer>div>div>div>span>span>a, #legal_footer>div>div>div>span>a {
   text-decoration: underline;
 }
 

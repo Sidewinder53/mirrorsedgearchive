@@ -1,10 +1,10 @@
-#responsiveHero {
+#desktopHero {
   line-height: 0;
   width: 100%;
   height: 37.5%;
 }
 
-#faithHero {
+#mobileHero {
   display: none;
 }
 
@@ -117,10 +117,10 @@
 }
 
 @media (max-width: 768px) {
-  #responsiveHero {
+  #desktopHero {
     display: none;
   }
-  #faithHero {
+  #mobileHero {
     display: block;
     margin: 0;
     color: #ffffff;
@@ -130,7 +130,7 @@
     overflow: hidden;
     z-index: 0;
   }
-  #faithHeroText {
+  #mobileHeroText {
     position: absolute;
     width: 100%;
     height: 3em;
@@ -138,7 +138,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.5s ease-in;
   }
-  #faithHeroText > h1 {
+  #mobileHeroText > h1 {
     margin-left: 15px;
     animation-name: slideIn;
     animation-duration: 1s;
@@ -146,7 +146,7 @@
     margin-bottom: 0;
     font-size: 2.5rem;
   }
-  #faithHeroText > p {
+  #mobileHeroText > #heroText {
     margin-left: 15px;
     font-size: 1.15rem;
   }

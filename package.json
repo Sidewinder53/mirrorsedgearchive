@@ -1,16 +1,21 @@
 {
   "name": "mearchiveng",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web code base of the Mirror's Edge Archive",
   "main": "index.html",
   "scripts": {
     "dev": "gulp devServer",
     "build": "gulp build",
     "cleanup": "gulp cleanup"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sidewinder53/mirrorsedgearchive.git"
+  },
+  "author": "The Mirror's Edge Archive team (team at mirrorsedgearchive dot de)",
+  "license": "GPL-3.0-only",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "del": "^5.0.0",
     "git-rev-sync": "^1.12.0",
     "gulp": "^4.0.2",
@@ -27,26 +32,23 @@
     "gulp-replace": "^1.0.0",
     "gulp-sync": "^0.1.4",
     "gulp-tap": "^2.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-uglify-es": "^1.0.4",
-    "gulp-webp": "^4.0.1",
     "image-picker": "^0.3.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
+    "imagemin-svgo": "^7.0.0",
     "imagemin-webp": "^5.1.0",
-    "img-slider": "^2.2.0",
-    "live-server": "^1.2.1",
-    "pump": "^3.0.0",
-    "shaka-player": "^2.5.4"
+    "pump": "^3.0.0"
   },
   "dependencies": {
     "@mdi/font": "^4.1.95",
     "bootstrap": "^4.3.1",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
+    "img-slider": "^2.2.0",
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.1",
     "natives": "^1.1.6",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.15.0",
+    "shaka-player": "^2.5.4"
   }
 }
