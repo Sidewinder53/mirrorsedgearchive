@@ -45,8 +45,8 @@
       <video id="hero" class="card-img-top"
         poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAADklEQVR42mNkQAOMBAUAAJkABIju2IYAAAAASUVORK5CYII="
         muted playsinline>
-        <source src="/assets/media/video/home/hero.webm" type="video/webm">
-        <source src="/assets/media/video/home/hero.mp4" type="video/mp4">
+        <source src="/{{- manifest['assets/media/video/home/hero.webm'] }}" type="video/webm">
+        <source src="/{{- manifest['assets/media/video/home/hero.mp4'] }}" type="video/mp4">
       </video>
       <div id="heroSlides" class="carousel slide d-none" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -102,7 +102,7 @@
           <picture class="card-img-top">
             <source srcset="/{{- manifest['assets/media/image/home/archive.webp'] }}" type="image/webp">
             <source srcset="/{{- manifest['assets/media/image/home/archive.jpg'] }}" type="image/jpeg">
-            <img src="/assets/media/image/home/archive.jpg">
+            <img src="/{{- manifest['assets/media/image/home/archive.jpg'] }}">
           </picture>
         </div>
         <div class="card-body">
@@ -120,7 +120,7 @@
           <picture class="card-img-top">
             <source srcset="/{{- manifest['assets/media/image/home/kahle_archive.webp'] }}" type="image/webp">
             <source srcset="/{{- manifest['assets/media/image/home/kahle_archive.jpg'] }}" type="image/jpeg">
-            <img src="/assets/media/image/home/kahle_archive.jpg">
+            <img src="/{{- manifest['assets/media/image/home/kahle_archive.jpg'] }}">
           </picture>
         </div>
         <div class="card-body">
@@ -139,7 +139,7 @@
           <picture class="card-img-top">
             <source srcset="/{{- manifest['assets/media/image/home/forums.webp'] }}" type="image/webp">
             <source srcset="/{{- manifest['assets/media/image/home/forums.jpg'] }}" type="image/jpeg">
-            <img src="/assets/media/image/home/forums.jpg">
+            <img src="/{{- manifest['assets/media/image/home/forums.jpg'] }}">
           </picture>
         </div>
         <div class="card-body">
@@ -167,7 +167,7 @@
           <picture class="card-img-top">
             <source srcset="/{{- manifest['assets/media/image/home/comparison.webp'] }}" type="image/webp">
             <source srcset="/{{- manifest['assets/media/image/home/comparison.jpg'] }}" type="image/jpeg">
-            <img src="/assets/media/image/home/comparison.jpg">
+            <img src="/{{- manifest['assets/media/image/home/comparison.jpg'] }}">
           </picture>
         </div>
         <div class="card-body">
@@ -185,7 +185,7 @@
           <picture class="card-img-top">
             <source srcset="/{{- manifest['assets/media/image/home/graffiti.webp'] }}" type="image/webp">
             <source srcset="/{{- manifest['assets/media/image/home/graffiti.jpg'] }}" type="image/jpeg">
-            <img src="/assets/media/image/home/graffiti.jpg">
+            <img src="/{{- manifest['assets/media/image/home/graffiti.jpg'] }}">
           </picture>
         </div>
         <div class="card-body">
@@ -200,8 +200,8 @@
       </div>
       <div class="card">
         <div class="image-wrapper bg-light">
-          <video poster="/assets/media/image/home/project_billboard.jpg"
-            src="/assets/media/video/home/project_billboard.webm" type="video/webm" autoplay loop muted></video>
+          <video poster="/{{- manifest['assets/media/image/home/project_billboard.jpg'] }}"
+            src="/{{- manifest['assets/media/video/home/project_billboard.webm'] }}" type="video/webm" autoplay loop muted></video>
         </div>
         <div class="card-body">
           <h5 class="card-title">Billboards
@@ -219,8 +219,8 @@
     <div class="card-group">
       <div class="card">
         <div class="image-wrapper">
-          <video poster="/assets/media/image/home/project_propaganda.jpg"
-            src="/assets/media/video/home/project_propaganda.webm" type="video/webm" autoplay loop muted></video>
+          <video poster="/{{- manifest['assets/media/image/home/project_propaganda.jpg'] }}"
+            src="/{{- manifest['assets/media/video/home/project_propaganda.webm'] }}" type="video/webm" autoplay loop muted></video>
         </div>
         <div class="card-body">
           <h5 class="card-title">News broadcasts

@@ -30,7 +30,10 @@ function serve(done) {
   browserSync.init({
     server: {
       baseDir: "./dist/"
-    }
+    },
+    ui: false,
+    online: false,
+    open: false
   });
   done();
 };
@@ -40,8 +43,9 @@ function reload(done) {
   done();
 }
 
-function prepare() {
-  return del('dist');
+function prepare(done) {
+  del('./dist/');
+  done();
 }
 
 function cleanup() {
@@ -76,7 +80,7 @@ function processTemplate() {
 
 function packBundleJS() {
   return src([
-    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/jquery/dist/jquery.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
     'node_modules/js-cookie/src/js.cookie.js',
     'src/assets/js/cookie-consent.js'
@@ -151,17 +155,17 @@ function packBundleCSS() {
     'src/assets/css/global.css'
   ], { base: '/' })
     .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
-      .pipe(nunjucks({
-        data: {
-          manifest: bundleManifest,
-          git: {
-            long: git.long(),
-            short: git.short(),
-            production: false
-          }
-        },
-        ext: '.css'
-      }))
+    .pipe(nunjucks({
+      data: {
+        manifest: bundleManifest,
+        git: {
+          long: git.long(),
+          short: git.short(),
+          production: false
+        }
+      },
+      ext: '.css'
+    }))
     // PurgeCSS has been disabled as it causes a whole bunch of problems and requires a humongous whitelist to work with 3rd-party frameworks
     // .pipe(purgecss({
     //   content: ['./src/**/*.html', './src/**/*.js'],
@@ -283,8 +287,15 @@ function copyStaticAssets() {
 }
 
 function copyAV() {
-  return src('src/assets/media/audio/**/*').pipe(dest('dist/assets/media/audio')),
-    src('src/assets/media/video/**/*').pipe(dest('dist/assets/media/video'));
+  return src(['src/assets/media/audio/**/*', 'src/assets/media/video/**/*'], {
+    base: 'src'
+  })
+    .pipe(rev())
+    .pipe(dest('dist'))
+    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(dest('./'));
 }
 
 const copyAndPack = series(
