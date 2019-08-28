@@ -1,6 +1,4 @@
-var ua = window.navigator.userAgent;
-
-if (ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident/') > 0) {
+if (window.navigator.userAgent.indexOf('MSIE ') > 0 || window.navigator.userAgent.indexOf('Trident/') > 0) {
   if (document.readyState === "complete" || document.readyState === "loaded") {
     displayUnsupportedBrowserBanner();
   } else {
