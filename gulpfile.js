@@ -43,9 +43,8 @@ function reload(done) {
   done();
 }
 
-function prepare(done) {
-  del('./dist/');
-  done();
+function prepare() {
+  return del('./dist/');
 }
 
 function cleanup() {
@@ -80,12 +79,12 @@ function processTemplate() {
 
 function packBundleJS() {
   return src([
-    'node_modules/jquery/dist/jquery.js',
-    'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
-    'node_modules/js-cookie/src/js.cookie.js',
-    'src/assets/js/cookie-consent.js'
+    './node_modules/jquery/dist/jquery.js',
+    './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+    './node_modules/js-cookie/src/js.cookie.js',
+    './src/assets/js/cookie-consent.js'
   ])
-    .pipe(concat('dist/assets/vendor/bundles/baseBundle.js'))
+    .pipe(concat('./dist/assets/vendor/bundles/baseBundle.js'))
     .pipe(minify({
       noSource: true,
       ext: {
@@ -97,7 +96,7 @@ function packBundleJS() {
     .pipe(tap(function (file) {
       file.base = file.base + '\\dist'
     }))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'));
@@ -105,8 +104,8 @@ function packBundleJS() {
 
 function packLocalJS() {
   return src([
-    'src/assets/js/*.js',
-    '!src/assets/js/global.js'
+    './src/assets/js/*.js',
+    '!./src/assets/js/global.js'
   ], { base: 'src' })
     .pipe(minify({
       noSource: true,
@@ -116,7 +115,7 @@ function packLocalJS() {
     }))
     .pipe(rev())
     .pipe(dest('./dist'))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true,
     }))
     .pipe(dest('./'));
@@ -124,9 +123,9 @@ function packLocalJS() {
 
 function packVendorJS() {
   return src([
-    'node_modules/img-slider/distr/imgslider.min.js',
-    'node_modules/image-picker/image-picker/image-picker.js',
-    'node_modules/shaka-player/dist/shaka-player.compiled.js'
+    './node_modules/img-slider/distr/imgslider.min.js',
+    './node_modules/image-picker/image-picker/image-picker.js',
+    './node_modules/shaka-player/dist/shaka-player.compiled.js'
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
     .pipe(minify({
@@ -140,7 +139,7 @@ function packVendorJS() {
     .pipe(tap(function (file) {
       file.base = file.base.substring(0, file.base.length - 14);
     }))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'))
@@ -151,10 +150,10 @@ function packBundleCSS() {
   var bundleManifest = require('./dist/assets/rev-manifest.json');
 
   return src([
-    'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    'src/assets/css/global.css'
+    './node_modules/bootstrap/dist/css/bootstrap.min.css',
+    './src/assets/css/global.css'
   ], { base: '/' })
-    .pipe(concat('dist/assets/vendor/bundles/baseBundle.css'))
+    .pipe(concat('./dist/assets/vendor/bundles/baseBundle.css'))
     .pipe(nunjucks({
       data: {
         manifest: bundleManifest,
@@ -185,7 +184,7 @@ function packBundleCSS() {
     .pipe(tap(function (file) {
       file.base = file.base + '\\dist'
     }))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'));
@@ -193,13 +192,13 @@ function packBundleCSS() {
 
 function packLocalCSS() {
   return src([
-    'src/assets/css/*.css',
-    '!src/assets/css/global.css'
+    './src/assets/css/*.css',
+    '!./src/assets/css/global.css'
   ], { base: 'src' })
     .pipe(cleanCss())
     .pipe(rev())
     .pipe(dest('./dist/'))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true,
     }))
     .pipe(dest('./'));
@@ -207,9 +206,9 @@ function packLocalCSS() {
 
 function packVendorCSS() {
   return src([
-    'node_modules/img-slider/distr/imgslider.min.css',
-    'node_modules/image-picker/image-picker/image-picker.css',
-    'node_modules/@mdi/font/css/materialdesignicons.min.css'
+    './node_modules/img-slider/distr/imgslider.min.css',
+    './node_modules/image-picker/image-picker/image-picker.css',
+    './node_modules/@mdi/font/css/materialdesignicons.min.css'
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
     .pipe(cleanCss())
@@ -218,7 +217,7 @@ function packVendorCSS() {
     .pipe(tap(function (file) {
       file.base = file.base.substring(0, file.base.length - 14);
     }))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'))
@@ -226,9 +225,9 @@ function packVendorCSS() {
 
 function optimizeImg() {
   return src([
-    'src/assets/media/image/**/*.jpg',
-    'src/assets/media/image/**/*.png',
-    'src/assets/media/image/**/*.svg'
+    './src/assets/media/image/**/*.jpg',
+    './src/assets/media/image/**/*.png',
+    './src/assets/media/image/**/*.svg'
   ], { base: 'src' })
     .pipe(cache(imagemin([
       pngquant({ quality: [0.4, 0.6] }),
@@ -243,8 +242,8 @@ function optimizeImg() {
       }
     )
     .pipe(rev())
-    .pipe(dest('dist'))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(dest('./dist'))
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'));
@@ -252,8 +251,8 @@ function optimizeImg() {
 
 function optimizeImgToWebp() {
   return src([
-    'src/assets/media/image/**/*.jpg',
-    'src/assets/media/image/**/*.png'
+    './src/assets/media/image/**/*.jpg',
+    './src/assets/media/image/**/*.png'
   ], { base: 'src' })
     .pipe(cache(imagemin(
       [webp()],
@@ -267,16 +266,16 @@ function optimizeImgToWebp() {
     ))
     .pipe(rename({ extname: '.webp' }))
     .pipe(rev())
-    .pipe(dest('dist'))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(dest('./dist'))
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'));
 }
 
 function copyFonts() {
-  return src('node_modules/@mdi/font/fonts/*')
-    .pipe(dest('dist/assets/vendor/fonts/'))
+  return src('./node_modules/@mdi/font/fonts/*')
+    .pipe(dest('./dist/assets/vendor/fonts/'))
 }
 
 function copyStaticAssets() {
@@ -287,12 +286,12 @@ function copyStaticAssets() {
 }
 
 function copyAV() {
-  return src(['src/assets/media/audio/**/*', 'src/assets/media/video/**/*'], {
+  return src(['./src/assets/media/audio/**/*', './src/assets/media/video/**/*'], {
     base: 'src'
   })
     .pipe(rev())
-    .pipe(dest('dist'))
-    .pipe(rev.manifest('dist/assets/rev-manifest.json', {
+    .pipe(dest('./dist'))
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
     }))
     .pipe(dest('./'));
