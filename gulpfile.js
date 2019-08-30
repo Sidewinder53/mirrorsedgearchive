@@ -33,7 +33,8 @@ function serve(done) {
     },
     ui: false,
     online: false,
-    open: false
+    open: false,
+    notify: false
   });
   done();
 };
