@@ -88,6 +88,12 @@
       name: 'credits',
       label: 'Credits',
       href: '/credits'
+    },
+    {
+      type: 'category-special-contribute',
+      name: 'contribute',
+      label: 'Contribute / Contact',
+      href: '/contribute'
     }
   ]
 %}
@@ -133,19 +139,20 @@
                   {%- endfor -%}
                 </div>
               </li>
+            {%- elif item.type == 'category-special-contribute' %}
+            </ul>
+            <ul class="nav navbar-nav ml-auto justify-content-end">
+              <li class="nav-item{%- if item.name == pageInfo.name %} active{% endif %}">
+                <a class="nav-link" href="/contribute">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="d-inline-block align-top mr-1">
+                    <path fill="rgba(0,0,0,{%- if item.name == pageInfo.name %}.9{% else %}.5{% endif %})" d="M13 13c-2 0-6 1-6 3v2h12v-2c0-2-4-3-6-3m6.6.2c.8.7 1.4 1.6 1.4 2.8v2h3v-2c0-1.5-2.4-2.5-4.4-2.8M13 11a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m5 0a3 3 0 0 0 3-3 3 3 0 0 0-3-3l-1 .1a5 5 0 0 1 0 5.7l1 .2M8 10H5V7H3v3H0v2h3v3h2v-3h3v-2z"/>
+                  </svg>
+                  <span>Contribute / Contact</span>
+                </a>
+              </li>
+            </ul>
             {% endif -%}
           {% endfor -%}
-        </ul>
-        <ul class="nav navbar-nav ml-auto justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" href="/contribute">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" class="d-inline-block align-top mr-1" viewBox="0 0 24 24">
-                <path fill="rgba(0,0,0,.5)" d="M13 13c-2 0-6 1-6 3v2h12v-2c0-2-4-3-6-3m6.6.2c.8.7 1.4 1.6 1.4 2.8v2h3v-2c0-1.5-2.4-2.5-4.4-2.8M13 11a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m5 0a3 3 0 0 0 3-3 3 3 0 0 0-3-3l-1 .1a5 5 0 0 1 0 5.7l1 .2M8 10H5V7H3v3H0v2h3v3h2v-3h3v-2z"/>
-              </svg>
-              <span>Contribute / Contact</span>
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   </nav>

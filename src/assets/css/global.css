@@ -9,6 +9,10 @@ body {
   overflow-y: scroll;
 }
 
+.primary-container {
+  margin-top: 2rem;
+}
+
 #nav-cont {
   user-select: none;
 }
