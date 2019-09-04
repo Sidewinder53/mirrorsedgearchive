@@ -21,19 +21,34 @@ $(document).ready(function () {
 
   if ($("#responsiveHero").css("display") != "none") {
     $("#hero")[0].play();
+    let carouselImages = {
+      "hero_img_1.jpg": "{{ manifest['assets/media/image/home/hero_img_1.jpg'] }}",
+      "hero_img_1.webp": "{{ manifest['assets/media/image/home/hero_img_1.webp'] }}",
+      "hero_img_2.jpg": "{{ manifest['assets/media/image/home/hero_img_2.jpg'] }}",
+      "hero_img_2.webp": "{{ manifest['assets/media/image/home/hero_img_2.webp'] }}",
+      "hero_img_3.jpg": "{{ manifest['assets/media/image/home/hero_img_3.jpg'] }}",
+      "hero_img_3.webp": "{{ manifest['assets/media/image/home/hero_img_3.webp'] }}",
+      "hero_img_4.jpg": "{{ manifest['assets/media/image/home/hero_img_4.jpg'] }}",
+      "hero_img_4.webp": "{{ manifest['assets/media/image/home/hero_img_4.webp'] }}",
+      "hero_img_5.jpg": "{{ manifest['assets/media/image/home/hero_img_5.jpg'] }}",
+      "hero_img_5.webp": "{{ manifest['assets/media/image/home/hero_img_5.webp'] }}",
+      "hero_img_6.jpg": "{{ manifest['assets/media/image/home/hero_img_6.jpg'] }}",
+      "hero_img_6.webp": "{{ manifest['assets/media/image/home/hero_img_6.webp'] }}",
+      "hero_img_7.jpg": "{{ manifest['assets/media/image/home/hero_img_7.jpg'] }}",
+      "hero_img_7.webp": "{{ manifest['assets/media/image/home/hero_img_7.webp'] }}",
+      "hero_img_8.jpg": "{{ manifest['assets/media/image/home/hero_img_8.jpg'] }}",
+      "hero_img_8.webp": "{{ manifest['assets/media/image/home/hero_img_8.webp'] }}",
+      "hero_img_9.jpg": "{{ manifest['assets/media/image/home/hero_img_9.jpg'] }}",
+      "hero_img_9.webp": "{{ manifest['assets/media/image/home/hero_img_9.webp'] }}",
+    }
+    let carouselImageObject = '';
 
-    $.getJSON("/assets/rev-manifest.json", function (bundleManifest) {
-      let carouselImageObject = '';
+    enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
+    for (i = 0; i < 4; i++) {
+      carouselImageObject += '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/' + carouselImages["hero_img_" + enu[i] + ".webp"] + '" type="image/webp"><img src="/' + carouselImages["hero_img_" + enu[i] + ".jpg"] + '" type="image/jpg"></picture></div>';
+    }
 
-      enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
-      for (i = 0; i < 4; i++) {
-        carouselImageObject += '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/' + bundleManifest["assets/media/image/home/hero_img_" + enu[i] + ".webp"] + '" type="image/webp"><source srcset="/' + bundleManifest["assets/media/image/home/hero_img_" + enu[i] + ".jpg"] + '" type="image/jpg"><img src="/{{- manifest["assets/media/image/home/hero_img_1.jpg"] }}"></picture></div>';
-      }
-
-      $("#heroSlides > .carousel-inner").append(carouselImageObject);
-    }).fail(function () {
-      console.log("Fetching rev-manifest.json failed");
-    });
+    $("#heroSlides > .carousel-inner").append(carouselImageObject);
 
     if (Cookies.get("skip_intro") == "true") {
       skipped = "true";

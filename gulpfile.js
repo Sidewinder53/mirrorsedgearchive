@@ -63,8 +63,8 @@ function processTemplate() {
     './src/archive/index.html',
     './src/contribute/index.html'
   ], {
-      base: './src/'
-    })
+    base: './src/'
+  })
     .pipe(nunjucks({
       data: {
         manifest: bundleManifest,
@@ -106,10 +106,24 @@ function packBundleJS() {
 }
 
 function packLocalJS() {
+  delete require.cache[require.resolve('./dist/assets/rev-manifest.json')]
+  var bundleManifest = require('./dist/assets/rev-manifest.json');
+
   return src([
     './src/assets/js/*.js',
     '!./src/assets/js/global.js'
   ], { base: 'src' })
+    .pipe(nunjucks({
+      data: {
+        manifest: bundleManifest,
+        git: {
+          long: git.long(),
+          short: git.short(),
+          production: false
+        }
+      },
+      ext: '.js'
+    }))
     .pipe(minify({
       noSource: true,
       ext: {
@@ -305,6 +319,12 @@ const copyAndPack = series(
     copyStaticAssets
   ),
   series(
+    copyFonts,
+    copyAV,
+    optimizeImg,
+    optimizeImgToWebp
+  ),
+  series(
     packVendorJS,
     packBundleJS,
     packLocalJS
@@ -313,12 +333,6 @@ const copyAndPack = series(
     packBundleCSS,
     packVendorCSS,
     packLocalCSS,
-  ),
-  series(
-    copyFonts,
-    copyAV,
-    optimizeImg,
-    optimizeImgToWebp
   ),
   processTemplate
 );
