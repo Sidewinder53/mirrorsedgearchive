@@ -58,6 +58,7 @@ function processTemplate() {
 
   return src([
     './src/index.html',
+    './src/out/index.html',
     './src/development_vs_release/index.html',
     './src/project_propaganda/index.html',
     './src/archive/index.html',

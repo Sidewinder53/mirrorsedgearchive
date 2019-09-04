@@ -1,0 +1,19 @@
+#main {
+  margin-top: 2rem;
+  color: #000000;
+}
+
+#nav-aborted-referrer,
+#nav-aborted-malicious {
+  display: none;
+}
+
+#url-info {
+  height: 4rem;
+  word-break: break-word;
+}
+
+body > .container {
+  margin-top: 2rem;
+}
+
