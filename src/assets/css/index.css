@@ -15,7 +15,7 @@
 }
 
 .image-wrapper::before {
-  content: '';
+  content: "";
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Cpath d='M112.1,71.2s.3,6.5,20.1,26.3l-6.5,14.2,17.5-5.1,9.3,24.5,10.2-25.7H186S176.7,93,155.1,87.8s-33.3-8.2-43-16.6m75.8,30.1V57.2H117v4.3c6.3,6.6,12.3,12.8,39,21.4,22,7.1,29.5,15,31.9,18.4M117,142.8h70.9V109.1H165.6l-13.3,32.2-13.3-25-22.1,15.1v11.4Z' opacity='0.5' fill='%23cd2027'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   display: block;
@@ -94,6 +94,7 @@
 .carousel .carousel-indicators {
   opacity: 0;
 }
+
 .carousel:hover .carousel-indicators {
   opacity: 1;
 }
@@ -163,6 +164,7 @@
     transform: translateX(0%);
   }
 }
+
 @keyframes grow {
   0% {
     transform: translateX(-100%);
@@ -171,6 +173,7 @@
     transform: translateX(0%);
   }
 }
+
 @keyframes main {
   0% {
     opacity: 0;
@@ -178,4 +181,42 @@
   100% {
     opacity: 1;
   }
+}
+
+.image-wrapper {
+  overflow: hidden;
+}
+
+.image-wrapper > picture > img,
+.image-wrapper > video {
+  transition: transform 0.2s, filter 0.2s ease-in-out;
+  /* filter: blur(1px); */
+}
+
+.card:hover > a > .image-wrapper > picture > img,
+.card:hover > a > .image-wrapper > video,
+.card:hover > .image-wrapper > picture > img,
+.card:hover > .image-wrapper > video {
+  transform: scale(1.05);
+  /* filter: blur(0); */
+}
+
+.card:hover > a > .card-body > .card-title {
+  color: #cd2027;
+}
+
+.card > a > .card-body > .card-title {
+  transition: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.card:hover > a {
+  text-decoration: none;
+}
+
+
+.card > a {
+  color: #212529;
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
 }
