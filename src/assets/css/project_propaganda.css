@@ -3,7 +3,7 @@
 }
 
 #vidContainer {
-  background-image: url('https://video-assets.mirrorsedgearchive.de/prod/propaganda/static.jpg');
+  background-image: url("https://video-assets.mirrorsedgearchive.de/prod/propaganda/static.jpg");
   background-size: cover;
 }
 
@@ -32,7 +32,7 @@
   z-index: 1000;
 }
 
-#vidSel>ul>li>a {
+#vidSel > ul > li > a {
   border-radius: 0;
 }
 
@@ -47,7 +47,7 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-#vidCENC> a::before {
+#vidCENC > a::before {
   font-size: 14pt;
   vertical-align: middle;
   color: #28a745;
@@ -74,7 +74,7 @@
   display: none;
 }
 
-#vidCompStatus>.card-header {
+#vidCompStatus > .card-header {
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
@@ -87,17 +87,17 @@
   margin-top: 8px;
 }
 
-#vidAd>a>img {
+#vidAd > a > img {
   height: 100px;
 }
 
-#vidAd>a>.card-footer {
+#vidAd > a > .card-footer {
   text-align: center;
   padding: 0.5em;
   text-decoration: none;
 }
 
-#vidAd:hover>a {
+#vidAd:hover > a {
   text-decoration: none;
 }
 
@@ -124,18 +124,21 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.nav-link.active.show>svg>path {
+.nav-link.active.show > svg > path {
   fill: #fff;
 }
 
-#castList, #horExtrasList, #verExtrasList {
+#castList,
+#horExtrasList,
+#verExtrasList {
   width: 100%;
   display: inline-block;
   max-height: 490px;
   overflow-y: auto;
 }
 
-#horExtrasTab, #verExtrasTab {
+#horExtrasTab,
+#verExtrasTab {
   padding: 0.45em;
 }
 
@@ -172,11 +175,12 @@
   color: rgb(150, 150, 150);
 }
 
-#vidCompStatus>.card>.card-body {
+#vidCompStatus > .card > .card-body {
   padding: 1rem 1.25rem;
 }
 
-.list-group-item.video:focus, .list-group-item.video:hover {
+.list-group-item.video:focus,
+.list-group-item.video:hover {
   z-index: auto;
 }
 
@@ -185,7 +189,8 @@
   background-repeat: no-repeat;
 }
 
-#vidFooter, #vidMeta {
+#vidFooter,
+#vidMeta {
   display: none;
 }
 
@@ -243,7 +248,6 @@
   vertical-align: top;
   padding-right: 0.25rem;
 }
-}
 
 @media only screen and (max-width: 1800px) {
   #vidNav {
@@ -282,5 +286,4 @@
     margin: 1em 0 0.5em 0;
     width: 100% !important;
   }
-
 }
