@@ -74,6 +74,7 @@ function processTemplate() {
         git: {
           long: git.long(),
           short: git.short(),
+          branch: git.branch(),
           production: false
         }
       }

@@ -150,7 +150,13 @@ a:hover svg path {
 }
 
 #unsupported_ie {
-  height: 4rem;
+  min-height: 4rem;
+  height: auto;
+  padding: 0.5rem;
+}
+
+#unsupported_ie > div > div > div.col {
+  padding-right: 0;
 }
 
 #unsupported_ie>div>div>div.col-.pt-2>svg {

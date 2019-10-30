@@ -18,6 +18,10 @@
 	width: 285px;
 }
 
+.mdi:before {
+	vertical-align: bottom;
+}
+
 .image-wrapper {
 	display: block;
 	max-width: 100%;

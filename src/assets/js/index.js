@@ -19,7 +19,7 @@ $.fn.isInViewport = function () {
 $(document).ready(function () {
   var skipped = "false";
 
-  if ($("#responsiveHero").css("display") != "none") {
+  if ($("#desktopHero").css("display") != "none") {
     $("#hero")[0].play();
     let carouselImages = {
       "hero_img_1.jpg": "{{ manifest['assets/media/image/home/hero_img_1.jpg'] }}",
@@ -89,7 +89,7 @@ $(document).ready(function () {
     $("#legal_footer").css("display", "block");
     $(".card").css("border-width", "1px");
     setTimeout(function () {
-      $("#faithHeroText").css("height", "5em");
+      $("#mobileHeroText").css("height", "5em");
     }, 1500);
   }
 
