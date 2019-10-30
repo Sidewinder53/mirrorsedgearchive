@@ -3,8 +3,8 @@
 }
 
 #vidContainer {
-  background-image: url('/assets/media/image/project_billboard/static.jpg');
-  background-size: cover;
+  background-image: url('https://video-assets.mirrorsedgearchive.de/prod/billboard/static.jpg');
+    background-size: cover;
 }
 
 #vidIntro {

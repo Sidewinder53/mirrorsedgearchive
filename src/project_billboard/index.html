@@ -1,10 +1,10 @@
 {% set pageInfo = {
-  name: 'home',
-  category: 'home',
-  title: 'Homepage',
-  description: "Homepage of the Mirror's Edge Archive",
-  reqScripts: [ 'assets/js/index.js' ],
-  reqStylesheets: [ 'assets/css/index.css' ]
+  name: 'project_billboard',
+  category: 'projects',
+  title: 'Billboards',
+  description: "A collection of various billboards from Mirror's Edge Catalyst",
+  reqScripts: [ 'assets/js/project_billboard.js' ],
+  reqStylesheets: [ 'assets/css/project_billboard.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
@@ -15,7 +15,7 @@
     <div class="card">
       <div id="vidIntro" class="text-muted h3 text-center">Select a video to get started.</div>
       <div id="vidContainer" class="embed-responsive embed-responsive-2by1">
-        <video id="vidPlayer" poster="https://video-assets.mirrorsedgearchive.de/beta/billboard/static.jpg" controlslist="nodownload" class="embed-responsive-item" controls
+        <video id="vidPlayer" poster="/{{- manifest['assets/media/image/project_billboard/static.jpg'] }}" controlslist="nodownload" class="embed-responsive-item" controls
           autoplay loop crossorigin="anonymous">
         </video>
         <div id="vidRCM">
@@ -58,8 +58,8 @@
     </div>
     <div id="selContainer" class="container">
       <div id="vidAd">
-        <a href="/project_propaganda" class="card">
-          <img src="/assets/media/image/project_billboard/news.jpg">
+        <a href="/project_billboard" class="card">
+          <img src="/{{- manifest['assets/media/image/project_billboard/news.jpg'] }}">
           <div class="card-footer text-muted"> Newscasts </div>
         </a>
       </div>
@@ -70,11 +70,11 @@
           </div>
           <ul id="vidTypeSel" class="nav nav-pills nav-justified" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active show" id="horBillboardTab" data-toggle="tab" href="#horBillboard" role="tab" aria-controls="horBillboard" aria-selected="false"><svg
+              <a class="nav-link show active " id="horBillboardTab" data-toggle="tab" href="#horBillboard" role="tab" aria-controls="horBillboard" aria-selected="false"><svg
                   width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path fill="#6F6F6F" d="M19 7v10H5V7M1 7v10a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2z" /></svg></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item show">
               <a class="nav-link" id="verBillboardTab" data-toggle="tab" href="#verBillboard" role="tab" aria-controls="verBillboard" aria-selected="false">
                 <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path fill="#6F6F6F" d="M17 19H7V5h10m0-4H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z" /></svg>
@@ -119,8 +119,4 @@
       </div>
     </div>
   </div>
-  <!-- {{lib-js:bootstrap-bundle}} -->
-  <!-- {{lib-js:cookies}} -->
-</body>
-
-</html>
+  {% endblock %}

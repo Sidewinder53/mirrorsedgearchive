@@ -231,6 +231,20 @@
   padding-left: 1rem;
 }
 
+#compTitleH {
+  margin-bottom: 0;
+}
+
+#compTitleH:before {
+  vertical-align: text-bottom;
+}
+
+#compLearnMore > div > div > div.modal-body > p.font-weight-bold:before {
+  vertical-align: top;
+  padding-right: 0.25rem;
+}
+}
+
 @media only screen and (max-width: 1800px) {
   #vidNav {
     width: 230px;

@@ -60,7 +60,9 @@ function processTemplate() {
     './src/index.html',
     './src/out/index.html',
     './src/development_vs_release/index.html',
+    './src/project_billboard/index.html',
     './src/project_propaganda/index.html',
+    './src/project_doomsday/index.html',
     './src/archive/index.html',
     './src/contribute/index.html'
   ], {
@@ -298,7 +300,9 @@ function copyFonts() {
 
 function copyStaticAssets() {
   return src([
-    'src/**/*.json'
+    'src/**/*.json',
+    'src/favicon.*',
+    'src/.well-known/*'
   ])
     .pipe(dest('dist/'))
 }

@@ -126,7 +126,7 @@ function initApp() {
           protectedPlaybackAvailable = true;
           shaka.polyfill.installAll();
           console.log("⚙️ Initializing Shaka Player...");
-          console.log("🛑 ============== SHAKA DEBUG ACTIVE ==============");
+          // console.log("🛑 ============== SHAKA DEBUG ACTIVE ==============");
           initPlayer();
           hookBindings();
           hookDashBindings();
@@ -207,7 +207,7 @@ function initPlayer() {
 
 function loadManifest(manifestUri) {
   player.load(manifestUri).then(function () {
-    console.log('[PropP] Manifest loaded.');
+    console.log('[PropP] New manifest loaded.');
     window.tracks = player.getVariantTracks()
     var trackOverride = getTrackOverrideCookie();
 
@@ -298,7 +298,7 @@ function getAbrCookie() {
 function hookBindings() {
   // Enable popovers
   $('[data-toggle="popover"]').popover();
-  console.log("[PropP-DEBUG] Enabled popovers and tooltips.")
+  // console.log("[PropP-DEBUG] Enabled popovers and tooltips.")
 
   // Show copyright notice on right click
   $('#vidPlayer').contextmenu(function (e) {
@@ -461,10 +461,10 @@ function hookDashBindings() {
   $('#vidPlayer').bind('timeupdate', function (event) {
     let estimate = Math.floor(player.getStats().estimatedBandwidth);
     if (estimate != undefined && !isNaN(estimate) && abrEnabled == true) {
-      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > ABR BW: " + Math.round(estimate / 100000) / 10 + " Mbit/s | F: " + player.getStats().height + "p | P: " + $("#vidPlayer").get(0).videoHeight + "p")
+      // console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > ABR BW: " + Math.round(estimate / 100000) / 10 + " Mbit/s | F: " + player.getStats().height + "p | P: " + $("#vidPlayer").get(0).videoHeight + "p")
       Cookies.set('bandwidth', estimate, { path: '/project_propaganda' });
     } else if (!isNaN(player.getStats().height)) {
-      console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > Current quality: " + player.getStats().height + "p")
+      // console.log("[Shaka-DEBUG] " + Math.floor(event.currentTarget.currentTime * 100) / 100 + "s > Current quality: " + player.getStats().height + "p")
     }
     if (timestampList) {
       for (let index = timestampList.length - 1; index >= 0; index--) {
@@ -474,7 +474,7 @@ function hookDashBindings() {
             $("#tsList > a").each(function () {
               $(this).removeClass('active');
             });
-            console.log("[PropP-DEBUG] playback chapter: " + index);
+            // console.log("[PropP-DEBUG] playback chapter: " + index);
             $('#tsList')
               .children()
               .eq(index)

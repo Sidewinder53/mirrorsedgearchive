@@ -22,6 +22,7 @@ $(function() {
         $('#vidRCM').css('display', 'block');
       });
   }
+  $('#vidContainer').css('background-image', "/{{ manifest['assets/media/image/project_billboard/static.jpg'] }}");
   var horBillboardList = '',
     verBillboardList = '';
   $.get('data.json', function(db) {
@@ -231,7 +232,7 @@ function getThumbnail(video) {
       );
     }
   } else {
-    return '/assets/media/image/project_billboard/static.jpg';
+    return "/{{ manifest['assets/media/image/project_billboard/static.jpg'] }}";
   }
 }
 
