@@ -1,7 +1,7 @@
 trigger:
-  branches:
-    include:
-    - master
+- master
+- sandbox
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -14,8 +14,21 @@ steps:
 
 - script: |
     npm install
-    npm run build-prod
-  displayName: 'Install NPM and build'
+    npm run build-production
+  displayName: 'Install NPM and build for production (legacy)'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- script: |
+    npm install
+    npm run buildProduction
+  displayName: 'Install NPM and build for production'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'Install NPM and build for development'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
 
 - task: CopyFiles@2
   inputs:
@@ -28,3 +41,18 @@ steps:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: MEA-production-artifact
   displayName: 'Publish Staged Artifacts to "MEA-production-artifact"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: MEA-sandbox-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-sandbox-artifact"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: MEA-vNext-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-vNext-artifact"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
