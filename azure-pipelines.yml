@@ -1,5 +1,7 @@
 trigger:
-- vNext
+  branches:
+    include:
+    - vNext
 
 pool:
   vmImage: 'ubuntu-latest'
