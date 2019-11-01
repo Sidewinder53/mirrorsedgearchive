@@ -1,3 +1,5 @@
+// Global Imports
+
 const { src, dest, series, parallel, watch } = require('gulp');
 const concat = require('gulp-concat');
 const minify = require('gulp-minify');
@@ -19,12 +21,10 @@ const tap = require('gulp-tap');
 const cache = require('gulp-cache');
 const browserSync = require('browser-sync').create();
 
-const production = false;
-const watchHTML = () => watch('./src/**/*.html', series(processTemplate, reload));
-const watchCSS = () => watch('./src/**/*.css', series(packBundleCSS, packVendorCSS, packLocalCSS, processTemplate, reload));
-const watchJS = () => watch('./src/**/*.js', series(packVendorJS, packBundleJS, packLocalJS, processTemplate, reload));
-const watchImg = () => watch(['./src/**/*.jpg', './src/**/*.png'], series(optimizeImg, optimizeImgToWebp, processTemplate, reload));
-
+const watchHTML = () => watch('./src/**/*.html', series(processTemplateDev, reload));
+const watchCSS = () => watch('./src/**/*.css', series(packBundleCSS, packVendorCSS, packLocalCSS, processTemplateDev, reload));
+const watchJS = () => watch('./src/**/*.js', series(packVendorJS, packBundleJS, packLocalJS, processTemplateDev, reload));
+const watchImg = () => watch(['./src/**/*.jpg', './src/**/*.png'], series(optimizeImg, optimizeImgToWebp, processTemplateDev, reload));
 
 function serve(done) {
   browserSync.init({
@@ -48,11 +48,11 @@ function prepare() {
   return del('./dist/');
 }
 
-function cleanup() {
+function cleanCache() {
   return cache.clearAll();
 }
 
-function processTemplate() {
+function processTemplateDev() {
   delete require.cache[require.resolve('./dist/assets/rev-manifest.json')]
   var bundleManifest = require('./dist/assets/rev-manifest.json');
 
@@ -84,6 +84,39 @@ function processTemplate() {
     }))
     .pipe(replace('{{stamp_title}}', 'Build ID: ' + git.short()))
     .pipe(replace('{{stamp_text}}', 'DEV'))
+    .pipe(dest('./dist/'));
+}
+
+function processTemplateProd() {
+  delete require.cache[require.resolve('./dist/assets/rev-manifest.json')]
+  var bundleManifest = require('./dist/assets/rev-manifest.json');
+
+  return src([
+    './src/index.html',
+    './src/out/index.html',
+    './src/development_vs_release/index.html',
+    './src/project_billboard/index.html',
+    './src/project_propaganda/index.html',
+    './src/project_doomsday/index.html',
+    './src/project_graffiti/index.html',
+    './src/archive/index.html',
+    './src/contribute/index.html',
+    './src/credits/index.html',
+    './src/legal/*.html'
+  ], {
+    base: './src/'
+  })
+    .pipe(nunjucks({
+      data: {
+        manifest: bundleManifest,
+        git: {
+          long: git.long(),
+          short: git.short(),
+          branch: git.branch(),
+          production: true
+        }
+      }
+    }))
     .pipe(dest('./dist/'));
 }
 
@@ -302,7 +335,7 @@ function copyFonts() {
     .pipe(dest('./dist/assets/vendor/fonts/'))
 }
 
-function copyStaticAssets() {
+function copyStatic() {
   return src([
     'src/**/*.json',
     'src/favicon.*',
@@ -323,33 +356,46 @@ function copyAV() {
     .pipe(dest('./'));
 }
 
-const copyAndPack = series(
-  series(
-    copyStaticAssets
-  ),
-  series(
-    copyFonts,
-    copyAV,
-    optimizeImg,
-    optimizeImgToWebp
-  ),
-  series(
-    packVendorJS,
-    packBundleJS,
-    packLocalJS
-  ),
-  series(
-    packBundleCSS,
-    packVendorCSS,
-    packLocalCSS,
-  ),
-  processTemplate
+// Task groups
+// CopyAndPack is the main task, which calls all relevant sub-tasks to pack, optimize and copy resources.
+// ProcessTemplate[dev/prod] is called externally, to determine the build environment.
+
+const copyAssets = series(
+  copyStatic,
+  copyFonts,
+  copyAV,
+  );
+
+const optimizeAssets = series(
+  optimizeImg,
+  optimizeImgToWebp
 );
 
+const packJS = series(
+  packVendorJS,
+  packBundleJS,
+  packLocalJS
+);
+
+const packCSS = series(
+  packBundleCSS,
+  packVendorCSS,
+  packLocalCSS,
+);
+
+const copyAndPack = series(
+  copyAssets,
+  optimizeAssets,
+  packJS,
+  packCSS
+);
+
+
+// Exports
+
 exports.default = series(prepare, copyAndPack);
-exports.build = series(prepare, copyAndPack);
-exports.buildQuick = series(prepare);
-exports.buildProd = series(prepare, cleanup, copyAndPack)
-exports.devServer = series(prepare, copyAndPack, serve, parallel(watchHTML, watchCSS, watchJS, watchImg));
+exports.build = series(prepare, copyAndPack, processTemplateDev);
+exports.buildProduction = series(prepare, cleanCache, copyAndPack, processTemplateProd)
+exports.devServer = series(prepare, copyAndPack, processTemplateDev, serve, parallel(watchHTML, watchCSS, watchJS, watchImg));
 exports.prepare = prepare;
-exports.cleanup = cleanup;
+exports.cleanCache = cleanCache;
