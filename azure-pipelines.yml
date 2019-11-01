@@ -12,7 +12,7 @@ steps:
 
 - script: |
     npm install
-    npm run buildProduction
+    npm run build-prod
   displayName: 'Install NPM and build'
 
 - task: CopyFiles@2
