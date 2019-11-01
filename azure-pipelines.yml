@@ -1,7 +1,7 @@
 trigger:
 - master
 - sandbox
-- master
+- vNext
 
 pool:
   vmImage: 'ubuntu-latest'
