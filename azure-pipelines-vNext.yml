@@ -1,0 +1,31 @@
+trigger:
+- vNext
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+  displayName: 'Install NPM'
+
+- script: |
+    npm run build
+  displayName: 'Build for Development'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: 'dist/**/*'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy distributable resources to Artifact Staging Directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: MEA-vNext-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-vNext-artifact"'
