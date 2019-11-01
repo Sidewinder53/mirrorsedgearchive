@@ -4,7 +4,8 @@ html {
 }
 
 body {
-  background: url("/{{- manifest['assets/media/image/background.svg'] }}") no-repeat;
+  background: url("/{{- manifest['assets/media/image/background.svg'] }}")
+    no-repeat;
   background-size: contain;
   overflow-y: scroll;
 }
@@ -38,15 +39,16 @@ body {
   margin-top: 0.75em;
 }
 
-#legal_footer>div>.media {
+#legal_footer > div > .media {
   align-items: flex-end;
 }
 
-#legal_footer>div>div>.media-body {
+#legal_footer > div > div > .media-body {
   flex: 0 1 auto;
 }
 
-#legal_footer>div>div>div>span>span>a, #legal_footer>div>div>div>span>a {
+#legal_footer > div > div > div > span > span > a,
+#legal_footer > div > div > div > span > a {
   text-decoration: underline;
 }
 
@@ -54,7 +56,7 @@ body {
   padding: 0.375rem;
 }
 
-.btn-footer>svg {
+.btn-footer > svg {
   vertical-align: middle;
 }
 
@@ -95,7 +97,8 @@ a:hover svg path {
   cursor: default;
 }
 
-.dropdown-item.active, .dropdown-item:active {
+.dropdown-item.active,
+.dropdown-item:active {
   color: #000;
   text-decoration: none;
   background-color: #efefef;
@@ -155,11 +158,18 @@ a:hover svg path {
   padding: 0.5rem;
 }
 
+#unsupported_ie > div > div > div.col-10.col-sm-11 > p:nth-child(1) {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
 #unsupported_ie > div > div > div.col {
   padding-right: 0;
 }
 
-#unsupported_ie>div>div>div.col-.pt-2>svg {
+#unsupported_ie > div > div > div.col-.pt-2 > svg {
   width: 2rem;
   height: 2rem;
 }

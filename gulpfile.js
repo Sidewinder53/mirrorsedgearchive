@@ -63,8 +63,10 @@ function processTemplate() {
     './src/project_billboard/index.html',
     './src/project_propaganda/index.html',
     './src/project_doomsday/index.html',
+    './src/project_graffiti/index.html',
     './src/archive/index.html',
     './src/contribute/index.html',
+    './src/credits/index.html',
     './src/legal/*.html'
   ], {
     base: './src/'

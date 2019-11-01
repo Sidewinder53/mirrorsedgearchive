@@ -1,2609 +1,2631 @@
-<!DOCTYPE html>
-<html>
+{% set pageInfo = {
+  name: 'credits',
+  category: 'credits',
+  title: 'Credits',
+  description: "Credits of Mirror's Edge and Mirror's Edge Catalyst",
+  reqScripts: [ 'assets/js/credits.js' ],
+  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/credits.css' ]
+}%}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>The Mirror's Edge Archive &#x1F4C2; - Credits</title>
-  <!-- {{lib-css:bootstrap}} -->
-  <!-- {{lib-js:jQuery}} -->
-  <!-- {{lib-css:MaterialDesign-Webfont}} -->
-  <link rel="stylesheet" href="/assets/css/global.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/credits.css" type="text/css" />
-</head>
+{%- extends "templates/_layout.njk" %}
 
+{%- block content %}
 <body data-spy="scroll" data-target="#navbar-credits" data-offset="57">
   <audio autoplay volume="100%">
     <source src="/assets/media/audio/credits/hymn.ogg" type="audio/ogg">
   </audio>
   <canvas id='map'></canvas>
   <div class="character_display" id="cd_me">
-    <img src="/assets/media/image/credits/faith_me.jpg">
+    <img src="/{{- manifest['assets/media/image/credits/faith_me.jpg'] }}">
   </div>
   <div class="character_display" id="cd_mec">
-    <img src="/assets/media/image/credits/faith_mec.jpg">
+    <img src="/{{- manifest['assets/media/image/credits/faith_mec.jpg'] }}">
   </div>
-  <nav id="home" class="navbar navbar-expand-lg navbar-dark bg-dark me-nav-area">
-    <div class="container">
-      <div id="brand-area">
-        <a class="navbar-brand" href="/">
-          <svg version="1.2" class="d-inline-block align-top" width="30" height="30" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
-            <g>
-              <path fill="rgba(255,255,255,.9)" d="M135.1,255c0,0,3.3,63.8,198.8,259.3l-64.6,140.8l173.1-50.5l91.9,241.9l100.2-254.3h231.1
-						c0,0-92.8-121.8-305.6-173.1C347.2,368.5,231.2,337.8,135.1,255" />
-            </g>
-          </svg> The Mirror's Edge Archive </a>
-        <!-- {{STAMP}} -->
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProjects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Projects </a>
-            <div class="dropdown-menu shadow" aria-labelledby="navbarDropdownProjects">
-              <h6 class="dropdown-header">Interactive</h6>
-              <a class="dropdown-item" href="/development_vs_release">Development vs. Release</a>
-              <a class="dropdown-item" href="/project_graffiti">Player Tag Generator</a>
-              <a class="dropdown-item disabled" href="#">Project Navigator</a>
-              <div class="dropdown-divider"></div>
-              <h6 class="dropdown-header">Media</h6>
-              <a class="dropdown-item" href="/project_propaganda">News broadcasts</a>
-              <a class="dropdown-item" href="/project_billboard">Billboards</a>
-              <div class="dropdown-divider"></div>
-              <h6 class="dropdown-header">Software</h6>
-              <a class="dropdown-item disabled" href="#">Project Announcer</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArchive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Archives </a>
-            <div class="dropdown-menu shadow" aria-labelledby="navbarDropdownArchive">
-              <h6 class="dropdown-header">Internal</h6>
-              <a class="dropdown-item" href="/archive">Main Archive</a>
-              <a class="dropdown-item" href="/project_doomsday">Website &amp; Forums</a>
-              <div class="dropdown-divider"></div>
-              <h6 class="dropdown-header">External</h6>
-              <a class="dropdown-item" href="/out/?t=https://archive.org/details/@sidewinder51">Internet Archive</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/credits">Credits <span class="sr-only">(current)</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav ml-auto justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" href="/contribute">
-              <svg style="vertical-align:top;height:1.5rem;width:1.5rem;" viewBox="0 0 24 24">
-                <path fill="rgba(255,255,255,.5)"
-                  d="M13,13C11,13 7,14 7,16V18H19V16C19,14 15,13 13,13M19.62,13.16C20.45,13.88 21,14.82 21,16V18H24V16C24,14.46 21.63,13.5 19.62,13.16M13,11A3,3 0 0,0 16,8A3,3 0 0,0 13,5A3,3 0 0,0 10,8A3,3 0 0,0 13,11M18,11A3,3 0 0,0 21,8A3,3 0 0,0 18,5C17.68,5 17.37,5.05 17.08,5.14C17.65,5.95 18,6.94 18,8C18,9.06 17.65,10.04 17.08,10.85C17.37,10.95 17.68,11 18,11M8,10H5V7H3V10H0V12H3V15H5V12H8V10Z" />
-              </svg> &nbsp;Contribute / Contact </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <nav id="navbar-credits" class="navbar sticky-top navbar-light bg-light navbar-expand-lg">
-    <div class="container">
-      <ul class="nav nav-pills mr-auto">
-        <a class="nav-link int-nav mdi mdi-home me-nav-area" id="home_nav" href="#home"></a>
-        <button id="credits-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#int-navbar-content" aria-controls="int-navbar-content"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          <span class="toggler-desc">Browse by game and team</span>
-        </button>
-        <div class="collapse navbar-collapse" id="int-navbar-content">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle me-nav-area ml-sm-1 mt-1 mt-md-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mirror's Edge (2008)</a>
-            <div class="dropdown-menu shadow">
-              <a class="dropdown-item int-nav me-nav-area" id="me_dice_nav" href="#me_dice">DICE Studio</a>
-              <a class="dropdown-item int-nav me-nav-area" id="me_va_nav" href="#me_va">Voice Actors</a>
-              <a class="dropdown-item int-nav me-nav-area" id="me_ea_nav" href="#me_ea">EA Studio</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link int-nav ml-sm-1" href="#mec_desc">Mirror's Edge Catalyst (2016)</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle ml-sm-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Development Team</a>
-            <div class="dropdown-menu shadow">
-              <a class="dropdown-item int-nav" href="#mec_devt_directorst">Directors Team</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_leadst">Directors Team</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_gamet">Game Team</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_softeng">Software Engineers</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_artists">Artists</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_conceptartists">Concept Artists</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_2dart">2D Art</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_anim">Animators</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_audio">Audio</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_localization">Localization</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_qa">DICE QA</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_qe">DICE QE</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_pmqa">DICE Project Management QA</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_babies">Product Babies</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_thanks">Thanks</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_music">Music</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_specialthanks">Special Thanks</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_companion">The Beat Companion App</a>
-              <a class="dropdown-item int-nav" href="#mec_devt_mediat">Media Team</a>
-            </div>
-          </li>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle ml-sm-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">DICE</a>
-            <div class="dropdown-menu shadow">
-              <h6 class="dropdown-header">DICE Studio</h6>
-              <a class="dropdown-item int-nav" href="#mec_dice_studio">Management</a>
-              <a class="dropdown-item int-nav" href="#mec_dice_it">IT</a>
-              <h6 class="dropdown-header">DICE Operations</h6>
-              <a class="dropdown-item int-nav" href="#mec_diceops">Management</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle ml-sm-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Others</a>
-            <div class="dropdown-menu shadow">
-              <a class="dropdown-item int-nav" href="#mec_ghost">Ghost Games Support Pod</a>
-              <a class="dropdown-item int-nav" href="#mec_ea_marketing">EA Marketing</a>
-              <a class="dropdown-item int-nav" href="#mec_pulse">Pulse</a>
-              <a class="dropdown-item int-nav" href="#mec_others">Others</a>
-            </div>
-          </li>
+  <div class="container px-sm-2 px-1">
+      <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">WIP: fix scrollspy lib - do not push to production</h4>
         </div>
-      </ul>
-    </div>
-  </nav>
-  <div id="bg">
-    <div class="container" id="content">
-      <div id="cookie_consent_placeholder"></div>
-      <blockquote id="thank_you" class="blockquote">
-        <p class="mb-0">The Mirror's Edge franchise is the result of truly astonishing work by creative, talented and dedicated developers. We appreciate the time, effort and sweat
-          put into this product and would like to express our gratitude to the creators for their memorable work on behalf of the Mirror's Edge community. Without you, we would
-          <i>never</i> have met Faith.</p>
-        <footer class="blockquote-footer">The Mirror's Edge Archive team</footer>
-      </blockquote>
-      <div id="touch_device_notice"></div>
-      <h1>Mirror's Edge&nbsp; <small class="text-muted">2008</small></h1>
-      <h3>
-        <footer class="blockquote-footer">Codename <cite>Takedown (TdGame)</cite></footer>
-      </h3>
-      <p class="lead">Released November 11, 2008 for Xbox 360 and Playstation 3. Released for Microsoft Windows on January 12, 2009.</p>
-      <table id="me_table" class="table table-hover table-responsive">
-        <tr>
-          <th id="me_dice" scope="col" colspan="2">DICE Studio</th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Producer</td>
-          <td>
-            <mark title="Worked on Mirror's Edge, was thanked in Mirror's Edge Catalyst.">Owen O'Brien</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Development&nbsp;Director</td>
-          <td>Senta Jakobsen</td>
-        </tr>
-        <tr>
-          <td>Producer</td>
-          <td>Thomas Farrer</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Designer</td>
-          <td>Thomas Andersson</td>
-        </tr>
-        <tr>
-          <td>Art&nbsp;Director</td>
-          <td>Johannes Söderqvist</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Director</td>
-          <td>
-            <mark title="Worked on both games in different roles">Per-Olof Romell</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Art&nbsp;Director</td>
-          <td>Torbjörn Malmer</td>
-        </tr>
-        <tr>
-          <td>Audio&nbsp;Director</td>
-          <td>
-            <mark title="Worked on both games in different roles">Magnus Walterstad</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Directors</td>
-          <td>Åsa Carlsson, Anders Caspersson, Mattias Sjöberg, Johan Wirde, Danjel Rydén</td>
-        </tr>
-        <tr>
-          <td>2D&nbsp;Artist</td>
-          <td>Markus Nyström</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Animator</td>
-          <td>Tobias Dahl</td>
-        </tr>
-        <tr>
-          <td>Animators</td>
-          <td>Björn Humbe, <mark title="Worked on both games in the same role">Jesper Skoog</mark>, <mark title="Worked on both games in different roles">Erik Åström</mark>, Tor
-            Sigurdson</td>
-        </tr>
-        <tr>
-          <td>3D&nbsp;Artists</td>
-          <td>Andreas Fougner Ezelius, Nilo Kaboteh, <mark title="Worked on both games in the same role">Lars Mårtensson</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Character&nbsp;Artist</td>
-          <td>Joacim Lindquist</td>
-        </tr>
-        <tr>
-          <td>Concept&nbsp;Artists</td>
-          <td>Pierre Hanna, <mark title="Worked on both games in different roles">Mattias Häggström</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Effects&nbsp;Artist</td>
-          <td>Fredrik Seehuusen</td>
-        </tr>
-        <tr>
-          <td>Level&nbsp;Artists</td>
-          <td>Robert Briscoe, Christopher Brändström, Sindre Grønvoll, Andreas Hansevi, Daniel Schönherr, Wesley Tack</td>
-        </tr>
-        <tr>
-          <td>Lighting&nbsp;Artists</td>
-          <td>Oscar Carlén, Erland Körner, Wille Wintertidh, Powered&nbsp;by&nbsp;the&nbsp;Night Watch</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Artists</td>
-          <td>Christian Martinsson, Johan Ramström</td>
-        </tr>
-        <tr>
-          <td>Outsourcing&nbsp;Artist</td>
-          <td>Anton Wiegert</td>
-        </tr>
-        <tr>
-          <td>AI&nbsp;Programmers</td>
-          <td>Rikard Blomberg, Håkan Kihlström, Ove Lindblom, Linus Lundberg, Stefan Wallberg</td>
-        </tr>
-        <tr>
-          <td>Build&nbsp;Engineer</td>
-          <td>Per-Jonny Käck</td>
-        </tr>
-        <tr>
-          <td>Gameplay&nbsp;Programmers</td>
-          <td>Mikael Lagré, Kjell Reuterswärd, Martin Wester, Johan Åkesson</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Programmer</td>
-          <td>Jonas Åberg</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Platform&nbsp;Programmer</td>
-          <td>Malte Hildingsson</td>
-        </tr>
-        <tr>
-          <td>Online&nbsp;Programmers</td>
-          <td>Anders Hallberg, Marcus Nordin</td>
-        </tr>
-        <tr>
-          <td>Rendering&nbsp;Programmer</td>
-          <td>Henrik Halén</td>
-        </tr>
-        <tr>
-          <td>UI&nbsp;Programmers</td>
-          <td>Gustav Darpö, Daniel Saar-Odhammer</td>
-        </tr>
-        <tr>
-          <td>Game&nbsp;Designers</td>
-          <td>Tiberius Astianax Lazar, Fredrik Thylander</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;UI&nbsp;Designer</td>
-          <td>Anna Wendelin</td>
-        </tr>
-        <tr>
-          <td>Level&nbsp;Designers</td>
-          <td>Geoff Field, Magnus Olin, Christian Plogfors (hOok), Elisabetta Silli, Niklas Åstrand, Sebastian Armonioso</td>
-        </tr>
-        <tr>
-          <td>Online&nbsp;Producer</td>
-          <td>Henrik Johansson</td>
-        </tr>
-        <tr>
-          <td>Scripter</td>
-          <td>Jim Fagerlund</td>
-        </tr>
-        <tr>
-          <td>VO&nbsp;Producer</td>
-          <td>Tomas Danko</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Lead</td>
-          <td>John-Philip Johansson</td>
-        </tr>
-        <tr>
-          <td>Embedded&nbsp;Testers</td>
-          <td>Nick Baker, Kuda Chirewa, Dan Cooper, Rob Knowles</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;2D&nbsp;Art</td>
-          <td>Tobias Hogstrand</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;3D&nbsp;Art</td>
-          <td>Marcus Fritze, Kristina Hegethorn Pajor, Jessica Helgesson</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Animation</td>
-          <td>Henrik Fegraeus, Kim Fredriksson, Awed Haller, Steven Herft, Mikael Högström, Erik Svensson</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Character&nbsp;Art</td>
-          <td>Jonas Törnqvist</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Effects</td>
-          <td>Andreas Chrysovitsanos</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Lighting</td>
-          <td>Matthias Eriksson, Dave Kintner, Gustav Tilleby</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Sound&nbsp;Design</td>
-          <td>Ben Minto, Mari Saastamoinen-Minto, Malin Arvidsson (Sonic Source)</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Sound</td>
-          <td>Kim Creutzer, Markus Lignell</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Programming</td>
-          <td>Daniel Collin, Mats Dal, Mark Final, Mahram Zojajpour Foadi, Filip Karlsson, Johan Kotlinski, Nicolas Mercier, Peter Österblom, Magnus Sjöberg</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Narrative&nbsp;Design</td>
-          <td>David Goldfarb</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Production</td>
-          <td>Lars Gustavsson, Manuel Saua Llanes</td>
-        </tr>
-        <tr>
-          <td>Writer&nbsp;&#x26;&nbsp;Co-Story Designer</td>
-          <td>Rhianna Pratchett</td>
-        </tr>
-        <tr>
-          <td>Motion&nbsp;Capture&nbsp;Services</td>
-          <td>Northern&nbsp;Mocap&nbsp;Studios AB</td>
-        </tr>
-        <tr>
-          <td>2D&nbsp;Cutscenes</td>
-          <td>Chase&nbsp;Imagnination&nbsp;Limited</td>
-        </tr>
-        <tr>
-          <td>&#x22;Still&nbsp;Alive&#x22;&nbsp;Composed by</td>
-          <td>Rami Yacoub, Arnthor Birgirsson</td>
-        </tr>
-        <tr>
-          <td>&#x22;Still&nbsp;Alive&#x22;&nbsp;Lyrics by</td>
-          <td>Lisa Miskovsky</td>
-        </tr>
-        <tr>
-          <td>&#x22;Still&nbsp;Alive&#x22;&nbsp;Performed by</td>
-          <td>Lisa Miskovsky</td>
-        </tr>
-        <tr>
-          <td>Soundtrack&nbsp;Composed&nbsp;by</td>
-          <td>
-            <mark title="Worked on both games in the same role">Magnus Birgersson</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Soundtrack&nbsp;Performed&nbsp;by</td>
-          <td>Solar&nbsp;Fields</td>
-        </tr>
-        <tr>
-          <td>Foley&nbsp;Artist</td>
-          <td>Ulf Olausson (Europe Sound Production)</td>
-        </tr>
-        <tr>
-          <td>Outsourcing</td>
-          <td>Pearl&nbsp;Digital&nbsp;Entertainment, Sting Luo (EA Shanghai)</td>
-        </tr>
-        <tr>
-          <td>NVidia</td>
-          <td>Dane Johnston, Miguel Sainz, Louis Bavoil, David Sullins, James Dolan, Shawn Edwards, Lou Rohan, David Schoemehl, Bryan Galdrikian, Lihua Zhang, Hermes Lanker, Steve
-            Burke, Tim Heath, Kang Yan, Jeremy Patterson, Don Price, Nathan Schubert, Monier Maher, Rika Nakazawa, Roy Taylor, Bill Rehbock, Leslie Pirritano, Michael Gorman</td>
-        </tr>
-        <tr>
-          <td>General&nbsp;Manager</td>
-          <td>Sean Decker</td>
-        </tr>
-        <tr>
-          <td>Financial&nbsp;Manager</td>
-          <td>Mikael Windander</td>
-        </tr>
-        <tr>
-          <td>CTO</td>
-          <td>Joakim Grundwall</td>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Art</td>
-          <td>Robert Runesson</td>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Audio</td>
-          <td>David Möllerstedt</td>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Programming</td>
-          <td>Göran Wall</td>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Outsourcing&nbsp;&#x26; Localization</td>
-          <td>Robert Andersson</td>
-        </tr>
-        <tr>
-          <td>PR&nbsp;Manager</td>
-          <td>Jenny Huldschiner</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Dev&nbsp;Manager</td>
-          <td>Thomas Rönnberg</td>
-        </tr>
-        <tr>
-          <td>Outsourcing&nbsp;Dev&nbsp;Manager</td>
-          <td>Johan Dalborg</td>
-        </tr>
-        <tr>
-          <td>Operations&nbsp;Dev&nbsp;Director</td>
-          <td>Yashar Moradbakhti</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;Video&nbsp;&#x26; Art</td>
-          <td>Chris Bennison, Håkan Pettersson, Roland Smedberg</td>
-        </tr>
-        <tr>
-          <td>Live&nbsp;Support</td>
-          <td>John Hargelid, Melissa Tague</td>
-        </tr>
-        <tr>
-          <td>Marketing&nbsp;&#x26;&nbsp;PR</td>
-          <td>Sébastien Bisch, Gustav Enekull, Martin Frain</td>
-        </tr>
-        <tr>
-          <td>IT&nbsp;Services</td>
-          <td>Niklas Domander, Alexander Hassoon, Jannis Saripanidis, Cale Wahlfors</td>
-        </tr>
-        <tr>
-          <td>HR</td>
-          <td>Marianne Boström, Jessica Danielson, Peter Henriksson, Carin Källkvist</td>
-        </tr>
-        <tr>
-          <td>Finance</td>
-          <td>Marcus Edholm, Jenny Hedman, Susanne Norlin, Ingela Persson</td>
-        </tr>
-        <tr>
-          <td>Facilties</td>
-          <td>Annika Göksu, Ulrika Hedback, Marie Hägglund, Gisela Malmsten, Samuel Willner</td>
-        </tr>
-        <tr id="me_va">
-          <th colspan=2>Voice Actors</th>
-        </tr>
-        <tr>
-          <td>Faith</td>
-          <td>Jules de Jongh</td>
-        </tr>
-        <tr>
-          <td>Kate</td>
-          <td>Philippa Alexander</td>
-        </tr>
-        <tr>
-          <td>Travis&nbsp;RB</td>
-          <td>Morgan Deare</td>
-        </tr>
-        <tr>
-          <td>Jacknife</td>
-          <td>Tim Dale</td>
-        </tr>
-        <tr>
-          <td>Mercury</td>
-          <td>Glenn J. Wrage</td>
-        </tr>
-        <tr>
-          <td>Miller</td>
-          <td>Joseph Mydell</td>
-        </tr>
-        <tr>
-          <td>Celeste</td>
-          <td>Emily Beecham</td>
-        </tr>
-        <tr>
-          <td>Generic&nbsp;SWAT&nbsp;#1&nbsp;Male</td>
-          <td>Mikey O'Connor</td>
-        </tr>
-        <tr>
-          <td>Generic&nbsp;SWAT&nbsp;#2&nbsp;Male</td>
-          <td>John Schwab</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="me_ea">EA Studio</th>
-        </tr>
-        <tr>
-          <td>EA&nbsp;Europe&nbsp;Senior&nbsp;VP</td>
-          <td>Patrick Söderlund</td>
-        </tr>
-        <tr>
-          <td>EA&nbsp;Europe&nbsp;VP&nbsp;Marketing</td>
-          <td>Jon Rissik</td>
-        </tr>
-        <tr>
-          <td>EA&nbsp;Europe&nbsp;CFO</td>
-          <td>Linda Samlin</td>
-        </tr>
-        <tr>
-          <td>EA&nbsp;Europe&nbsp;Director&nbsp;Business Development</td>
-          <td>Johannes Mang</td>
-        </tr>
-        <tr>
-          <td>Executive&nbsp;Music&nbsp;Producer</td>
-          <td>Steven Schnur</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Music&nbsp;Supervisor</td>
-          <td>Cybele Pettus</td>
-        </tr>
-        <tr>
-          <td>Music&nbsp;Marketing&nbsp;Coordinator</td>
-          <td>Kylie Kmiec</td>
-        </tr>
-        <tr>
-          <td>Music&nbsp;Licensing&nbsp;Manager</td>
-          <td>Beverly Koeckeritz</td>
-        </tr>
-        <tr>
-          <td>Marketing&nbsp;&#x26;&nbsp;PR</td>
-          <td>Derek Andersson, Brad Bennett, Kelly Ekins, Lincoln Hershberger, Aaron Krause, Peter Nguyen, Tammy Levine</td>
-        </tr>
-        <tr>
-          <td>Japan&nbsp;Marketing</td>
-          <td>Chang Duke, Mieko Nakajima</td>
-        </tr>
-        <tr>
-          <td>Taiwan&nbsp;Marketing</td>
-          <td>Tommy Chen, Ellen Hsu</td>
-        </tr>
-        <tr>
-          <td>China&nbsp;Marketing</td>
-          <td>Rowena Chung, Dustin Zhao</td>
-        </tr>
-        <tr>
-          <td>Korea&nbsp;Marketing</td>
-          <td>Hazy Cho, Hana Joo</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Project&nbsp;Manager Europe</td>
-          <td>David Courtin</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Project&nbsp;Managers Asia</td>
-          <td>Diane Ng, Kah Hui Teo</td>
-        </tr>
-        <tr>
-          <td>Assistant&nbsp;Localization&nbsp;Producer Europe</td>
-          <td>Pablo Dopico</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Director&nbsp;Japan</td>
-          <td>Fuzuki Ninomiya</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinators France</td>
-          <td>Chantal Cervoni, Laura Mangione</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinators Italy</td>
-          <td>Alfonsina Mossello, Silvia Favia</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinator&nbsp;Germany</td>
-          <td>Alexander Faißt</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinator&nbsp;Spain</td>
-          <td>Ana Esther Rodríguez</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinators Brazil</td>
-          <td>Dulce Nogueira, Edward Magri</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinators Poland</td>
-          <td>Marcin Król, Jakub Nowicki</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinator&nbsp;Hungary</td>
-          <td>Mária Gyöngyi Nagy</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinator&nbsp;Czech Republic</td>
-          <td>Jan Staníček</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Coordinator&nbsp;Russia</td>
-          <td>Pavel Rutski</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Producer&nbsp;Japan</td>
-          <td>Hideaki Kitamura</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Producers&nbsp;Korea</td>
-          <td>Spike Do, Nice Lee</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Producer&nbsp;China</td>
-          <td>Leon Li, Xing Cao</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Producer&nbsp;Taiwan</td>
-          <td>Jason Chen</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Sound&nbsp;Engineers</td>
-          <td>Pedro Alfageme Langdon</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Lead&nbsp;Localization Integration Engineers</td>
-          <td>Danilo José Guerrero Rodríguez, Felipe González López</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Project&nbsp;Lead</td>
-          <td>Patrick Clifton Payne</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Technical&nbsp;Lead</td>
-          <td>Iñigo Bermejo</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Integration&nbsp;Engineers</td>
-          <td>Alberto Ayuso Pérez, Angel Carrasco</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Testing&nbsp;Project Managers</td>
-          <td>Torben Andersen, Lukasz Pietrucha</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Senior&nbsp;Testers</td>
-          <td>Shoshannah Tekofsky</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Testers</td>
-          <td>Manuele Albano, Fernando Bagdonas, Jan Becker, Gergo Benedek, Nikita Kazantsev, Alexandre Lelandais, Miguel S. Martin de Nicolas, Petr Szypka, Piotr Zagorski</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Leads</td>
-          <td>Bonam Yu, Yunki Shin</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Testers</td>
-          <td>Oh Hyung Kwon, Won Il Lee, Clifford Wu, Hitoshi Suto, Genki Sugita, Marcus Cao, Janise Sheng</td>
-        </tr>
-        <tr>
-          <td>LQA&nbsp;Leads</td>
-          <td>Tham Tuck Yee, YaoXian Wang</td>
-        </tr>
-        <tr>
-          <td>LQA&nbsp;Testers</td>
-          <td>Terence Teng, Say Kin Wee, Goh Jia Yang, Wee Choon Heok, Shaun Chew</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Translators</td>
-          <td>Frederick Wu, Maggie Wu, Mayflower&nbsp;Ent., Quoted&nbsp;Tradução&nbsp;e&nbsp;Localização, Synthesis&nbsp;International&nbsp;S.r.l, CEET, Roboto,
-            team&nbsp;fifty&nbsp;seven, Consell&nbsp;Panonia, Laurent Jardin, M.ª&nbsp;Luisa&nbsp;Crespo, Florian Vanino </td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Sound&nbsp;Designers</td>
-          <td>Yukinori Kanda, Masanao Akahori</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Software&nbsp;Engineering</td>
-          <td>Eric Poh Boon Sam, Chio Binghuan</td>
-        </tr>
-        <tr>
-          <td>Mastering&nbsp;Japan</td>
-          <td>Hirohisa Satō</td>
-        </tr>
-        <tr>
-          <td>Mastering&nbsp;Singapore</td>
-          <td>Jason Lim</td>
-        </tr>
-        <tr>
-          <td>Certification</td>
-          <td>Rene Apperley, James Arup, Sherwyn Augustus, Earl Baker, Stephen Baker, Dave Beck, James Bolton, Matt Bright, Phil Brown, Mike Bullen, Collin Carey, Pedro Castro,
-            Sandra Champanhet, Lawinjeya Chandrakumaran, Kwang-Hi Cho, Andy Chung, Nicholas Cobb, Jason Collins, Steve Cook, Rob Cooke, Benjamin Crick, Ricardo de Avila, Lawrence
-            Donohue, James Featherstone, Mike Fenton, David Fielding, Seferino Gallardo, Eron Garcia, Juan Antonio Garcia de Quinto, Laura George, Daniel Green, Wes Hendrix, Allen
-            Horton, Joseph Huggett, Morgan Hughes, Errol Ismail, Ben Jackson, Ryan Jacobson, Darryl Jenkins, Harry Kashouli, Amy Kenah, Kyle Killion, Mike Kushner, Raymond
-            Langford, Alex Lawson, Conrad Leiden, Matt Loft, Damon Lumley, Anh Luong, Daniel Martell, Shaun McCourt, Adam McIntosh, Russell Medeiros, James Melling, Garrett
-            Muldoon, Mitchell Munter, Stuart Oswald, Dee Patel, Eduardo Ponz, Andrew Pritchard, Lucas Richard, Ryan Roque, Mary Joyce Sacman, Joaquin Jesus Sanz Jimenez, Seb
-            Serrano, Chance Shiflett, Richard de Silva, Julie Staub, Jonas Stockfleth, Chris Strong, Timo Tolonen, Eduardo Varela, Robin Volker, Tim Wileman, Bobby Williams</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Director</td>
-          <td>Chris Ambler</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Black&nbsp;Box&nbsp;Test Manager</td>
-          <td>Christopher Carter</td>
-        </tr>
-        <tr>
-          <td>Black&nbsp;Box&nbsp;Test&nbsp;Manager</td>
-          <td>Craig McLeod</td>
-        </tr>
-        <tr>
-          <td>Black&nbsp;Box&nbsp;Test&nbsp;Leads</td>
-          <td>Lee Brockway, Ben Craig, Lewis Reid</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;Testers</td>
-          <td>Doug Anderson, James Cobbett, Stephen Cox, Dominic Gara, Andrew Hales, Lewis Harvey, Darwin Lincoln, Simon Mant, Ryan Mills, Lars Minkkinen, Simon Payne, Mundeep
-            Purewal, James Stephens, Jack Tutton, Gareth Williams</td>
-        </tr>
-        <tr>
-          <td>Romania&nbsp;QA&nbsp;Manager</td>
-          <td>Joe Grant</td>
-        </tr>
-        <tr>
-          <td>Romania&nbsp;Project&nbsp;Manager</td>
-          <td>Eugen Baicea</td>
-        </tr>
-        <tr>
-          <td>Romania&nbsp;Project&nbsp;Leads</td>
-          <td>Alin Dima, Andrei Joghiu</td>
-        </tr>
-        <tr>
-          <td>Romania&nbsp;Test&nbsp;Lead</td>
-          <td>Cristian Ivan</td>
-        </tr>
-        <tr>
-          <td>Romania&nbsp;Testers</td>
-          <td>Andrei Arsene, Sebastian Buzac, Eusebiu Caciuleanu, Mircea Dobre, Razvan Doholici, Andrei Dragan, Andrei Enea, Madalin Geantau, Mihai Grigorescu, Valentin Iliescu,
-            Horia Ionita, Alexandru Marinescu, Claudiu Matei, Alexandru Micu, Alexandru Mitroiu, Dragos Panait, Radu Pavel, Cezar Petcu, Victor Petrescu, Mihai Pricochi</td>
-        </tr>
-        <tr>
-          <td>Tiberon&nbsp;Test&nbsp;Team&nbsp;Senior Lead</td>
-          <td>Jay Malone</td>
-        </tr>
-        <tr>
-          <td>Tiberon&nbsp;Test&nbsp;Team&nbsp;Leads</td>
-          <td>Julio A. Perez, Troy Chapman</td>
-        </tr>
-        <tr>
-          <td>Tiberon&nbsp;Testers</td>
-          <td>Marcus Aguiar, Courtney Bodie, Philmore Browne Jr., Llyod Campbell Jr., Richard Cortes, Jay Grafwallner, Justin Eugene Haile, Clyde Hampton, LaRon Hill, Robert
-            Kaiser, Robert Kyle, James P. Mirvil, Sielecas L. Sharpe, Michael Shearer, Robert Spencer, Jason Struckhoff, Marc Williams</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Compliance&nbsp;Team</td>
-          <td>David Ambler, Toby Bushnell, Bill Carter, Ed Carter, Ali Hassan, Richard Hylands, Ben Miller, Marcus Purvis, Martyn Sibley, Darran Wall, Byron Wessels</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Compliance&nbsp;Testers</td>
-          <td>Sam Birley, Mark Buffone, Spencer Edwards, Lars Minkkinen, Martin Montford, Russ Pitman, Colin Pratt, Jonny Stacey, Adam Wightman, Andrew Wretham</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Process&nbsp;Manager</td>
-          <td>Andrew Miller</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Process&nbsp;Analyst</td>
-          <td>Andy Hall</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Tools&nbsp;Manager</td>
-          <td>Mark Bosomworth</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Live&nbsp;Test Manager</td>
-          <td>Stuart Pratt</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Lead&nbsp;Technician</td>
-          <td>Ed Carter</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;QA&nbsp;Technician</td>
-          <td>Leon Pozo</td>
-        </tr>
-        <tr>
-          <td>UK&nbsp;HR&nbsp;Coordinator</td>
-          <td>Hannah Hart</td>
-        </tr>
-        <tr>
-          <td>Thank&nbsp;You</td>
-          <td>Our&nbsp;friends&nbsp;and&nbsp;families, Thai&nbsp;House&nbsp;Wok, Oscar Berg, Rokujin, Lie Fujita, Lena Plogfors, Felicia Baby Hellström, Naemi Olsson, Irene
-            Söderholm, My&nbsp;family, Dagmar Thylander, Årydsmaffian, Olof Mikael Peter Halén, Jacob Holst, Erika Wirde, Torbjörn Gyllebring, Kimberley Walterstad,
-            Little&nbsp;Boy, Cilia Flöje, Daniel Lagré, Kristina Åstrang, Nima Poya Kaboteh, Johan Erik Strömgren, Emma Zakrisson, Fiona O'Brien, Beatrice Carlsson,
-            Stockholm&nbsp;Pinball, Kaj Jakobsen, London&nbsp;Woo, Livia Lazar, Lisa Engström, Zen Huan, Bacon&nbsp;&nbsp;Pesto, The&nbsp;Night&nbsp;Watch </td>
-        </tr>
-      </table>
-      <hr>
-      <picture class="art_space">
-        <img src="/assets/media/image/credits/its_my_turn.png">
-        <p class="text-right" style="color: #8c8c8c;">"It's my turn" by some awesome Chinese Artist</p>
-      </picture>
-      <h1 id="mec_desc">Mirror's Edge Catalyst&nbsp; <small class="text-muted">2016</small>
-      </h1>
-      <h3>
-        <footer class="blockquote-footer">Codename <cite>Pamplona</cite></footer>
-      </h3>
-      <p class="lead">Released June 7, 2016 for Xbox One, PlayStation 4 and Microsoft Windows.</p>
-      <table id="mec_table" class="table table-hover table-responsive">
-        <tr>
-          <th colspan=2 id="mec_devt_directorst"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Director&#x27;s Team </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Producer</td>
-          <td>Sara Jansson</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Development&nbsp;Director</td>
-          <td>Per Juhlén</td>
-        </tr>
-        <tr>
-          <td>Producer</td>
-          <td>Amo Mostofi</td>
-        </tr>
-        <tr>
-          <td>Design&nbsp;Director</td>
-          <td>Erik Odeldahl</td>
-        </tr>
-        <tr>
-          <td>Art&nbsp;Director</td>
-          <td>Jhony Ljungstedt</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Art&nbsp;Director</td>
-          <td>Torbjörn Söderman, Mikael Linderholm</td>
-        </tr>
-        <tr>
-          <td>Audio&nbsp;Director</td>
-          <td>James Slavin</td>
-        </tr>
-        <tr>
-          <td>Animation&nbsp;Director</td>
-          <td>
-            <mark title="Worked on both games in different roles">Erik Söderholm</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>UX&nbsp;&#x26;&nbsp;Social&nbsp;Play Producer</td>
-          <td>Elin Holmberg, Peter Stahl</td>
-        </tr>
-        <tr>
-          <td>Gameplay&nbsp;Producer</td>
-          <td>Jeremy Miller</td>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Director</td>
-          <td>Joel Fagerlund</td>
-        </tr>
-        <tr>
-          <td>Associate&nbsp;Technical&nbsp;Director</td>
-          <td>Martin Wester</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Design&nbsp;Director</td>
-          <td>Mikael Hedberg</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_leadst"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Leads Team</h2>
-          </th>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Directors</td>
-          <td>Tobias Hagberg, Per Storløkken, Göran Wall, Romi Gråhed</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Software&nbsp;Engineers</td>
-          <td>Anders Haliberg, Daniel Johansson</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Level&nbsp;Designers</td>
-          <td>Scott Carpenter, Dave Lee</td>
-        </tr>
-        <tr>
-          <td>Narrative&nbsp;Director</td>
-          <td>Christofer Emgård</td>
-        </tr>
-        <tr>
-          <td>Assistant&nbsp;Art&nbsp;Director</td>
-          <td>Frej Appel</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Level&nbsp;Artist</td>
-          <td>Mikael Nellfors</td>
-        </tr>
-        <tr>
-          <td>Content&nbsp;Manager</td>
-          <td>Conny Bergqvist</td>
-        </tr>
-        <tr>
-          <td>Gameplay&nbsp;Designers</td>
-          <td>Linus Josephson, Rickard Antroia, Viljar Sommerbakk</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_gamet"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Game Team</h2>
-          </th>
-        </tr>
-        <tr>
-          <td>Level&nbsp;Designers</td>
-          <td>Anders Jansson, Henrik Alfredsson, Lukas Van Daele, Pål Wallo, Terrence Cronin</td>
-        </tr>
-        <tr>
-          <td>UX&nbsp;Designer</td>
-          <td>Andreas Lanjerud</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Designers</td>
-          <td>Jim Fagerlund, Andreas Persson, Cristian Pavel</td>
-        </tr>
-        <tr>
-          <td>Scripter</td>
-          <td>Fredrik Westlund</td>
-        </tr>
-        <tr>
-          <td>Persistence&nbsp;Designer</td>
-          <td>Anders Adlén</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_softeng"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Software Engineers</h2>
-          </th>
-        </tr>
-        <tr>
-          <td>Gameplay&nbsp;Software&nbsp;Engineers</td>
-          <td>Anders Nivfors, Henrik Holst, Kian Bashiri, Kristoffer Sjöö, Linus Lundberg, Petter Lundgren, Sean Boocock, Strati Zerbinis </td>
-        </tr>
-        <tr>
-          <td>UX&nbsp;&#x26;&nbsp;Online&nbsp;Software Engineers</td>
-          <td>Anders Andersson, Andreas Tarandi, Jimmy Hådén, Johan Yveborg, Marcus Hoverby, Mark Scheurwater, Mikael Lagré, Per Burström</td>
-        </tr>
-        <tr>
-          <td>Core&nbsp;Software&nbsp;Engineers</td>
-          <td>Ciaran Kelly, Darrin Stewart, Jan Schmid, Liza Shulyayeva, Michael Lidgren, Mikael Uddholm, Ricardo Barreira, Yasin Uludag </td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_artists"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Artists</h2>
-          </th>
-        </tr>
-        <tr>
-          <td>Level&nbsp;Artists</td>
-          <td>Andre Wahlgren, Andreas Hansevi, Emelie Nilsson, Jeroen Maton, Linnea Harrison, Lionel Cregut, Michael Anderson, Pawel Novak, Pierre Autissier, Pontus Pettersson,
-            Rick Underhill, Said Zamzad</td>
-        </tr>
-        <tr>
-          <td>Character&nbsp;Artists</td>
-          <td>Linus Hamilton, Marcus Pettersson, Rui Mu, Sanna Nivhede</td>
-        </tr>
-        <tr>
-          <td>3D&nbsp;Artists</td>
-          <td>Alexandros Sideras, André Boström, Daniel Rocque-Bengtsson, David Ljungstedt, Kaori Kato, <mark title="Worked on both games in the same role">Lars Mårtensson</mark>,
-            Laurens Corijn, Martin Henriksson, Saman Mahmoudi, Sofia Jakobsson, Sokol Mehmeti</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Lighting&nbsp;Artist</td>
-          <td>Fabien Christin</td>
-        </tr>
-        <tr>
-          <td>Lighting&nbsp;Artists</td>
-          <td>Anton Palmqvist, Karl Stjernberg</td>
-        </tr>
-        <tr>
-          <td>VFX&nbsp;Artists</td>
-          <td>Björn Henriksson, Gustav Hagerling</td>
-        </tr>
-        <tr>
-          <td>Compositors</td>
-          <td>Fredrik Höglin, Joachim Ljunggren (Pixeldust AB), Jonathan Lindgren, Sven Ahlström</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_conceptartists"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Concept Artists</h2>
-          </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Photography</td>
-          <td>
-            <mark title="Worked on both games in different roles">Mattias Häggström</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Concept&nbsp;Artist</td>
-          <td>Per Øyving Haagensen</td>
-        </tr>
-        <tr>
-          <td>Concept&nbsp;Artists</td>
-          <td>Anton Grandert, Henrik Sahlström, Joseph McLamb, Nick Leavy</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_2dart"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: 2D Art </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;UI/2D&nbsp;Artist</td>
-          <td>Tobias Hogstrand</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_anim"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Animators </th>
-        </tr>
-        <tr>
-          <td>Animators</td>
-          <td>Andrea Kozakova, Awed Haller, Emil Nilsson, Gabriel Flamm, <mark title="Worked on both games in the same role">Jesper Skoog</mark>, Kristoffer Bjömör, Sean Diehl</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Animator</td>
-          <td>Arvid Burström</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_audio"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Audio </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Audio&nbsp;Designers</td>
-          <td>
-            <mark title="Worked on both games in different roles">Magnus Walterstad</mark>, Olof Strömqvist</td>
-        </tr>
-        <tr>
-          <td>Audio&nbsp;Designers</td>
-          <td>Mari Saastamoinen-Minto</td>
-        </tr>
-        <tr>
-          <td>VO&nbsp;Producer</td>
-          <td>Patrick Michalak</td>
-        </tr>
-        <tr>
-          <td>Audio&nbsp;Analyst</td>
-          <td>Mikael Månsson</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_localization"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Localization </th>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Director</td>
-          <td>Thomas Rönnberg</td>
-        </tr>
-        <tr>
-          <td>Localization&nbsp;Development&nbsp;Managers</td>
-          <td>Timmy Jonsson, Iñaki Valladares Martinez</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_qa"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: DICE QA </th>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Director</td>
-          <td>Simon Crawford</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Managers</td>
-          <td>Jaqub Ajmal, David Gallacher, Paul Watson</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Lead</td>
-          <td>Andra Dimofte</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;QA&nbsp;Analysts</td>
-          <td>Dan Cooper, Steve Cox, Billy Frew</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Analysts</td>
-          <td>Andreas Olsson, Angel Kavazov, David Hansson, Fabrizio Vasquez (Fabbz), Filip Sahlberg, Ludvig Kingfors, Mikael Månsson, Nicky King, Rikard Westelius, Robin Powell,
-            Sebastian Contreras, Sigurbjörg Sara Benediktsdóttir</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_qe"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: DICE QE </th>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Director</td>
-          <td>David King</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Mikhail Samarin, Roman Gusev, Michael Harnetty, Marcus Jacobsson</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_pmqa"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: DICE Project Management QA </th>
-        </tr>
-        <tr>
-          <td>Program&nbsp;Manager</td>
-          <td>Pankaj Gupta</td>
-        </tr>
-        <tr>
-          <td>QA&nbsp;Lead</td>
-          <td>Frances Blaxell</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_babies"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Product Babies </th>
-        </tr>
-        <tr>
-          <td>Production&nbsp;Babies</td>
-          <td>Chris Ishin Weng, Edwin Juhlén-Twelkmeyer, Nike Bach, Tristan Bach, Sonny Rasmus Bear Slavin, Kai Karijus Frew, Clara Larsson, Niks Yveborg, Sam Zamzad, Alva Uddholm,
-            Elmer Hamilton, Alda Hamilton, Tycho Söderholm, Henri Viggo Björn Mostofi, Michel Henriksson, Sam Henriksson</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_thanks"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Thanks </th>
-        </tr>
-        <tr>
-          <td colspan=2>Keyvan&nbsp;&amp;&nbsp;Amanda, Mario Oisson, Viktor Söderman, Becca;&nbsp;River&nbsp;&amp;&nbsp;Echo , Ann;&nbsp;Saga&nbsp;&amp;&nbsp;Love,
-            Elias&nbsp;&amp;&nbsp;Dante!, Allison;&nbsp;Mary&nbsp;&amp;&nbsp;Stephan, Sofia&nbsp;and&nbsp;Team&nbsp;PALT, JolaMumMiaBenConorDaveDad,
-            Alexandra;&nbsp;Shifty&nbsp;&amp;&nbsp;Cali, darmok&nbsp;&amp;&nbsp;jalad, Anna Berg, Morris Berg, Emma Toft, For&nbsp;Dunk:&nbsp;Love&nbsp;Always. Quonk,
-            ToMumDadDavidMeilorsOma, Thanks&nbsp;for&nbsp;playtester feedback, Angelica;&nbsp;Dante&nbsp;&amp;&nbsp;Bo , Hobbsan&nbsp;[Gameplay&nbsp;Team &amp; ME1],
-            Kirsten;&nbsp;Zia;&nbsp;and&nbsp;Harrier, Mum;&nbsp;Dad;&nbsp;Scott;&nbsp;Ewan; Claire &amp; Toot, &nbsp;Mum;&nbsp;Dad;&nbsp;Laza, Nikke&nbsp;&amp;&nbsp;Luna&nbsp;,
-            To&nbsp;Rachel;&nbsp;Tomi;&nbsp;Bobo and family, SofiaIngelaDavidKristianOlofNP, Julia Ljungberg (credited as Julia Snuttepluttan Ljungberg),
-            Tina;&nbsp;Bosse;&nbsp;Lukas&nbsp;&amp; Robin , Kasper&nbsp;&amp;&nbsp;Poking&nbsp;sticks, To&nbsp;Sofie&nbsp;, JSund;&nbsp;Valle;&nbsp;nsg&nbsp;&amp; Perk,
-            Thanks&nbsp;Jem&nbsp;&amp;&nbsp;Nuggette . Hi cWg crew, Paris Carbone, Amelia;&nbsp;Jason, Kim&nbsp;&amp;&nbsp;MaPa, Ryan Cairns, CEAI&nbsp;H&P;&nbsp;No&nbsp;Fears Only
-            Dreams, Family;&nbsp;friends&nbsp;and&nbsp;team., Family;&nbsp;Badger;&nbsp;Team; Friends, Erin;&nbsp;Quinton&nbsp;and&nbsp;Eden, Linnea&nbsp;,
-            Mostofis&nbsp;;&nbsp;PettervPs &amp; Danne, Twinsen&nbsp;Ella&nbsp;&amp;&nbsp;Alice, Angela;&nbsp;Addison, ECE&nbsp;[[d|&#8209;&#8209;|b]],
-            &nbsp;Michelle;&nbsp;Raoul&nbsp;and my family, Kristine Wallman, Dallas;&nbsp;Elisabetta;&nbsp;Lisa&amp;Glenn, To&nbsp;Ca&nbsp;and&nbsp;our&nbsp;unborn twins ,
-            Jim;&nbsp;Lynne;&nbsp;Iain&nbsp;&amp; Anderson Clan, To&nbsp;Olsklingen&nbsp;and&nbsp;Neapean, To&nbsp;Hanna&nbsp;Du&nbsp;är bäst :) , To&nbsp;Harrier;&nbsp;Kennerth
-            &amp; Linnéa, Moa;&nbsp;Elin&nbsp;&amp;&nbsp;Pontus, Mickis;&nbsp;Mamma&nbsp;&amp;&nbsp;Norrland, &nbsp;Isac;&nbsp;Elli, Pa;&nbsp;Ma;&nbsp;Jhony&nbsp;&amp; Kalle,
-            My&nbsp;family&nbsp;and&nbsp;Hanne , To&nbsp;Riitta;&nbsp;Jack&nbsp;&amp; Alex, &nbsp;Vera&nbsp;&amp;&nbsp;E&#8209;gruppen, Dedicated&nbsp;to&nbsp;Sandy&nbsp;Funkyness,
-            To&nbsp;Samurai;&nbsp;Ninja&nbsp;&amp; Poggy, ClintKateSmSVladSandraRodzide, To&nbsp;my&nbsp;lovely&nbsp;Jantima , Caitlin&nbsp;and&nbsp;Gwen,
-            Emmi;&nbsp;Gunnar&nbsp;and&nbsp;Thomas; Malmö - OPFG - Viktor och Henry, Leon;&nbsp;Simone;&nbsp;Xiaowen; Yaz , Mirror's&nbsp;Edge&nbsp;Speedrunners, Ida Yveborg, Nils
-            Yveborg, Klara Yveborg, Thanks&nbsp;Rebecca.&nbsp;Mreow, To&nbsp;Malin&nbsp;, Elenarie, Alva;&nbsp;Teo&nbsp;&amp;&nbsp;Anna-Maria, To&nbsp;Sheje;&nbsp;Bujar&nbsp;&amp;
-            Flora, Irene Söderholm, To&nbsp;my&nbsp;supergirl&nbsp;Anca &amp; Luca </td>
-        </tr>
-        <tr>
-          <td>In&nbsp;loving&nbsp;memory&nbsp;of</td>
-          <td>Barbro Hallberg (1929-2016), Torbjörn Petterson (1950-2015)</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_music"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Music </th>
-        </tr>
-        <tr>
-          <td>Music&nbsp;by</td>
-          <td>Solar&nbsp;Fields</td>
-        </tr>
-        <tr>
-          <td>Produced&nbsp;by</td>
-          <td>
-            <mark title="Worked on both games in the same role">Magnus Birgersson</mark>, <mark title="Worked on both games in different roles">Magnus Walterstad</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>&#x27;Warning&nbsp;Call&#x27;</td>
-          <td>Performed&nbsp;by&nbsp;CHVRCHES, Iain Andrew Cook (Writer), Martin Clifford Doherty (Writer), Lauren Eve Mayberry (Writer), <mark
-              title="Worked on both games in the same role">Magnus Birgersson</mark> (Writer), Published&nbsp;by&nbsp;Universal PolyGram Int. Publishing Inc.,
-            on&nbsp;behalf&nbsp;of&nbsp;Universal Music Publishing Ltd., Electronic&nbsp;Arts&nbsp;Music [ASCAP], Administered&nbsp;by&nbsp;Nettwerk One Music [Canada] Ltd.,
-            CHVRCHES&nbsp;appear&nbsp;courtesy of Glassnote Entertainment Group LLC, Virgin&nbsp;Records&nbsp;Limited, Universal&nbsp;Music&nbsp;GmbH, Hostess&nbsp;KK,
-            Liberator&nbsp;Music</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_additional"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Additional </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Producer</td>
-          <td>Sigurlína V. Ingvarsdóttir</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Scripter</td>
-          <td>Eugene Kuczerepa</td>
-        </tr>
-        <tr>
-          <td>Scripter</td>
-          <td>Fredrik Englund</td>
-        </tr>
-        <tr>
-          <td>Level&nbsp;Designers</td>
-          <td>Filip Coulianos, Stephen Iannetta, Dan Cooper</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Online&nbsp;Engineer</td>
-          <td>Niclas Forsell</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Anders Wikström, Andreas Jones, Arne Schober, Daniel Dahlkvist, David Hansson, Filip Karlsson, Jesper Larsson, Joseph Goodwin, Justin Morgan, Martin Johansson,
-            Predrag Jancic, Vania Lamas, Scott Neumann, Erik Magnusson</td>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Director</td>
-          <td>Per Kjellström</td>
-        </tr>
-        <tr>
-          <td>Level&nbsp;Artists</td>
-          <td>Daniel Schönherr, Jens Oras, Sebastian Armonioso</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;2D&nbsp;Artists</td>
-          <td>Dongjoo Artursson, Nina Lindgren, Viktor Blanke</td>
-        </tr>
-        <tr>
-          <td>Lighting&nbsp;Artists</td>
-          <td>Ben Hutchings, Hus Zekayi</td>
-        </tr>
-        <tr>
-          <td>VFX&nbsp;Artist</td>
-          <td>Andreas Glad</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Animators</td>
-          <td>Christian Kardach, Francesco Coan, Gabriel Pettersson, Juan Tigreros, Nils Lerin</td>
-        </tr>
-        <tr>
-          <td>Additional&nbsp;VO&nbsp;Designer</td>
-          <td>Raoul Hamilton</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_specialthanks"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Special Thanks </th>
-        </tr>
-        <tr>
-          <td>Special&nbsp;Thanks</td>
-          <td>Crille Forsberg, David Worsham, Joakim Grundwall, Johannes Deligiannis, Jonas Åberg, <mark
-              title="Worked on Mirror's Edge, was thanked in Mirror's Edge Catalyst.">Owen O'Brien</mark>, Pierre Niedhardt, Red&nbsp;Pipe, Tom Olsson, Emily Clark, Fiona Cribben,
-            Carl-Magnus Nordin</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_companion"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: The Beat Companion App </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Developer</td>
-          <td>Elton Muuga</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineer</td>
-          <td>Rikard Gehlin</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_devt_mediat"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Media Team - Management </th>
-        </tr>
-        <tr>
-          <td>Post&nbsp;Production&nbsp;Director</td>
-          <td>Mattias Lindahl</td>
-        </tr>
-        <tr>
-          <td>2D&nbsp;Media&nbsp;Manager</td>
-          <td>Viktoria Anselm</td>
-        </tr>
-        <tr>
-          <th colspan=2> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Media Team - Team </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Video&nbsp;&#x26;&nbsp;Media Director / Editor</td>
-          <td>Randall Evans</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Video&nbsp;&#x26;&nbsp;Media Directors / Editors</td>
-          <td>Roland Smedberg, Marcus Johansson</td>
-        </tr>
-        <tr>
-          <td>Video&nbsp;&#x26;&nbsp;Media&nbsp;Directors / Editors</td>
-          <td>Stefan Linde, André Söderlund</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_dice_studio"> DICE Studio: DICE Studio Management </th>
-        </tr>
-        <tr>
-          <td>VP&nbsp;&#x26;&nbsp;GM</td>
-          <td>Patrick Bach</td>
-        </tr>
-        <tr>
-          <td>Studio&nbsp;Director&nbsp;of&nbsp;Product Development</td>
-          <td>Björn Johnsson</td>
-        </tr>
-        <tr>
-          <td>Studio&nbsp;Director&nbsp;of&nbsp;Technology</td>
-          <td>
-            <mark title="Worked on both games">Per-Olof Romell</mark>
-          </td>
-        </tr>
-        <tr>
-          <td>Studio&nbsp;Director&nbsp;of&nbsp;Art</td>
-          <td>Robert Runesson</td>
-        </tr>
-        <tr>
-          <td>Studio&nbsp;Director&nbsp;of&nbsp;Design</td>
-          <td>Rasmus Højengaard</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Producers</td>
-          <td>Aleksander Svendsen Grøndal, Sara Jansson, Sigurlína V. Ingvarsdóttir</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Finance&nbsp;Manager</td>
-          <td>James Watkins</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;HR&nbsp;Manager</td>
-          <td>Peter Henriksson</td>
-        </tr>
-        <tr>
-          <td>Executive&nbsp;Assistant</td>
-          <td>Heléne Jutenäs</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: Line Managers </th>
-        </tr>
-        <tr>
-          <td>Line&nbsp;Managers</td>
-          <td>Anders Bernsveden, Jennifer Heras-Cordon, Anna Dahlen, Björn Hedberg, Johan Husén, Peter Kjellberg, Robert Nyberg, Stefan Wiesel</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: Human Resources </th>
-        </tr>
-        <tr>
-          <td>Human&nbsp;Resources</td>
-          <td>Marianne Boström, Sofia Hanerud</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: HR Business Parner </th>
-        </tr>
-        <tr>
-          <td>HR&nbsp;Business&nbsp;Partner</td>
-          <td>Björn Lundin</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: Talent Acquisition </th>
-        </tr>
-        <tr>
-          <td>Talent&nbsp;Acquisition</td>
-          <td>Terri Kim Bell, Fredrik Johnsson, Johanna Ragnhammar, Carl Tamleht, Hannes Larsson Westerlund</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: Business Affairs &#x26; Development </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Business Affairs &#x26; Development</td>
-          <td>Bernadet Bonomi-Schapink</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Business Development</td>
-          <td>Jennifer Gamel</td>
-        </tr>
-        <tr>
-          <td>Thanks&nbsp;to</td>
-          <td>Steven Bell, David Coleman, Ritche Corpus, Zach Levi, Peter Ross, Josh Salem, Karl Stewart, Kevin Strange</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: Finance </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Financial&nbsp;Analyst</td>
-          <td>Eric Larsson</td>
-        </tr>
-        <tr>
-          <td>GL&nbsp;Accountant</td>
-          <td>Jenny Hedman</td>
-        </tr>
-        <tr>
-          <td>Accounting&nbsp;Clerk</td>
-          <td>Peter Nyberger</td>
-        </tr>
-        <tr>
-          <td>Payroll&nbsp;Specialist</td>
-          <td>Åsa Mosell</td>
-        </tr>
-        <tr>
-          <td>Assistant&nbsp;Payroll&nbsp;Specialist</td>
-          <td>María Tómasdóttir</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_dice_it"> DICE Studio: IT </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;IT&nbsp;Manager</td>
-          <td>Niklas Domander</td>
-        </tr>
-        <tr>
-          <td>System&nbsp;Engineers</td>
-          <td>Niclas Ljunggren, Jannis Saripanidis, Markus Viitamäki</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;IT&nbsp;Service&nbsp;Specialist</td>
-          <td>Fredrik Andersson</td>
-        </tr>
-        <tr>
-          <td>IT&nbsp;Service&nbsp;Specialists</td>
-          <td>Sebastian Hjorth, Joao Rivas, Sabri Debesai</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: RPM Service Management </th>
-        </tr>
-        <tr>
-          <td>RPM&nbsp;Service&nbsp;Lead</td>
-          <td>Ryu Underhill</td>
-        </tr>
-        <tr>
-          <td>RPM&nbsp;Service&nbsp;Manager</td>
-          <td>Norm Fernando</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Studio: Facilities </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Facilities&nbsp;Manager</td>
-          <td>Jeanette Henningsson</td>
-        </tr>
-        <tr>
-          <td>Office&nbsp;Manager</td>
-          <td>Martin Krigh</td>
-        </tr>
-        <tr>
-          <td>Back&nbsp;Office&nbsp;Assistant</td>
-          <td>Adam Lindblom</td>
-        </tr>
-        <tr>
-          <td>Event&nbsp;Manager</td>
-          <td>Christine Gordon</td>
-        </tr>
-        <tr>
-          <td>Receptionists</td>
-          <td>Johanna Almgren, Filipha Granlund, Klara Hansen, Malin Höltzermann</td>
-        </tr>
-        <tr>
-          <td>Janitors</td>
-          <td>Anton Wittberg, Hugo Hammarlund, Gustav Månsson</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_diceops"> DICE Operations: Management </th>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Operations</td>
-          <td>Johan Döhl, Natalie Francis</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Development&nbsp;Director</td>
-          <td>Ryan McArthur</td>
-        </tr>
-        <tr>
-          <td>Service&nbsp;Director</td>
-          <td>Andreas Skoglund</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Director</td>
-          <td>Carl-Magnus Nordin</td>
-        </tr>
-        <tr>
-          <td>Launch&nbsp;Online&nbsp;Technical Director</td>
-          <td>Shez Bhimji</td>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Directors</td>
-          <td>Johan Dalborg, Jaiook Park</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Product Launch </th>
-        </tr>
-        <tr>
-          <td>Launch&nbsp;Director</td>
-          <td>Toby Bushnell</td>
-        </tr>
-        <tr>
-          <td>Technical&nbsp;Director</td>
-          <td>Andrew Sledd</td>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Director</td>
-          <td>Christoffer Lagerhorn</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Live </th>
-        </tr>
-        <tr>
-          <td>Producer</td>
-          <td>Alexander Hassoon</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Software&nbsp;Engineer</td>
-          <td>David Röhr</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Johan Idrén, Tommy Ulfsparre, Erman Döser, Johan Kamb, Lars Sjöström</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Online Ops</td>
-          <td>Nathan Weast</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Submission and Release Management </th>
-        </tr>
-        <tr>
-          <td>Team&nbsp;Lead</td>
-          <td>Klas Håkansson</td>
-        </tr>
-        <tr>
-          <td>Release&nbsp;Manager</td>
-          <td>Adrian Irimiea</td>
-        </tr>
-        <tr>
-          <td>Submission&nbsp;Analysts</td>
-          <td>Karl Fridlycke, Ovidiu Cernahoschi</td>
-        </tr>
-        <tr>
-          <td>Store&nbsp;Manager</td>
-          <td>Naseer Alkhouri</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Back End Development </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Software&nbsp;Engineers</td>
-          <td>Joakim Bodin, Johan Mjönes</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Hannes Heijkenskjöld, João Neves, Rikard Andersson, Daniel Lundin, Reik Schatz</td>
-        </tr>
-        <tr>
-          <td>Quality&nbsp;Engineers</td>
-          <td>Viktor Jonsson, Luca Fazari</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Front End Development </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Software&nbsp;Engineer</td>
-          <td>Patric Nordmark</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Per Johansson, Geoff Green</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Core Development </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Software&nbsp;Engineer</td>
-          <td>Michael Nordström</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Jesper Svennevid, Alexander Krasnukhin, Kevin Moore, Oscar Norlander</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Anti Cheat </th>
-        </tr>
-        <tr>
-          <td>Anti&nbsp;Cheat&nbsp;Manager</td>
-          <td>Sabina af Jochnick</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Niklas Sandén, Dirk de la Hunt</td>
-        </tr>
-        <tr>
-          <th colspan=2> DICE Operations: Analytics </th>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Game&nbsp;Analyst</td>
-          <td>Maria Gerontini</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Business&nbsp;Analytics</td>
-          <td>Benjamin Tisdale</td>
-        </tr>
-        <tr>
-          <td>Analyst&nbsp;Team&nbsp;Lead</td>
-          <td>Jay Austin</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Business&nbsp;Intelligence Engineer</td>
-          <td>Christian Cyréus</td>
-        </tr>
-        <tr>
-          <td>Business&nbsp;Intelligence&nbsp;Analyst</td>
-          <td>Rikard Nyquist</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Business&nbsp;Intelligence Engineer</td>
-          <td>Cameron Westlake</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Business&nbsp;Analysts</td>
-          <td>Katarina Dahlgren, Bei He</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_ghost"> Ghost Games Support Pod </th>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Matthew Barnard, Johan Carlberg, Martin Green, Gustav Örnvall, Edvard Sandberg, Kathrin Scheil, Mattias Thell</td>
-        </tr>
-        <tr>
-          <td>Content&nbsp;Editors</td>
-          <td>Amanda Ehlert, Erik Christersson, Lizette Stenqvist</td>
-        </tr>
-        <tr>
-          <td>Development&nbsp;Director</td>
-          <td>Tatyana Dyshlova</td>
-        </tr>
-        <tr>
-          <td>Cinematic&nbsp;Artists</td>
-          <td>Neil Manners, Kam Wan</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_ea_marketing"> EA Global Marketing: Global Product Marketing </th>
-        </tr>
-        <tr>
-          <td>Chief&nbsp;Marketing&nbsp;Officer</td>
-          <td>Chris Bruzzo</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Vice&nbsp;President Marketing</td>
-          <td>Todd W. Sitrin</td>
-        </tr>
-        <tr>
-          <td>Vice&nbsp;Presidents&nbsp;Marketing</td>
-          <td>Anthony Stevenson, Lincoln Hershberger</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Global Marketing: DICE Marketing </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Product&nbsp;Strategy</td>
-          <td>Julien Wera</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Product&nbsp;Manager</td>
-          <td>Julien Quety</td>
-        </tr>
-        <tr>
-          <td>Product&nbsp;Manager</td>
-          <td>Martin Lindell</td>
-        </tr>
-        <tr>
-          <td>Brand&nbsp;Marketing&nbsp;Director</td>
-          <td>Craig Owens</td>
-        </tr>
-        <tr>
-          <td>Associate&nbsp;Brand&nbsp;Manager</td>
-          <td>Marie Bustgaard Granlund</td>
-        </tr>
-        <tr>
-          <td>Brand&nbsp;Creative&nbsp;Lead</td>
-          <td>Drew Stauffer</td>
-        </tr>
-        <tr>
-          <td>Brand&nbsp;Asset&nbsp;Producer</td>
-          <td>Jonathan Judelson</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Live&nbsp;Services</td>
-          <td>Elisabet Gretarsdottir</td>
-        </tr>
-        <tr>
-          <td>Engagement&nbsp;Manager</td>
-          <td>Casey Al-kaisy</td>
-        </tr>
-        <tr>
-          <td>Marketing&nbsp;Interns</td>
-          <td>Maria Yannakea, Emma Kujansuu</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Global Marketing: Thanks </th>
-        </tr>
-        <tr>
-          <td>Thanks&nbsp;to</td>
-          <td>Anna Bouveng, Maria Sayans, Andreas Juliusson, Albin Alldén</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Global Marketing: Global Communications Group </th>
-        </tr>
-        <tr>
-          <td>SVP&nbsp;Global&nbsp;Communications Group</td>
-          <td>David Tinson</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Global Marketing: Integrated Communciations </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Integrated Communications</td>
-          <td>Colin MacRae</td>
-        </tr>
-        <tr>
-          <td>Directors&nbsp;of&nbsp;Communications</td>
-          <td>Julie Foster, Andrew H. Wong</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;of&nbsp;Communications</td>
-          <td>Gregory Queste</td>
-        </tr>
-        <tr>
-          <td>International&nbsp;Communications Director</td>
-          <td>Bettina Munn</td>
-        </tr>
-        <tr>
-          <td>International&nbsp;Communications Specialist</td>
-          <td>Iris Arzur</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Global Marketing: Community Engagement </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Community Engagement</td>
-          <td>Adam Tanielian</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Community&nbsp;&#x26; Influencers</td>
-          <td>Chris Mancil</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Conversation&nbsp;Manager</td>
-          <td>Daniel Lingen</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Community Content</td>
-          <td>Markus Frieske</td>
-        </tr>
-        <tr>
-          <td>Brand&nbsp;Voice&nbsp;Lead</td>
-          <td>Jino Talens</td>
-        </tr>
-        <tr>
-          <td>Community&nbsp;Manager</td>
-          <td>Vincent Vukovic</td>
-        </tr>
-        <tr>
-          <td>Conversation&nbsp;Manager</td>
-          <td>Leanne Bradbury</td>
-        </tr>
-        <tr>
-          <td>Content&nbsp;Manager</td>
-          <td>Jonas Elfving</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Global Marketing: Digital Communications </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Digital Communications</td>
-          <td>Charles Kha</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Global&nbsp;Content Strategy</td>
-          <td>Duke Indrasigamany</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Global Content Strategy</td>
-          <td>Alexandre Scriabine</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Digital Intelligence</td>
-          <td>John Yuill</td>
-        </tr>
-        <tr>
-          <td>Associate&nbsp;Online&nbsp;Product Manager</td>
-          <td>Lianne MacLean</td>
-        </tr>
-        <tr>
-          <td>Conversation&nbsp;Manager</td>
-          <td>Nataliya Richard</td>
-        </tr>
-        <tr>
-          <td>Marketing&nbsp;Communications&nbsp;Specialist</td>
-          <td>Dan Pez</td>
-        </tr>
-        <tr>
-          <td>Strategic&nbsp;Decision&nbsp;Support Analyst</td>
-          <td>Aaron Bradley</td>
-        </tr>
-        <tr>
-          <td>Associate&nbsp;Strategic&nbsp;Decision Support Analysts</td>
-          <td>Kiran Basra, Syed Naqvi</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_pulse"> Pulse </th>
-        </tr>
-        <tr>
-          <td>Interactive&nbsp;Executive&nbsp;Producer</td>
-          <td>Daniel Frank</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;of&nbsp;Product Management</td>
-          <td>Jaime Stella</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Product&nbsp;Management</td>
-          <td>Eamonn Glass</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Product&nbsp;Manager</td>
-          <td>Jeremy MacKay</td>
-        </tr>
-        <tr>
-          <td>Product&nbsp;Manager</td>
-          <td>Roderick McDougall</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Project&nbsp;Management Office</td>
-          <td>Gary Baanstra</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Web&nbsp;Project&nbsp;Manager</td>
-          <td>Carl Langan</td>
-        </tr>
-        <tr>
-          <td>Production&nbsp;Coordinator</td>
-          <td>Heather Matwe</td>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Technical&nbsp;Operations</td>
-          <td>Ivo Mencke</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Engineering</td>
-          <td>Omar Khan</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Web&nbsp;Engineers</td>
-          <td>Robert Alderson, Darren Fehrmann</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Paul Achtymichuk, Bryan Belyk, Troy Gullage, Kevin Harley, Antonio Perez Salas, Mickey Wu, Fabien Warniez, David Yan </td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Systems&nbsp;Engineer</td>
-          <td>Jose Amengual</td>
-        </tr>
-        <tr>
-          <td>System&nbsp;Administrator</td>
-          <td>Peter Smith-Gibbons</td>
-        </tr>
-        <tr>
-          <td>Release&nbsp;Manager</td>
-          <td>Alex Raguero</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Quality&nbsp;Analyst</td>
-          <td>Scott Bird</td>
-        </tr>
-        <tr>
-          <td>Lead&nbsp;Quality&nbsp;Assurance Tester</td>
-          <td>Marisa Maza</td>
-        </tr>
-        <tr>
-          <td>Quality&nbsp;Assurance&nbsp;Testers</td>
-          <td>Ryan LeMesurier, Kyle Shields</td>
-        </tr>
-        <tr>
-          <th colspan=2 id="mec_others"> UX &#x26; Design </th>
-        </tr>
-        <tr>
-          <td>Events&nbsp;&#x26;&nbsp;Media</td>
-          <td>Robert Kissinger</td>
-        </tr>
-        <tr>
-          <td>Art&nbsp;Director</td>
-          <td>Christopher Grose</td>
-        </tr>
-        <tr>
-          <td>UX&nbsp;Director</td>
-          <td>Jordan Girman</td>
-        </tr>
-        <tr>
-          <td>UX&nbsp;Architect</td>
-          <td>Jason Wasiak</td>
-        </tr>
-        <tr>
-          <td>UI&nbsp;Designers</td>
-          <td>Polly Lau, Josh Zak</td>
-        </tr>
-        <tr>
-          <th colspan=2> Events &#x26; Media </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Events and Media</td>
-          <td>Tammy Levine</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;PR&nbsp;Manager</td>
-          <td>Melissa Ojeda</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;Publicist</td>
-          <td>Nicole Fodran</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Events&nbsp;Manager</td>
-          <td>Sara Sprinkles</td>
-        </tr>
-        <tr>
-          <th colspan=2> Corporate Communications </th>
-        </tr>
-        <tr>
-          <td>Vice&nbsp;President&nbsp;Corporate Communications</td>
-          <td>John Reseburg</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Corporate Communications</td>
-          <td>Sandy Goldberg, Matt Faust</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Employee&nbsp;Regional Content</td>
-          <td>David McDonagh, Pierre Lamoure, Erin Stoker</td>
-        </tr>
-        <tr>
-          <td>Corporation&nbsp;Communications EU Lead</td>
-          <td>Jenny Huldschiner</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Social&nbsp;Content Specialist</td>
-          <td>Brandon Guarneri</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Regional Content</td>
-          <td>David Neumann</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Employee&nbsp;Comms Specialist</td>
-          <td>Aryn Sanderson</td>
-        </tr>
-        <tr>
-          <th colspan=2> Operations &#x26; Implementation </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Product Management</td>
-          <td>Adam Clark</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;Digital&nbsp;Publishing Manager</td>
-          <td>Lloyd Sharp</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;Content&nbsp;Manager</td>
-          <td>Chris Bon</td>
-        </tr>
-        <tr>
-          <th colspan=2> Global Analytics </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Business&nbsp;Analytics</td>
-          <td>Ben Tisdale</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Business Analytics</td>
-          <td>Andrew Hill</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Business&nbsp;Analytics</td>
-          <td>Katarina Dahlgren, Bei He, Rob Donald</td>
-        </tr>
-        <tr>
-          <th colspan=2> First Party Relations </th>
-        </tr>
-        <tr>
-          <td>First&nbsp;Party&nbsp;Account&nbsp;Managers</td>
-          <td>Rosanne Elkington, Greg Brandmeier</td>
-        </tr>
-        <tr>
-          <td>Vice&nbsp;President&nbsp;Strategy and First Party</td>
-          <td>Andrew Corcoran</td>
-        </tr>
-        <tr>
-          <th colspan=2> International Product Marketing </th>
-        </tr>
-        <tr>
-          <td>Marketing&nbsp;Director</td>
-          <td>Gustav Enekull</td>
-        </tr>
-        <tr>
-          <td>Product&nbsp;Manager</td>
-          <td>Francois-Xavier Labescat</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Product&nbsp;Manager</td>
-          <td>Claes Gartner</td>
-        </tr>
-        <tr>
-          <th colspan=2> International Publishing Organization Marketing </th>
-        </tr>
-        <tr>
-          <td>International&nbsp;Publishing&nbsp;Organization Marketing</td>
-          <td>Yoko Atsuchi, Craig Auld, Jérôme Austin, Colin Blackwood, Benoit Bouchez, Alexander Bowman, Alice Brandvik, Hampus Erlandsson, Cesare Fedele, Federico Garcia de
-            Salazar, Daniel Alfredo Gonzalez, Stephan Graffin, Jonathan Harris, Michael Hinc, Jess Hodgson, Heiner Kuhlmann, Jean Mercier, Daniel Montes, Marcella Morcio, Hideharu
-            Nakamatsu, Fredrik Ribbing, Emmanuelle Stevenin, Anna Szarska, Kirill Ustinovich, Joshua White, Nick Wong, Krzysztof Zych</td>
-        </tr>
-        <tr>
-          <th colspan=2> International Publishing Organization Communications </th>
-        </tr>
-        <tr>
-          <td>International&nbsp;Publishing&nbsp;Organization Communications</td>
-          <td>Ralf Anheier, Miłosz Białas, Antonio Cano Urdillo, Mickael Da Costa, Charlotte Dubois, Mikołaj Dusiński, Mario Fernández, Paul Ganchou, Michele Gennari, Stefan
-            Hoelzel, Nina de Haan, Stefano Maestro, Yilmas Mohammed Ali, Romain Montégu, Sebastian Moritz, Joyce Op de Weegh, Ruslan Pyatkin, Christoffer Ring, Tristan Rosenfeldt,
-            Inna Shevchenko, Snezana Stojanovska, Wojciech Szajdak, Shaun White, Lee Williams</td>
-        </tr>
-        <tr>
-          <th colspan=2> International Publishing Organization Digital Sales </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Digital Sales</td>
-          <td>Adolf Kristjansson</td>
-        </tr>
-        <tr>
-          <td>Digital&nbsp;Commercial&nbsp;Managers</td>
-          <td>Jesper Ahrendsen, Anders Emblad, Richard Stickler</td>
-        </tr>
-        <tr>
-          <td>Digital&nbsp;Sales&nbsp;Manager</td>
-          <td>Brenda Baeza Garcia</td>
-        </tr>
-        <tr>
-          <td>Digital&nbsp;Merchandising&nbsp;Manager</td>
-          <td>Thomas Gaidler</td>
-        </tr>
-        <tr>
-          <td>Sr.&nbsp;Digital&nbsp;Analyst</td>
-          <td>Abraham Graveland</td>
-        </tr>
-        <tr>
-          <td>Digital&nbsp;Products&nbsp;Release Manager</td>
-          <td>Nidia Fernandes</td>
-        </tr>
-        <tr>
-          <th colspan=2> Americas Publishing Organization Marketing </th>
-        </tr>
-        <tr>
-          <td>Vice&nbsp;President&nbsp;Marketing</td>
-          <td>Stu Lang</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Marketing</td>
-          <td>Erika K. Peterson</td>
-        </tr>
-        <tr>
-          <td>Product&nbsp;Manager</td>
-          <td>Raymond Yee</td>
-        </tr>
-        <tr>
-          <td>Marketing&nbsp;Coordinators</td>
-          <td>Ellen Zeng, Lindsey Collins</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Retail&nbsp;Marketing</td>
-          <td>Andria Greenlee</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Retail Marketing</td>
-          <td>Jenifer Voss</td>
-        </tr>
-        <tr>
-          <th colspan=2> Americas Publishing Organization Digital Sales </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Digital Sales</td>
-          <td>Ben Macuga</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Digital&nbsp;Commerce Manager</td>
-          <td>Marc Wilkinson</td>
-        </tr>
-        <tr>
-          <td>Digital&nbsp;Commercial&nbsp;Manager</td>
-          <td>Grant Lee</td>
-        </tr>
-        <tr>
-          <td>Digital&nbsp;Sales&nbsp;Associate</td>
-          <td>Kevin O'Connor</td>
-        </tr>
-        <tr>
-          <td>Business&nbsp;Planning&nbsp;Manager</td>
-          <td>Alex Tisdale</td>
-        </tr>
-        <tr>
-          <th colspan=2> Consumer Insights </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Consumer&nbsp;Insights</td>
-          <td>Jodie Antypas</td>
-        </tr>
-        <tr>
-          <td>Consumer&nbsp;Insights&nbsp;Manager</td>
-          <td>Ravi Gogte</td>
-        </tr>
-        <tr>
-          <td>Consumer&nbsp;Insights&nbsp;Analyst</td>
-          <td>Mike Chanler</td>
-        </tr>
-        <tr>
-          <th colspan=2> Global Engagement &#x26; Acquisition </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Global Media</td>
-          <td>Julie Kim</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;Media&nbsp;Lead</td>
-          <td>Anthony Basilio</td>
-        </tr>
-        <tr>
-          <td>Media&nbsp;Buyers</td>
-          <td>Christine Nguyen, Jason Butler</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Global Engagement</td>
-          <td>Ludvig Philip</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Gameplay Services </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Product&nbsp;Management</td>
-          <td>Daniel Windrem</td>
-        </tr>
-        <tr>
-          <td>Product&nbsp;Manager</td>
-          <td>Robert Hole</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Program&nbsp;Manager</td>
-          <td>Glenn Karlsen</td>
-        </tr>
-        <tr>
-          <th colspan=2> Software Engineers </th>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Jesse Labate, Benjamin Sze, Matt Miner, Bilal Arshad, Chris Buffett, Johnny Sohn, Ryan Bergstrom, Rustin Plowright, Xiaying Peng, Raymond Shou, Andrew Makoukji,
-            Thomas Cho, Tyler Jameson, Zhiyan Shao (David), Hedy Liu, Shawn Liwei Luo, Yuyi Zhou, Clark Allenby, Ignacio Garcia, Michael J. Sop, John McDonnell, Alex Tse</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineer&nbsp;Co-op</td>
-          <td>Gurshane Sidhu</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Commerce and Identity </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Program&nbsp;Manager</td>
-          <td>Rosario Morgan</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Engineering&nbsp;Development Manager</td>
-          <td>DanJun Xing</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Engineering&nbsp;Test Manager</td>
-          <td>Chuan Ye (Joey)</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Minsu Sohn, Dongqing Ma (Mario)</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineer&nbsp;in Test</td>
-          <td>Ming Shen (Chris)</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Commerce and Identity Operations </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Operations</td>
-          <td>Vikash Shah</td>
-        </tr>
-        <tr>
-          <td>Systems&nbsp;Architect</td>
-          <td>Devesh Ranjan</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Systems&nbsp;Engineer</td>
-          <td>Jeff Pei</td>
-        </tr>
-        <tr>
-          <td>Dev&nbsp;Ops&nbsp;Engineer</td>
-          <td>Shankar Shivram</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Strategic Planning and Engagement </th>
-        </tr>
-        <tr>
-          <td>Vice&nbsp;President</td>
-          <td>Ian Maynard</td>
-        </tr>
-        <tr>
-          <td>Director</td>
-          <td>Benoit Schotte-Daudin</td>
-        </tr>
-        <tr>
-          <td>Developer&nbsp;Relations&nbsp;Managers</td>
-          <td>Max Weltz, Matt Ferens</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Player Reliability Engineering </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Program&nbsp;Manager</td>
-          <td>Mahesh Makhijani</td>
-        </tr>
-        <tr>
-          <td>Engineering&nbsp;Program&nbsp;Manager</td>
-          <td>Antonio Frongillo</td>
-        </tr>
-        <tr>
-          <td>Quality&nbsp;Engineering&nbsp;Architect</td>
-          <td>Arvind Manda</td>
-        </tr>
-        <tr>
-          <td>Tech&nbsp;Lead</td>
-          <td>Sandeep Jayyarapu</td>
-        </tr>
-        <tr>
-          <td>Online&nbsp;Test&nbsp;Group&nbsp;- QA Project Lead</td>
-          <td>Craig Glass</td>
-        </tr>
-        <tr>
-          <td>Test&nbsp;Manager</td>
-          <td>Naveen Aluri</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers</td>
-          <td>Ravi Teja Guttula Vidya, Rinni Joshi</td>
-        </tr>
-        <tr>
-          <td>Online&nbsp;Test&nbsp;Group&nbsp;- QA Analysts</td>
-          <td>Krish Acu, Siddharth Angle, Dorothy Becks, Ashima Bhandari, Janice Cejoco, George Flores, Bhavya Tayal</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Data </th>
-        </tr>
-        <tr>
-          <td>Director&nbsp;of&nbsp;Engineering</td>
-          <td>Alex Ignatius</td>
-        </tr>
-        <tr>
-          <td>Research&nbsp;Data&nbsp;Scientist</td>
-          <td>Su Xue</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineer&nbsp;III</td>
-          <td>Venkata Puneet Ravuri</td>
-        </tr>
-        <tr>
-          <td>Software&nbsp;Engineers&nbsp;II</td>
-          <td>Keran Li, Hao Zhang, Matthew Olson, Jiawei Kuang, Saskya Irena</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Technical&nbsp;Program Manager</td>
-          <td>Jessica Mukai</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Product&nbsp;Manager</td>
-          <td>Laura Teclemariam</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Digital Platform Technical Operations </th>
-        </tr>
-        <tr>
-          <td>Head&nbsp;of&nbsp;Technical&nbsp;Operations</td>
-          <td>Mitch Lewandowski</td>
-        </tr>
-        <tr>
-          <th colspan=2> Techops Europe </th>
-        </tr>
-        <tr>
-          <td>Director</td>
-          <td>Henrik Tillander</td>
-        </tr>
-        <tr>
-          <td>Solution&nbsp;Architect</td>
-          <td>Anders Häglund</td>
-        </tr>
-        <tr>
-          <td>Network&nbsp;Engineer</td>
-          <td>Marcus Teiden</td>
-        </tr>
-        <tr>
-          <td>Cloud&nbsp;Engineer</td>
-          <td>David Hannon</td>
-        </tr>
-        <tr>
-          <td>Service&nbsp;Ops&nbsp;Managers</td>
-          <td>Henrik Sävenstedt, Kim Wahlsten</td>
-        </tr>
-        <tr>
-          <th colspan=2> Architecture </th>
-        </tr>
-        <tr>
-          <td>Director</td>
-          <td>Tim Overend</td>
-        </tr>
-        <tr>
-          <th colspan=2> Service Delivery </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director</td>
-          <td>Louis Oze</td>
-        </tr>
-        <tr>
-          <th colspan=2> Systems Engineering </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager</td>
-          <td>Matthew Wygant</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Systems&nbsp;Engiener</td>
-          <td>Rocky Rascon</td>
-        </tr>
-        <tr>
-          <td>Systems&nbsp;Engineers</td>
-          <td>Brandon Williams, Chris Lasater</td>
-        </tr>
-        <tr>
-          <th colspan=2> Database Services </th>
-        </tr>
-        <tr>
-          <td>Director</td>
-          <td>Bill Ducat</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager</td>
-          <td>Sanjeev Tirunagare</td>
-        </tr>
-        <tr>
-          <td>Database&nbsp;Architect</td>
-          <td>Nicklas Westerlund</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;MySQL&nbsp;DBAs</td>
-          <td>Nagesh Tenjerla, Bhonindra Singh</td>
-        </tr>
-        <tr>
-          <th colspan=2> Network Engineering </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager</td>
-          <td>Jason Kawamura</td>
-        </tr>
-        <tr>
-          <td>Network&nbsp;Engineer</td>
-          <td>Brad Neal</td>
-        </tr>
-        <tr>
-          <th colspan=2> Engineering &#x26; Technology </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director</td>
-          <td>Charles Christolini</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager</td>
-          <td>Steven Kinney</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Monitoring&nbsp;Engineers</td>
-          <td>Israel Ochoa, Rodrigo Hernandez</td>
-        </tr>
-        <tr>
-          <th colspan=2> Program Management Office </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director</td>
-          <td>Rick Burrell</td>
-        </tr>
-        <tr>
-          <td>Director</td>
-          <td>Pravin Nanda</td>
-        </tr>
-        <tr>
-          <td>Project&nbsp;Coordinator</td>
-          <td>Nestor Menjivar</td>
-        </tr>
-        <tr>
-          <th colspan=2> Business Operations </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Business Operations</td>
-          <td>Joshua Bauman</td>
-        </tr>
-        <tr>
-          <td>Business&nbsp;Solutions&nbsp;Analysts</td>
-          <td>Teresa Meade, Andres Ramos</td>
-        </tr>
-        <tr>
-          <th colspan=2> Online Service Operations </th>
-        </tr>
-        <tr>
-          <td>Service&nbsp;Operations&nbsp;Director</td>
-          <td>John Hanley</td>
-        </tr>
-        <tr>
-          <td>Operations&nbsp;Change&nbsp;Managers</td>
-          <td>Mark Murphy, Kalyan Bala, Atul Jain, Stephanie Loving-Walker, Stephen Sturdevant</td>
-        </tr>
-        <tr>
-          <td>Operations&nbsp;Change&nbsp;Coordinator</td>
-          <td>Kristy Flanders</td>
-        </tr>
-        <tr>
-          <th colspan=2> SRM Team </th>
-        </tr>
-        <tr>
-          <td>SRM&nbsp;Team</td>
-          <td>Alexandru Constantin, Andreea Roberta Ichim, Andrei Gaspar, Collin Tullius, Cosmin Ilie, Denis Tumpic, Derek Cheng, Eliana Tipurita Dăianu, Harry Hong, Imran Mushtaq,
-            Ionel Chiriţă, Kima Hayuk, Mihai Terzea, Ovidiu-Daniel Diaconescu, Pawan Patil, Razvan Stere</td>
-        </tr>
-        <tr>
-          <th colspan=2> EA Legal </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Counsel</td>
-          <td>Hannah Croke, Jessica Van Dyke, Josh Sugnet</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Privacy&nbsp;Counsel</td>
-          <td>Jo Copping</td>
-        </tr>
-        <tr>
-          <td>Privacy&nbsp;Compliance&nbsp;Specialist</td>
-          <td>Amy Saechao</td>
-        </tr>
-        <tr>
-          <td>Legal&nbsp;Counsel</td>
-          <td>Anna Rundblom</td>
-        </tr>
-        <tr>
-          <td>Licensing&nbsp;Associate</td>
-          <td>Kerah Williams</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Legal&nbsp;Approvals Associate</td>
-          <td>Kelly McCubbin, Mariann Tam</td>
-        </tr>
-        <tr>
-          <td>Legal&nbsp;Approvals&nbsp;Associate</td>
-          <td>Stefanie Merci</td>
-        </tr>
-        <tr>
-          <th colspan=2> UX Research </th>
-        </tr>
-        <tr>
-          <td>UX&nbsp;Research&nbsp;Manager</td>
-          <td>Paul Newton</td>
-        </tr>
-        <tr>
-          <td>Sr.&nbsp;Lead&nbsp;Games&nbsp;User Researcher</td>
-          <td>Verónica Zammitto</td>
-        </tr>
-        <tr>
-          <td>Sr.&nbsp;Games&nbsp;User&nbsp;Researcher</td>
-          <td>Ian Livingston</td>
-        </tr>
-        <tr>
-          <td>Games&nbsp;User&nbsp;Researcher</td>
-          <td>James Berg</td>
-        </tr>
-        <tr>
-          <td>Research&nbsp;Moderator</td>
-          <td>Will Wang</td>
-        </tr>
-        <tr>
-          <td>Research&nbsp;Recruiter</td>
-          <td>Heather Behl Cameron</td>
-        </tr>
-        <tr>
-          <th colspan=2> Product Lifecycle Management </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Director&nbsp;Global Product Release</td>
-          <td>Andy Fletcher</td>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Global&nbsp;PLM&nbsp;Manager</td>
-          <td>Chris Strong</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;PLM&nbsp;Manager</td>
-          <td>Daniel Thompson</td>
-        </tr>
-        <tr>
-          <td>Director&nbsp;Project&nbsp;Master Data</td>
-          <td>Andy Georg</td>
-        </tr>
-        <tr>
-          <td>Global&nbsp;PLM&nbsp;Project&nbsp;Management Lead</td>
-          <td>Steven Ciccoricco</td>
-        </tr>
-        <tr>
-          <td>PLM&nbsp;Project&nbsp;Managers</td>
-          <td>Adam McIntosh, Tracey Prosser</td>
-        </tr>
-        <tr>
-          <td>PLM&nbsp;Associate&nbsp;Project Manager</td>
-          <td>Simon Terry</td>
-        </tr>
-        <tr>
-          <td>PLM&nbsp;Project&nbsp;Coordinators</td>
-          <td>Thomas Phan, Annalise Wright, Emily Jeffreys</td>
-        </tr>
-        <tr>
-          <td>Product&nbsp;Master&nbsp;Data&nbsp;Analyst</td>
-          <td>Kraig Thompson</td>
-        </tr>
-        <tr>
-          <th colspan=2> GPR Submissions </th>
-        </tr>
-        <tr>
-          <td>Senior&nbsp;Manager&nbsp;Planning &#x26; Release</td>
-          <td>Andy Howard</td>
-        </tr>
-        <tr>
-          <td>GPR&nbsp;Submissions&nbsp;Leads</td>
-          <td>Ulises Espejo Vigil, Matt Loft</td>
-        </tr>
-        <tr>
-          <td>GRP&nbsp;Senior&nbsp;Submissions Planner</td>
-          <td>Dustin Harwood</td>
-        </tr>
-        <tr>
-          <td>GPR&nbsp;Submissions&nbsp;Planners</td>
-          <td>Ryan Roque, Sonia Linares Martínez, Laetitia Roques, Cristina Sanchez Perez, Adam Friedberg, Peter Schnoor</td>
-        </tr>
-        <tr>
-          <td>GPR&nbsp;Submissions&nbsp;Coordinators</td>
-          <td>Tim Tran, Emilia de Castro, James Thivierge, Javier García Hurtado, Catherine Canlas, Jordan Suhr, Andrea Römer</td>
-        </tr>
-      </table>
-      <picture class="art_space">
-        <img src="/assets/media/image/credits/concept.jpg">
-      </picture>
-      <p class="text-right" style="color: #8c8c8c;">© 2016 Electronic Arts, created by <a href="http://nickshardlow.com">Nick Shardlow</a>
-      </p>
-      <div id="links">
-        <div class="row justify-content-center">
-          <h5>Official social media channels</h5>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-">
-            <a class="btn btn-lg btn-light mdi mdi-web" href="/out?t=http://www.mirrorsedge.com/" role="button"></a>
-          </div>
-          <div class="col-">
-            <a class="btn btn-lg btn-light mdi mdi-youtube" href="/out?t=https://www.youtube.com/user/MirrorsEdgeTheGame" role="button"></a>
-          </div>
-          <div class="col-">
-            <a class="btn btn-lg btn-light mdi mdi-facebook" href="/out?t=https://www.facebook.com/mirrorsedge" role="button"></a>
-          </div>
-          <div class="col-">
-            <a class="btn btn-lg btn-light mdi mdi-twitter" href="/out?t=https://twitter.com/mirrorsedge" role="button"></a>
-          </div>
-          <div class="col-">
-            <a class="btn btn-lg btn-light mdi mdi-instagram" href="/out?t=https://instagram.com/mirrorsedgethegame" role="button"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="legal_footer" class="small text-secondary">
+    <nav id="navbar-credits" class="navbar sticky-top navbar-light navbar-expand-lg">
       <div class="container">
-        <div class="media">
-          <div class="media-body">
-            <a href="/legal/terms-of-use.html" class="text-secondary">Terms of use</a>&nbsp;&#8729;&nbsp; <a href="/legal/privacy-policy.html" class="text-secondary"
-              href="">Privacy &amp; cookies</a>&nbsp;&#8729;&nbsp; <a href="/legal/takedown.html" class="text-secondary" href="">Takdeown</a>&nbsp;&#8729;&nbsp; <span
-              class="d-md-none">
-              <a href="https://github.com/Sidewinder53/mirrorsedgearchive" class="text-secondary" href="">GitHub repository</a>&nbsp;&#8729;&nbsp; </span>
-            <a href="/out/?t=https://www.reddit.com/r/mirrorsedge/" class="text-secondary" href="">/r/mirrorsedge</a>
-            <!-- {{CERT}} -->
-            <div id="legal_text">This non-profit, open-source project is for entertainment purposes only and not affiliated with EA Digital Illusions CE, Electronic Arts or the
-              Mirror's Edge franchise. Mirror's Edge is a registered trademark of EA Digital Illusions CE. All trademarks and registered trademarks belong to their respective
-              owners. The Mirror's Edge Archive is distributed under the <a class="text-secondary" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">GPL
-                v3.0</a>.</div>
+        <ul class="nav nav-pills mr-auto">
+          <a class="nav-link int-nav mdi mdi-home me-nav-area" id="home_nav" href="#home"></a>
+          <button id="credits-toggler" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#int-navbar-content" aria-controls="int-navbar-content" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="toggler-desc">Browse game & team</span>
+          </button>
+          <div class="collapse navbar-collapse" id="int-navbar-content">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle me-nav-area ml-sm-1 mt-1 mt-md-0" data-toggle="dropdown" href="#"
+                role="button" aria-haspopup="true" aria-expanded="false">Mirror's Edge (2008)</a>
+              <div class="dropdown-menu shadow">
+                <a class="dropdown-item int-nav me-nav-area" id="me_dice_nav" href="#me_dice">DICE Studio</a>
+                <a class="dropdown-item int-nav me-nav-area" id="me_va_nav" href="#me_va">Voice Actors</a>
+                <a class="dropdown-item int-nav me-nav-area" id="me_ea_nav" href="#me_ea">EA Studio</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link int-nav ml-sm-1" href="#mec_desc">Mirror's Edge Catalyst (2016)</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle ml-sm-1" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">Development Team</a>
+              <div class="dropdown-menu shadow">
+                <a class="dropdown-item int-nav" href="#mec_devt_directorst">Directors Team</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_leadst">Directors Team</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_gamet">Game Team</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_softeng">Software Engineers</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_artists">Artists</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_conceptartists">Concept Artists</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_2dart">2D Art</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_anim">Animators</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_audio">Audio</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_localization">Localization</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_qa">DICE QA</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_qe">DICE QE</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_pmqa">DICE Project Management QA</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_babies">Product Babies</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_thanks">Thanks</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_music">Music</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_specialthanks">Special Thanks</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_companion">The Beat Companion App</a>
+                <a class="dropdown-item int-nav" href="#mec_devt_mediat">Media Team</a>
+              </div>
+            </li>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle ml-sm-1" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">DICE</a>
+              <div class="dropdown-menu shadow">
+                <h6 class="dropdown-header">DICE Studio</h6>
+                <a class="dropdown-item int-nav" href="#mec_dice_studio">Management</a>
+                <a class="dropdown-item int-nav" href="#mec_dice_it">IT</a>
+                <h6 class="dropdown-header">DICE Operations</h6>
+                <a class="dropdown-item int-nav" href="#mec_diceops">Management</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle ml-sm-1" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">Others</a>
+              <div class="dropdown-menu shadow">
+                <a class="dropdown-item int-nav" href="#mec_ghost">Ghost Games Support Pod</a>
+                <a class="dropdown-item int-nav" href="#mec_ea_marketing">EA Marketing</a>
+                <a class="dropdown-item int-nav" href="#mec_pulse">Pulse</a>
+                <a class="dropdown-item int-nav" href="#mec_others">Others</a>
+              </div>
+            </li>
           </div>
-          <a href="https://github.com/Sidewinder53/mirrorsedgearchive" role="button" class="btn btn-light btn-footer d-none d-xl-block">
-            <svg style="width:28px;height:28px" viewBox="0 0 24 24">
-              <path fill="#6c757d"
-                d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-            </svg>
-          </a>
+        </ul>
+      </div>
+    </nav>
+    <div id="bg">
+      <div class="container px-sm-2 px-0" id="content">
+        <div id="cookie_consent_placeholder"></div>
+        <blockquote id="thank_you" class="blockquote">
+          <p class="mb-0">The Mirror's Edge franchise is the result of truly astonishing work by creative, talented and
+            dedicated developers. We appreciate the time, effort and sweat
+            put into this product and would like to express our gratitude to the creators for their memorable work on
+            behalf of the Mirror's Edge community. Without you, we would
+            <i>never</i> have met Faith.</p>
+          <footer class="blockquote-footer">The Mirror's Edge Archive team</footer>
+        </blockquote>
+        <div id="touch_device_notice"></div>
+        <h1>Mirror's Edge&nbsp; <small class="text-muted">2008</small></h1>
+        <h3>
+          <footer class="blockquote-footer">Codename <cite>Takedown (TdGame)</cite></footer>
+        </h3>
+        <p class="lead">Released November 11, 2008 for Xbox 360 and Playstation 3. Released for Microsoft Windows on
+          January 12, 2009.</p>
+        <table id="me_table" class="table table-hover table-responsive">
+          <tr>
+            <th id="me_dice" scope="col" colspan="2">DICE Studio</th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Producer</td>
+            <td>
+              <mark title="Worked on Mirror's Edge, was thanked in Mirror's Edge Catalyst.">Owen O'Brien</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Development&nbsp;Director</td>
+            <td>Senta Jakobsen</td>
+          </tr>
+          <tr>
+            <td>Producer</td>
+            <td>Thomas Farrer</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Designer</td>
+            <td>Thomas Andersson</td>
+          </tr>
+          <tr>
+            <td>Art&nbsp;Director</td>
+            <td>Johannes Söderqvist</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Director</td>
+            <td>
+              <mark title="Worked on both games in different roles">Per-Olof Romell</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Art&nbsp;Director</td>
+            <td>Torbjörn Malmer</td>
+          </tr>
+          <tr>
+            <td>Audio&nbsp;Director</td>
+            <td>
+              <mark title="Worked on both games in different roles">Magnus Walterstad</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Directors</td>
+            <td>Åsa Carlsson, Anders Caspersson, Mattias Sjöberg, Johan Wirde, Danjel Rydén</td>
+          </tr>
+          <tr>
+            <td>2D&nbsp;Artist</td>
+            <td>Markus Nyström</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Animator</td>
+            <td>Tobias Dahl</td>
+          </tr>
+          <tr>
+            <td>Animators</td>
+            <td>Björn Humbe, <mark title="Worked on both games in the same role">Jesper Skoog</mark>, <mark
+                title="Worked on both games in different roles">Erik Åström</mark>, Tor
+              Sigurdson</td>
+          </tr>
+          <tr>
+            <td>3D&nbsp;Artists</td>
+            <td>Andreas Fougner Ezelius, Nilo Kaboteh, <mark title="Worked on both games in the same role">Lars
+                Mårtensson</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Character&nbsp;Artist</td>
+            <td>Joacim Lindquist</td>
+          </tr>
+          <tr>
+            <td>Concept&nbsp;Artists</td>
+            <td>Pierre Hanna, <mark title="Worked on both games in different roles">Mattias Häggström</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Effects&nbsp;Artist</td>
+            <td>Fredrik Seehuusen</td>
+          </tr>
+          <tr>
+            <td>Level&nbsp;Artists</td>
+            <td>Robert Briscoe, Christopher Brändström, Sindre Grønvoll, Andreas Hansevi, Daniel Schönherr, Wesley Tack
+            </td>
+          </tr>
+          <tr>
+            <td>Lighting&nbsp;Artists</td>
+            <td>Oscar Carlén, Erland Körner, Wille Wintertidh, Powered&nbsp;by&nbsp;the&nbsp;Night Watch</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Artists</td>
+            <td>Christian Martinsson, Johan Ramström</td>
+          </tr>
+          <tr>
+            <td>Outsourcing&nbsp;Artist</td>
+            <td>Anton Wiegert</td>
+          </tr>
+          <tr>
+            <td>AI&nbsp;Programmers</td>
+            <td>Rikard Blomberg, Håkan Kihlström, Ove Lindblom, Linus Lundberg, Stefan Wallberg</td>
+          </tr>
+          <tr>
+            <td>Build&nbsp;Engineer</td>
+            <td>Per-Jonny Käck</td>
+          </tr>
+          <tr>
+            <td>Gameplay&nbsp;Programmers</td>
+            <td>Mikael Lagré, Kjell Reuterswärd, Martin Wester, Johan Åkesson</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Programmer</td>
+            <td>Jonas Åberg</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Platform&nbsp;Programmer</td>
+            <td>Malte Hildingsson</td>
+          </tr>
+          <tr>
+            <td>Online&nbsp;Programmers</td>
+            <td>Anders Hallberg, Marcus Nordin</td>
+          </tr>
+          <tr>
+            <td>Rendering&nbsp;Programmer</td>
+            <td>Henrik Halén</td>
+          </tr>
+          <tr>
+            <td>UI&nbsp;Programmers</td>
+            <td>Gustav Darpö, Daniel Saar-Odhammer</td>
+          </tr>
+          <tr>
+            <td>Game&nbsp;Designers</td>
+            <td>Tiberius Astianax Lazar, Fredrik Thylander</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;UI&nbsp;Designer</td>
+            <td>Anna Wendelin</td>
+          </tr>
+          <tr>
+            <td>Level&nbsp;Designers</td>
+            <td>Geoff Field, Magnus Olin, Christian Plogfors (hOok), Elisabetta Silli, Niklas Åstrand, Sebastian
+              Armonioso
+            </td>
+          </tr>
+          <tr>
+            <td>Online&nbsp;Producer</td>
+            <td>Henrik Johansson</td>
+          </tr>
+          <tr>
+            <td>Scripter</td>
+            <td>Jim Fagerlund</td>
+          </tr>
+          <tr>
+            <td>VO&nbsp;Producer</td>
+            <td>Tomas Danko</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Lead</td>
+            <td>John-Philip Johansson</td>
+          </tr>
+          <tr>
+            <td>Embedded&nbsp;Testers</td>
+            <td>Nick Baker, Kuda Chirewa, Dan Cooper, Rob Knowles</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;2D&nbsp;Art</td>
+            <td>Tobias Hogstrand</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;3D&nbsp;Art</td>
+            <td>Marcus Fritze, Kristina Hegethorn Pajor, Jessica Helgesson</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Animation</td>
+            <td>Henrik Fegraeus, Kim Fredriksson, Awed Haller, Steven Herft, Mikael Högström, Erik Svensson</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Character&nbsp;Art</td>
+            <td>Jonas Törnqvist</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Effects</td>
+            <td>Andreas Chrysovitsanos</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Lighting</td>
+            <td>Matthias Eriksson, Dave Kintner, Gustav Tilleby</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Sound&nbsp;Design</td>
+            <td>Ben Minto, Mari Saastamoinen-Minto, Malin Arvidsson (Sonic Source)</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Sound</td>
+            <td>Kim Creutzer, Markus Lignell</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Programming</td>
+            <td>Daniel Collin, Mats Dal, Mark Final, Mahram Zojajpour Foadi, Filip Karlsson, Johan Kotlinski, Nicolas
+              Mercier, Peter Österblom, Magnus Sjöberg</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Narrative&nbsp;Design</td>
+            <td>David Goldfarb</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Production</td>
+            <td>Lars Gustavsson, Manuel Saua Llanes</td>
+          </tr>
+          <tr>
+            <td>Writer&nbsp;&#x26;&nbsp;Co-Story Designer</td>
+            <td>Rhianna Pratchett</td>
+          </tr>
+          <tr>
+            <td>Motion&nbsp;Capture&nbsp;Services</td>
+            <td>Northern&nbsp;Mocap&nbsp;Studios AB</td>
+          </tr>
+          <tr>
+            <td>2D&nbsp;Cutscenes</td>
+            <td>Chase&nbsp;Imagnination&nbsp;Limited</td>
+          </tr>
+          <tr>
+            <td>&#x22;Still&nbsp;Alive&#x22;&nbsp;Composed by</td>
+            <td>Rami Yacoub, Arnthor Birgirsson</td>
+          </tr>
+          <tr>
+            <td>&#x22;Still&nbsp;Alive&#x22;&nbsp;Lyrics by</td>
+            <td>Lisa Miskovsky</td>
+          </tr>
+          <tr>
+            <td>&#x22;Still&nbsp;Alive&#x22;&nbsp;Performed by</td>
+            <td>Lisa Miskovsky</td>
+          </tr>
+          <tr>
+            <td>Soundtrack&nbsp;Composed&nbsp;by</td>
+            <td>
+              <mark title="Worked on both games in the same role">Magnus Birgersson</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Soundtrack&nbsp;Performed&nbsp;by</td>
+            <td>Solar&nbsp;Fields</td>
+          </tr>
+          <tr>
+            <td>Foley&nbsp;Artist</td>
+            <td>Ulf Olausson (Europe Sound Production)</td>
+          </tr>
+          <tr>
+            <td>Outsourcing</td>
+            <td>Pearl&nbsp;Digital&nbsp;Entertainment, Sting Luo (EA Shanghai)</td>
+          </tr>
+          <tr>
+            <td>NVidia</td>
+            <td>Dane Johnston, Miguel Sainz, Louis Bavoil, David Sullins, James Dolan, Shawn Edwards, Lou Rohan, David
+              Schoemehl, Bryan Galdrikian, Lihua Zhang, Hermes Lanker, Steve
+              Burke, Tim Heath, Kang Yan, Jeremy Patterson, Don Price, Nathan Schubert, Monier Maher, Rika Nakazawa, Roy
+              Taylor, Bill Rehbock, Leslie Pirritano, Michael Gorman</td>
+          </tr>
+          <tr>
+            <td>General&nbsp;Manager</td>
+            <td>Sean Decker</td>
+          </tr>
+          <tr>
+            <td>Financial&nbsp;Manager</td>
+            <td>Mikael Windander</td>
+          </tr>
+          <tr>
+            <td>CTO</td>
+            <td>Joakim Grundwall</td>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Art</td>
+            <td>Robert Runesson</td>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Audio</td>
+            <td>David Möllerstedt</td>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Programming</td>
+            <td>Göran Wall</td>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Outsourcing&nbsp;&#x26; Localization</td>
+            <td>Robert Andersson</td>
+          </tr>
+          <tr>
+            <td>PR&nbsp;Manager</td>
+            <td>Jenny Huldschiner</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Dev&nbsp;Manager</td>
+            <td>Thomas Rönnberg</td>
+          </tr>
+          <tr>
+            <td>Outsourcing&nbsp;Dev&nbsp;Manager</td>
+            <td>Johan Dalborg</td>
+          </tr>
+          <tr>
+            <td>Operations&nbsp;Dev&nbsp;Director</td>
+            <td>Yashar Moradbakhti</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;Video&nbsp;&#x26; Art</td>
+            <td>Chris Bennison, Håkan Pettersson, Roland Smedberg</td>
+          </tr>
+          <tr>
+            <td>Live&nbsp;Support</td>
+            <td>John Hargelid, Melissa Tague</td>
+          </tr>
+          <tr>
+            <td>Marketing&nbsp;&#x26;&nbsp;PR</td>
+            <td>Sébastien Bisch, Gustav Enekull, Martin Frain</td>
+          </tr>
+          <tr>
+            <td>IT&nbsp;Services</td>
+            <td>Niklas Domander, Alexander Hassoon, Jannis Saripanidis, Cale Wahlfors</td>
+          </tr>
+          <tr>
+            <td>HR</td>
+            <td>Marianne Boström, Jessica Danielson, Peter Henriksson, Carin Källkvist</td>
+          </tr>
+          <tr>
+            <td>Finance</td>
+            <td>Marcus Edholm, Jenny Hedman, Susanne Norlin, Ingela Persson</td>
+          </tr>
+          <tr>
+            <td>Facilties</td>
+            <td>Annika Göksu, Ulrika Hedback, Marie Hägglund, Gisela Malmsten, Samuel Willner</td>
+          </tr>
+          <tr id="me_va">
+            <th colspan=2>Voice Actors</th>
+          </tr>
+          <tr>
+            <td>Faith</td>
+            <td>Jules de Jongh</td>
+          </tr>
+          <tr>
+            <td>Kate</td>
+            <td>Philippa Alexander</td>
+          </tr>
+          <tr>
+            <td>Travis&nbsp;RB</td>
+            <td>Morgan Deare</td>
+          </tr>
+          <tr>
+            <td>Jacknife</td>
+            <td>Tim Dale</td>
+          </tr>
+          <tr>
+            <td>Mercury</td>
+            <td>Glenn J. Wrage</td>
+          </tr>
+          <tr>
+            <td>Miller</td>
+            <td>Joseph Mydell</td>
+          </tr>
+          <tr>
+            <td>Celeste</td>
+            <td>Emily Beecham</td>
+          </tr>
+          <tr>
+            <td>Generic&nbsp;SWAT&nbsp;#1&nbsp;Male</td>
+            <td>Mikey O'Connor</td>
+          </tr>
+          <tr>
+            <td>Generic&nbsp;SWAT&nbsp;#2&nbsp;Male</td>
+            <td>John Schwab</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="me_ea">EA Studio</th>
+          </tr>
+          <tr>
+            <td>EA&nbsp;Europe&nbsp;Senior&nbsp;VP</td>
+            <td>Patrick Söderlund</td>
+          </tr>
+          <tr>
+            <td>EA&nbsp;Europe&nbsp;VP&nbsp;Marketing</td>
+            <td>Jon Rissik</td>
+          </tr>
+          <tr>
+            <td>EA&nbsp;Europe&nbsp;CFO</td>
+            <td>Linda Samlin</td>
+          </tr>
+          <tr>
+            <td>EA&nbsp;Europe&nbsp;Director&nbsp;Business Development</td>
+            <td>Johannes Mang</td>
+          </tr>
+          <tr>
+            <td>Executive&nbsp;Music&nbsp;Producer</td>
+            <td>Steven Schnur</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Music&nbsp;Supervisor</td>
+            <td>Cybele Pettus</td>
+          </tr>
+          <tr>
+            <td>Music&nbsp;Marketing&nbsp;Coordinator</td>
+            <td>Kylie Kmiec</td>
+          </tr>
+          <tr>
+            <td>Music&nbsp;Licensing&nbsp;Manager</td>
+            <td>Beverly Koeckeritz</td>
+          </tr>
+          <tr>
+            <td>Marketing&nbsp;&#x26;&nbsp;PR</td>
+            <td>Derek Andersson, Brad Bennett, Kelly Ekins, Lincoln Hershberger, Aaron Krause, Peter Nguyen, Tammy
+              Levine
+            </td>
+          </tr>
+          <tr>
+            <td>Japan&nbsp;Marketing</td>
+            <td>Chang Duke, Mieko Nakajima</td>
+          </tr>
+          <tr>
+            <td>Taiwan&nbsp;Marketing</td>
+            <td>Tommy Chen, Ellen Hsu</td>
+          </tr>
+          <tr>
+            <td>China&nbsp;Marketing</td>
+            <td>Rowena Chung, Dustin Zhao</td>
+          </tr>
+          <tr>
+            <td>Korea&nbsp;Marketing</td>
+            <td>Hazy Cho, Hana Joo</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Project&nbsp;Manager Europe</td>
+            <td>David Courtin</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Project&nbsp;Managers Asia</td>
+            <td>Diane Ng, Kah Hui Teo</td>
+          </tr>
+          <tr>
+            <td>Assistant&nbsp;Localization&nbsp;Producer Europe</td>
+            <td>Pablo Dopico</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Director&nbsp;Japan</td>
+            <td>Fuzuki Ninomiya</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinators France</td>
+            <td>Chantal Cervoni, Laura Mangione</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinators Italy</td>
+            <td>Alfonsina Mossello, Silvia Favia</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinator&nbsp;Germany</td>
+            <td>Alexander Faißt</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinator&nbsp;Spain</td>
+            <td>Ana Esther Rodríguez</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinators Brazil</td>
+            <td>Dulce Nogueira, Edward Magri</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinators Poland</td>
+            <td>Marcin Król, Jakub Nowicki</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinator&nbsp;Hungary</td>
+            <td>Mária Gyöngyi Nagy</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinator&nbsp;Czech Republic</td>
+            <td>Jan Staníček</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Coordinator&nbsp;Russia</td>
+            <td>Pavel Rutski</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Producer&nbsp;Japan</td>
+            <td>Hideaki Kitamura</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Producers&nbsp;Korea</td>
+            <td>Spike Do, Nice Lee</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Producer&nbsp;China</td>
+            <td>Leon Li, Xing Cao</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Producer&nbsp;Taiwan</td>
+            <td>Jason Chen</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Sound&nbsp;Engineers</td>
+            <td>Pedro Alfageme Langdon</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Lead&nbsp;Localization Integration Engineers</td>
+            <td>Danilo José Guerrero Rodríguez, Felipe González López</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Project&nbsp;Lead</td>
+            <td>Patrick Clifton Payne</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Technical&nbsp;Lead</td>
+            <td>Iñigo Bermejo</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Integration&nbsp;Engineers</td>
+            <td>Alberto Ayuso Pérez, Angel Carrasco</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Testing&nbsp;Project Managers</td>
+            <td>Torben Andersen, Lukasz Pietrucha</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Senior&nbsp;Testers</td>
+            <td>Shoshannah Tekofsky</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Testers</td>
+            <td>Manuele Albano, Fernando Bagdonas, Jan Becker, Gergo Benedek, Nikita Kazantsev, Alexandre Lelandais,
+              Miguel S. Martin de Nicolas, Petr Szypka, Piotr Zagorski</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Leads</td>
+            <td>Bonam Yu, Yunki Shin</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Testers</td>
+            <td>Oh Hyung Kwon, Won Il Lee, Clifford Wu, Hitoshi Suto, Genki Sugita, Marcus Cao, Janise Sheng</td>
+          </tr>
+          <tr>
+            <td>LQA&nbsp;Leads</td>
+            <td>Tham Tuck Yee, YaoXian Wang</td>
+          </tr>
+          <tr>
+            <td>LQA&nbsp;Testers</td>
+            <td>Terence Teng, Say Kin Wee, Goh Jia Yang, Wee Choon Heok, Shaun Chew</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Translators</td>
+            <td>Frederick Wu, Maggie Wu, Mayflower&nbsp;Ent., Quoted&nbsp;Tradução&nbsp;e&nbsp;Localização,
+              Synthesis&nbsp;International&nbsp;S.r.l, CEET, Roboto,
+              team&nbsp;fifty&nbsp;seven, Consell&nbsp;Panonia, Laurent Jardin, M.ª&nbsp;Luisa&nbsp;Crespo, Florian
+              Vanino
+            </td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Sound&nbsp;Designers</td>
+            <td>Yukinori Kanda, Masanao Akahori</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Software&nbsp;Engineering</td>
+            <td>Eric Poh Boon Sam, Chio Binghuan</td>
+          </tr>
+          <tr>
+            <td>Mastering&nbsp;Japan</td>
+            <td>Hirohisa Satō</td>
+          </tr>
+          <tr>
+            <td>Mastering&nbsp;Singapore</td>
+            <td>Jason Lim</td>
+          </tr>
+          <tr>
+            <td>Certification</td>
+            <td>Rene Apperley, James Arup, Sherwyn Augustus, Earl Baker, Stephen Baker, Dave Beck, James Bolton, Matt
+              Bright, Phil Brown, Mike Bullen, Collin Carey, Pedro Castro,
+              Sandra Champanhet, Lawinjeya Chandrakumaran, Kwang-Hi Cho, Andy Chung, Nicholas Cobb, Jason Collins, Steve
+              Cook, Rob Cooke, Benjamin Crick, Ricardo de Avila, Lawrence
+              Donohue, James Featherstone, Mike Fenton, David Fielding, Seferino Gallardo, Eron Garcia, Juan Antonio
+              Garcia de Quinto, Laura George, Daniel Green, Wes Hendrix, Allen
+              Horton, Joseph Huggett, Morgan Hughes, Errol Ismail, Ben Jackson, Ryan Jacobson, Darryl Jenkins, Harry
+              Kashouli, Amy Kenah, Kyle Killion, Mike Kushner, Raymond
+              Langford, Alex Lawson, Conrad Leiden, Matt Loft, Damon Lumley, Anh Luong, Daniel Martell, Shaun McCourt,
+              Adam McIntosh, Russell Medeiros, James Melling, Garrett
+              Muldoon, Mitchell Munter, Stuart Oswald, Dee Patel, Eduardo Ponz, Andrew Pritchard, Lucas Richard, Ryan
+              Roque, Mary Joyce Sacman, Joaquin Jesus Sanz Jimenez, Seb
+              Serrano, Chance Shiflett, Richard de Silva, Julie Staub, Jonas Stockfleth, Chris Strong, Timo Tolonen,
+              Eduardo Varela, Robin Volker, Tim Wileman, Bobby Williams</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Director</td>
+            <td>Chris Ambler</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Black&nbsp;Box&nbsp;Test Manager</td>
+            <td>Christopher Carter</td>
+          </tr>
+          <tr>
+            <td>Black&nbsp;Box&nbsp;Test&nbsp;Manager</td>
+            <td>Craig McLeod</td>
+          </tr>
+          <tr>
+            <td>Black&nbsp;Box&nbsp;Test&nbsp;Leads</td>
+            <td>Lee Brockway, Ben Craig, Lewis Reid</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;Testers</td>
+            <td>Doug Anderson, James Cobbett, Stephen Cox, Dominic Gara, Andrew Hales, Lewis Harvey, Darwin Lincoln,
+              Simon
+              Mant, Ryan Mills, Lars Minkkinen, Simon Payne, Mundeep
+              Purewal, James Stephens, Jack Tutton, Gareth Williams</td>
+          </tr>
+          <tr>
+            <td>Romania&nbsp;QA&nbsp;Manager</td>
+            <td>Joe Grant</td>
+          </tr>
+          <tr>
+            <td>Romania&nbsp;Project&nbsp;Manager</td>
+            <td>Eugen Baicea</td>
+          </tr>
+          <tr>
+            <td>Romania&nbsp;Project&nbsp;Leads</td>
+            <td>Alin Dima, Andrei Joghiu</td>
+          </tr>
+          <tr>
+            <td>Romania&nbsp;Test&nbsp;Lead</td>
+            <td>Cristian Ivan</td>
+          </tr>
+          <tr>
+            <td>Romania&nbsp;Testers</td>
+            <td>Andrei Arsene, Sebastian Buzac, Eusebiu Caciuleanu, Mircea Dobre, Razvan Doholici, Andrei Dragan, Andrei
+              Enea, Madalin Geantau, Mihai Grigorescu, Valentin Iliescu,
+              Horia Ionita, Alexandru Marinescu, Claudiu Matei, Alexandru Micu, Alexandru Mitroiu, Dragos Panait, Radu
+              Pavel, Cezar Petcu, Victor Petrescu, Mihai Pricochi</td>
+          </tr>
+          <tr>
+            <td>Tiberon&nbsp;Test&nbsp;Team&nbsp;Senior Lead</td>
+            <td>Jay Malone</td>
+          </tr>
+          <tr>
+            <td>Tiberon&nbsp;Test&nbsp;Team&nbsp;Leads</td>
+            <td>Julio A. Perez, Troy Chapman</td>
+          </tr>
+          <tr>
+            <td>Tiberon&nbsp;Testers</td>
+            <td>Marcus Aguiar, Courtney Bodie, Philmore Browne Jr., Llyod Campbell Jr., Richard Cortes, Jay Grafwallner,
+              Justin Eugene Haile, Clyde Hampton, LaRon Hill, Robert
+              Kaiser, Robert Kyle, James P. Mirvil, Sielecas L. Sharpe, Michael Shearer, Robert Spencer, Jason
+              Struckhoff,
+              Marc Williams</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Compliance&nbsp;Team</td>
+            <td>David Ambler, Toby Bushnell, Bill Carter, Ed Carter, Ali Hassan, Richard Hylands, Ben Miller, Marcus
+              Purvis, Martyn Sibley, Darran Wall, Byron Wessels</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Compliance&nbsp;Testers</td>
+            <td>Sam Birley, Mark Buffone, Spencer Edwards, Lars Minkkinen, Martin Montford, Russ Pitman, Colin Pratt,
+              Jonny Stacey, Adam Wightman, Andrew Wretham</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Process&nbsp;Manager</td>
+            <td>Andrew Miller</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Process&nbsp;Analyst</td>
+            <td>Andy Hall</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Tools&nbsp;Manager</td>
+            <td>Mark Bosomworth</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Live&nbsp;Test Manager</td>
+            <td>Stuart Pratt</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Lead&nbsp;Technician</td>
+            <td>Ed Carter</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;QA&nbsp;Technician</td>
+            <td>Leon Pozo</td>
+          </tr>
+          <tr>
+            <td>UK&nbsp;HR&nbsp;Coordinator</td>
+            <td>Hannah Hart</td>
+          </tr>
+          <tr>
+            <td>Thank&nbsp;You</td>
+            <td>Our&nbsp;friends&nbsp;and&nbsp;families, Thai&nbsp;House&nbsp;Wok, Oscar Berg, Rokujin, Lie Fujita, Lena
+              Plogfors, Felicia Baby Hellström, Naemi Olsson, Irene
+              Söderholm, My&nbsp;family, Dagmar Thylander, Årydsmaffian, Olof Mikael Peter Halén, Jacob Holst, Erika
+              Wirde, Torbjörn Gyllebring, Kimberley Walterstad,
+              Little&nbsp;Boy, Cilia Flöje, Daniel Lagré, Kristina Åstrang, Nima Poya Kaboteh, Johan Erik Strömgren,
+              Emma
+              Zakrisson, Fiona O'Brien, Beatrice Carlsson,
+              Stockholm&nbsp;Pinball, Kaj Jakobsen, London&nbsp;Woo, Livia Lazar, Lisa Engström, Zen Huan,
+              Bacon&nbsp;&nbsp;Pesto, The&nbsp;Night&nbsp;Watch </td>
+          </tr>
+        </table>
+        <hr>
+        <picture class="art_space">
+          <img src="/{{- manifest['assets/media/image/credits/its_my_turn.png'] }}">
+          <p class="text-right" style="color: #8c8c8c;">"It's my turn" by some awesome Chinese Artist</p>
+        </picture>
+        <h1 id="mec_desc">Mirror's Edge Catalyst&nbsp; <small class="text-muted">2016</small>
+        </h1>
+        <h3>
+          <footer class="blockquote-footer">Codename <cite>Pamplona</cite></footer>
+        </h3>
+        <p class="lead">Released June 7, 2016 for Xbox One, PlayStation 4 and Microsoft Windows.</p>
+        <table id="mec_table" class="table table-hover table-responsive">
+          <tr>
+            <th colspan=2 id="mec_devt_directorst"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team:
+              Director&#x27;s
+              Team </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Producer</td>
+            <td>Sara Jansson</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Development&nbsp;Director</td>
+            <td>Per Juhlén</td>
+          </tr>
+          <tr>
+            <td>Producer</td>
+            <td>Amo Mostofi</td>
+          </tr>
+          <tr>
+            <td>Design&nbsp;Director</td>
+            <td>Erik Odeldahl</td>
+          </tr>
+          <tr>
+            <td>Art&nbsp;Director</td>
+            <td>Jhony Ljungstedt</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Art&nbsp;Director</td>
+            <td>Torbjörn Söderman, Mikael Linderholm</td>
+          </tr>
+          <tr>
+            <td>Audio&nbsp;Director</td>
+            <td>James Slavin</td>
+          </tr>
+          <tr>
+            <td>Animation&nbsp;Director</td>
+            <td>
+              <mark title="Worked on both games in different roles">Erik Söderholm</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>UX&nbsp;&#x26;&nbsp;Social&nbsp;Play Producer</td>
+            <td>Elin Holmberg, Peter Stahl</td>
+          </tr>
+          <tr>
+            <td>Gameplay&nbsp;Producer</td>
+            <td>Jeremy Miller</td>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Director</td>
+            <td>Joel Fagerlund</td>
+          </tr>
+          <tr>
+            <td>Associate&nbsp;Technical&nbsp;Director</td>
+            <td>Martin Wester</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Design&nbsp;Director</td>
+            <td>Mikael Hedberg</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_leadst"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Leads Team</h2>
+            </th>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Directors</td>
+            <td>Tobias Hagberg, Per Storløkken, Göran Wall, Romi Gråhed</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Software&nbsp;Engineers</td>
+            <td>Anders Haliberg, Daniel Johansson</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Level&nbsp;Designers</td>
+            <td>Scott Carpenter, Dave Lee</td>
+          </tr>
+          <tr>
+            <td>Narrative&nbsp;Director</td>
+            <td>Christofer Emgård</td>
+          </tr>
+          <tr>
+            <td>Assistant&nbsp;Art&nbsp;Director</td>
+            <td>Frej Appel</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Level&nbsp;Artist</td>
+            <td>Mikael Nellfors</td>
+          </tr>
+          <tr>
+            <td>Content&nbsp;Manager</td>
+            <td>Conny Bergqvist</td>
+          </tr>
+          <tr>
+            <td>Gameplay&nbsp;Designers</td>
+            <td>Linus Josephson, Rickard Antroia, Viljar Sommerbakk</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_gamet"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Game Team</h2>
+            </th>
+          </tr>
+          <tr>
+            <td>Level&nbsp;Designers</td>
+            <td>Anders Jansson, Henrik Alfredsson, Lukas Van Daele, Pål Wallo, Terrence Cronin</td>
+          </tr>
+          <tr>
+            <td>UX&nbsp;Designer</td>
+            <td>Andreas Lanjerud</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Designers</td>
+            <td>Jim Fagerlund, Andreas Persson, Cristian Pavel</td>
+          </tr>
+          <tr>
+            <td>Scripter</td>
+            <td>Fredrik Westlund</td>
+          </tr>
+          <tr>
+            <td>Persistence&nbsp;Designer</td>
+            <td>Anders Adlén</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_softeng"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Software
+              Engineers
+              </h2>
+            </th>
+          </tr>
+          <tr>
+            <td>Gameplay&nbsp;Software&nbsp;Engineers</td>
+            <td>Anders Nivfors, Henrik Holst, Kian Bashiri, Kristoffer Sjöö, Linus Lundberg, Petter Lundgren, Sean
+              Boocock, Strati Zerbinis </td>
+          </tr>
+          <tr>
+            <td>UX&nbsp;&#x26;&nbsp;Online&nbsp;Software Engineers</td>
+            <td>Anders Andersson, Andreas Tarandi, Jimmy Hådén, Johan Yveborg, Marcus Hoverby, Mark Scheurwater, Mikael
+              Lagré, Per Burström</td>
+          </tr>
+          <tr>
+            <td>Core&nbsp;Software&nbsp;Engineers</td>
+            <td>Ciaran Kelly, Darrin Stewart, Jan Schmid, Liza Shulyayeva, Michael Lidgren, Mikael Uddholm, Ricardo
+              Barreira, Yasin Uludag </td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_artists"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Artists</h2>
+            </th>
+          </tr>
+          <tr>
+            <td>Level&nbsp;Artists</td>
+            <td>Andre Wahlgren, Andreas Hansevi, Emelie Nilsson, Jeroen Maton, Linnea Harrison, Lionel Cregut, Michael
+              Anderson, Pawel Novak, Pierre Autissier, Pontus Pettersson,
+              Rick Underhill, Said Zamzad</td>
+          </tr>
+          <tr>
+            <td>Character&nbsp;Artists</td>
+            <td>Linus Hamilton, Marcus Pettersson, Rui Mu, Sanna Nivhede</td>
+          </tr>
+          <tr>
+            <td>3D&nbsp;Artists</td>
+            <td>Alexandros Sideras, André Boström, Daniel Rocque-Bengtsson, David Ljungstedt, Kaori Kato, <mark
+                title="Worked on both games in the same role">Lars Mårtensson</mark>,
+              Laurens Corijn, Martin Henriksson, Saman Mahmoudi, Sofia Jakobsson, Sokol Mehmeti</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Lighting&nbsp;Artist</td>
+            <td>Fabien Christin</td>
+          </tr>
+          <tr>
+            <td>Lighting&nbsp;Artists</td>
+            <td>Anton Palmqvist, Karl Stjernberg</td>
+          </tr>
+          <tr>
+            <td>VFX&nbsp;Artists</td>
+            <td>Björn Henriksson, Gustav Hagerling</td>
+          </tr>
+          <tr>
+            <td>Compositors</td>
+            <td>Fredrik Höglin, Joachim Ljunggren (Pixeldust AB), Jonathan Lindgren, Sven Ahlström</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_conceptartists"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Concept
+              Artists</h2>
+            </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Photography</td>
+            <td>
+              <mark title="Worked on both games in different roles">Mattias Häggström</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Concept&nbsp;Artist</td>
+            <td>Per Øyving Haagensen</td>
+          </tr>
+          <tr>
+            <td>Concept&nbsp;Artists</td>
+            <td>Anton Grandert, Henrik Sahlström, Joseph McLamb, Nick Leavy</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_2dart"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: 2D Art </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;UI/2D&nbsp;Artist</td>
+            <td>Tobias Hogstrand</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_anim"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Animators </th>
+          </tr>
+          <tr>
+            <td>Animators</td>
+            <td>Andrea Kozakova, Awed Haller, Emil Nilsson, Gabriel Flamm, <mark
+                title="Worked on both games in the same role">Jesper Skoog</mark>, Kristoffer Bjömör, Sean Diehl</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Animator</td>
+            <td>Arvid Burström</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_audio"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Audio </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Audio&nbsp;Designers</td>
+            <td>
+              <mark title="Worked on both games in different roles">Magnus Walterstad</mark>, Olof Strömqvist</td>
+          </tr>
+          <tr>
+            <td>Audio&nbsp;Designers</td>
+            <td>Mari Saastamoinen-Minto</td>
+          </tr>
+          <tr>
+            <td>VO&nbsp;Producer</td>
+            <td>Patrick Michalak</td>
+          </tr>
+          <tr>
+            <td>Audio&nbsp;Analyst</td>
+            <td>Mikael Månsson</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_localization"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Localization
+            </th>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Director</td>
+            <td>Thomas Rönnberg</td>
+          </tr>
+          <tr>
+            <td>Localization&nbsp;Development&nbsp;Managers</td>
+            <td>Timmy Jonsson, Iñaki Valladares Martinez</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_qa"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: DICE QA </th>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Director</td>
+            <td>Simon Crawford</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Managers</td>
+            <td>Jaqub Ajmal, David Gallacher, Paul Watson</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Lead</td>
+            <td>Andra Dimofte</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;QA&nbsp;Analysts</td>
+            <td>Dan Cooper, Steve Cox, Billy Frew</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Analysts</td>
+            <td>Andreas Olsson, Angel Kavazov, David Hansson, Fabrizio Vasquez (Fabbz), Filip Sahlberg, Ludvig Kingfors,
+              Mikael Månsson, Nicky King, Rikard Westelius, Robin Powell,
+              Sebastian Contreras, Sigurbjörg Sara Benediktsdóttir</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_qe"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: DICE QE </th>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Director</td>
+            <td>David King</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Mikhail Samarin, Roman Gusev, Michael Harnetty, Marcus Jacobsson</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_pmqa"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: DICE Project
+              Management QA </th>
+          </tr>
+          <tr>
+            <td>Program&nbsp;Manager</td>
+            <td>Pankaj Gupta</td>
+          </tr>
+          <tr>
+            <td>QA&nbsp;Lead</td>
+            <td>Frances Blaxell</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_babies"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Product Babies
+            </th>
+          </tr>
+          <tr>
+            <td>Production&nbsp;Babies</td>
+            <td>Chris Ishin Weng, Edwin Juhlén-Twelkmeyer, Nike Bach, Tristan Bach, Sonny Rasmus Bear Slavin, Kai
+              Karijus
+              Frew, Clara Larsson, Niks Yveborg, Sam Zamzad, Alva Uddholm,
+              Elmer Hamilton, Alda Hamilton, Tycho Söderholm, Henri Viggo Björn Mostofi, Michel Henriksson, Sam
+              Henriksson
+            </td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_thanks"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Thanks </th>
+          </tr>
+          <tr>
+            <td colspan=2>Keyvan&nbsp;&amp;&nbsp;Amanda, Mario Oisson, Viktor Söderman,
+              Becca;&nbsp;River&nbsp;&amp;&nbsp;Echo , Ann;&nbsp;Saga&nbsp;&amp;&nbsp;Love,
+              Elias&nbsp;&amp;&nbsp;Dante!, Allison;&nbsp;Mary&nbsp;&amp;&nbsp;Stephan,
+              Sofia&nbsp;and&nbsp;Team&nbsp;PALT, JolaMumMiaBenConorDaveDad,
+              Alexandra;&nbsp;Shifty&nbsp;&amp;&nbsp;Cali, darmok&nbsp;&amp;&nbsp;jalad, Anna Berg, Morris Berg, Emma
+              Toft, For&nbsp;Dunk:&nbsp;Love&nbsp;Always. Quonk,
+              ToMumDadDavidMeilorsOma, Thanks&nbsp;for&nbsp;playtester feedback, Angelica;&nbsp;Dante&nbsp;&amp;&nbsp;Bo
+              ,
+              Hobbsan&nbsp;[Gameplay&nbsp;Team &amp; ME1],
+              Kirsten;&nbsp;Zia;&nbsp;and&nbsp;Harrier, Mum;&nbsp;Dad;&nbsp;Scott;&nbsp;Ewan; Claire &amp; Toot,
+              &nbsp;Mum;&nbsp;Dad;&nbsp;Laza, Nikke&nbsp;&amp;&nbsp;Luna&nbsp;,
+              To&nbsp;Rachel;&nbsp;Tomi;&nbsp;Bobo and family, SofiaIngelaDavidKristianOlofNP, Julia Ljungberg (credited
+              as Julia Snuttepluttan Ljungberg),
+              Tina;&nbsp;Bosse;&nbsp;Lukas&nbsp;&amp; Robin , Kasper&nbsp;&amp;&nbsp;Poking&nbsp;sticks,
+              To&nbsp;Sofie&nbsp;, JSund;&nbsp;Valle;&nbsp;nsg&nbsp;&amp; Perk,
+              Thanks&nbsp;Jem&nbsp;&amp;&nbsp;Nuggette . Hi cWg crew, Paris Carbone, Amelia;&nbsp;Jason,
+              Kim&nbsp;&amp;&nbsp;MaPa, Ryan Cairns, CEAI&nbsp;H&P;&nbsp;No&nbsp;Fears Only
+              Dreams, Family;&nbsp;friends&nbsp;and&nbsp;team., Family;&nbsp;Badger;&nbsp;Team; Friends,
+              Erin;&nbsp;Quinton&nbsp;and&nbsp;Eden, Linnea&nbsp;,
+              Mostofis&nbsp;;&nbsp;PettervPs &amp; Danne, Twinsen&nbsp;Ella&nbsp;&amp;&nbsp;Alice, Angela;&nbsp;Addison,
+              ECE&nbsp;[[d|&#8209;&#8209;|b]],
+              &nbsp;Michelle;&nbsp;Raoul&nbsp;and my family, Kristine Wallman,
+              Dallas;&nbsp;Elisabetta;&nbsp;Lisa&amp;Glenn, To&nbsp;Ca&nbsp;and&nbsp;our&nbsp;unborn twins ,
+              Jim;&nbsp;Lynne;&nbsp;Iain&nbsp;&amp; Anderson Clan, To&nbsp;Olsklingen&nbsp;and&nbsp;Neapean,
+              To&nbsp;Hanna&nbsp;Du&nbsp;är bäst :) , To&nbsp;Harrier;&nbsp;Kennerth
+              &amp; Linnéa, Moa;&nbsp;Elin&nbsp;&amp;&nbsp;Pontus, Mickis;&nbsp;Mamma&nbsp;&amp;&nbsp;Norrland,
+              &nbsp;Isac;&nbsp;Elli, Pa;&nbsp;Ma;&nbsp;Jhony&nbsp;&amp; Kalle,
+              My&nbsp;family&nbsp;and&nbsp;Hanne , To&nbsp;Riitta;&nbsp;Jack&nbsp;&amp; Alex,
+              &nbsp;Vera&nbsp;&amp;&nbsp;E&#8209;gruppen, Dedicated&nbsp;to&nbsp;Sandy&nbsp;Funkyness,
+              To&nbsp;Samurai;&nbsp;Ninja&nbsp;&amp; Poggy, ClintKateSmSVladSandraRodzide,
+              To&nbsp;my&nbsp;lovely&nbsp;Jantima , Caitlin&nbsp;and&nbsp;Gwen,
+              Emmi;&nbsp;Gunnar&nbsp;and&nbsp;Thomas; Malmö - OPFG - Viktor och Henry, Leon;&nbsp;Simone;&nbsp;Xiaowen;
+              Yaz , Mirror's&nbsp;Edge&nbsp;Speedrunners, Ida Yveborg, Nils
+              Yveborg, Klara Yveborg, Thanks&nbsp;Rebecca.&nbsp;Mreow, To&nbsp;Malin&nbsp;, Elenarie,
+              Alva;&nbsp;Teo&nbsp;&amp;&nbsp;Anna-Maria, To&nbsp;Sheje;&nbsp;Bujar&nbsp;&amp;
+              Flora, Irene Söderholm, To&nbsp;my&nbsp;supergirl&nbsp;Anca &amp; Luca </td>
+          </tr>
+          <tr>
+            <td>In&nbsp;loving&nbsp;memory&nbsp;of</td>
+            <td>Barbro Hallberg (1929-2016), Torbjörn Petterson (1950-2015)</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_music"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Music </th>
+          </tr>
+          <tr>
+            <td>Music&nbsp;by</td>
+            <td>Solar&nbsp;Fields</td>
+          </tr>
+          <tr>
+            <td>Produced&nbsp;by</td>
+            <td>
+              <mark title="Worked on both games in the same role">Magnus Birgersson</mark>, <mark
+                title="Worked on both games in different roles">Magnus Walterstad</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>&#x27;Warning&nbsp;Call&#x27;</td>
+            <td>Performed&nbsp;by&nbsp;CHVRCHES, Iain Andrew Cook (Writer), Martin Clifford Doherty (Writer), Lauren Eve
+              Mayberry (Writer), <mark title="Worked on both games in the same role">Magnus Birgersson</mark> (Writer),
+              Published&nbsp;by&nbsp;Universal PolyGram Int. Publishing Inc.,
+              on&nbsp;behalf&nbsp;of&nbsp;Universal Music Publishing Ltd., Electronic&nbsp;Arts&nbsp;Music [ASCAP],
+              Administered&nbsp;by&nbsp;Nettwerk One Music [Canada] Ltd.,
+              CHVRCHES&nbsp;appear&nbsp;courtesy of Glassnote Entertainment Group LLC, Virgin&nbsp;Records&nbsp;Limited,
+              Universal&nbsp;Music&nbsp;GmbH, Hostess&nbsp;KK,
+              Liberator&nbsp;Music</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_additional"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Additional
+            </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Producer</td>
+            <td>Sigurlína V. Ingvarsdóttir</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Scripter</td>
+            <td>Eugene Kuczerepa</td>
+          </tr>
+          <tr>
+            <td>Scripter</td>
+            <td>Fredrik Englund</td>
+          </tr>
+          <tr>
+            <td>Level&nbsp;Designers</td>
+            <td>Filip Coulianos, Stephen Iannetta, Dan Cooper</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Online&nbsp;Engineer</td>
+            <td>Niclas Forsell</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Anders Wikström, Andreas Jones, Arne Schober, Daniel Dahlkvist, David Hansson, Filip Karlsson, Jesper
+              Larsson, Joseph Goodwin, Justin Morgan, Martin Johansson,
+              Predrag Jancic, Vania Lamas, Scott Neumann, Erik Magnusson</td>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Director</td>
+            <td>Per Kjellström</td>
+          </tr>
+          <tr>
+            <td>Level&nbsp;Artists</td>
+            <td>Daniel Schönherr, Jens Oras, Sebastian Armonioso</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;2D&nbsp;Artists</td>
+            <td>Dongjoo Artursson, Nina Lindgren, Viktor Blanke</td>
+          </tr>
+          <tr>
+            <td>Lighting&nbsp;Artists</td>
+            <td>Ben Hutchings, Hus Zekayi</td>
+          </tr>
+          <tr>
+            <td>VFX&nbsp;Artist</td>
+            <td>Andreas Glad</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Animators</td>
+            <td>Christian Kardach, Francesco Coan, Gabriel Pettersson, Juan Tigreros, Nils Lerin</td>
+          </tr>
+          <tr>
+            <td>Additional&nbsp;VO&nbsp;Designer</td>
+            <td>Raoul Hamilton</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_specialthanks"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Special
+              Thanks </th>
+          </tr>
+          <tr>
+            <td>Special&nbsp;Thanks</td>
+            <td>Crille Forsberg, David Worsham, Joakim Grundwall, Johannes Deligiannis, Jonas Åberg, <mark
+                title="Worked on Mirror's Edge, was thanked in Mirror's Edge Catalyst.">Owen O'Brien</mark>, Pierre
+              Niedhardt, Red&nbsp;Pipe, Tom Olsson, Emily Clark, Fiona Cribben,
+              Carl-Magnus Nordin</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_companion"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: The Beat
+              Companion App </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Developer</td>
+            <td>Elton Muuga</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineer</td>
+            <td>Rikard Gehlin</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_devt_mediat"> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Media Team -
+              Management </th>
+          </tr>
+          <tr>
+            <td>Post&nbsp;Production&nbsp;Director</td>
+            <td>Mattias Lindahl</td>
+          </tr>
+          <tr>
+            <td>2D&nbsp;Media&nbsp;Manager</td>
+            <td>Viktoria Anselm</td>
+          </tr>
+          <tr>
+            <th colspan=2> Mirror&#x27;s Edge&#x2122; Catalyst Development Team: Media Team - Team </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Video&nbsp;&#x26;&nbsp;Media Director / Editor</td>
+            <td>Randall Evans</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Video&nbsp;&#x26;&nbsp;Media Directors / Editors</td>
+            <td>Roland Smedberg, Marcus Johansson</td>
+          </tr>
+          <tr>
+            <td>Video&nbsp;&#x26;&nbsp;Media&nbsp;Directors / Editors</td>
+            <td>Stefan Linde, André Söderlund</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_dice_studio"> DICE Studio: DICE Studio Management </th>
+          </tr>
+          <tr>
+            <td>VP&nbsp;&#x26;&nbsp;GM</td>
+            <td>Patrick Bach</td>
+          </tr>
+          <tr>
+            <td>Studio&nbsp;Director&nbsp;of&nbsp;Product Development</td>
+            <td>Björn Johnsson</td>
+          </tr>
+          <tr>
+            <td>Studio&nbsp;Director&nbsp;of&nbsp;Technology</td>
+            <td>
+              <mark title="Worked on both games">Per-Olof Romell</mark>
+            </td>
+          </tr>
+          <tr>
+            <td>Studio&nbsp;Director&nbsp;of&nbsp;Art</td>
+            <td>Robert Runesson</td>
+          </tr>
+          <tr>
+            <td>Studio&nbsp;Director&nbsp;of&nbsp;Design</td>
+            <td>Rasmus Højengaard</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Producers</td>
+            <td>Aleksander Svendsen Grøndal, Sara Jansson, Sigurlína V. Ingvarsdóttir</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Finance&nbsp;Manager</td>
+            <td>James Watkins</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;HR&nbsp;Manager</td>
+            <td>Peter Henriksson</td>
+          </tr>
+          <tr>
+            <td>Executive&nbsp;Assistant</td>
+            <td>Heléne Jutenäs</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: Line Managers </th>
+          </tr>
+          <tr>
+            <td>Line&nbsp;Managers</td>
+            <td>Anders Bernsveden, Jennifer Heras-Cordon, Anna Dahlen, Björn Hedberg, Johan Husén, Peter Kjellberg,
+              Robert
+              Nyberg, Stefan Wiesel</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: Human Resources </th>
+          </tr>
+          <tr>
+            <td>Human&nbsp;Resources</td>
+            <td>Marianne Boström, Sofia Hanerud</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: HR Business Parner </th>
+          </tr>
+          <tr>
+            <td>HR&nbsp;Business&nbsp;Partner</td>
+            <td>Björn Lundin</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: Talent Acquisition </th>
+          </tr>
+          <tr>
+            <td>Talent&nbsp;Acquisition</td>
+            <td>Terri Kim Bell, Fredrik Johnsson, Johanna Ragnhammar, Carl Tamleht, Hannes Larsson Westerlund</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: Business Affairs &#x26; Development </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Business Affairs &#x26; Development</td>
+            <td>Bernadet Bonomi-Schapink</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Business Development</td>
+            <td>Jennifer Gamel</td>
+          </tr>
+          <tr>
+            <td>Thanks&nbsp;to</td>
+            <td>Steven Bell, David Coleman, Ritche Corpus, Zach Levi, Peter Ross, Josh Salem, Karl Stewart, Kevin
+              Strange
+            </td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: Finance </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Financial&nbsp;Analyst</td>
+            <td>Eric Larsson</td>
+          </tr>
+          <tr>
+            <td>GL&nbsp;Accountant</td>
+            <td>Jenny Hedman</td>
+          </tr>
+          <tr>
+            <td>Accounting&nbsp;Clerk</td>
+            <td>Peter Nyberger</td>
+          </tr>
+          <tr>
+            <td>Payroll&nbsp;Specialist</td>
+            <td>Åsa Mosell</td>
+          </tr>
+          <tr>
+            <td>Assistant&nbsp;Payroll&nbsp;Specialist</td>
+            <td>María Tómasdóttir</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_dice_it"> DICE Studio: IT </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;IT&nbsp;Manager</td>
+            <td>Niklas Domander</td>
+          </tr>
+          <tr>
+            <td>System&nbsp;Engineers</td>
+            <td>Niclas Ljunggren, Jannis Saripanidis, Markus Viitamäki</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;IT&nbsp;Service&nbsp;Specialist</td>
+            <td>Fredrik Andersson</td>
+          </tr>
+          <tr>
+            <td>IT&nbsp;Service&nbsp;Specialists</td>
+            <td>Sebastian Hjorth, Joao Rivas, Sabri Debesai</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: RPM Service Management </th>
+          </tr>
+          <tr>
+            <td>RPM&nbsp;Service&nbsp;Lead</td>
+            <td>Ryu Underhill</td>
+          </tr>
+          <tr>
+            <td>RPM&nbsp;Service&nbsp;Manager</td>
+            <td>Norm Fernando</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Studio: Facilities </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Facilities&nbsp;Manager</td>
+            <td>Jeanette Henningsson</td>
+          </tr>
+          <tr>
+            <td>Office&nbsp;Manager</td>
+            <td>Martin Krigh</td>
+          </tr>
+          <tr>
+            <td>Back&nbsp;Office&nbsp;Assistant</td>
+            <td>Adam Lindblom</td>
+          </tr>
+          <tr>
+            <td>Event&nbsp;Manager</td>
+            <td>Christine Gordon</td>
+          </tr>
+          <tr>
+            <td>Receptionists</td>
+            <td>Johanna Almgren, Filipha Granlund, Klara Hansen, Malin Höltzermann</td>
+          </tr>
+          <tr>
+            <td>Janitors</td>
+            <td>Anton Wittberg, Hugo Hammarlund, Gustav Månsson</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_diceops"> DICE Operations: Management </th>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Operations</td>
+            <td>Johan Döhl, Natalie Francis</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Development&nbsp;Director</td>
+            <td>Ryan McArthur</td>
+          </tr>
+          <tr>
+            <td>Service&nbsp;Director</td>
+            <td>Andreas Skoglund</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Director</td>
+            <td>Carl-Magnus Nordin</td>
+          </tr>
+          <tr>
+            <td>Launch&nbsp;Online&nbsp;Technical Director</td>
+            <td>Shez Bhimji</td>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Directors</td>
+            <td>Johan Dalborg, Jaiook Park</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Product Launch </th>
+          </tr>
+          <tr>
+            <td>Launch&nbsp;Director</td>
+            <td>Toby Bushnell</td>
+          </tr>
+          <tr>
+            <td>Technical&nbsp;Director</td>
+            <td>Andrew Sledd</td>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Director</td>
+            <td>Christoffer Lagerhorn</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Live </th>
+          </tr>
+          <tr>
+            <td>Producer</td>
+            <td>Alexander Hassoon</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Software&nbsp;Engineer</td>
+            <td>David Röhr</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Johan Idrén, Tommy Ulfsparre, Erman Döser, Johan Kamb, Lars Sjöström</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Online Ops</td>
+            <td>Nathan Weast</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Submission and Release Management </th>
+          </tr>
+          <tr>
+            <td>Team&nbsp;Lead</td>
+            <td>Klas Håkansson</td>
+          </tr>
+          <tr>
+            <td>Release&nbsp;Manager</td>
+            <td>Adrian Irimiea</td>
+          </tr>
+          <tr>
+            <td>Submission&nbsp;Analysts</td>
+            <td>Karl Fridlycke, Ovidiu Cernahoschi</td>
+          </tr>
+          <tr>
+            <td>Store&nbsp;Manager</td>
+            <td>Naseer Alkhouri</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Back End Development </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Software&nbsp;Engineers</td>
+            <td>Joakim Bodin, Johan Mjönes</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Hannes Heijkenskjöld, João Neves, Rikard Andersson, Daniel Lundin, Reik Schatz</td>
+          </tr>
+          <tr>
+            <td>Quality&nbsp;Engineers</td>
+            <td>Viktor Jonsson, Luca Fazari</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Front End Development </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Software&nbsp;Engineer</td>
+            <td>Patric Nordmark</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Per Johansson, Geoff Green</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Core Development </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Software&nbsp;Engineer</td>
+            <td>Michael Nordström</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Jesper Svennevid, Alexander Krasnukhin, Kevin Moore, Oscar Norlander</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Anti Cheat </th>
+          </tr>
+          <tr>
+            <td>Anti&nbsp;Cheat&nbsp;Manager</td>
+            <td>Sabina af Jochnick</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Niklas Sandén, Dirk de la Hunt</td>
+          </tr>
+          <tr>
+            <th colspan=2> DICE Operations: Analytics </th>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Game&nbsp;Analyst</td>
+            <td>Maria Gerontini</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Business&nbsp;Analytics</td>
+            <td>Benjamin Tisdale</td>
+          </tr>
+          <tr>
+            <td>Analyst&nbsp;Team&nbsp;Lead</td>
+            <td>Jay Austin</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Business&nbsp;Intelligence Engineer</td>
+            <td>Christian Cyréus</td>
+          </tr>
+          <tr>
+            <td>Business&nbsp;Intelligence&nbsp;Analyst</td>
+            <td>Rikard Nyquist</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Business&nbsp;Intelligence Engineer</td>
+            <td>Cameron Westlake</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Business&nbsp;Analysts</td>
+            <td>Katarina Dahlgren, Bei He</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_ghost"> Ghost Games Support Pod </th>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Matthew Barnard, Johan Carlberg, Martin Green, Gustav Örnvall, Edvard Sandberg, Kathrin Scheil, Mattias
+              Thell</td>
+          </tr>
+          <tr>
+            <td>Content&nbsp;Editors</td>
+            <td>Amanda Ehlert, Erik Christersson, Lizette Stenqvist</td>
+          </tr>
+          <tr>
+            <td>Development&nbsp;Director</td>
+            <td>Tatyana Dyshlova</td>
+          </tr>
+          <tr>
+            <td>Cinematic&nbsp;Artists</td>
+            <td>Neil Manners, Kam Wan</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_ea_marketing"> EA Global Marketing: Global Product Marketing </th>
+          </tr>
+          <tr>
+            <td>Chief&nbsp;Marketing&nbsp;Officer</td>
+            <td>Chris Bruzzo</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Vice&nbsp;President Marketing</td>
+            <td>Todd W. Sitrin</td>
+          </tr>
+          <tr>
+            <td>Vice&nbsp;Presidents&nbsp;Marketing</td>
+            <td>Anthony Stevenson, Lincoln Hershberger</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Global Marketing: DICE Marketing </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Product&nbsp;Strategy</td>
+            <td>Julien Wera</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Product&nbsp;Manager</td>
+            <td>Julien Quety</td>
+          </tr>
+          <tr>
+            <td>Product&nbsp;Manager</td>
+            <td>Martin Lindell</td>
+          </tr>
+          <tr>
+            <td>Brand&nbsp;Marketing&nbsp;Director</td>
+            <td>Craig Owens</td>
+          </tr>
+          <tr>
+            <td>Associate&nbsp;Brand&nbsp;Manager</td>
+            <td>Marie Bustgaard Granlund</td>
+          </tr>
+          <tr>
+            <td>Brand&nbsp;Creative&nbsp;Lead</td>
+            <td>Drew Stauffer</td>
+          </tr>
+          <tr>
+            <td>Brand&nbsp;Asset&nbsp;Producer</td>
+            <td>Jonathan Judelson</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Live&nbsp;Services</td>
+            <td>Elisabet Gretarsdottir</td>
+          </tr>
+          <tr>
+            <td>Engagement&nbsp;Manager</td>
+            <td>Casey Al-kaisy</td>
+          </tr>
+          <tr>
+            <td>Marketing&nbsp;Interns</td>
+            <td>Maria Yannakea, Emma Kujansuu</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Global Marketing: Thanks </th>
+          </tr>
+          <tr>
+            <td>Thanks&nbsp;to</td>
+            <td>Anna Bouveng, Maria Sayans, Andreas Juliusson, Albin Alldén</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Global Marketing: Global Communications Group </th>
+          </tr>
+          <tr>
+            <td>SVP&nbsp;Global&nbsp;Communications Group</td>
+            <td>David Tinson</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Global Marketing: Integrated Communciations </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Integrated Communications</td>
+            <td>Colin MacRae</td>
+          </tr>
+          <tr>
+            <td>Directors&nbsp;of&nbsp;Communications</td>
+            <td>Julie Foster, Andrew H. Wong</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;of&nbsp;Communications</td>
+            <td>Gregory Queste</td>
+          </tr>
+          <tr>
+            <td>International&nbsp;Communications Director</td>
+            <td>Bettina Munn</td>
+          </tr>
+          <tr>
+            <td>International&nbsp;Communications Specialist</td>
+            <td>Iris Arzur</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Global Marketing: Community Engagement </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Community Engagement</td>
+            <td>Adam Tanielian</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Community&nbsp;&#x26; Influencers</td>
+            <td>Chris Mancil</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Conversation&nbsp;Manager</td>
+            <td>Daniel Lingen</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Community Content</td>
+            <td>Markus Frieske</td>
+          </tr>
+          <tr>
+            <td>Brand&nbsp;Voice&nbsp;Lead</td>
+            <td>Jino Talens</td>
+          </tr>
+          <tr>
+            <td>Community&nbsp;Manager</td>
+            <td>Vincent Vukovic</td>
+          </tr>
+          <tr>
+            <td>Conversation&nbsp;Manager</td>
+            <td>Leanne Bradbury</td>
+          </tr>
+          <tr>
+            <td>Content&nbsp;Manager</td>
+            <td>Jonas Elfving</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Global Marketing: Digital Communications </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Digital Communications</td>
+            <td>Charles Kha</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Global&nbsp;Content Strategy</td>
+            <td>Duke Indrasigamany</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Global Content Strategy</td>
+            <td>Alexandre Scriabine</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Digital Intelligence</td>
+            <td>John Yuill</td>
+          </tr>
+          <tr>
+            <td>Associate&nbsp;Online&nbsp;Product Manager</td>
+            <td>Lianne MacLean</td>
+          </tr>
+          <tr>
+            <td>Conversation&nbsp;Manager</td>
+            <td>Nataliya Richard</td>
+          </tr>
+          <tr>
+            <td>Marketing&nbsp;Communications&nbsp;Specialist</td>
+            <td>Dan Pez</td>
+          </tr>
+          <tr>
+            <td>Strategic&nbsp;Decision&nbsp;Support Analyst</td>
+            <td>Aaron Bradley</td>
+          </tr>
+          <tr>
+            <td>Associate&nbsp;Strategic&nbsp;Decision Support Analysts</td>
+            <td>Kiran Basra, Syed Naqvi</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_pulse"> Pulse </th>
+          </tr>
+          <tr>
+            <td>Interactive&nbsp;Executive&nbsp;Producer</td>
+            <td>Daniel Frank</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;of&nbsp;Product Management</td>
+            <td>Jaime Stella</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Product&nbsp;Management</td>
+            <td>Eamonn Glass</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Product&nbsp;Manager</td>
+            <td>Jeremy MacKay</td>
+          </tr>
+          <tr>
+            <td>Product&nbsp;Manager</td>
+            <td>Roderick McDougall</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Project&nbsp;Management Office</td>
+            <td>Gary Baanstra</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Web&nbsp;Project&nbsp;Manager</td>
+            <td>Carl Langan</td>
+          </tr>
+          <tr>
+            <td>Production&nbsp;Coordinator</td>
+            <td>Heather Matwe</td>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Technical&nbsp;Operations</td>
+            <td>Ivo Mencke</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Engineering</td>
+            <td>Omar Khan</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Web&nbsp;Engineers</td>
+            <td>Robert Alderson, Darren Fehrmann</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Paul Achtymichuk, Bryan Belyk, Troy Gullage, Kevin Harley, Antonio Perez Salas, Mickey Wu, Fabien
+              Warniez,
+              David Yan </td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Systems&nbsp;Engineer</td>
+            <td>Jose Amengual</td>
+          </tr>
+          <tr>
+            <td>System&nbsp;Administrator</td>
+            <td>Peter Smith-Gibbons</td>
+          </tr>
+          <tr>
+            <td>Release&nbsp;Manager</td>
+            <td>Alex Raguero</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Quality&nbsp;Analyst</td>
+            <td>Scott Bird</td>
+          </tr>
+          <tr>
+            <td>Lead&nbsp;Quality&nbsp;Assurance Tester</td>
+            <td>Marisa Maza</td>
+          </tr>
+          <tr>
+            <td>Quality&nbsp;Assurance&nbsp;Testers</td>
+            <td>Ryan LeMesurier, Kyle Shields</td>
+          </tr>
+          <tr>
+            <th colspan=2 id="mec_others"> UX &#x26; Design </th>
+          </tr>
+          <tr>
+            <td>Events&nbsp;&#x26;&nbsp;Media</td>
+            <td>Robert Kissinger</td>
+          </tr>
+          <tr>
+            <td>Art&nbsp;Director</td>
+            <td>Christopher Grose</td>
+          </tr>
+          <tr>
+            <td>UX&nbsp;Director</td>
+            <td>Jordan Girman</td>
+          </tr>
+          <tr>
+            <td>UX&nbsp;Architect</td>
+            <td>Jason Wasiak</td>
+          </tr>
+          <tr>
+            <td>UI&nbsp;Designers</td>
+            <td>Polly Lau, Josh Zak</td>
+          </tr>
+          <tr>
+            <th colspan=2> Events &#x26; Media </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Events and Media</td>
+            <td>Tammy Levine</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;PR&nbsp;Manager</td>
+            <td>Melissa Ojeda</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;Publicist</td>
+            <td>Nicole Fodran</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Events&nbsp;Manager</td>
+            <td>Sara Sprinkles</td>
+          </tr>
+          <tr>
+            <th colspan=2> Corporate Communications </th>
+          </tr>
+          <tr>
+            <td>Vice&nbsp;President&nbsp;Corporate Communications</td>
+            <td>John Reseburg</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Corporate Communications</td>
+            <td>Sandy Goldberg, Matt Faust</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Employee&nbsp;Regional Content</td>
+            <td>David McDonagh, Pierre Lamoure, Erin Stoker</td>
+          </tr>
+          <tr>
+            <td>Corporation&nbsp;Communications EU Lead</td>
+            <td>Jenny Huldschiner</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Social&nbsp;Content Specialist</td>
+            <td>Brandon Guarneri</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Regional Content</td>
+            <td>David Neumann</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Employee&nbsp;Comms Specialist</td>
+            <td>Aryn Sanderson</td>
+          </tr>
+          <tr>
+            <th colspan=2> Operations &#x26; Implementation </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Product Management</td>
+            <td>Adam Clark</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;Digital&nbsp;Publishing Manager</td>
+            <td>Lloyd Sharp</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;Content&nbsp;Manager</td>
+            <td>Chris Bon</td>
+          </tr>
+          <tr>
+            <th colspan=2> Global Analytics </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Business&nbsp;Analytics</td>
+            <td>Ben Tisdale</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Business Analytics</td>
+            <td>Andrew Hill</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Business&nbsp;Analytics</td>
+            <td>Katarina Dahlgren, Bei He, Rob Donald</td>
+          </tr>
+          <tr>
+            <th colspan=2> First Party Relations </th>
+          </tr>
+          <tr>
+            <td>First&nbsp;Party&nbsp;Account&nbsp;Managers</td>
+            <td>Rosanne Elkington, Greg Brandmeier</td>
+          </tr>
+          <tr>
+            <td>Vice&nbsp;President&nbsp;Strategy and First Party</td>
+            <td>Andrew Corcoran</td>
+          </tr>
+          <tr>
+            <th colspan=2> International Product Marketing </th>
+          </tr>
+          <tr>
+            <td>Marketing&nbsp;Director</td>
+            <td>Gustav Enekull</td>
+          </tr>
+          <tr>
+            <td>Product&nbsp;Manager</td>
+            <td>Francois-Xavier Labescat</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Product&nbsp;Manager</td>
+            <td>Claes Gartner</td>
+          </tr>
+          <tr>
+            <th colspan=2> International Publishing Organization Marketing </th>
+          </tr>
+          <tr>
+            <td>International&nbsp;Publishing&nbsp;Organization Marketing</td>
+            <td>Yoko Atsuchi, Craig Auld, Jérôme Austin, Colin Blackwood, Benoit Bouchez, Alexander Bowman, Alice
+              Brandvik, Hampus Erlandsson, Cesare Fedele, Federico Garcia de
+              Salazar, Daniel Alfredo Gonzalez, Stephan Graffin, Jonathan Harris, Michael Hinc, Jess Hodgson, Heiner
+              Kuhlmann, Jean Mercier, Daniel Montes, Marcella Morcio, Hideharu
+              Nakamatsu, Fredrik Ribbing, Emmanuelle Stevenin, Anna Szarska, Kirill Ustinovich, Joshua White, Nick Wong,
+              Krzysztof Zych</td>
+          </tr>
+          <tr>
+            <th colspan=2> International Publishing Organization Communications </th>
+          </tr>
+          <tr>
+            <td>International&nbsp;Publishing&nbsp;Organization Communications</td>
+            <td>Ralf Anheier, Miłosz Białas, Antonio Cano Urdillo, Mickael Da Costa, Charlotte Dubois, Mikołaj Dusiński,
+              Mario Fernández, Paul Ganchou, Michele Gennari, Stefan
+              Hoelzel, Nina de Haan, Stefano Maestro, Yilmas Mohammed Ali, Romain Montégu, Sebastian Moritz, Joyce Op de
+              Weegh, Ruslan Pyatkin, Christoffer Ring, Tristan Rosenfeldt,
+              Inna Shevchenko, Snezana Stojanovska, Wojciech Szajdak, Shaun White, Lee Williams</td>
+          </tr>
+          <tr>
+            <th colspan=2> International Publishing Organization Digital Sales </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Digital Sales</td>
+            <td>Adolf Kristjansson</td>
+          </tr>
+          <tr>
+            <td>Digital&nbsp;Commercial&nbsp;Managers</td>
+            <td>Jesper Ahrendsen, Anders Emblad, Richard Stickler</td>
+          </tr>
+          <tr>
+            <td>Digital&nbsp;Sales&nbsp;Manager</td>
+            <td>Brenda Baeza Garcia</td>
+          </tr>
+          <tr>
+            <td>Digital&nbsp;Merchandising&nbsp;Manager</td>
+            <td>Thomas Gaidler</td>
+          </tr>
+          <tr>
+            <td>Sr.&nbsp;Digital&nbsp;Analyst</td>
+            <td>Abraham Graveland</td>
+          </tr>
+          <tr>
+            <td>Digital&nbsp;Products&nbsp;Release Manager</td>
+            <td>Nidia Fernandes</td>
+          </tr>
+          <tr>
+            <th colspan=2> Americas Publishing Organization Marketing </th>
+          </tr>
+          <tr>
+            <td>Vice&nbsp;President&nbsp;Marketing</td>
+            <td>Stu Lang</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Marketing</td>
+            <td>Erika K. Peterson</td>
+          </tr>
+          <tr>
+            <td>Product&nbsp;Manager</td>
+            <td>Raymond Yee</td>
+          </tr>
+          <tr>
+            <td>Marketing&nbsp;Coordinators</td>
+            <td>Ellen Zeng, Lindsey Collins</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Retail&nbsp;Marketing</td>
+            <td>Andria Greenlee</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Retail Marketing</td>
+            <td>Jenifer Voss</td>
+          </tr>
+          <tr>
+            <th colspan=2> Americas Publishing Organization Digital Sales </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Digital Sales</td>
+            <td>Ben Macuga</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Digital&nbsp;Commerce Manager</td>
+            <td>Marc Wilkinson</td>
+          </tr>
+          <tr>
+            <td>Digital&nbsp;Commercial&nbsp;Manager</td>
+            <td>Grant Lee</td>
+          </tr>
+          <tr>
+            <td>Digital&nbsp;Sales&nbsp;Associate</td>
+            <td>Kevin O'Connor</td>
+          </tr>
+          <tr>
+            <td>Business&nbsp;Planning&nbsp;Manager</td>
+            <td>Alex Tisdale</td>
+          </tr>
+          <tr>
+            <th colspan=2> Consumer Insights </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Consumer&nbsp;Insights</td>
+            <td>Jodie Antypas</td>
+          </tr>
+          <tr>
+            <td>Consumer&nbsp;Insights&nbsp;Manager</td>
+            <td>Ravi Gogte</td>
+          </tr>
+          <tr>
+            <td>Consumer&nbsp;Insights&nbsp;Analyst</td>
+            <td>Mike Chanler</td>
+          </tr>
+          <tr>
+            <th colspan=2> Global Engagement &#x26; Acquisition </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Global Media</td>
+            <td>Julie Kim</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;Media&nbsp;Lead</td>
+            <td>Anthony Basilio</td>
+          </tr>
+          <tr>
+            <td>Media&nbsp;Buyers</td>
+            <td>Christine Nguyen, Jason Butler</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Global Engagement</td>
+            <td>Ludvig Philip</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Gameplay Services </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Product&nbsp;Management</td>
+            <td>Daniel Windrem</td>
+          </tr>
+          <tr>
+            <td>Product&nbsp;Manager</td>
+            <td>Robert Hole</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Program&nbsp;Manager</td>
+            <td>Glenn Karlsen</td>
+          </tr>
+          <tr>
+            <th colspan=2> Software Engineers </th>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Jesse Labate, Benjamin Sze, Matt Miner, Bilal Arshad, Chris Buffett, Johnny Sohn, Ryan Bergstrom, Rustin
+              Plowright, Xiaying Peng, Raymond Shou, Andrew Makoukji,
+              Thomas Cho, Tyler Jameson, Zhiyan Shao (David), Hedy Liu, Shawn Liwei Luo, Yuyi Zhou, Clark Allenby,
+              Ignacio
+              Garcia, Michael J. Sop, John McDonnell, Alex Tse</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineer&nbsp;Co-op</td>
+            <td>Gurshane Sidhu</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Commerce and Identity </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Program&nbsp;Manager</td>
+            <td>Rosario Morgan</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Engineering&nbsp;Development Manager</td>
+            <td>DanJun Xing</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Engineering&nbsp;Test Manager</td>
+            <td>Chuan Ye (Joey)</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Minsu Sohn, Dongqing Ma (Mario)</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineer&nbsp;in Test</td>
+            <td>Ming Shen (Chris)</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Commerce and Identity Operations </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Operations</td>
+            <td>Vikash Shah</td>
+          </tr>
+          <tr>
+            <td>Systems&nbsp;Architect</td>
+            <td>Devesh Ranjan</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Systems&nbsp;Engineer</td>
+            <td>Jeff Pei</td>
+          </tr>
+          <tr>
+            <td>Dev&nbsp;Ops&nbsp;Engineer</td>
+            <td>Shankar Shivram</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Strategic Planning and Engagement </th>
+          </tr>
+          <tr>
+            <td>Vice&nbsp;President</td>
+            <td>Ian Maynard</td>
+          </tr>
+          <tr>
+            <td>Director</td>
+            <td>Benoit Schotte-Daudin</td>
+          </tr>
+          <tr>
+            <td>Developer&nbsp;Relations&nbsp;Managers</td>
+            <td>Max Weltz, Matt Ferens</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Player Reliability Engineering </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Program&nbsp;Manager</td>
+            <td>Mahesh Makhijani</td>
+          </tr>
+          <tr>
+            <td>Engineering&nbsp;Program&nbsp;Manager</td>
+            <td>Antonio Frongillo</td>
+          </tr>
+          <tr>
+            <td>Quality&nbsp;Engineering&nbsp;Architect</td>
+            <td>Arvind Manda</td>
+          </tr>
+          <tr>
+            <td>Tech&nbsp;Lead</td>
+            <td>Sandeep Jayyarapu</td>
+          </tr>
+          <tr>
+            <td>Online&nbsp;Test&nbsp;Group&nbsp;- QA Project Lead</td>
+            <td>Craig Glass</td>
+          </tr>
+          <tr>
+            <td>Test&nbsp;Manager</td>
+            <td>Naveen Aluri</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers</td>
+            <td>Ravi Teja Guttula Vidya, Rinni Joshi</td>
+          </tr>
+          <tr>
+            <td>Online&nbsp;Test&nbsp;Group&nbsp;- QA Analysts</td>
+            <td>Krish Acu, Siddharth Angle, Dorothy Becks, Ashima Bhandari, Janice Cejoco, George Flores, Bhavya Tayal
+            </td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Data </th>
+          </tr>
+          <tr>
+            <td>Director&nbsp;of&nbsp;Engineering</td>
+            <td>Alex Ignatius</td>
+          </tr>
+          <tr>
+            <td>Research&nbsp;Data&nbsp;Scientist</td>
+            <td>Su Xue</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineer&nbsp;III</td>
+            <td>Venkata Puneet Ravuri</td>
+          </tr>
+          <tr>
+            <td>Software&nbsp;Engineers&nbsp;II</td>
+            <td>Keran Li, Hao Zhang, Matthew Olson, Jiawei Kuang, Saskya Irena</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Technical&nbsp;Program Manager</td>
+            <td>Jessica Mukai</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Product&nbsp;Manager</td>
+            <td>Laura Teclemariam</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Digital Platform Technical Operations </th>
+          </tr>
+          <tr>
+            <td>Head&nbsp;of&nbsp;Technical&nbsp;Operations</td>
+            <td>Mitch Lewandowski</td>
+          </tr>
+          <tr>
+            <th colspan=2> Techops Europe </th>
+          </tr>
+          <tr>
+            <td>Director</td>
+            <td>Henrik Tillander</td>
+          </tr>
+          <tr>
+            <td>Solution&nbsp;Architect</td>
+            <td>Anders Häglund</td>
+          </tr>
+          <tr>
+            <td>Network&nbsp;Engineer</td>
+            <td>Marcus Teiden</td>
+          </tr>
+          <tr>
+            <td>Cloud&nbsp;Engineer</td>
+            <td>David Hannon</td>
+          </tr>
+          <tr>
+            <td>Service&nbsp;Ops&nbsp;Managers</td>
+            <td>Henrik Sävenstedt, Kim Wahlsten</td>
+          </tr>
+          <tr>
+            <th colspan=2> Architecture </th>
+          </tr>
+          <tr>
+            <td>Director</td>
+            <td>Tim Overend</td>
+          </tr>
+          <tr>
+            <th colspan=2> Service Delivery </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director</td>
+            <td>Louis Oze</td>
+          </tr>
+          <tr>
+            <th colspan=2> Systems Engineering </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager</td>
+            <td>Matthew Wygant</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Systems&nbsp;Engiener</td>
+            <td>Rocky Rascon</td>
+          </tr>
+          <tr>
+            <td>Systems&nbsp;Engineers</td>
+            <td>Brandon Williams, Chris Lasater</td>
+          </tr>
+          <tr>
+            <th colspan=2> Database Services </th>
+          </tr>
+          <tr>
+            <td>Director</td>
+            <td>Bill Ducat</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager</td>
+            <td>Sanjeev Tirunagare</td>
+          </tr>
+          <tr>
+            <td>Database&nbsp;Architect</td>
+            <td>Nicklas Westerlund</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;MySQL&nbsp;DBAs</td>
+            <td>Nagesh Tenjerla, Bhonindra Singh</td>
+          </tr>
+          <tr>
+            <th colspan=2> Network Engineering </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager</td>
+            <td>Jason Kawamura</td>
+          </tr>
+          <tr>
+            <td>Network&nbsp;Engineer</td>
+            <td>Brad Neal</td>
+          </tr>
+          <tr>
+            <th colspan=2> Engineering &#x26; Technology </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director</td>
+            <td>Charles Christolini</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager</td>
+            <td>Steven Kinney</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Monitoring&nbsp;Engineers</td>
+            <td>Israel Ochoa, Rodrigo Hernandez</td>
+          </tr>
+          <tr>
+            <th colspan=2> Program Management Office </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director</td>
+            <td>Rick Burrell</td>
+          </tr>
+          <tr>
+            <td>Director</td>
+            <td>Pravin Nanda</td>
+          </tr>
+          <tr>
+            <td>Project&nbsp;Coordinator</td>
+            <td>Nestor Menjivar</td>
+          </tr>
+          <tr>
+            <th colspan=2> Business Operations </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Business Operations</td>
+            <td>Joshua Bauman</td>
+          </tr>
+          <tr>
+            <td>Business&nbsp;Solutions&nbsp;Analysts</td>
+            <td>Teresa Meade, Andres Ramos</td>
+          </tr>
+          <tr>
+            <th colspan=2> Online Service Operations </th>
+          </tr>
+          <tr>
+            <td>Service&nbsp;Operations&nbsp;Director</td>
+            <td>John Hanley</td>
+          </tr>
+          <tr>
+            <td>Operations&nbsp;Change&nbsp;Managers</td>
+            <td>Mark Murphy, Kalyan Bala, Atul Jain, Stephanie Loving-Walker, Stephen Sturdevant</td>
+          </tr>
+          <tr>
+            <td>Operations&nbsp;Change&nbsp;Coordinator</td>
+            <td>Kristy Flanders</td>
+          </tr>
+          <tr>
+            <th colspan=2> SRM Team </th>
+          </tr>
+          <tr>
+            <td>SRM&nbsp;Team</td>
+            <td>Alexandru Constantin, Andreea Roberta Ichim, Andrei Gaspar, Collin Tullius, Cosmin Ilie, Denis Tumpic,
+              Derek Cheng, Eliana Tipurita Dăianu, Harry Hong, Imran Mushtaq,
+              Ionel Chiriţă, Kima Hayuk, Mihai Terzea, Ovidiu-Daniel Diaconescu, Pawan Patil, Razvan Stere</td>
+          </tr>
+          <tr>
+            <th colspan=2> EA Legal </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Counsel</td>
+            <td>Hannah Croke, Jessica Van Dyke, Josh Sugnet</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Privacy&nbsp;Counsel</td>
+            <td>Jo Copping</td>
+          </tr>
+          <tr>
+            <td>Privacy&nbsp;Compliance&nbsp;Specialist</td>
+            <td>Amy Saechao</td>
+          </tr>
+          <tr>
+            <td>Legal&nbsp;Counsel</td>
+            <td>Anna Rundblom</td>
+          </tr>
+          <tr>
+            <td>Licensing&nbsp;Associate</td>
+            <td>Kerah Williams</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Legal&nbsp;Approvals Associate</td>
+            <td>Kelly McCubbin, Mariann Tam</td>
+          </tr>
+          <tr>
+            <td>Legal&nbsp;Approvals&nbsp;Associate</td>
+            <td>Stefanie Merci</td>
+          </tr>
+          <tr>
+            <th colspan=2> UX Research </th>
+          </tr>
+          <tr>
+            <td>UX&nbsp;Research&nbsp;Manager</td>
+            <td>Paul Newton</td>
+          </tr>
+          <tr>
+            <td>Sr.&nbsp;Lead&nbsp;Games&nbsp;User Researcher</td>
+            <td>Verónica Zammitto</td>
+          </tr>
+          <tr>
+            <td>Sr.&nbsp;Games&nbsp;User&nbsp;Researcher</td>
+            <td>Ian Livingston</td>
+          </tr>
+          <tr>
+            <td>Games&nbsp;User&nbsp;Researcher</td>
+            <td>James Berg</td>
+          </tr>
+          <tr>
+            <td>Research&nbsp;Moderator</td>
+            <td>Will Wang</td>
+          </tr>
+          <tr>
+            <td>Research&nbsp;Recruiter</td>
+            <td>Heather Behl Cameron</td>
+          </tr>
+          <tr>
+            <th colspan=2> Product Lifecycle Management </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Director&nbsp;Global Product Release</td>
+            <td>Andy Fletcher</td>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Global&nbsp;PLM&nbsp;Manager</td>
+            <td>Chris Strong</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;PLM&nbsp;Manager</td>
+            <td>Daniel Thompson</td>
+          </tr>
+          <tr>
+            <td>Director&nbsp;Project&nbsp;Master Data</td>
+            <td>Andy Georg</td>
+          </tr>
+          <tr>
+            <td>Global&nbsp;PLM&nbsp;Project&nbsp;Management Lead</td>
+            <td>Steven Ciccoricco</td>
+          </tr>
+          <tr>
+            <td>PLM&nbsp;Project&nbsp;Managers</td>
+            <td>Adam McIntosh, Tracey Prosser</td>
+          </tr>
+          <tr>
+            <td>PLM&nbsp;Associate&nbsp;Project Manager</td>
+            <td>Simon Terry</td>
+          </tr>
+          <tr>
+            <td>PLM&nbsp;Project&nbsp;Coordinators</td>
+            <td>Thomas Phan, Annalise Wright, Emily Jeffreys</td>
+          </tr>
+          <tr>
+            <td>Product&nbsp;Master&nbsp;Data&nbsp;Analyst</td>
+            <td>Kraig Thompson</td>
+          </tr>
+          <tr>
+            <th colspan=2> GPR Submissions </th>
+          </tr>
+          <tr>
+            <td>Senior&nbsp;Manager&nbsp;Planning &#x26; Release</td>
+            <td>Andy Howard</td>
+          </tr>
+          <tr>
+            <td>GPR&nbsp;Submissions&nbsp;Leads</td>
+            <td>Ulises Espejo Vigil, Matt Loft</td>
+          </tr>
+          <tr>
+            <td>GRP&nbsp;Senior&nbsp;Submissions Planner</td>
+            <td>Dustin Harwood</td>
+          </tr>
+          <tr>
+            <td>GPR&nbsp;Submissions&nbsp;Planners</td>
+            <td>Ryan Roque, Sonia Linares Martínez, Laetitia Roques, Cristina Sanchez Perez, Adam Friedberg, Peter
+              Schnoor
+            </td>
+          </tr>
+          <tr>
+            <td>GPR&nbsp;Submissions&nbsp;Coordinators</td>
+            <td>Tim Tran, Emilia de Castro, James Thivierge, Javier García Hurtado, Catherine Canlas, Jordan Suhr,
+              Andrea
+              Römer</td>
+          </tr>
+        </table>
+        <picture class="art_space">
+          <img src="/{{- manifest['assets/media/image/credits/concept.jpg'] }}">
+        </picture>
+        <p class="text-right" style="color: #8c8c8c;">© 2016 Electronic Arts, created by <a
+            href="http://nickshardlow.com">Nick Shardlow</a>
+        </p>
+        <div id="links">
+          <div class="row justify-content-center">
+            <h5>Official social media channels</h5>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-">
+              <a class="btn btn-lg btn-light mdi mdi-web" href="/out?t=http://www.mirrorsedge.com/" role="button"></a>
+            </div>
+            <div class="col-">
+              <a class="btn btn-lg btn-light mdi mdi-youtube"
+                href="/out?t=https://www.youtube.com/user/MirrorsEdgeTheGame" role="button"></a>
+            </div>
+            <div class="col-">
+              <a class="btn btn-lg btn-light mdi mdi-facebook" href="/out?t=https://www.facebook.com/mirrorsedge"
+                role="button"></a>
+            </div>
+            <div class="col-">
+              <a class="btn btn-lg btn-light mdi mdi-twitter" href="/out?t=https://twitter.com/mirrorsedge"
+                role="button"></a>
+            </div>
+            <div class="col-">
+              <a class="btn btn-lg btn-light mdi mdi-instagram" href="/out?t=https://instagram.com/mirrorsedgethegame"
+                role="button"></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- {{lib-js:bootstrap-bundle}} -->
-    <!-- {{lib-js:cookies}} -->
-    <script src="/assets/js/credits.js"></script>
-    <script src="/assets/js/jquery.easing.1.3.js"></script>
-    <script src="/assets/js/pagemap-0.4.0.min.js"></script>
-</body>
-
-</html>
+  </div>
+{% endblock %}

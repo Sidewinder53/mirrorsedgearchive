@@ -47,7 +47,7 @@
 	margin-top: 13.5em;
 }
 
-.container {
+body > div:nth-child(6) {
 	padding: 0!important;
 }
 

@@ -20,6 +20,10 @@
   margin-top: 5em;
   margin-bottom: 5em;
 }
+#navbar-credits {
+  background-color: rgba(255, 255, 255, 0.9)
+}
+
 #mec_table,
 .alert {
   margin-top: 2em;
