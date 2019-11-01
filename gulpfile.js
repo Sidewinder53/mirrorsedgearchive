@@ -64,7 +64,8 @@ function processTemplate() {
     './src/project_propaganda/index.html',
     './src/project_doomsday/index.html',
     './src/archive/index.html',
-    './src/contribute/index.html'
+    './src/contribute/index.html',
+    './src/legal/*.html'
   ], {
     base: './src/'
   })

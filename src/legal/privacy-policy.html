@@ -1,123 +1,85 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% set pageInfo = {
+  name: 'legal-privacy-policy',
+  category: 'legal-privacy-policy',
+  title: 'Legal: Privacy Policy',
+  description: "Privacy Policy of the Mirror's Edge Archive",
+  reqScripts: [ ],
+  reqStylesheets: [ 'assets/css/legal.css' ]
+}%}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Legal: Privacy Policy - The Mirror's Edge Archive &#x1F4C2;</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="The most extensive collection of high-quality Mirror's Edge resources
-    including concept art, interactive fan projects, developer presentations and much more!">
-  <meta property="og:title" content="Legal: Privacy Policy - The Mirror's Edge Archive &#x1F4C2;">
-  <meta property="og:image" content="https://mirrorsedgearchive.de/assets/media/image/og/generic.jpg">
-  <meta property="og:description" content="The most extensive collection of high-quality Mirror's Edge resources
-    including concept art, interactive fan projects, developer presentations and much more!" />
-  <!-- {{lib-css:bootstrap}} -->
-  <!-- {{lib-js:jQuery}} -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/favicon.png">
+{%- extends "templates/_layout_legal.njk" %}
 
-  <link rel="stylesheet" type="text/css" href="/assets/css/legal.css">
-  <script type="text/javascript" src="/assets/js/cookie-consent.js"></script>
-</head>
+{%- block content %}
+<div id="main" class="container">
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="/legal">
-        <svg xmlns="http://www.w3.org/2000/svg" class="d-inline-block align-top" width="30" height="30">
-          <path fill="#191919" d="M2.3 20.3l9.6-9.6-1.4-1.4-.7.7a1 1 0 0 1-1.4 0l-.7-.7a1 1 0 0 1 0-1.5l5.6-5.6a1 1 0 0 1 1.4 0l.7.7c.4.4.4 1 0 1.4l-.7.7 1.4 1.4a1 1 0 0 1 1.5 0c.3.4.3 1 0 1.4L19 9.3l.7-.8a1 1 0 0 1 1.4 0l.7.8c.4.3.4 1 0 1.4l-5.7 5.6a1 1 0 0 1-1.4 0l-.7-.7a1 1 0 0 1 0-1.4l.7-.7-1.4-1.4-9.6 9.6a1 1 0 0 1-1.4 0 1 1 0 0 1 0-1.4M20 19a2 2 0 0 1 2 2v1H12v-1a2 2 0 0 1 2-2h6z" />
-        </svg>
-        The Mirror's Edge Archive</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mr-auto">
-          <a class="nav-item nav-link" href="/legal/terms-of-use.html">Terms of Use</a>
-          <a class="nav-item nav-link active" href="/legal/privacy-policy.html">Privacy Policy</a>
-          <a class="nav-item nav-link" href="/legal/takedown.html">Takedown</a>
-          <a class="nav-item nav-link" href="/legal/imprint.html">Imprint</a>
-        </div>
-        <a href="/">Back to the homepage</a>
-      </div>
-    </div>
-  </nav>
+  <div id="cookie_consent_placeholder"></div>
 
-  <div id="main" class="container">
+  <h2>Privacy Policy</h2>
 
-    <div id="cookie_consent_placeholder"></div>
+  <br>
 
-    <h2>Privacy Policy</h2>
+  <h4 class="pp_cat" id="what">What We Collect and Receive</h4>
+  <p>In order for us to provide you the best possible experience on our websites, we need to collect and process
+    certain information. Depending on your use of the Services, that may include:</p>
+  <ul>
+    <li><strong>Contact us via email</strong> &mdash; for example, when you ask for support, send us questions or
+      comments, or report a problem, we will collect your name, email address, message, etc. We use this data solely
+      in connection with answering the queries we receive. </li>
+    <li><strong>Usage data</strong> &mdash; when you visit our site, we will store: the website from which you
+      visited us from, the parts of our site you visit, the date and duration of your visit, your anonymised IP
+      address, information from the device (device type, operating system, screen resolution, language, country you
+      are located in, and web browser type) you used during your visit, and <a
+        href="https://matomo.org/faq/general/faq_18254/">more</a>.
+      We process this usage data in <a href="https://matomo.org">Matomo Analytics</a> for statistical purposes, to
+      improve our site and to recognize and stop any misuse. We aggregate this data using a service hosted under the
+      domain stat-river.t0bias.de, but the domain and server behind it, is under our exclusive control.</li>
+    <li><strong>Cookies</strong> &mdash; we use cookies (small data files transferred onto computers or devices by
+      sites) for record-keeping purposes and to enhance functionality on our site. You may deactivate or restrict the
+      transmission of cookies by changing the settings of your web browser. Cookies that are already stored may be
+      deleted at any time.</li>
+  </ul>
 
-    <br>
+  <h4 class="pp_cat" id="optout">Opt-out of website tracking</h4>
+  <p>If you've got your browsers DNT (Do Not Track) feature enabled, we won't track your usage data. We will still
+    use cookies to enable basic functionality of our site (like skipping the repeated playback of intro animations or
+    hiding references to this privacy policy after you've seen the notice several times or closed it), but we will
+    not store any personally identifiable information. If you want to find out how you can enable this features,
+    please check out <a href="https://allaboutdnt.com/">allaboutdnt.com</a>.</a></p>
+  <p>If you don't want to use the DNT feature, you can also opt-out of being tracked by our Matomo Analytics instance
+    below:</p>
+  <hr> <iframe style="border: 0; height: 100%; width: 700px; max-width: 100%;"
+    src="https://stat-river.t0bias.de/index.php?module=CoreAdminHome&action=optOut&language=en&backgroundColor=&fontColor=&fontSize=&fontFamily=-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20Oxygen%2C%20Ubuntu%2C%20Cantarell%2C%20'Open%20Sans'%2C%20'Helvetica%20Neue'%2C%20sans-serif"></iframe>
 
-    <h4 class="pp_cat" id="what">What We Collect and Receive</h4>
-    <p>In order for us to provide you the best possible experience on our websites, we need to collect and process
-      certain information. Depending on your use of the Services, that may include:</p>
-    <ul>
-      <li><strong>Contact us via email</strong> &mdash; for example, when you ask for support, send us questions or
-        comments, or report a problem, we will collect your name, email address, message, etc. We use this data solely
-        in connection with answering the queries we receive. </li>
-      <li><strong>Usage data</strong> &mdash; when you visit our site, we will store: the website from which you
-        visited us from, the parts of our site you visit, the date and duration of your visit, your anonymised IP
-        address, information from the device (device type, operating system, screen resolution, language, country you
-        are located in, and web browser type) you used during your visit, and <a href="https://matomo.org/faq/general/faq_18254/">more</a>.
-        We process this usage data in <a href="https://matomo.org">Matomo Analytics</a> for statistical purposes, to
-        improve our site and to recognize and stop any misuse. We aggregate this data using a service hosted under the
-        domain stat-river.t0bias.de, but the domain and server behind it, is under our exclusive control.</li>
-      <li><strong>Cookies</strong> &mdash; we use cookies (small data files transferred onto computers or devices by
-        sites) for record-keeping purposes and to enhance functionality on our site. You may deactivate or restrict the
-        transmission of cookies by changing the settings of your web browser. Cookies that are already stored may be
-        deleted at any time.</li>
-    </ul>
+  <h4 class="pp_cat" id="rights">Your Rights</h4>
+  <p>You have the right to be informed of Personal Data processed by The Mirror's Edge Archive, a right to
+    rectification/correction, erasure and restriction of processing. You also have the right to ask from us a
+    structured, common and machine-readable format of Personal Data you provided to us.</p>
+  <p>We can only identify you via your email address and we can only adhere to your request and provide information
+    if we have Personal Data about you through you having made contact with us directly and/or you using our site
+    and/or service. We cannot provide, rectify or delete any data that we store on behalf of our users or customers.</p>
+  <p>To exercise any of the rights mentioned in this Privacy Policy and/or in the event of questions or comments
+    relating to the use of Personal Data you may contact The Mirror's Edge Archive team: <a
+      href="mailto:admin@mirrorsedgearchive.de">admin@mirrorsedgearchive.de</a></p>
+  <p>In addition, you have the right to lodge a complaint with the data protection authority in your jurisdiction.</p>
 
-    <h4 class="pp_cat" id="optout">Opt-out of website tracking</h4>
-    <p>If you've got your browsers DNT (Do Not Track) feature enabled, we won't track your usage data. We will still
-      use cookies to enable basic functionality of our site (like skipping the repeated playback of intro animations or
-      hiding references to this privacy policy after you've seen the notice several times or closed it), but we will
-      not store any personally identifiable information. If you want to find out how you can enable this features,
-      please check out <a href="https://allaboutdnt.com/">allaboutdnt.com</a>.</a></p>
-    <p>If you don't want to use the DNT feature, you can also opt-out of being tracked by our Matomo Analytics instance
-      below:</p>
-    <hr> <iframe style="border: 0; height: 100%; width: 700px; max-width: 100%;" src="https://stat-river.t0bias.de/index.php?module=CoreAdminHome&action=optOut&language=en&backgroundColor=&fontColor=&fontSize=&fontFamily=-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20Oxygen%2C%20Ubuntu%2C%20Cantarell%2C%20'Open%20Sans'%2C%20'Helvetica%20Neue'%2C%20sans-serif"></iframe>
+  <h4 class="pp_cat" id="retention">Retention of data</h4>
+  <p>We will retain your information as long as your account is active, as necessary to provide you with the
+    services or as otherwise set forth in this Policy. We will also retain and use this information as necessary
+    for the purposes set out in this Policy and to the extent necessary to comply with our legal obligations,
+    resolve disputes, enforce our agreements and protect The Mirror's Edge Archives legal rights.</p>
+  <p>We also collect and maintain aggregated, anonymized or pseudonymized information which we may retain
+    indefinitely to protect the safety and security of our Site, improve our Services or comply with legal
+    obligations.</p>
 
-    <h4 class="pp_cat" id="rights">Your Rights</h4>
-    <p>You have the right to be informed of Personal Data processed by The Mirror's Edge Archive, a right to
-      rectification/correction, erasure and restriction of processing. You also have the right to ask from us a
-      structured, common and machine-readable format of Personal Data you provided to us.</p>
-    <p>We can only identify you via your email address and we can only adhere to your request and provide information
-      if we have Personal Data about you through you having made contact with us directly and/or you using our site
-      and/or service. We cannot provide, rectify or delete any data that we store on behalf of our users or customers.</p>
-    <p>To exercise any of the rights mentioned in this Privacy Policy and/or in the event of questions or comments
-      relating to the use of Personal Data you may contact The Mirror's Edge Archive team: <a href="mailto:admin@mirrorsedgearchive.de">admin@mirrorsedgearchive.de</a></p>
-    <p>In addition, you have the right to lodge a complaint with the data protection authority in your jurisdiction.</p>
+  <h4 class="pp_cat" id="changes">Privacy Policy Changes</h4>
+  <p>We may update this Policy from time to time. If we do, we&rsquo;ll let you know about any material
+    changes by notifying you on the website.</p>
 
-    <h4 class="pp_cat" id="retention">Retention of data</h4>
-    <p>We will retain your information as long as your account is active, as necessary to provide you with the
-      services or as otherwise set forth in this Policy. We will also retain and use this information as necessary
-      for the purposes set out in this Policy and to the extent necessary to comply with our legal obligations,
-      resolve disputes, enforce our agreements and protect The Mirror's Edge Archives legal rights.</p>
-    <p>We also collect and maintain aggregated, anonymized or pseudonymized information which we may retain
-      indefinitely to protect the safety and security of our Site, improve our Services or comply with legal
-      obligations.</p>
+  <h4 class="pp_cat" id="contact">Contact Us</h4>
+  <p>E-Mail: <a href="mailto:admin@mirrorsedgearchive.de">admin@mirrorsedgearchive.de</a></p>
 
-    <h4 class="pp_cat" id="changes">Privacy Policy Changes</h4>
-    <p>We may update this Policy from time to time. If we do, we&rsquo;ll let you know about any material
-      changes by notifying you on the website.</p>
-
-    <h4 class="pp_cat" id="contact">Contact Us</h4>
-    <p>E-Mail: <a href="mailto:admin@mirrorsedgearchive.de">admin@mirrorsedgearchive.de</a></p>
-
-    <p>This document was created on the basis of <a href="https://matomo.org/privacy-policy/">Matomos Privacy Policy</a>
-      which is
-      published under license <a href="https://creativecommons.org/licenses/by/4.0/">CC
-        BY</a>. It was last updated on September 25, 2018.</p>
-
-  </div>
-  <!-- {{lib-js:bootstrap-bundle}} -->
-  <!-- {{lib-js:cookies}} -->
-</body>
-
-</html>
+  <p>This document was created on the basis of <a href="https://matomo.org/privacy-policy/">Matomos Privacy Policy</a>
+    which is
+    published under license <a href="https://creativecommons.org/licenses/by/4.0/">CC
+      BY</a>. It was last updated on September 25, 2018.</p>
+  {% endblock %}

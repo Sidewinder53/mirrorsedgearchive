@@ -1,0 +1,90 @@
+{% set navItems = [
+    {
+      type: 'category-link',
+      name: 'legal-tou',
+      label: 'Terms of Use',
+      href: '/legal/terms-of-use.html'
+    },
+    {
+      type: 'category-link',
+      name: 'legal-privacy-policy',
+      label: 'Privacy Policy',
+      href: '/legal/privacy-policy.html'
+    },
+    {
+      type: 'category-link',
+      name: 'legal-takedown',
+      label: 'Takedown',
+      href: '/legal/takedown.html'
+    },
+    {
+      type: 'category-link',
+      name: 'legal-imprint',
+      label: 'Imprint',
+      href: '/legal/imprint.html'
+    }
+  ]
+%}
+
+{%- block header %}
+  {%- if git.production != true %}
+  <div id='unsupported_ie' class='bg-dark text-white d-flex align-items-center'><div class='container'><div class='row'><div class='col- pt-2'><svg viewBox='0 0 24 24'><path fill='#ffffff' d='M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z' /></svg></div><div class='col'><p class='mb-0'><b>{{ git.branch }} - You're on the bleeding edge. 🩸</b><br>This is an unofficial, non production-ready build. Run gulp task <kbd>build-production</kbd> instead.</p></div></div></div></div>
+  {% endif -%}
+  <nav class="navbar navbar-expand-lg navbar-light" id="home">
+    <div id="nav-cont" class="container">
+      <div id="brand-area">
+        <a class="navbar-brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="d-inline-block align-top" viewBox="0 0 1000 1000">
+            <path fill="rgba(0,0,0,.9)" d="M135 255s3 64 199 259l-65 141 173-50 92 241 100-254h232s-93-122-306-173c-213-50-329-81-425-164"/>
+          </svg>
+          <span>The Mirror's Edge Archive</span>
+        </a>
+        {%- if git.production != true %}
+        <span id="beta-stamp" title="Unsigned build - commit {{ git.short }}">DEV</span>
+        {% endif -%}
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          {%- for item in navItems %}
+            {%- if item.type == 'category-link' %}
+              <li class="nav-item">
+                <a class="nav-link {%- if item.name == pageInfo.category %} active{% endif %}" href="{{ item.href }}">{{ item.label }}{% if item.name == pageInfo.category %}<span class="sr-only">(current)</span>{% endif %}</a>
+              </li>
+            {%- elif item.type == 'category-dropdown' %}
+              <li class="nav-item dropdown {%- if item.name == pageInfo.category %} active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ item.label }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ item.label }}
+                </a>
+                <div class="dropdown-menu shadow" aria-labelledby="navbarDropdown{{ item.label }}">
+                  {%- for dropdownItem in item.contents -%}
+                    {% if dropdownItem.type == 'dropdown-header' %}
+                      <h6 class="dropdown-header">{{ dropdownItem.label }}</h6>
+                    {% elif dropdownItem.type == 'dropdown-divider' %}
+                      <div class="dropdown-divider"></div>
+                    {% elif dropdownItem.type == 'dropdown-item' %}
+                      <a class="dropdown-item {%- if dropdownItem.name == pageInfo.name %} active{% endif %}" href="{{ dropdownItem.href }}">{{ dropdownItem.label }}</a>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </li>
+            {%- elif item.type == 'category-special-contribute' %}
+            </ul>
+            <ul class="nav navbar-nav ml-auto justify-content-end">
+              <li class="nav-item{%- if item.name == pageInfo.name %} active{% endif %}">
+                <a class="nav-link" href="/contribute">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="d-inline-block align-top mr-1">
+                    <path fill="rgba(0,0,0,{%- if item.name == pageInfo.name %}.9{% else %}.5{% endif %})" d="M13 13c-2 0-6 1-6 3v2h12v-2c0-2-4-3-6-3m6.6.2c.8.7 1.4 1.6 1.4 2.8v2h3v-2c0-1.5-2.4-2.5-4.4-2.8M13 11a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m5 0a3 3 0 0 0 3-3 3 3 0 0 0-3-3l-1 .1a5 5 0 0 1 0 5.7l1 .2M8 10H5V7H3v3H0v2h3v3h2v-3h3v-2z"/>
+                  </svg>
+                  <span>Contribute / Contact</span>
+                </a>
+              </li>
+            </ul>
+            {% endif -%}
+          {% endfor -%}
+      </div>
+    </div>
+  </nav>
+{% endblock %}
