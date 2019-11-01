@@ -1,20 +1,29 @@
 trigger:
 - master
+- sandbox
+- master
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
+    versionSpec: '10.x'
   displayName: 'Install Node.js'
 
 - script: |
     npm install
-    npm run build-prod
+    npm run buildProduction
   displayName: 'Install NPM and run gulpfile'
-  
+  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'), eq(variables['Build.SourceBranch'], 'refs/heads/master')))
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'Install NPM and run gulpfile'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
+
 - task: CopyFiles@2
   inputs:
     Contents: 'dist/**/*'
@@ -24,5 +33,20 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-build-artifacts
+    artifactName: MEA-production-artifact
   displayName: 'Publish Staged Artifacts to "MEA-build-artifacts"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: MEA-sandbox-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-build-artifacts"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: MEA-vNext-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-build-artifacts"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
