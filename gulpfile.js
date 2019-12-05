@@ -1,31 +1,30 @@
 // Global Imports
 
 const { src, dest, series, parallel, watch } = require('gulp');
+
+// Gulp tools
+const del = require('del');
+const tap = require('gulp-tap');
+const rev = require('gulp-rev');
+const git = require('git-rev-sync')
+const cache = require('gulp-cache');
 const concat = require('gulp-concat');
 const minify = require('gulp-minify');
-const cleanCss = require('gulp-clean-css');
-const purgecss = require('gulp-purgecss');
-const rev = require('gulp-rev');
-const del = require('del');
 const rename = require('gulp-rename');
+const flatten = require('gulp-flatten');
 const replace = require('gulp-replace');
-const git = require('git-rev-sync')
+const cleanCss = require('gulp-clean-css');
+const nunjucks = require('gulp-nunjucks-render');
+
+// Image optimization
 const imagemin = require('gulp-imagemin');
-const mozjpeg = require('imagemin-mozjpeg');
-const pngquant = require('imagemin-pngquant');
 const svgo = require('imagemin-svgo');
 const webp = require('imagemin-webp');
-const nunjucks = require('gulp-nunjucks-render');
-const flatten = require('gulp-flatten');
-const tap = require('gulp-tap');
-const cache = require('gulp-cache');
+const mozjpeg = require('imagemin-mozjpeg');
+const pngquant = require('imagemin-pngquant');
 const browserSync = require('browser-sync').create();
 
-const watchHTML = () => watch('./src/**/*.html', series(processTemplateDev, reload));
-const watchCSS = () => watch('./src/**/*.css', series(packBundleCSS, packVendorCSS, packLocalCSS, processTemplateDev, reload));
-const watchJS = () => watch('./src/**/*.js', series(packVendorJS, packBundleJS, packLocalJS, processTemplateDev, reload));
-const watchImg = () => watch(['./src/**/*.jpg', './src/**/*.png'], series(optimizeImg, optimizeImgToWebp, processTemplateDev, reload));
-
+// BrowserSync instance creation
 function serve(done) {
   browserSync.init({
     server: {
@@ -38,6 +37,12 @@ function serve(done) {
   });
   done();
 };
+
+// DevServer asset watchdogs
+const watchHTML = () => watch('./src/**/*.html', series(processTemplateDev, reload));
+const watchCSS = () => watch('./src/**/*.css', series(packBundleCSS, packVendorCSS, packLocalCSS, processTemplateDev, reload));
+const watchJS = () => watch('./src/**/*.js', series(packVendorJS, packBundleJS, packLocalJS, processTemplateDev, reload));
+const watchImg = () => watch(['./src/**/*.jpg', './src/**/*.png'], series(optimizeImg, optimizeImgToWebp, processTemplateDev, reload));
 
 function reload(done) {
   browserSync.reload();
@@ -223,6 +228,7 @@ function packBundleCSS() {
       ext: '.css'
     }))
     // PurgeCSS has been disabled as it causes a whole bunch of problems and requires a humongous whitelist to work with 3rd-party frameworks
+    // Install gulp-purgecss to re-enable CSS purging
     // .pipe(purgecss({
     //   content: ['./src/**/*.html', './src/**/*.js'],
     //   whitelist: [

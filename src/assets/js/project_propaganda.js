@@ -364,32 +364,6 @@ function hookBindings() {
     previousVideo = selectedVideoElement;
     let videoAsset = new Object();
 
-    // $.each(database.newscasts, function (i, category) {
-    //   if (category.categoryName === $(selectedVideoElement).data('category')) {
-    //     $.each(category['videos'], function (j, video) {
-    //       if (video.videoName === $(selectedVideoElement).attr('id')) {
-    //         if (video.videoURL['vp9']) {
-    //           if (video.videoURL['vp9'].indexOf('$mainAsset$') != -1) {
-    //             videoAsset.VP9 = video.videoURL['vp9'].replace(
-    //               '$mainAsset$',
-    //               database['infrastructure'].mainAssetServer
-    //             );
-    //           } else {
-    //             videoAsset.VP9 = video.videoURL['vp9'];
-    //           }
-    //         }
-
-    //         if (video.videoURL['h264']) {
-    //           if (video.videoURL['h264'].indexOf('$mainAsset$') != -1) {
-    //             videoAsset.H264 = video.videoURL['h264'].replace(
-    //               '$(main)',
-    //               database['infrastructure'].mainAssetServer
-    //             );
-    //           } else {
-    //             videoAsset.H264 = video.videoURL['h264'];
-    //           }
-    //         }
-
     $.each(database.newscasts, function (i, category) {
       if (category.categoryName === $(selectedVideoElement).data('category')) {
         $.each(category['videos'], function (j, video) {
