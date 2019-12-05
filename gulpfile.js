@@ -340,7 +340,7 @@ function copyStatic() {
     'src/**/*.json',
     'src/favicon.*',
     'src/.well-known/*'
-  ])
+  ], { base: 'src' })
     .pipe(dest('dist/'))
 }
 
