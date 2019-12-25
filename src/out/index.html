@@ -15,13 +15,9 @@
     window.onload = function () {
       if (document.referrer.match(/^https?:\/\/([^\/]+\.)?mirrorsedgearchive\.de(\/|$)/i) || window.location.hostname == 'localhost') {
         var targetURL = getTargetFromUri("t");
-        document.querySelector('#url-info').innerHTML = targetURL;
         if (targetURL != null && getUrlValidity(targetURL)) {
           document.querySelector("#main").style.display = "block";
           getUrlSafebrowsingStatus(targetURL);
-          document.querySelector("#continue-button").addEventListener('click', function () {
-            window.location.replace(targetURL)
-          });
         } else {
           window.location.replace("/");
         }
@@ -68,13 +64,13 @@
         <div id="url-info" class="font-weight-bold py-2">
           <div class="d-flex align-items-center">
             <div class="spinner-border mr-2" role="status" aria-hidden="true"></div>
-            Loading...
+            <span id="url-loading-label">Loading...</span>
           </div>
         </div>
         <div id="nav-aborted-malicious" class="alert alert-danger">
-          <h4 class="alert-heading">Malicious URL</h4>
-          For your own safety, you will not be able to continue. Please <a href="/contribute/">contact</a> the
-          Mirror's Edge Archive team.
+          <h4 class="alert-heading">Unsafe external site</h4>
+          The external site was classified as not trustworthy and might be dangerous to visit. For your own safety, you
+          will not be able to continue. Please <a href="/contribute/">contact</a> the Mirror's Edge Archive team.
         </div>
         <button class="btn btn-secondary" type="button" id="continue-button" disabled>Continue</button>
         <hr>
@@ -120,6 +116,7 @@
           },]
         }
       };
+      document.querySelector('#url-loading-label').innerHTML = "Scanning external site for security issues...";
       $.ajax({
         contentType: 'application/json',
         data: JSON.stringify(request),
@@ -130,11 +127,17 @@
             console.log("[SafebrowsingV4] Response did contain threat information. Treat URL as insecure, additional information below:");
             console.log("[SafebrowsingV4] %cThreat type: " + data["matches"][0].threatType,
               "color:red; font-weight: bold;");
+            document.querySelector('#url-info').innerHTML = url;
             document.querySelector('#url-info').style.userSelect = "none";
             document.querySelector('#url-info').style.cursor = "not-allowed";
+            document.querySelector("#continue-button").parentElement.removeChild(document.querySelector("#continue-button"));
             $('#nav-aborted-malicious').fadeTo(250, 1);
           } else {
             console.log("[SafebrowsingV4] Response did not contain any threat information. Treat URL as secure.");
+            document.querySelector('#url-info').innerHTML = url;
+            document.querySelector("#continue-button").addEventListener('click', function () {
+              window.location.replace(url)
+            });
             document.querySelector("#continue-button").removeAttribute("disabled");
           }
         },
