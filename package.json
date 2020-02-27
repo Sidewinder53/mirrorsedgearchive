@@ -32,11 +32,11 @@
     "image-picker": "^0.3.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "imagemin-svgo": "^7.0.0",
+    "imagemin-svgo": "^7.1.0",
     "imagemin-webp": "^5.1.0"
   },
   "dependencies": {
-    "@mdi/font": "^4.6.95",
+    "@mdi/font": "^4.9.95",
     "bootstrap": "^4.4.1",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
@@ -44,7 +44,8 @@
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.1",
     "natives": "^1.1.6",
-    "popper.js": "^1.16.0",
-    "shaka-player": "^2.5.6"
+    "popper.js": "^1.16.1",
+    "secure-string": "^1.2.1",
+    "shaka-player": "^2.5.9"
   }
 }
