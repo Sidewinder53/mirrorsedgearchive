@@ -8,7 +8,7 @@ function shuffle(a) {
   return a;
 }
 
-$.fn.isInViewport = function () {
+$.fn.isInViewport = function() {
   var elementTop = $(this).offset().top;
   var elementBottom = elementTop + $(this).outerHeight();
   var viewportTop = $(window).scrollTop();
@@ -16,36 +16,59 @@ $.fn.isInViewport = function () {
   return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
-$(document).ready(function () {
+$(document).ready(function() {
   var skipped = "false";
 
   if ($("#desktopHero").css("display") != "none") {
     $("#hero")[0].play();
     let carouselImages = {
-      "hero_img_1.jpg": "{{ manifest['assets/media/image/home/hero_img_1.jpg'] }}",
-      "hero_img_1.webp": "{{ manifest['assets/media/image/home/hero_img_1.webp'] }}",
-      "hero_img_2.jpg": "{{ manifest['assets/media/image/home/hero_img_2.jpg'] }}",
-      "hero_img_2.webp": "{{ manifest['assets/media/image/home/hero_img_2.webp'] }}",
-      "hero_img_3.jpg": "{{ manifest['assets/media/image/home/hero_img_3.jpg'] }}",
-      "hero_img_3.webp": "{{ manifest['assets/media/image/home/hero_img_3.webp'] }}",
-      "hero_img_4.jpg": "{{ manifest['assets/media/image/home/hero_img_4.jpg'] }}",
-      "hero_img_4.webp": "{{ manifest['assets/media/image/home/hero_img_4.webp'] }}",
-      "hero_img_5.jpg": "{{ manifest['assets/media/image/home/hero_img_5.jpg'] }}",
-      "hero_img_5.webp": "{{ manifest['assets/media/image/home/hero_img_5.webp'] }}",
-      "hero_img_6.jpg": "{{ manifest['assets/media/image/home/hero_img_6.jpg'] }}",
-      "hero_img_6.webp": "{{ manifest['assets/media/image/home/hero_img_6.webp'] }}",
-      "hero_img_7.jpg": "{{ manifest['assets/media/image/home/hero_img_7.jpg'] }}",
-      "hero_img_7.webp": "{{ manifest['assets/media/image/home/hero_img_7.webp'] }}",
-      "hero_img_8.jpg": "{{ manifest['assets/media/image/home/hero_img_8.jpg'] }}",
-      "hero_img_8.webp": "{{ manifest['assets/media/image/home/hero_img_8.webp'] }}",
-      "hero_img_9.jpg": "{{ manifest['assets/media/image/home/hero_img_9.jpg'] }}",
-      "hero_img_9.webp": "{{ manifest['assets/media/image/home/hero_img_9.webp'] }}",
-    }
-    let carouselImageObject = '';
+      "hero_img_1.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_1.jpg'] }}",
+      "hero_img_1.webp":
+        "{{ manifest['assets/media/image/home/hero_img_1.webp'] }}",
+      "hero_img_2.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_2.jpg'] }}",
+      "hero_img_2.webp":
+        "{{ manifest['assets/media/image/home/hero_img_2.webp'] }}",
+      "hero_img_3.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_3.jpg'] }}",
+      "hero_img_3.webp":
+        "{{ manifest['assets/media/image/home/hero_img_3.webp'] }}",
+      "hero_img_4.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_4.jpg'] }}",
+      "hero_img_4.webp":
+        "{{ manifest['assets/media/image/home/hero_img_4.webp'] }}",
+      "hero_img_5.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_5.jpg'] }}",
+      "hero_img_5.webp":
+        "{{ manifest['assets/media/image/home/hero_img_5.webp'] }}",
+      "hero_img_6.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_6.jpg'] }}",
+      "hero_img_6.webp":
+        "{{ manifest['assets/media/image/home/hero_img_6.webp'] }}",
+      "hero_img_7.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_7.jpg'] }}",
+      "hero_img_7.webp":
+        "{{ manifest['assets/media/image/home/hero_img_7.webp'] }}",
+      "hero_img_8.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_8.jpg'] }}",
+      "hero_img_8.webp":
+        "{{ manifest['assets/media/image/home/hero_img_8.webp'] }}",
+      "hero_img_9.jpg":
+        "{{ manifest['assets/media/image/home/hero_img_9.jpg'] }}",
+      "hero_img_9.webp":
+        "{{ manifest['assets/media/image/home/hero_img_9.webp'] }}"
+    };
+    let carouselImageObject = "";
 
     enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
     for (i = 0; i < 4; i++) {
-      carouselImageObject += '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/' + carouselImages["hero_img_" + enu[i] + ".webp"] + '" type="image/webp"><img src="/' + carouselImages["hero_img_" + enu[i] + ".jpg"] + '" type="image/jpg"></picture></div>';
+      carouselImageObject +=
+        '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/' +
+        carouselImages["hero_img_" + enu[i] + ".webp"] +
+        '" type="image/webp"><img src="/' +
+        carouselImages["hero_img_" + enu[i] + ".jpg"] +
+        '" type="image/jpg"></picture></div>';
     }
 
     $("#heroSlides > .carousel-inner").append(carouselImageObject);
@@ -55,7 +78,7 @@ $(document).ready(function () {
       $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
       $("#overview")
         .children()
-        .each(function () {
+        .each(function() {
           if ($(this).isInViewport()) {
             $(this)
               .css("display", "flex")
@@ -71,7 +94,7 @@ $(document).ready(function () {
       $(".card .bg-light").css("background-color", "#f8f9fa");
     }
 
-    setTimeout(function () {
+    setTimeout(function() {
       if ($("#hero").get(0).paused == true) {
         $("#hero_text, #overview, #nav-cont").fadeTo("slow", 1);
         $("#herocard").addClass("shadow");
@@ -83,22 +106,22 @@ $(document).ready(function () {
     $("#hero_text, #cookie_consent, #nav-cont").fadeTo("slow", 1);
     $("#overview")
       .children()
-      .each(function () {
-        $(this).css("display", "flex")
+      .each(function() {
+        $(this).css("display", "flex");
       });
     $("#legal_footer").css("display", "block");
     $(".card").css("border-width", "1px");
-    setTimeout(function () {
+    setTimeout(function() {
       $("#mobileHeroText").css("height", "5em");
     }, 1500);
   }
 
-  $("#hero").on("timeupdate", function (event) {
+  $("#hero").on("timeupdate", function(event) {
     if (this.currentTime >= 1.5 && skipped == "false") {
-      $("#nav-cont, #hero_text").fadeTo("slow", 1, function () {
+      $("#nav-cont, #hero_text").fadeTo("slow", 1, function() {
         $("#overview")
           .children()
-          .each(function () {
+          .each(function() {
             if ($(this).isInViewport()) {
               $(this)
                 .css("display", "flex")
@@ -118,11 +141,10 @@ $(document).ready(function () {
     }
   });
 
-  $("video").on("ended", function () {
+  $("video").on("ended", function() {
     $("#heroSlides").carousel({ interval: 3000 });
     $("#hero").addClass("d-none");
     $("#heroSlides").removeClass("d-none");
     $("#media_copyright").fadeTo("slow", 1);
   });
 });
-

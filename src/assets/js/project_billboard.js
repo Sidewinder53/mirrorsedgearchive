@@ -1,5 +1,7 @@
-var gdb, psv, nv, nvc;
-gdb = psv = nv = nvc = null;
+var globalVideoDatabase = null;
+var nextVideoId = null;
+var previousVideoId = null;
+var isNextVideoNextChapter = null;
 
 $(function() {
   if (document.addEventListener) {
@@ -26,10 +28,10 @@ $(function() {
   var horBillboardList = '',
     verBillboardList = '';
   $.get('data.json', function(db) {
-    gdb = db;
+    globalVideoDatabase = db;
     $.each(db['types'].horizontalBillboards, function(i, category) {
       horBillboardList +=
-        '<p class="list-group-item category collapsed" id="' +
+        '<p class="list-group-item category collapsed mb-0" id="' +
         category.categoryName +
         '" data-toggle="collapse" href="#col-' +
         category.categoryName +
@@ -42,7 +44,7 @@ $(function() {
         '">';
       $.each(category['videos'], function(j, video) {
         horBillboardList +=
-          '<p class="list-group-item video" id=' +
+          '<p class="list-group-item video mb-0" id=' +
           video.videoName +
           ' data-type="horizontalBillboards" data-category="' +
           category.categoryName +
@@ -54,7 +56,7 @@ $(function() {
     });
     $.each(db['types'].verticalBillboards, function(i, category) {
       verBillboardList +=
-        '<p class="list-group-item category collapsed" id="' +
+        '<p class="list-group-item category collapsed mb-0" id="' +
         category.categoryName +
         '" data-toggle="collapse" href="#col-' +
         category.categoryName +
@@ -67,7 +69,7 @@ $(function() {
         '">';
       $.each(category['videos'], function(j, video) {
         verBillboardList +=
-          '<p class="list-group-item video" id=' +
+          '<p class="list-group-item video mb-0" id=' +
           video.videoName +
           ' data-type="verticalBillboards" data-category="' +
           category.categoryName +
@@ -104,19 +106,19 @@ $(function() {
           .next('.list-group-item.video')
           .attr('id')
       ) {
-        nv = $(this)
+        nextVideoId = $(this)
           .next('.list-group-item.video')
           .attr('id');
-        nvc = false;
+        isNextVideoNextChapter = false;
       } else {
-        nv = $(this)
+        nextVideoId = $(this)
           .parent()
           .next()
           .next()
           .children()
           .eq(0)
           .attr('id');
-        nvc = true;
+        isNextVideoNextChapter = true;
       }
       history.pushState(null, null, '?v=' + this.id);
       $('#vidPlayer, #vidFooter, #vidMeta').css('display', 'block');
@@ -125,11 +127,11 @@ $(function() {
         .css('background-color', '#000')
         .css('background-image', 'none');
       let find = $(this);
-      $('#' + psv)
+      $('#' + previousVideoId)
         .css('background-color', '#fff')
         .css('color', '#000');
       find.css('background-color', '#007bff').css('color', '#fff');
-      $.each(eval("gdb['types']." + find.data('type')), function(i, category) {
+      $.each(eval("globalVideoDatabase['types']." + find.data('type')), function(i, category) {
         if (category.categoryName === find.data('category')) {
           $.each(category['videos'], function(j, video) {
             if (video.videoName === find.attr('id')) {
@@ -141,7 +143,7 @@ $(function() {
                   console.log('vp9 asset is on main asset server.');
                   vp9AssetURL = video.videoURL['vp9'].replace(
                     '$mainAsset$',
-                    atob(gdb['infrastructure'].mainAssetServer)
+                    atob(globalVideoDatabase['infrastructure'].mainAssetServer)
                   );
                 } else {
                   console.log('vp9 asset is external.');
@@ -160,7 +162,7 @@ $(function() {
                   console.log('h264 asset is on main asset server.');
                   h264AssetURL = video.videoURL['h264'].replace(
                     '$mainAsset$',
-                    atob(gdb['infrastructure'].mainAssetServer)
+                    atob(globalVideoDatabase['infrastructure'].mainAssetServer)
                   );
                 } else {
                   console.log('h264 asset is external.');
@@ -198,20 +200,20 @@ $(function() {
           });
         }
       });
-      psv = find.attr('id');
-      console.log(psv);
+      previousVideoId = find.attr('id');
+      console.log(previousVideoId);
     }),
     $('#vidPlayer').bind('ended', function() {
       if ($('#apCheck').prop('checked')) {
-        if (nvc) {
-          $('#' + psv)
+        if (isNextVideoNextChapter) {
+          $('#' + previousVideoId)
             .parent()
             .collapse('hide');
         }
-        $('#' + nv)
+        $('#' + nextVideoId)
           .parent()
           .collapse('show');
-        $('#' + nv).click();
+        $('#' + nextVideoId).click();
       }
     }),
     $('#apCheck').change(function() {
@@ -228,7 +230,7 @@ function getThumbnail(video) {
     if (video.thumbnail.indexOf('$mainAsset$') != -1) {
       return video.thumbnail.replace(
         '$mainAsset$',
-        atob(gdb['infrastructure'].mainAssetServer)
+        atob(globalVideoDatabase['infrastructure'].mainAssetServer)
       );
     }
   } else {

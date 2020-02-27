@@ -97,7 +97,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.nav-link.active.show > svg > path {
+.nav-link.active > svg > path {
   fill: #fff;
 }
 
