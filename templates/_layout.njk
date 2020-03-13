@@ -25,7 +25,9 @@
   {%- block content %}
   {% endblock -%}
 
+  {%- if pageInfo.name != "archive" %}
   {%- include "./partials/_footer.njk" %}
+  {% endif -%}
 
   <script src="/{{- manifest['assets/vendor/bundles/baseBundle.js'] }}"></script>
   {%- for item in pageInfo.reqScripts %}
