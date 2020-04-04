@@ -8,21 +8,24 @@ pool:
 
 steps:
 
-- script: |
-    switch($Build_Sourcebranch) {
-      'refs/heads/master' {
-        Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-        Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-        }
-      'refs/heads/sandbox' {
-        Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-        Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-        }
-      'refs/heads/vNext' {
-        Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
-        Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
-        } 
-    }
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      switch(${env:BUILD_SOURCEBRANCH}) {
+        'refs/heads/master' {
+          Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+          Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+          }
+        'refs/heads/sandbox' {
+          Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+          Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+          }
+        'refs/heads/vNext' {
+          Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
+          Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
+          }
+      }
   displayName: 'Set build variables'
 
 - task: UseNode@1
