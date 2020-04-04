@@ -1,28 +1,27 @@
 trigger:
-- sandbox
+  - sandbox
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+  - task: UseNode@1
+    inputs:
+      version: "12.x"
 
-- script: |
-    npm install
-    npm run build-prod
-  displayName: 'Install NPM and build for production'
+  - script: |
+      npm install
+      npm run buildProduction
+    displayName: "Install NPM and build release artifact"
 
-- task: CopyFiles@2
-  inputs:
-    Contents: 'dist/**/*'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy distributable resources to Artifact Staging Directory'
+  - task: CopyFiles@2
+    inputs:
+      Contents: $(Build.SourcesDirectory)/dist/**
+      targetFolder: $(Build.ArtifactStagingDirectory)
+    displayName: "Copy distributable resources to Artifact Staging Directory"
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-sandbox-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-sandbox-artifact"'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      artifactName: MEA-sandbox-artifact
+    displayName: 'Publish Staged Artifacts to "MEA-sandbox-artifact"'
