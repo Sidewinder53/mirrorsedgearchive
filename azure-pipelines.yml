@@ -1,28 +1,30 @@
 trigger:
-- sandbox
+  - vNext
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+  - task: UseNode@1
+    inputs:
+      version: "10.x"
 
-- script: |
-    npm install
-    npm run build-prod
-  displayName: 'Install NPM and build for production'
+  - script: |
+      npm install
+    displayName: "Install NPM"
 
-- task: CopyFiles@2
-  inputs:
-    Contents: 'dist/**/*'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy distributable resources to Artifact Staging Directory'
+  - script: |
+      npm run build-prod
+    displayName: "Build release using Gulp"
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-sandbox-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-sandbox-artifact"'
+  - task: CopyFiles@2
+    inputs:
+      Contents: $(Build.SourcesDirectory)/dist/**
+      targetFolder: $(Build.ArtifactStagingDirectory)
+    displayName: "Copy distributable resources to Artifact Staging Directory"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      artifactName: MEA-vNext-artifact
+    displayName: 'Publish Staged Artifacts to "MEA-vNext-artifact"'
