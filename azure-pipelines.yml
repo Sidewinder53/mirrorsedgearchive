@@ -7,63 +7,47 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseNode@1
-  inputs:
-    version: '10.x'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- script: |
+    switch(${env:BUILD_SOURCEBRANCH}) {
+      'refs/heads/master' {
+        Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+        Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+        }
+      'refs/heads/sandbox' {
+        Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+        Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+        }
+      'refs/heads/vNext' {
+        Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
+        Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
+        } 
+    }
+  displayName: 'Set build variables'
 
 - task: UseNode@1
   inputs:
-    version: '10.x'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
-
-- task: UseNode@1
-  inputs:
-    version: '12.x'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
+    version: $(nodeVersion)
+  displayName: 'Install Node'
 
 - task: Npm@1
   inputs:
     command: 'install'
+  displayName: 'Install NPM'
 
 - script: |
-    npm run build-prod
-  displayName: 'Build website release artifact using gulp'
+    npm run $(buildCommand)
+  displayName: 'Build release using gulp'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-
-- script: |
-    npm run build-prod
-  displayName: 'Build website release artifact using gulp'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
-
-- script: |
-    npm run buildProduction
-  displayName: 'Build website release artifact using gulp'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
 
 - task: CopyFiles@2
   inputs:
     Contents: '$(Build.SourcesDirectory)/dist/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy distributable resources to Artifact Staging Directory'
+  displayName: 'Copy dist to Artifact Staging'
 
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-production-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-production-artifact"'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-sandbox-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-sandbox-artifact"'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-vNext-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-vNext-artifact"'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
+    artifactName: MEA-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-artifact"'
