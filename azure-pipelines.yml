@@ -9,7 +9,7 @@ pool:
 steps:
 
 - script: |
-    switch(${env:Build.Sourcebranch}) {
+    switch($Build_Sourcebranch) {
       'refs/heads/master' {
         Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
         Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
