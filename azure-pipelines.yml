@@ -1,57 +1,30 @@
 trigger:
-- master
-- sandbox
-- master
+  - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
-- task: UseNode@1
-  inputs:
-    version: '12.x'
+  - task: UseNode@1
+    inputs:
+      version: "10.x"
 
-- script: |
-    npm install
-    npm run build-prod
-  displayName: 'Install NPM and build for production (legacy)'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  - script: |
+      npm install
+    displayName: "Install NPM"
 
-- script: |
-    npm install
-    npm run build-prod
-  displayName: 'Install NPM and build for production'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
+  - script: |
+      npm run build-prod
+    displayName: "Build for Development"
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'Install NPM and build for development'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
+  - task: CopyFiles@2
+    inputs:
+      Contents: $(Build.SourcesDirectory)/dist/**
+      targetFolder: $(Build.ArtifactStagingDirectory)
+    displayName: "Copy distributable resources to Artifact Staging Directory"
 
-- task: CopyFiles@2
-  inputs:
-    Contents: '$(Build.SourcesDirectory)/dist/**'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy distributable resources to Artifact Staging Directory'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-production-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-production-artifact"'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-sandbox-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-sandbox-artifact"'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/sandbox'))
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: MEA-vNext-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-vNext-artifact"'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/vNext'))
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      artifactName: MEA-master-artifact
+    displayName: 'Publish Staged Artifacts to "MEA-master-artifact"'
