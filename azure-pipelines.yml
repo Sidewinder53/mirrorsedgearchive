@@ -1,5 +1,5 @@
 trigger:
-  - vNext
+  - sandbox
 
 pool:
   vmImage: "ubuntu-latest"
