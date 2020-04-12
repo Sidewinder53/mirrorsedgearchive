@@ -1,0 +1,900 @@
+[
+  {
+    "type": "emblem",
+    "path": "emblems",
+    "content": [
+      {
+        "label": "_TOOL_",
+        "content": [
+          {
+            "id": "random_emblem",
+            "label": "Random",
+            "path": null
+          },
+          {
+            "id": "no_emblem",
+            "label": "None",
+            "path": null
+          }
+        ]
+      },
+      {
+        "label": "Main mission",
+        "content": [
+          {
+            "id": "bop-chaser",
+            "label": "Bird of Prey Chaser",
+            "path": "bop-chaser.png"
+          },
+          {
+            "id": "singe-bird-wing",
+            "label": "Single Bird Wing",
+            "path": "singe-bird-wing.png"
+          },
+          {
+            "id": "pigeon",
+            "label": "Pigeon",
+            "path": "pigeon.png"
+          },
+          {
+            "id": "shattered-glass-panel",
+            "label": "Shattered Glass Panel",
+            "path": "shattered-glass-panel.png"
+          },
+          {
+            "id": "shattered-protector-helmet",
+            "label": "Shattered Protector Helmet",
+            "path": "shattered-protector-helmet.png"
+          },
+          {
+            "id": "c4",
+            "label": "C4",
+            "path": "c4.png"
+          },
+          {
+            "id": "gift",
+            "label": "Gift",
+            "path": "gift.png"
+          },
+          {
+            "id": "fly",
+            "label": "Fly",
+            "path": "fly.png"
+          },
+          {
+            "id": "black-november",
+            "label": "Black November",
+            "path": "black-november.png"
+          },
+          {
+            "id": "shattered-turret",
+            "label": "Shattered Turret",
+            "path": "shattered-turret.png"
+          },
+          {
+            "id": "july-revolution",
+            "label": "July Revolution",
+            "path": "july-revolution.png"
+          },
+          {
+            "id": "claw-marks",
+            "label": "Claw Marks",
+            "path": "claw-marks.png"
+          },
+          {
+            "id": "cat-profile",
+            "label": "Cat Profile",
+            "path": "cat-profile.png"
+          },
+          {
+            "id": "che-noah",
+            "label": "Che Noah",
+            "path": "che-noah.png"
+          },
+          {
+            "id": "shatteret-shard-building",
+            "label": "Shattered Shard Building",
+            "path": "shatteret-shard-building.png"
+          },
+          {
+            "id": "shatteret-padlock",
+            "label": "Shattered Padlock",
+            "path": "shatteret-padlock.png"
+          },
+          {
+            "id": "double-dragon",
+            "label": "Double Dragon",
+            "path": "double-dragon.png"
+          }
+        ]
+      },
+      {
+        "label": "Mastery",
+        "content": [
+          {
+            "id": "angel-wings",
+            "label": "Angel Wings",
+            "path": "angel-wings.png"
+          },
+          {
+            "id": "rising-sun",
+            "label": "Rising Sun",
+            "path": "rising-sun.png"
+          },
+          {
+            "id": "butterfly",
+            "label": "Butterfly",
+            "path": "butterfly.png"
+          },
+          {
+            "id": "open-hand-with-droplet",
+            "label": "Open Hand with Droplet",
+            "path": "open-hand-with-droplet.png"
+          }
+        ]
+      },
+      {
+        "label": "Collectible &amp; Event",
+        "content": [
+          {
+            "id": "key",
+            "label": "Key",
+            "path": "key.png"
+          },
+          {
+            "id": "spider",
+            "label": "Spider",
+            "path": "spider.png"
+          },
+          {
+            "id": "two-pigeons",
+            "label": "Two Pigeons",
+            "path": "two-pigeons.png"
+          },
+          {
+            "id": "delivery",
+            "label": "Delivery",
+            "path": "delivery.png"
+          },
+          {
+            "id": "geococcyx",
+            "label": "Geococcyx",
+            "path": "geococcyx.png"
+          },
+          {
+            "id": "shattered-light-bulb",
+            "label": "Shattered Light Bulb",
+            "path": "shattered-light-bulb.png"
+          },
+          {
+            "id": "closed-fist-revolutionary",
+            "label": "Closed Fist Revolutionary",
+            "path": "closed-fist-revolutionary.png"
+          },
+          {
+            "id": "jacknife",
+            "label": "Jacknife",
+            "path": "jacknife.png"
+          },
+          {
+            "id": "pickpocketing-hand",
+            "label": "Pickpocketing Hand",
+            "path": "pickpocketing-hand.png"
+          },
+          {
+            "id": "destoyed-security-camera",
+            "label": "Destoyed Security Camera",
+            "path": "destoyed-security-camera.png"
+          },
+          {
+            "id": "anchor",
+            "label": "Anchor",
+            "path": "anchor.png"
+          },
+          {
+            "id": "battlefield-dog-tag",
+            "label": "Battlefield Dog Tag",
+            "path": "battlefield-dog-tag.png"
+          },
+          {
+            "id": "big-thick-book",
+            "label": "Big Thick Book",
+            "path": "big-thick-book.png"
+          },
+          {
+            "id": "cowboyhat-and-bandana",
+            "label": "Cowboy Hat and Bandana",
+            "path": "cowboyhat-and-bandana.png"
+          },
+          {
+            "id": "leon",
+            "label": "Leon",
+            "path": "leon.png"
+          },
+          {
+            "id": "mercury-god-helmet",
+            "label": "Mercury God Helmet",
+            "path": "mercury-god-helmet.png"
+          },
+          {
+            "id": "mountain-peak",
+            "label": "Mountain Peak",
+            "path": "mountain-peak.png"
+          },
+          {
+            "id": "rat",
+            "label": "Rat",
+            "path": "rat.png"
+          },
+          {
+            "id": "thumbs-up",
+            "label": "Thumbs Up",
+            "path": "thumbs-up.png"
+          }
+        ]
+      },
+      {
+        "label": "Social Play",
+        "content": [
+          {
+            "id": "ghost",
+            "label": "Ghost",
+            "path": "ghost.png"
+          }
+        ]
+      },
+      {
+        "label": "Exclusive",
+        "content": [
+          {
+            "id": "cheetah",
+            "label": "Cheetah",
+            "path": "cheetah.png"
+          },
+          {
+            "id": "fist",
+            "label": "Fist",
+            "path": "fist.png"
+          },
+          {
+            "id": "shattered-oldschool-footprint",
+            "label": "Shattered Oldschool Footprint",
+            "path": "shattered-oldschool-footprint.png"
+          },
+          {
+            "id": "stallion",
+            "label": "Stallion",
+            "path": "stallion.png"
+          }
+        ]
+      },
+      {
+        "label": "Misc (not available in the game)",
+        "content": [
+          {
+            "id": "feather",
+            "label": "Feather",
+            "path": "unused/feather.png"
+          },
+          {
+            "id": "bee",
+            "label": "Bee",
+            "path": "unused/bee.png"
+          },
+          {
+            "id": "ikarus_portrait",
+            "label": "Icarus Portrait",
+            "path": "unused/ikarus_portrait.png"
+          }
+        ]
+      },
+      {
+        "label": "Unused / Developer exclusive",
+        "content": [
+          {
+            "id": "3-stars",
+            "label": "3 Stars",
+            "path": "unused/3-stars.png"
+          },
+          {
+            "id": "bop-apex",
+            "label": "Bird of Prey Apex",
+            "path": "unused/bop-apex.png"
+          },
+          {
+            "id": "bop-deer",
+            "label": "Deer",
+            "path": "unused/bop-deer.png"
+          },
+          {
+            "id": "bop-interceptor",
+            "label": "Bird of Prey Interceptor",
+            "path": "unused/bop-interceptor.png"
+          },
+          {
+            "id": "bop-longranger",
+            "label": "Bird of Prey Longranger",
+            "path": "unused/bop-longranger.png"
+          },
+          {
+            "id": "bop-lowflier",
+            "label": "Bird of Prey Lowflier",
+            "path": "unused/bop-lowflier.png"
+          },
+          {
+            "id": "bop-predator",
+            "label": "Bird of Prey Predator",
+            "path": "unused/bop-predator.png"
+          },
+          {
+            "id": "bop-stalker",
+            "label": "Bird of Prey Stalker",
+            "path": "unused/bop-stalker.png"
+          },
+          {
+            "id": "Chains",
+            "label": "Chains",
+            "path": "unused/chains.png"
+          },
+          {
+            "id": "closed-fist",
+            "label": "Closed Fist",
+            "path": "unused/closed-fist.png"
+          },
+          {
+            "id": "crocodile",
+            "label": "Crocodile",
+            "path": "unused/crocodile.png"
+          },
+          {
+            "id": "dice-logo",
+            "label": "DICE Logo",
+            "path": "unused/dice-logo.png"
+          },
+          {
+            "id": "ea-frostbite",
+            "label": "EA Frostbite",
+            "path": "unused/ea-frostbite.png"
+          },
+          {
+            "id": "ea-logo",
+            "label": "EA Logo",
+            "path": "unused/ea-logo.png"
+          },
+          {
+            "id": "falling-dominoes",
+            "label": "Falling Dominoes",
+            "path": "unused/falling-dominoes.png"
+          },
+          {
+            "id": "feather-2",
+            "label": "Feather 2",
+            "path": "unused/feather-2.png"
+          },
+          {
+            "id": "glass-pieces",
+            "label": "Glass Pieces",
+            "path": "unused/glass-pieces.png"
+          },
+          {
+            "id": "huma-persepolis",
+            "label": "Huma Persepolis",
+            "path": "unused/huma-persepolis.png"
+          },
+          {
+            "id": "shattered_senteniel_armor",
+            "label": "Shattered Sentinel Armor",
+            "path": "unused/shattered_senteniel_armor.png"
+          },
+          {
+            "id": "shattered-shock-protector-helmet",
+            "label": "Shattered Shock Protector Helmet",
+            "path": "unused/shattered-shock-protector-helmet.png"
+          },
+          {
+            "id": "hunter",
+            "label": "Hunter",
+            "path": "unused/hunter.png"
+          },
+          {
+            "id": "hood",
+            "label": "Hood",
+            "path": "unused/hood.png"
+          },
+          {
+            "id": "thumbs-crossed",
+            "label": "Thumbs Crossed",
+            "path": "unused/thumbs-crossed.png"
+          },
+          {
+            "id": "shattered_senteniel_helmet",
+            "label": "Shattered Sentinel Helmet",
+            "path": "unused/shattered_senteniel_helmet.png"
+          },
+          {
+            "id": "queen",
+            "label": "Queen",
+            "path": "unused/queen.png"
+          },
+          {
+            "id": "target",
+            "label": "Target",
+            "path": "unused/target.png"
+          },
+          {
+            "id": "me-logo",
+            "label": "ME Logo",
+            "path": "unused/me-logo.png"
+          },
+          {
+            "id": "small-book",
+            "label": "Small Book",
+            "path": "unused/small-book.png"
+          },
+          {
+            "id": "shattered-enforcer-helmet",
+            "label": "Shattered Enforcer Helmet",
+            "path": "unused/shattered-enforcer-helmet.png"
+          },
+          {
+            "id": "lion",
+            "label": "Lion",
+            "path": "unused/lion.png"
+          },
+          {
+            "id": "tiger",
+            "label": "Tiger",
+            "path": "unused/tiger.png"
+          },
+          {
+            "id": "pith-helmet",
+            "label": "Pith Helmet",
+            "path": "unused/pith-helmet.png"
+          },
+          {
+            "id": "ram",
+            "label": "Ram",
+            "path": "unused/ram.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "frame",
+    "path": "frames",
+    "content": [
+      {
+        "label": "_TOOL_",
+        "content": [
+          {
+            "id": "random_frame",
+            "label": "Random",
+            "path": null
+          },
+          {
+            "id": "no_frame",
+            "label": "None",
+            "path": null
+          }
+        ]
+      },
+      {
+        "label": "Basic",
+        "content": [
+          {
+            "id": "basic_arrow",
+            "label": "Basic Arrow",
+            "path": "basic_arrow.png"
+          },
+          {
+            "id": "basic_circle",
+            "label": "Basic Circle",
+            "path": "basic_circle.png"
+          },
+          {
+            "id": "basic_diamond",
+            "label": "Basic Diamond",
+            "path": "basic_diamond.png"
+          },
+          {
+            "id": "basic_hexagon",
+            "label": "Basic Hexagon",
+            "path": "basic_hexagon.png"
+          },
+          {
+            "id": "basic_octagon",
+            "label": "Basic Octagon",
+            "path": "basic_octagon.png"
+          },
+          {
+            "id": "basic_pentagon",
+            "label": "Basic Pentagon",
+            "path": "basic_pentagon.png"
+          },
+          {
+            "id": "basic_shield",
+            "label": "Basic Shield",
+            "path": "basic_shield.png"
+          },
+          {
+            "id": "basic_square",
+            "label": "Basic Square",
+            "path": "basic_square.png"
+          },
+          {
+            "id": "basic_star",
+            "label": "Basic Star",
+            "path": "basic_star.png"
+          },
+          {
+            "id": "basic_triangle",
+            "label": "Basic Triangle",
+            "path": "basic_triangle.png"
+          }
+        ]
+      },
+      {
+        "label": "Advanced",
+        "content": [
+          {
+            "id": "evolved_arrow",
+            "label": "Evolved Arrow",
+            "path": "evolved_arrow.png"
+          },
+          {
+            "id": "evolved_celtic",
+            "label": "Evolved Celtic",
+            "path": "evolved_celtic.png"
+          },
+          {
+            "id": "evolved_circle",
+            "label": "Evolved Circle",
+            "path": "evolved_circle.png"
+          },
+          {
+            "id": "evolved_cross",
+            "label": "Evolved Cross",
+            "path": "evolved_cross.png"
+          },
+          {
+            "id": "evolved_crusher",
+            "label": "Evolved Crusher",
+            "path": "evolved_crusher.png"
+          },
+          {
+            "id": "evolved_frame",
+            "label": "Evolved Frame",
+            "path": "evolved_frame.png"
+          },
+          {
+            "id": "evolved_hexagon",
+            "label": "Evolved Hexagon",
+            "path": "evolved_hexagon.png"
+          },
+          {
+            "id": "evolved_hexangle",
+            "label": "Evolved Hexangle",
+            "path": "evolved_hexangle.png"
+          },
+          {
+            "id": "evolved_invincible",
+            "label": "Evolved Invincible",
+            "path": "evolved_invincible.png"
+          },
+          {
+            "id": "evolved_nova",
+            "label": "Evolved Nova",
+            "path": "evolved_nova.png"
+          },
+          {
+            "id": "evolved_shield",
+            "label": "Evolved Shield",
+            "path": "evolved_shield.png"
+          },
+          {
+            "id": "evolved_square",
+            "label": "Evolved Square",
+            "path": "evolved_square.png"
+          },
+          {
+            "id": "evolved_triburst",
+            "label": "Evolved Triburst",
+            "path": "evolved_triburst.png"
+          },
+          {
+            "id": "evolved_triforce",
+            "label": "Evolved Triforce",
+            "path": "evolved_triforce.png"
+          }
+        ]
+      },
+      {
+        "label": "Elite",
+        "content": [
+          {
+            "id": "elite_nova_prime",
+            "label": "Elite Nova Prime",
+            "path": "elite_nova_prime.png"
+          },
+          {
+            "id": "elite_the_hood",
+            "label": "Elite The Hood",
+            "path": "elite_the_hood.png"
+          },
+          {
+            "id": "elite_blades",
+            "label": "Elite Blades",
+            "path": "elite_blades.png"
+          },
+          {
+            "id": "elite_shinobi",
+            "label": "Elite Shinobi",
+            "path": "elite_shinobi.png"
+          },
+          {
+            "id": "elite_circle",
+            "label": "Elite Circle",
+            "path": "elite_circle.png"
+          },
+          {
+            "id": "elite_hexagon",
+            "label": "Elite Hexagon",
+            "path": "elite_hexagon.png"
+          },
+          {
+            "id": "elite_shift",
+            "label": "Elite Shift",
+            "path": "elite_shift.png"
+          },
+          {
+            "id": "elite_arrow",
+            "label": "Elite Arrow",
+            "path": "elite_arrow.png"
+          },
+          {
+            "id": "elite_razor_claw",
+            "label": "Elite Razor Claw",
+            "path": "elite_razor_claw.png"
+          },
+          {
+            "id": "elite_shield",
+            "label": "Elite Shield",
+            "path": "elite_shield.png"
+          }
+        ]
+      },
+      {
+        "label": "Unused",
+        "content": [
+          {
+            "id": "elite_buzzsaw",
+            "label": "Elite Buzzsaw",
+            "path": "unused/elite_buzzsaw.png"
+          },
+          {
+            "id": "elite_prism",
+            "label": "Elite Prism",
+            "path": "unused/elite_prism.png"
+          },
+          {
+            "id": "elite_pentagon",
+            "label": "Elite Pentagon",
+            "path": "unused/elite_pentagon.png"
+          },
+          {
+            "id": "elite_shuriken",
+            "label": "Elite Shuriken",
+            "path": "unused/elite_shuriken.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "background",
+    "path": "backgrounds",
+    "content": [
+      {
+        "label": "_TOOL_",
+        "content": [
+          {
+            "id": "random_background",
+            "label": "Random",
+            "path": null
+          },
+          {
+            "id": "no_background",
+            "label": "None",
+            "path": null
+          }
+        ]
+      },
+      {
+        "label": "Starting",
+        "content": [
+          {
+            "id": "blocks_02",
+            "label": "Blocks 02",
+            "path": "starting/blocks_02.jpg"
+          },
+          {
+            "id": "crystaline_02",
+            "label": "Crystalline 02",
+            "path": "starting/crystaline_02.jpg"
+          },
+          {
+            "id": "organic_01",
+            "label": "Organic 01",
+            "path": "starting/organic_01.jpg"
+          },
+          {
+            "id": "spheres_04",
+            "label": "Spheres 04",
+            "path": "starting/spheres_04.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Basic",
+        "content": [
+          {
+            "id": "crystaline_07",
+            "label": "Crystalline 07",
+            "path": "basic/crystaline_07.jpg"
+          },
+          {
+            "id": "grid_05",
+            "label": "Grid 05",
+            "path": "basic/grid_05.jpg"
+          },
+          {
+            "id": "hex_03",
+            "label": "Hex 03",
+            "path": "basic/hex_03.jpg"
+          },
+          {
+            "id": "grid_04",
+            "label": "Grid 04",
+            "path": "basic/grid_04.jpg"
+          },
+          {
+            "id": "organic_04",
+            "label": "Organic 04",
+            "path": "basic/organic_04.jpg"
+          },
+          {
+            "id": "spheres_01",
+            "label": "Spheres 01",
+            "path": "advanced/spheres_01.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Advanced",
+        "content": [
+          {
+            "id": "crystaline_08",
+            "label": "Crystalline 08",
+            "path": "advanced/crystaline_08.jpg"
+          },
+          {
+            "id": "grid_03",
+            "label": "Grid 03",
+            "path": "advanced/grid_03.jpg"
+          },
+          {
+            "id": "organic_05",
+            "label": "Organic 05",
+            "path": "advanced/organic_05.jpg"
+          },
+          {
+            "id": "spheres_02",
+            "label": "Spheres 02",
+            "path": "advanced/spheres_02.jpg"
+          },
+          {
+            "id": "spheres_03",
+            "label": "Spheres 03",
+            "path": "advanced/spheres_03.jpg"
+          },
+          {
+            "id": "blocks_03",
+            "label": "Blocks 03",
+            "path": "advanced/blocks_03.jpg"
+          },
+          {
+            "id": "grid_02",
+            "label": "Grid 02",
+            "path": "advanced/grid_02.jpg"
+          },
+          {
+            "id": "crystaline_01",
+            "label": "Crystalline 01",
+            "path": "advanced/crystaline_01.jpg"
+          },
+          {
+            "id": "crystaline_03",
+            "label": "Crystalline 03",
+            "path": "advanced/crystaline_03.jpg"
+          },
+          {
+            "id": "crystaline_04",
+            "label": "Crystalline 04",
+            "path": "advanced/crystaline_04.jpg"
+          },
+          {
+            "id": "crystaline_05",
+            "label": "Crystalline 05",
+            "path": "advanced/crystaline_05.jpg"
+          },
+          {
+            "id": "hex_02",
+            "label": "Hex 02",
+            "path": "advanced/hex_02.jpg"
+          },
+          {
+            "id": "organic_02",
+            "label": "Organic 02",
+            "path": "advanced/organic_02.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Elite",
+        "content": [
+          {
+            "id": "blocks_01",
+            "label": "Blocks 01",
+            "path": "elite/blocks_01.jpg"
+          },
+          {
+            "id": "crystaline_06",
+            "label": "Crystalline 06",
+            "path": "elite/crystaline_06.jpg"
+          },
+          {
+            "id": "grid_01",
+            "label": "Grid 01",
+            "path": "elite/grid_01.jpg"
+          },
+          {
+            "id": "hex_01",
+            "label": "Hex 01",
+            "path": "elite/hex_01.jpg"
+          },
+          {
+            "id": "organic_03",
+            "label": "Organic 03",
+            "path": "elite/organic_03.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Exclusive",
+        "content": [
+          {
+            "id": "preorder_speedrunner_bg",
+            "label": "Preorder Speedrunner Background",
+            "path": "special/preorder_speedrunner_bg.jpg"
+          },
+          {
+            "id": "preorder_combat_bg",
+            "label": "Preorder Combat Background",
+            "path": "special/preorder_combat_bg.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Unused",
+        "content": [
+          {
+            "id": "renewed_faith_reward_bg",
+            "label": "Renewed Faith Reward Background",
+            "path": "special/unused/renewed_faith_reward_bg.jpg"
+          }
+        ]
+      }
+    ]
+  }
+]
