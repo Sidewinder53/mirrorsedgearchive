@@ -1,26 +1,254 @@
 {% set pageInfo = {
   name: 'project_graffiti',
-  category: 'projects',
-  title: 'Project Graffiti',
-  description: "Create your own Player Tag and download the result in stunning 2K image quality!",
-  reqScripts: [ ],
-  reqStylesheets: [ ]
+  category: 'archives',
+  title: 'Player Tag Generator',
+  description: "Interactive Player Tage Generator",
+  reqScripts: [ 'assets/js/project_graffiti_wasm.js', 'assets/vendor/wasm-imagemagick/magick.js', 'assets/vendor/wasm-imagemagick/magickApi.js', 'assets/vendor/wasm-imagemagick/magick.wasm' ],
+  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css',  'assets/css/project_graffiti.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
 
 {%- block content %}
-<div class="container" id="cookie_consent_placeholder"></div>
-<div class="container mt-5">
-  <div class="alert alert-info media">
-    <svg class="mr-3" style="width:28px;height:28px" viewBox="0 0 24 24">
-      <path fill="#0c5460" d="M22,5.27L20.5,6.75C21.46,8.28 22,10.07 22,12A10,10 0 0,1 12,22C10.08,22 8.28,21.46 6.75,20.5L5.27,22L4,20.72L20.72,4L22,5.27M17.9,17.39C19.2,15.97 20,14.08 20,12C20,10.63 19.66,9.34 19.05,8.22L14.83,12.44C14.94,12.6 15,12.79 15,13V16H16C16.89,16 17.64,16.59 17.9,17.39M11,19.93V18C10.5,18 10.07,17.83 9.73,17.54L8.22,19.05C9.07,19.5 10,19.8 11,19.93M15,4.59V5A2,2 0 0,1 13,7H11V9A1,1 0 0,1 10,10H8V12H10.18L8.09,14.09L4.21,10.21C4.08,10.78 4,11.38 4,12C4,13.74 4.56,15.36 5.5,16.67L4.08,18.1C2.77,16.41 2,14.3 2,12A10,10 0 0,1 12,2C14.3,2 16.41,2.77 18.1,4.08L16.67,5.5C16.16,5.14 15.6,4.83 15,4.59Z" />
-  </svg>
-    <div class="media-body mb-2">
-      <h4 class="alert-heading">Content unavailable</h4>
-      <hr>
-      Project Graffiti is undergoing maintenance and will be back in Q2 2020.
-    </div>
-  </div>
-</div>
+
+<body>
+  <label for="emblem_select">Emblem:</label>
+  <select id="emblem_select"></select>
+  <br>
+  <label for="frame_select">Frame:</label>
+  <select id="frame_select"></select>
+  <br>
+  <label for="background_select">Background:</label>
+  <select id="background_select">
+  </select>
+  <br>
+  <button id="submit">Render image</button>
+  <br>
+  <img id="outputImage" style="background-color: black; border: solid 1px red; min-width: 514px; min-height: 514px;">
+  <script type='module'>
+    import { buildInputFile, execute } from 'https://cdn.jsdelivr.net/npm/wasm-imagemagick/dist/bundles/magickApi.js';
+    var assetpack;
+    var category;
+    var groupEl;
+    var assetStore = {};
+    var cwd = [];
+
+    function loadJSON(callback) {
+      var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+      xobj.open('GET', 'store.json', true);
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+          callback(xobj.responseText);
+        }
+      }
+      xobj.send(null);
+    }
+
+    function dec2hex(dec) {
+      return ('0' + dec.toString(16)).substr(-2)
+    }
+
+    function getThumbExt(fileName) {
+      let ext;
+      if (category === 'background_select') {
+        return fileName.replace('.png', '.jpg');
+      } else {
+        return fileName;
+      }
+    }
+
+    // generateId :: Integer -> String
+    function generateId(len) {
+      var arr = new Uint8Array((len || 40) / 2)
+      window.crypto.getRandomValues(arr)
+      return Array.from(arr, dec2hex).join('')
+    }
+
+    function detectPrimaryStoreObject(storeObjectName) {
+      switch (storeObjectName) {
+        case 'backgrounds':
+          category = 'background_select';
+          break;
+        case 'emblems':
+          category = 'emblem_select';
+          break;
+        case 'frames':
+          category = 'frame_select';
+          break;
+        case 'masks':
+          category = 'null';
+          break;
+      }
+    }
+
+    function parseStoreObject(storeObject, mainIndex, fileIndex) {
+      var actualIndex = -1;
+
+      switch (fileIndex) {
+        case -1:
+          actualIndex = 0;
+          break;
+        case -2:
+          actualIndex = mainIndex;
+          break;
+        default:
+          actualIndex = fileIndex;
+          break;
+      }
+
+      if (storeObject[actualIndex].type === "directory") {
+        console.log('=== DIR OPEN ===');
+        console.log(storeObject[actualIndex]);
+        cwd.push(storeObject[actualIndex].name);
+        detectPrimaryStoreObject(storeObject[actualIndex].name);
+        if (category != "null") {
+          groupEl = document.createElement("optgroup");
+          groupEl.label = storeObject[actualIndex].name;
+          groupEl.id = generateId(8);
+          document.getElementById(category).appendChild(groupEl);
+          parseStoreObject(storeObject[actualIndex].contents, mainIndex, -1);
+        }
+        if (actualIndex + 1 < storeObject.length) {
+          console.log('=== DIR UP ===');
+          cwd.pop();
+          parseStoreObject(storeObject, actualIndex + 1, -2);
+        } else {
+          console.log('=== DIR UP ===');
+          cwd.pop();
+        }
+      } else if (storeObject[actualIndex].type === "file") {
+        console.log(storeObject[actualIndex]);
+        let optionEl = document.createElement("option");
+        let optionID = generateId(16);
+        optionEl.setAttribute(
+          'data-img-src',
+          '/assets/media/image/project_graffiti/thumbnails/' + cwd.toString().replace(/,/g, '/') + '/' + getThumbExt(storeObject[actualIndex].name)
+        );
+        optionEl.innerHTML = storeObject[actualIndex].name;
+        optionEl.id = optionID;
+        document.getElementById(groupEl.id).appendChild(optionEl);
+        assetStore[optionID] = 'assetpack/' + cwd.toString().replace(/,/g, '/') + '/' + storeObject[actualIndex].name;
+        if (actualIndex + 1 < storeObject.length) {
+          parseStoreObject(storeObject, mainIndex, actualIndex + 1);
+        }
+      }
+    }
+
+    let DoMagickCall = async function () {
+      // const fetchedFrame = await fetch("./assetpack/frames/evolved_crusher.png");
+      // const fetchedMask = await fetch("./assetpack/frames/evolved_crusher.png");
+      // const fetchedEmblem = await fetch("./assetpack/frames/evolved_crusher.png");
+      // const fetchedBackground = await fetch("./assetpack/frames/evolved_crusher.png");
+
+      // const frameSource = new Uint8Array(await fetchedFrame.arrayBuffer());
+      // const maskSource = new Uint8Array(await fetchedMask.arrayBuffer());
+      // const emblemSource = new Uint8Array(await fetchedEmblem.arrayBuffer());
+      // const backgroundSource = new Uint8Array(await fetchedBackground.arrayBuffer());
+
+      // const files = [
+        //   { 'name': 'frame.png', 'content': frameSource },
+        //   { 'name': 'mask.png', 'content': maskSource },
+        //   { 'name': 'emblem.png', 'content': emblemSource },
+        //   { 'name': 'background.png', 'content': backgroundSource }
+        // ];
+
+        // const commands = ["convert", "frame.png", "-rotate", '90', 'step1.png'];
+
+        let frame = document.getElementById('frame_select').options[document.getElementById('frame_select').selectedIndex].getAttribute("data-img-src");
+        let mask = await fetch("./assetpack/frames/evolved_crusher.png");
+        let emblem = await fetch("./assetpack/frames/evolved_crusher.png");
+        let background = await fetch("./assetpack/frames/evolved_crusher.png");
+
+        let step1Result = await execute({
+        inputFiles: [await buildInputFile('./assetpack/frames/evolved_crusher.png', 'frame.png')],
+        commands: ['convert frame.png -alpha extract step1.png']
+      });
+
+      console.log('Step 1');
+      console.log(await step1Result);
+
+      let step2Result = await execute({
+        inputFiles: [
+          { name: 'step1.png', content: step1Result.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/masks/cheetah.png', 'mask.png')
+        ],
+        commands: ['composite step1.png mask.png -compose Darken step2.png']
+      });
+
+      console.log('Step 2');
+      console.log(await step2Result);
+
+      let step3Result = await execute({
+        inputFiles: [
+          { name: 'step2.png', content: step2Result.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/frames/evolved_crusher.png', 'frame.png')
+        ],
+        commands: ['composite step2.png -compose CopyOpacity frame.png step3.png']
+      });
+
+      console.log('Step 3');
+      console.log(await step3Result);
+
+      let step4Result = await execute({
+        inputFiles: [
+          { name: 'step3.png', content: step3Result.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/emblems/cheetah.png', 'emblem.png')
+        ],
+        commands: ['composite step3.png emblem.png -resize 512 step4.png']
+      });
+
+      console.log('Step 4');
+      console.log(await step4Result);
+
+      let step5prepResult = await execute({
+        inputFiles: [
+          await buildInputFile('./assetpack/backgrounds/elite/organic_03.png', 'background.png')
+        ],
+        commands: ['convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png']
+      });
+
+      console.log('Step 5 prep');
+      console.log(await step5prepResult);
+
+      let step5Result = await execute({
+        inputFiles: [
+          { name: 'step4.png', content: step4Result.outputFiles[0].buffer },
+          { name: 'step5prep.png', content: step5prepResult.outputFiles[0].buffer },
+          await buildInputFile('./assetpack/backgrounds/elite/organic_03.png', 'background.png')
+        ],
+        commands: ['composite -gravity center step4.png step5prep.png step5.png']
+      });
+
+      console.log('Step 5');
+      console.log(await step5Result);
+
+      // let processedFiles = await Magick.Call(files, commands);
+      let outputImage = new Blob([step5Result.outputFiles[0].buffer], { type: "image/png" });
+      var urlCreator = window.URL || window.webkitURL;
+      var imageUrl = urlCreator.createObjectURL(outputImage);
+      var img = document.querySelector("#outputImage");
+      img.src = imageUrl;
+
+
+      // let firstOutputImage = processedFiles[0];
+      // console.log("created image");
+      // const outputImage = document.getElementById('outputImage');
+      // outputImage.src = URL.createObjectURL(firstOutputImage['blob']);
+    }
+
+    // Main Thread
+
+    loadJSON(function (response) {
+      assetpack = JSON.parse(response);
+      parseStoreObject(assetpack, 0, -1);
+      $("select").imagepicker();
+      console.log(assetStore);
+    });
+
+    document.getElementById("submit").addEventListener("click", function () {
+      DoMagickCall();
+    });
+
+  </script>
 {% endblock %}

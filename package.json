@@ -44,6 +44,7 @@
     "natives": "^1.1.6",
     "popper.js": "^1.16.1",
     "secure-string": "^1.2.1",
-    "shaka-player": "^2.5.10"
+    "shaka-player": "^2.5.10",
+    "wasm-imagemagick": "^1.2.7"
   }
 }

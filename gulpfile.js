@@ -189,9 +189,12 @@ function packVendorJS() {
     './node_modules/cocoen/dist/js/cocoen.min.js',
     './node_modules/cocoen/dist/js/cocoen-jquery.min.js',
     './node_modules/image-picker/image-picker/image-picker.js',
-    './node_modules/shaka-player/dist/shaka-player.compiled.js'
+    './node_modules/image-picker/image-picker/image-picker.js',
+    './node_modules/wasm-imagemagick/dist/magick.js',
+    './node_modules/wasm-imagemagick/dist/magick.wasm',
+    './node_modules/wasm-imagemagick/dist/magickApi.js',
   ], { base: 'node_modules' })
-    .pipe(flatten({ includeParents: 1 }))
+  .pipe(flatten({ includeParents: 1 }))
     .pipe(minify({
       noSource: true,
       ext: {
