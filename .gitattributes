@@ -1,2 +1,3 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+src/assets/media/image/project_graffiti/generator/** filter=lfs diff=lfs merge=lfs -text
