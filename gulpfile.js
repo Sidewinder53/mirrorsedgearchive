@@ -10,6 +10,7 @@ const git = require('git-rev-sync')
 const cache = require('gulp-cache');
 const concat = require('gulp-concat');
 const minify = require('gulp-minify');
+const jsonminify = require('gulp-jsonminify');
 const rename = require('gulp-rename');
 const flatten = require('gulp-flatten');
 const replace = require('gulp-replace');
@@ -348,11 +349,18 @@ function copyFonts() {
 
 function copyStatic() {
   return src([
-    'src/**/*.json',
     'src/favicon.*',
     'src/.well-known/*'
   ], { base: 'src' })
-    .pipe(dest('dist/'))
+    .pipe(dest('dist/'));
+}
+
+function copyJson() {
+  return src([
+    'src/**/*.json'
+  ], { base: 'src' })
+    .pipe(jsonminify())
+    .pipe(dest('dist/'));
 }
 
 function copyAV() {
@@ -372,6 +380,7 @@ function copyAV() {
 // ProcessTemplate[dev/prod] is called externally, to determine the build environment.
 
 const copyAssets = series(
+  copyJson,
   copyStatic,
   copyFonts,
   copyAV,
