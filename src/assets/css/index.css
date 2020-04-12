@@ -27,6 +27,11 @@
   background-position: center 56px;
 }
 
+.image-wrapper-37::before {
+  padding-top: 37.5%;
+  background-position: center 56px;
+}
+
 .image-wrapper img,
 .image-wrapper video {
   top: 0;

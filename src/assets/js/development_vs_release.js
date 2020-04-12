@@ -1,1 +1,1 @@
-$('.slider').slider({ showInstruction: false });
+$('.cocoen').cocoen();

@@ -30,12 +30,12 @@
         type="image/webp">
       <source media="(min-width: 576px)" srcset="/{{- manifest['assets/media/image/home/faithHero-768.png'] }}"
         type="image/png">
-      <img src="//{{- manifest['assets/media/image/home/faithHero.jpg'] }}" loading="lazy">
+      <img src="//{{- manifest['assets/media/image/home/faithHero.jpg'] }}">
     </picture>
   </div>
   <div id="mobileHeroText">
-    <h1 class="display-1">Meet Faith</h1>
-    <p class="lead">She keeps this project <i>running</i>.</p>
+    <h1 class="display-1">Meet Faith.</h1>
+    <p class="lead">She keeps this project <i>running</i></p>
   </div>
 </div>
 
@@ -58,11 +58,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <picture class="d-block w-100">
-              <source srcset="/{{- manifest['assets/media/image/home/hero_img_1.webp'] }}" type="image/webp">
-              <source srcset="/{{- manifest['assets/media/image/home/hero_img_1.jpg'] }}" type="image/jpg">
-              <img src="/{{- manifest['assets/media/image/home/hero_img_1.jpg'] }}" loading="lazy">
-            </picture>
+            <div class="image-wrapper-37 image-wrapper">
+              <picture class="d-block w-100">
+                <source srcset="/{{- manifest['assets/media/image/home/hero_img_1.webp'] }}" type="image/webp">
+                <source srcset="/{{- manifest['assets/media/image/home/hero_img_1.jpg'] }}" type="image/jpg">
+                <img src="/{{- manifest['assets/media/image/home/hero_img_1.jpg'] }}" width="1280px" height="480px" loading="eager">
+              </picture>
+            </div>
           </div>
         </div>
         <div id="media_copyright" class="card-header">
@@ -104,7 +106,7 @@
               <picture class="card-img-top">
                 <source srcset="/{{- manifest['assets/media/image/home/archive.webp'] }}" type="image/webp">
                 <source srcset="/{{- manifest['assets/media/image/home/archive.jpg'] }}" type="image/jpeg">
-                <img src="/{{- manifest['assets/media/image/home/archive.jpg'] }}" loading="lazy">
+                <img src="/{{- manifest['assets/media/image/home/archive.jpg'] }}">
               </picture>
             </div>
             <div class="card-body">
@@ -123,7 +125,7 @@
               <picture class="card-img-top">
                 <source srcset="/{{- manifest['assets/media/image/home/kahle_archive.webp'] }}" type="image/webp">
                 <source srcset="/{{- manifest['assets/media/image/home/kahle_archive.jpg'] }}" type="image/jpeg">
-                <img src="/{{- manifest['assets/media/image/home/kahle_archive.jpg'] }}" loading="lazy">
+                <img src="/{{- manifest['assets/media/image/home/kahle_archive.jpg'] }}">
               </picture>
             </div>
             <div class="card-body">
@@ -141,7 +143,7 @@
               <picture class="card-img-top">
                 <source srcset="/{{- manifest['assets/media/image/home/forums.webp'] }}" type="image/webp">
                 <source srcset="/{{- manifest['assets/media/image/home/forums.jpg'] }}" type="image/jpeg">
-                <img src="/{{- manifest['assets/media/image/home/forums.jpg'] }}" loading="lazy">
+                <img src="/{{- manifest['assets/media/image/home/forums.jpg'] }}">
               </picture>
             </div>
             <div class="card-body">
@@ -170,7 +172,7 @@
               <picture class="card-img-top">
                 <source srcset="/{{- manifest['assets/media/image/home/comparison.webp'] }}" type="image/webp">
                 <source srcset="/{{- manifest['assets/media/image/home/comparison.jpg'] }}" type="image/jpeg">
-                <img src="/{{- manifest['assets/media/image/home/comparison.jpg'] }}" loading="lazy">
+                <img src="/{{- manifest['assets/media/image/home/comparison.jpg'] }}">
               </picture>
             </div>
             <div class="card-body">
@@ -189,7 +191,7 @@
               <picture class="card-img-top">
                 <source srcset="/{{- manifest['assets/media/image/home/graffiti.webp'] }}" type="image/webp">
                 <source srcset="/{{- manifest['assets/media/image/home/graffiti.jpg'] }}" type="image/jpeg">
-                <img src="/{{- manifest['assets/media/image/home/graffiti.jpg'] }}" loading="lazy">
+                <img src="/{{- manifest['assets/media/image/home/graffiti.jpg'] }}">
               </picture>
             </div>
             <div class="card-body">

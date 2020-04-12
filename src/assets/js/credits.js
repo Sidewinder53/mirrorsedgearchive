@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $.getScript('/assets/js/cookie-consent.js');
+  $.getScript('/assets/js/util.js');
 
   if (is_touch_device() == true) {
     $('#touch_device_notice').html(

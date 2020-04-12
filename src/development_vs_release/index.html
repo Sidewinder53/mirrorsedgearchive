@@ -3,8 +3,8 @@
   category: 'projects',
   title: 'Development vs. Release',
   description: "A comparison of how Mirror's Edge looked during development vs. today",
-  reqScripts: [ 'assets/vendor/img-slider/imgslider.min.js', 'assets/js/development_vs_release.js' ],
-  reqStylesheets: [ 'assets/vendor/img-slider/imgslider.min.css', 'assets/css/development_vs_release.css' ]
+  reqScripts: [ 'assets/vendor/cocoen/cocoen.min.js', 'assets/vendor/cocoen/cocoen-jquery.min.js', 'assets/js/development_vs_release.js' ],
+  reqStylesheets: [ 'assets/vendor/cocoen/cocoen.min.css', 'assets/css/development_vs_release.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
@@ -28,13 +28,9 @@
       <div class="card-header">
         Triumvirate Drive #1
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_1_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_1.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img width="1136" height="631" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_1_old.png'] }}"/>
+          <img width="1136" height="631" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_1.png'] }}"/>
       </div>
     </div>
 
@@ -42,13 +38,9 @@
       <div class="card-header">
         Triumvirate Drive #2
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_2_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_2.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img width="1156" height="666" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_2_old.png'] }}"/>
+          <img width="1156" height="666" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_2.png'] }}"/>
       </div>
     </div>
 
@@ -56,13 +48,9 @@
       <div class="card-header">
         Concord Plaza/Centurian Yards
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/concord_1_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/concord_1.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img width="1156" height="646" src="/{{- manifest['assets/media/image/development_vs_release/concord_1_old.png'] }}"/>
+          <img width="1156" height="646" src="/{{- manifest['assets/media/image/development_vs_release/concord_1.png'] }}"/>
       </div>
     </div>
 
@@ -70,13 +58,9 @@
       <div class="card-header">
         Shimmering Heights
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/shimmering_1_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/shimmering_1.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img width="1136" height="643" src="/{{- manifest['assets/media/image/development_vs_release/shimmering_1_old.png'] }}"/>
+          <img width="1136" height="643" src="/{{- manifest['assets/media/image/development_vs_release/shimmering_1.png'] }}"/>
       </div>
     </div>
 
@@ -84,13 +68,9 @@
       <div class="card-header">
         Crystal Valley #1
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/crystal_1_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/crystal_1.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img width="1158" height="664" src="/{{- manifest['assets/media/image/development_vs_release/crystal_1_old.png'] }}"/>
+          <img width="1158" height="664" src="/{{- manifest['assets/media/image/development_vs_release/crystal_1.png'] }}"/>
       </div>
     </div>
 
@@ -98,13 +78,9 @@
       <div class="card-header">
         Crystal Valley #2
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/crystal_2_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/crystal_2.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img src="/{{- manifest['assets/media/image/development_vs_release/crystal_2_old.png'] }}"/>
+          <img src="/{{- manifest['assets/media/image/development_vs_release/crystal_2.png'] }}"/>
       </div>
     </div>
 
@@ -112,13 +88,9 @@
       <div class="card-header">
         Regatta Bay #1 (Concept art vs ingame)
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/regatta_1_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/regatta_1.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_1_old.png'] }}"/>
+          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_1.png'] }}"/>
       </div>
     </div>
 
@@ -126,13 +98,9 @@
       <div class="card-header">
         Regatta Bay #2
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/regatta_2_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/regatta_2.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_2_old.png'] }}"/>
+          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_2.png'] }}"/>
       </div>
     </div>
 
@@ -140,13 +108,9 @@
       <div class="card-header">
         Regatta Bay #3
       </div>
-      <div class="slider responsive card-img-top">
-        <div class="left image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/regatta_3_old.png'] }}"/>
-        </div>
-        <div class="right image">
-          <img loading="lazy" src="/{{- manifest['assets/media/image/development_vs_release/regatta_3.png'] }}"/>
-        </div>
+      <div class="cocoen responsive card-img-top">
+          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_3_old.png'] }}"/>
+          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_3.png'] }}"/>
       </div>
     </div>
 

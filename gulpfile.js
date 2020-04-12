@@ -131,7 +131,7 @@ function packBundleJS() {
     './node_modules/jquery/dist/jquery.js',
     './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
     './node_modules/js-cookie/src/js.cookie.js',
-    './src/assets/js/cookie-consent.js'
+    './src/assets/js/util.js'
   ])
     .pipe(concat('./dist/assets/vendor/bundles/baseBundle.js'))
     .pipe(minify({
@@ -186,7 +186,8 @@ function packLocalJS() {
 
 function packVendorJS() {
   return src([
-    './node_modules/img-slider/distr/imgslider.min.js',
+    './node_modules/cocoen/dist/js/cocoen.min.js',
+    './node_modules/cocoen/dist/js/cocoen-jquery.min.js',
     './node_modules/image-picker/image-picker/image-picker.js',
     './node_modules/shaka-player/dist/shaka-player.compiled.js'
   ], { base: 'node_modules' })
@@ -270,7 +271,7 @@ function packLocalCSS() {
 
 function packVendorCSS() {
   return src([
-    './node_modules/img-slider/distr/imgslider.min.css',
+    './node_modules/cocoen/dist/css/cocoen.min.css',
     './node_modules/image-picker/image-picker/image-picker.css',
     './node_modules/@mdi/font/css/materialdesignicons.min.css'
   ], { base: 'node_modules' })

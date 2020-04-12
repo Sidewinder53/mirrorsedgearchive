@@ -64,11 +64,13 @@ $(document).ready(function() {
     enu = shuffle([2, 3, 4, 5, 6, 7, 8, 9]);
     for (i = 0; i < 4; i++) {
       carouselImageObject +=
-        '<div class="carousel-item"><picture class="d-block w-100"><source srcset="/' +
+        '<div class="carousel-item"><div class="image-wrapper-37 image-wrapper">' +
+        '<picture class="d-block w-100"><source srcset="/' +
         carouselImages["hero_img_" + enu[i] + ".webp"] +
-        '" type="image/webp"><img src="/' +
+        '" type="image/webp" width="1280px" height="480px"><img src="/' +
         carouselImages["hero_img_" + enu[i] + ".jpg"] +
-        '" type="image/jpg"></picture></div>';
+        '" type="image/jpg" width="1280px" height="480px" loading="lazy">' +
+        '</picture></div></div>';
     }
 
     $("#heroSlides > .carousel-inner").append(carouselImageObject);
