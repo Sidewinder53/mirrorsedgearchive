@@ -3,8 +3,8 @@
   category: 'archives',
   title: 'Player Tag Generator',
   description: "Interactive Player Tage Generator",
-  reqScripts: [ 'assets/js/project_graffiti_wasm.js', 'assets/vendor/wasm-imagemagick/magick.js', 'assets/vendor/wasm-imagemagick/magickApi.js', 'assets/vendor/wasm-imagemagick/magick.wasm' ],
-  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css',  'assets/css/project_graffiti.css' ]
+  reqScripts: [ 'assets/js/project_graffiti.js', 'assets/vendor/image-picker/image-picker.js', 'assets/vendor/nouislider/nouislider.min.js', 'assets/vendor/wnumb/wNumb.min.js' ],
+  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css',  'assets/css/project_graffiti.css', 'assets/vendor/image-picker/image-picker.css', 'assets/vendor/nouislider/nouislider.min.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
@@ -26,24 +26,12 @@
   <br>
   <img id="outputImage" style="background-color: black; border: solid 1px red; min-width: 514px; min-height: 514px;">
   <script type='module'>
-    import { buildInputFile, execute } from 'https://cdn.jsdelivr.net/npm/wasm-imagemagick/dist/bundles/magickApi.js';
+    import { buildInputFile, execute } from '/assets/vendor/wasm-imagemagick/magickApi.js';
     var assetpack;
     var category;
     var groupEl;
     var assetStore = {};
     var cwd = [];
-
-    function loadJSON(callback) {
-      var xobj = new XMLHttpRequest();
-      xobj.overrideMimeType("application/json");
-      xobj.open('GET', 'store.json', true);
-      xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-          callback(xobj.responseText);
-        }
-      }
-      xobj.send(null);
-    }
 
     function dec2hex(dec) {
       return ('0' + dec.toString(16)).substr(-2)
@@ -239,16 +227,10 @@
 
     // Main Thread
 
-    loadJSON(function (response) {
-      assetpack = JSON.parse(response);
-      parseStoreObject(assetpack, 0, -1);
-      $("select").imagepicker();
-      console.log(assetStore);
+    $.getJSON("https://video-assets.mirrorsedgearchive.de/prod/graffiti/assets.json", function (data) {
+      console.log(data)
     });
 
-    document.getElementById("submit").addEventListener("click", function () {
-      DoMagickCall();
-    });
 
   </script>
 {% endblock %}
