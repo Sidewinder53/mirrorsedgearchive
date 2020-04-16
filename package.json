@@ -32,7 +32,8 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "imagemin-svgo": "^7.1.0",
-    "imagemin-webp": "^5.1.0"
+    "imagemin-webp": "^5.1.0",
+    "nouislider": "^14.2.0"
   },
   "dependencies": {
     "@mdi/font": "^5.0.45",
@@ -46,6 +47,7 @@
     "popper.js": "^1.16.1",
     "secure-string": "^1.2.1",
     "shaka-player": "^2.5.10",
-    "wasm-imagemagick": "^1.2.7"
+    "wasm-imagemagick": "^1.2.7",
+    "wnumb": "^1.2.0"
   }
 }

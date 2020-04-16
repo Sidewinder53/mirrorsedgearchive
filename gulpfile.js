@@ -190,10 +190,8 @@ function packVendorJS() {
     './node_modules/cocoen/dist/js/cocoen.min.js',
     './node_modules/cocoen/dist/js/cocoen-jquery.min.js',
     './node_modules/image-picker/image-picker/image-picker.js',
-    './node_modules/image-picker/image-picker/image-picker.js',
-    './node_modules/wasm-imagemagick/dist/magick.js',
-    './node_modules/wasm-imagemagick/dist/magick.wasm',
-    './node_modules/wasm-imagemagick/dist/magickApi.js',
+    './node_modules/nouislider/distribute/nouislider.min.js',
+    './node_modules/wnumb/wNumb.min.js'
   ], { base: 'node_modules' })
   .pipe(flatten({ includeParents: 1 }))
     .pipe(minify({
@@ -209,6 +207,20 @@ function packVendorJS() {
     }))
     .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
       merge: true
+    }))
+    .pipe(dest('./'))
+}
+
+function copyVendorDependencies() {
+  return src([
+    './node_modules/wasm-imagemagick/dist/magick.wasm',
+    './node_modules/wasm-imagemagick/dist/magickApi.js',
+    './node_modules/wasm-imagemagick/dist/magick.js'
+  ], { base: 'node_modules' })
+    .pipe(flatten({ includeParents: 1 }))
+    .pipe(dest('./dist/assets/vendor/'))
+    .pipe(tap(function (file) {
+      file.base = file.base.substring(0, file.base.length - 14);
     }))
     .pipe(dest('./'))
 }
@@ -277,7 +289,8 @@ function packVendorCSS() {
   return src([
     './node_modules/cocoen/dist/css/cocoen.min.css',
     './node_modules/image-picker/image-picker/image-picker.css',
-    './node_modules/@mdi/font/css/materialdesignicons.min.css'
+    './node_modules/@mdi/font/css/materialdesignicons.min.css',
+    './node_modules/nouislider/distribute/nouislider.min.css'
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
     .pipe(cleanCss())
@@ -384,7 +397,7 @@ const copyAssets = series(
   copyStatic,
   copyFonts,
   copyAV,
-  );
+);
 
 const optimizeAssets = series(
   optimizeImg,
@@ -393,6 +406,7 @@ const optimizeAssets = series(
 
 const packJS = series(
   packVendorJS,
+  copyVendorDependencies,
   packBundleJS,
   packLocalJS
 );
