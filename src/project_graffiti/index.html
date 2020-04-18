@@ -44,6 +44,10 @@
       return Array.from(arr, dec2hex).join('')
     }
 
+    function getRandomBetween(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
     function renderCategoryPicker(storeObject, type, manifest) {
       let selectTopEl = document.createElement("select");
       selectTopEl.setAttribute("id", "select-" + type.substring(0, type.length - 1));
@@ -57,10 +61,11 @@
           optionEl.value = itemStoreEl.id;
           optionEl.text = itemStoreEl.label;
           if (categoryStoreEl.label == "_TOOL_") {
-          optionEl.setAttribute("data-src-img", manifest["assets/media/image/project_graffiti/generic/" + itemStoreEl.path])
+            optionEl.disabled = true;
+            optionEl.setAttribute("data-src-img", manifest["assets/media/image/project_graffiti/generic/" + itemStoreEl.path])
           } else {
-          optionEl.setAttribute("data-src-img", manifest["assets/media/image/project_graffiti/thumbnails/" + type + "/" + itemStoreEl.path])
-          optionEl.setAttribute("data-src-path", type + "/" + itemStoreEl.path)
+            optionEl.setAttribute("data-src-img", manifest["assets/media/image/project_graffiti/thumbnails/" + type + "/" + itemStoreEl.path])
+            optionEl.setAttribute("data-src-path", type + "/" + itemStoreEl.path)
           }
           optgroupEl.appendChild(optionEl);
         });
@@ -108,7 +113,7 @@
         commands: ['convert frame.png -alpha extract step1.png']
       });
 
-      console.log('Step 1');
+      console.log('🔧 Step 1 result:');
       console.log(await step1Result);
 
       let step2Result = await execute({
@@ -119,7 +124,7 @@
         commands: ['composite step1.png mask.png -compose Darken step2.png']
       });
 
-      console.log('Step 2');
+      console.log('🔧 Step 2 result:');
       console.log(await step2Result);
 
       let step3Result = await execute({
@@ -130,7 +135,7 @@
         commands: ['composite step2.png -compose CopyOpacity frame.png step3.png']
       });
 
-      console.log('Step 3');
+      console.log('🔧 Step 3 result:');
       console.log(await step3Result);
 
       let step4Result = await execute({
@@ -141,7 +146,7 @@
         commands: ['composite step3.png emblem.png -resize 512 step4.png']
       });
 
-      console.log('Step 4');
+      console.log('🔧 Step 4 result:');
       console.log(await step4Result);
 
       let step5prepResult = await execute({
@@ -151,7 +156,7 @@
         commands: ['convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png']
       });
 
-      console.log('Step 5 prep');
+      console.log('🔧 Step 5-prep result:');
       console.log(await step5prepResult);
 
       let step5Result = await execute({
@@ -163,7 +168,7 @@
         commands: ['composite -gravity center step4.png step5prep.png step5.png']
       });
 
-      console.log('Step 5');
+      console.log('🔧 Step 6 result:');
       console.log(await step5Result);
 
       // let processedFiles = await Magick.Call(files, commands);
@@ -188,7 +193,7 @@
         renderCategoryPicker(assetStore, "backgrounds", manifest);
       });
     });
-    document.querySelector("#submit").addEventListener("click", function() {
+    document.querySelector("#submit").addEventListener("click", function () {
       DoMagickCall();
     })
   </script>
