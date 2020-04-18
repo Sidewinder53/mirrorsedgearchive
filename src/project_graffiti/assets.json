@@ -1,6 +1,5 @@
-[
-  {
-    "type": "emblem",
+{
+  "emblems": {
     "path": "emblems",
     "content": [
       {
@@ -9,12 +8,12 @@
           {
             "id": "random_emblem",
             "label": "Random",
-            "path": null
+            "path": "random.png"
           },
           {
             "id": "no_emblem",
             "label": "None",
-            "path": null
+            "path": "none.png"
           }
         ]
       },
@@ -460,8 +459,7 @@
       }
     ]
   },
-  {
-    "type": "frame",
+  "frames": {
     "path": "frames",
     "content": [
       {
@@ -470,12 +468,12 @@
           {
             "id": "random_frame",
             "label": "Random",
-            "path": null
+            "path": "random.png"
           },
           {
             "id": "no_frame",
             "label": "None",
-            "path": null
+            "path": "none.png"
           }
         ]
       },
@@ -691,8 +689,7 @@
       }
     ]
   },
-  {
-    "type": "background",
+  "backgrounds": {
     "path": "backgrounds",
     "content": [
       {
@@ -701,12 +698,12 @@
           {
             "id": "random_background",
             "label": "Random",
-            "path": null
+            "path": "random.png"
           },
           {
             "id": "no_background",
             "label": "None",
-            "path": null
+            "path": "none.png"
           }
         ]
       },
@@ -716,22 +713,22 @@
           {
             "id": "blocks_02",
             "label": "Blocks 02",
-            "path": "starting/blocks_02.jpg"
+            "path": "starting/blocks_02.png"
           },
           {
             "id": "crystaline_02",
             "label": "Crystalline 02",
-            "path": "starting/crystaline_02.jpg"
+            "path": "starting/crystaline_02.png"
           },
           {
             "id": "organic_01",
             "label": "Organic 01",
-            "path": "starting/organic_01.jpg"
+            "path": "starting/organic_01.png"
           },
           {
             "id": "spheres_04",
             "label": "Spheres 04",
-            "path": "starting/spheres_04.jpg"
+            "path": "starting/spheres_04.png"
           }
         ]
       },
@@ -741,32 +738,32 @@
           {
             "id": "crystaline_07",
             "label": "Crystalline 07",
-            "path": "basic/crystaline_07.jpg"
+            "path": "basic/crystaline_07.png"
           },
           {
             "id": "grid_05",
             "label": "Grid 05",
-            "path": "basic/grid_05.jpg"
+            "path": "basic/grid_05.png"
           },
           {
             "id": "hex_03",
             "label": "Hex 03",
-            "path": "basic/hex_03.jpg"
+            "path": "basic/hex_03.png"
           },
           {
             "id": "grid_04",
             "label": "Grid 04",
-            "path": "basic/grid_04.jpg"
+            "path": "basic/grid_04.png"
           },
           {
             "id": "organic_04",
             "label": "Organic 04",
-            "path": "basic/organic_04.jpg"
+            "path": "basic/organic_04.png"
           },
           {
             "id": "spheres_01",
             "label": "Spheres 01",
-            "path": "advanced/spheres_01.jpg"
+            "path": "advanced/spheres_01.png"
           }
         ]
       },
@@ -776,67 +773,67 @@
           {
             "id": "crystaline_08",
             "label": "Crystalline 08",
-            "path": "advanced/crystaline_08.jpg"
+            "path": "advanced/crystaline_08.png"
           },
           {
             "id": "grid_03",
             "label": "Grid 03",
-            "path": "advanced/grid_03.jpg"
+            "path": "advanced/grid_03.png"
           },
           {
             "id": "organic_05",
             "label": "Organic 05",
-            "path": "advanced/organic_05.jpg"
+            "path": "advanced/organic_05.png"
           },
           {
             "id": "spheres_02",
             "label": "Spheres 02",
-            "path": "advanced/spheres_02.jpg"
+            "path": "advanced/spheres_02.png"
           },
           {
             "id": "spheres_03",
             "label": "Spheres 03",
-            "path": "advanced/spheres_03.jpg"
+            "path": "advanced/spheres_03.png"
           },
           {
             "id": "blocks_03",
             "label": "Blocks 03",
-            "path": "advanced/blocks_03.jpg"
+            "path": "advanced/blocks_03.png"
           },
           {
             "id": "grid_02",
             "label": "Grid 02",
-            "path": "advanced/grid_02.jpg"
+            "path": "advanced/grid_02.png"
           },
           {
             "id": "crystaline_01",
             "label": "Crystalline 01",
-            "path": "advanced/crystaline_01.jpg"
+            "path": "advanced/crystaline_01.png"
           },
           {
             "id": "crystaline_03",
             "label": "Crystalline 03",
-            "path": "advanced/crystaline_03.jpg"
+            "path": "advanced/crystaline_03.png"
           },
           {
             "id": "crystaline_04",
             "label": "Crystalline 04",
-            "path": "advanced/crystaline_04.jpg"
+            "path": "advanced/crystaline_04.png"
           },
           {
             "id": "crystaline_05",
             "label": "Crystalline 05",
-            "path": "advanced/crystaline_05.jpg"
+            "path": "advanced/crystaline_05.png"
           },
           {
             "id": "hex_02",
             "label": "Hex 02",
-            "path": "advanced/hex_02.jpg"
+            "path": "advanced/hex_02.png"
           },
           {
             "id": "organic_02",
             "label": "Organic 02",
-            "path": "advanced/organic_02.jpg"
+            "path": "advanced/organic_02.png"
           }
         ]
       },
@@ -846,27 +843,27 @@
           {
             "id": "blocks_01",
             "label": "Blocks 01",
-            "path": "elite/blocks_01.jpg"
+            "path": "elite/blocks_01.png"
           },
           {
             "id": "crystaline_06",
             "label": "Crystalline 06",
-            "path": "elite/crystaline_06.jpg"
+            "path": "elite/crystaline_06.png"
           },
           {
             "id": "grid_01",
             "label": "Grid 01",
-            "path": "elite/grid_01.jpg"
+            "path": "elite/grid_01.png"
           },
           {
             "id": "hex_01",
             "label": "Hex 01",
-            "path": "elite/hex_01.jpg"
+            "path": "elite/hex_01.png"
           },
           {
             "id": "organic_03",
             "label": "Organic 03",
-            "path": "elite/organic_03.jpg"
+            "path": "elite/organic_03.png"
           }
         ]
       },
@@ -876,12 +873,12 @@
           {
             "id": "preorder_speedrunner_bg",
             "label": "Preorder Speedrunner Background",
-            "path": "special/preorder_speedrunner_bg.jpg"
+            "path": "special/preorder_speedrunner_bg.png"
           },
           {
             "id": "preorder_combat_bg",
             "label": "Preorder Combat Background",
-            "path": "special/preorder_combat_bg.jpg"
+            "path": "special/preorder_combat_bg.png"
           }
         ]
       },
@@ -891,10 +888,11 @@
           {
             "id": "renewed_faith_reward_bg",
             "label": "Renewed Faith Reward Background",
-            "path": "special/unused/renewed_faith_reward_bg.jpg"
+            "path": "special/unused/renewed_faith_reward_bg.png"
           }
         ]
       }
     ]
   }
-]
+}
+
