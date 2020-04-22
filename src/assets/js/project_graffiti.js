@@ -1,517 +1,190 @@
-$(document).ready(function() {
-  $.getScript(
-    "https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js",
-    function() {
-      if (Cookies.get("skipIntro") == "true") {
-        $("#collapseIntro").collapse("hide");
-        $("#collapseGenerator").collapse("show");
-        $("#emblem-tab").removeClass("disabled");
-        $("#frame-tab").removeClass("disabled");
-        $("#background-tab").removeClass("disabled");
-        $("#jumpToGeneratorButton").removeClass("disabled");
-        $("#emblem-tab").addClass("active");
+import { buildInputFile, execute } from "/assets/vendor/wasm-imagemagick/magickApi.js";
+
+function getRandomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function renderCategoryPicker(storeObject, type, manifest) {
+  let selectTopEl = document.createElement("select");
+  selectTopEl.classList.add("image-picker");
+  selectTopEl.setAttribute("id", "select-" + type.substring(0, type.length - 1));
+  storeObject[type].content.forEach((categoryStoreEl) => {
+    let optgroupEl = document.createElement("optgroup");
+    let optgroupId = categoryStoreEl.label.substring(0, 4).toLowerCase();
+    optgroupEl.setAttribute("id", "sel-emb-" + optgroupId);
+    optgroupEl.setAttribute("label", categoryStoreEl.label);
+    categoryStoreEl.content.forEach((itemStoreEl) => {
+      let optionEl = document.createElement("option");
+      optionEl.value = itemStoreEl.id;
+      optionEl.text = itemStoreEl.label;
+      if (categoryStoreEl.label == "_TOOL_") {
+        optionEl.setAttribute(
+          "data-img-src",
+          "/" +
+            manifest[
+              "assets/media/image/project_graffiti/generic/" +
+                itemStoreEl.path.substring(0, itemStoreEl.path.length - 3) +
+                "webp"
+            ]
+        );
       } else {
-        $("#collapseIntro").collapse("show");
-      }
-    }
-  );
-
-  if ($(window).width() >= 1400) {
-    $vp_sm = false;
-  } else {
-    $vp_sm = true;
-  }
-
-  $("select").imagepicker();
-
-  noUiSlider.create(document.getElementById("bgXslider"), {
-    start: [1024],
-    connect: [true, false],
-    behaviour: "snap",
-    range: {
-      min: [64, 8],
-      "20%": [128, 16],
-      "40%": [256, 32],
-      "60%": [512, 64],
-      "80%": [1024, 128],
-      max: [2048]
-    },
-    pips: {
-      mode: "range",
-      density: 3
-    },
-    format: wNumb({
-      decimals: 0
-    })
-  });
-
-  noUiSlider.create(document.getElementById("bgYslider"), {
-    start: [1024],
-    connect: [true, false],
-    behaviour: "snap",
-    range: {
-      min: [64, 8],
-      "20%": [128, 16],
-      "40%": [256, 32],
-      "60%": [512, 64],
-      "80%": [1024, 128],
-      max: [2048]
-    },
-    pips: {
-      mode: "range",
-      density: 3
-    },
-    format: wNumb({
-      decimals: 0
-    })
-  });
-
-  noUiSlider.create(document.getElementById("emslider"), {
-    start: [256],
-    connect: [true, false],
-    behaviour: "snap",
-    range: {
-      min: [64, 8],
-      "33%": [128, 16],
-      "66%": [256, 32],
-      max: [512]
-    },
-    pips: {
-      mode: "range",
-      density: 3
-    },
-    format: wNumb({
-      decimals: 0
-    })
-  });
-
-  $("#stacked_col").hide();
-  $('[data-toggle="tooltip"]').tooltip();
-
-  $("#closeIntro").click(function() {
-    if (document.getElementById("skipIntroCookie").checked) {
-      Cookies.set("skipIntro", "true");
-    } else {
-      Cookies.set("skipIntro", "false");
-    }
-    $("#collapseIntro").collapse("hide");
-    $("#collapseGenerator").collapse("show");
-    $("#emblem-tab").removeClass("disabled");
-    $("#frame-tab").removeClass("disabled");
-    $("#background-tab").removeClass("disabled");
-    $("#jumpToGeneratorButton").removeClass("disabled");
-    $("#emblem-tab").addClass("active");
-    window.scrollTo(0, 0);
-  });
-
-  $(".nav-item").click(function() {
-    window.scrollTo(0, 56);
-  });
-
-  var wrap = $("#wrap");
-
-  $(window).scroll(function() {
-    if ($(window).scrollTop() >= 128) {
-      $("#myTab").addClass("fixed-header");
-    } else {
-      $("#myTab").removeClass("fixed-header");
-    }
-  });
-
-  $("#emblemPicker, #framePicker, #backgroundPicker").change(function() {
-    $selected_emblem = $("#emblemPicker option:selected").text();
-    $selected_frame = $("#framePicker option:selected").text();
-    $selected_background = $("#backgroundPicker option:selected").text();
-
-    $selected_emblem_path = $("#emblemPicker")
-      .find(":selected")
-      .attr("data-img-src");
-    $selected_frame_path = $("#framePicker")
-      .find(":selected")
-      .attr("data-img-src");
-    $selected_background_path = $("#backgroundPicker")
-      .find(":selected")
-      .attr("data-img-src");
-
-    $selected_emblem_alt = $("#emblemPicker option:selected").attr(
-      "data-img-alt"
-    );
-    $selected_frame_alt = $("#framePicker option:selected").attr(
-      "data-img-alt"
-    );
-    $selected_background_alt = $("#backgroundPicker option:selected").attr(
-      "data-img-alt"
-    );
-
-    console.log("Image selection changed, updating preview images...");
-
-    console.log("Selected Emblem: " + $selected_emblem);
-    console.log("Selected Frame: " + $selected_frame);
-    console.log("Selected Background: " + $selected_background);
-    console.log("Selected Emblem image path: " + $selected_emblem_path);
-    console.log("Selected Frame image path: " + $selected_frame_path);
-    console.log("Selected Background image path: " + $selected_background_path);
-
-    $("#emblem_preview").attr("src", $selected_emblem_path);
-    $("#frame_preview").attr("src", $selected_frame_path);
-    $("#background_preview").attr("src", $selected_background_path);
-    updateBackgroundGradient();
-
-    $("#emblem_preview_label").text($selected_emblem_alt);
-    $("#frame_preview_label").text($selected_frame_alt);
-    $("#background_preview_label").text($selected_background_alt);
-
-    if ($selected_emblem == "random_emblem") $selected_emblem_path = "";
-
-    if ($selected_frame == "random_frame") $selected_frame_path = "";
-
-    if ($selected_background == "random_background")
-      $selected_background_path = "";
-
-    if ($selected_emblem == "no_emblem")
-      $selected_emblem_path =
-        "/assets/media/image/project_graffiti/img/empty.png";
-
-    if ($selected_frame == "no_frame")
-      $selected_frame_path =
-        "/assets/media/image/project_graffiti/img/empty.png";
-
-    if ($selected_background == "no_background")
-      $selected_background_path =
-        "/assets/media/image/project_graffiti/img/empty.png";
-
-    if (
-      $selected_emblem == "random_emblem" ||
-      $selected_frame == "random_frame" ||
-      $selected_background == "random_background"
-    ) {
-      togglePreviewVisibility(false);
-    } else {
-      togglePreviewVisibility(true);
-    }
-
-    if ($vp_sm == true) {
-      drawCanvas("previewCanvas");
-    } else {
-      drawCanvas("floatingPreviewCanvas");
-    }
-  });
-
-  function updateBackgroundGradient() {
-    if (
-      $selected_background == "random_background" ||
-      $selected_background == "no_background"
-    ) {
-      $("#background_preview_background").css({
-        background:
-          "-moz-linear-gradient(-45deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 100%)",
-        background:
-          "-webkit-linear-gradient(-45deg, rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.5) 100%)",
-        background:
-          "linear-gradient(135deg, rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.5) 100%)",
-        filter:
-          'progid:DXImageTransform.Microsoft.gradient( startColorstr="#f2000000", endColorstr="#80000000",GradientType=1 )'
-      });
-    } else {
-      $("#background_preview_background").css({
-        background:
-          "-moz-linear-gradient(left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 100%)",
-        background:
-          "-webkit-linear-gradient(left, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.6) 100%)",
-        background:
-          "linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.6) 100%)",
-        filter:
-          'progid:DXImageTransform.Microsoft.gradient( startColorstr="#99000000", endColorstr=#99000000",GradientType=1 )'
-      });
-    }
-  }
-
-  function adjustBackgroundGradient() {
-    if ($("#resultpng").height == $("#print").height) {
-      $("#print").css({
-        background:
-          "-moz-linear-gradient(left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 100%)",
-        background:
-          "-webkit-linear-gradient(left, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.6) 100%)",
-        background:
-          "linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.6) 100%)",
-        filter:
-          'progid:DXImageTransform.Microsoft.gradient( startColorstr="#99000000", endColorstr=#99000000",GradientType=1 )'
-      });
-    } else if ($("#resultpng").width == $("#print").width) {
-      $("#print").css({
-        background:
-          "-moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.5) 100%)",
-        background:
-          "-webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.5) 100%)",
-        background:
-          "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.5) 100%)",
-        filter:
-          'progid:DXImageTransform.Microsoft.gradient( startColorstr=#80000000", endColorstr=#80000000",GradientType=0 )'
-      });
-    } else {
-      $("#print").css({
-        background:
-          "-moz-linear-gradient(left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 100%)",
-        background:
-          "-webkit-linear-gradient(left, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.6) 100%)",
-        background:
-          "linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.6) 100%)",
-        filter:
-          'progid:DXImageTransform.Microsoft.gradient( startColorstr="#99000000", endColorstr=#99000000",GradientType=1 )'
-      });
-    }
-  }
-
-  function drawCanvas(element) {
-    var canvas;
-    var context;
-    var imgArray = [
-      $selected_background_path,
-      $selected_frame_path,
-      $selected_emblem_path
-    ];
-
-    var images = [];
-    canvas = document.getElementById(element);
-    context = canvas.getContext("2d");
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    var loadCount = 0;
-    //context.clearRect(0, 0,  canvas.width, canvas.height);
-    for (var i = 0; i < imgArray.length; i++) {
-      var img = new Image();
-      img.src = imgArray[i];
-      images.push(img);
-
-      img.onload = function() {
-        if (++loadCount == imgArray.length) {
-          for (var i = 0; i < imgArray.length; i++) {
-            context.drawImage(images[i], 0, 0);
-          }
-        }
-      };
-    }
-  }
-
-  $("#debugButton").click(function() {
-    //$('#stallusermodal').modal({backdrop: 'static', keyboard: false })
-    $("#collapseGenerator").collapse("hide");
-    $("#collapseResult").collapse("show");
-    $("#print").height($("#print").width());
-    $("#resultpng").css({
-      "max-width": $("#print").width(),
-      "max-height": $("#print").height()
-    });
-    adjustBackgroundGradient();
-  });
-
-  $("#debugErrorButton").click(function() {
-    $("#errormodal").modal({ backdrop: "static", keyboard: false });
-  });
-
-  $("#resetButton").click(function() {
-    $("#collapseGenerator").collapse("show");
-    $("#collapseResult").collapse("hide");
-  });
-
-  $("#downloadButton").click(function() {
-    $("#downloadButtonHelper")
-      .get(0)
-      .click();
-  });
-
-  $("#show_advanced").click(function() {
-    $("#collapseAdvancedSettings").collapse("toggle");
-  });
-
-  $("#jumpToGeneratorButton").click(function() {
-    $("html, body").animate(
-      {
-        scrollTop: $("#finishcard").offset().top
-      },
-      500
-    );
-  });
-
-  var IsManualChange = false;
-  var bgXslider = document.getElementById("bgXslider");
-  var bgYslider = document.getElementById("bgYslider");
-  var emslider = document.getElementById("emslider");
-
-  bgXslider.noUiSlider.on("update", function(values, handle) {
-    if (IsManualChange == false) {
-      $("#bgXvalue").val(values[handle]);
-    }
-    IsManualChange = false;
-  });
-
-  bgYslider.noUiSlider.on("update", function(values, handle) {
-    if (IsManualChange == false) {
-      $("#bgYvalue").val(values[handle]);
-    }
-    IsManualChange = false;
-  });
-
-  emslider.noUiSlider.on("update", function(values, handle) {
-    if (IsManualChange == false) {
-      $("#emvalue").val(values[handle]);
-    }
-    IsManualChange = false;
-  });
-
-  $("#bgXvalue").change(function() {
-    IsManualChange = true;
-    bgXslider.noUiSlider.set($("#bgXvalue").val());
-  });
-
-  $("#bgYvalue").change(function() {
-    IsManualChange = true;
-    bgYslider.noUiSlider.set($("#bgYvalue").val());
-  });
-
-  $("#emvalue").change(function() {
-    IsManualChange = true;
-    emslider.noUiSlider.set($("#emvalue").val());
-  });
-
-  $("#generateButton").click(function() {
-    $("#stallusermodal").modal({ backdrop: "static", keyboard: false });
-
-    togglePreviewVisibility(false);
-
-    $bgX = $("#bgXvalue").val();
-    $bgY = $("#bgYvalue").val();
-    $em = $("#emvalue").val();
-
-    if ($bgX > 2048 || $bgX < 64) {
-      $bgX = 1024;
-    }
-
-    if ($bgY > 2048 || $bgY < 64) {
-      $bgY = 1024;
-    }
-
-    if ($em > 512 || $em < 16) {
-      $bgX = 256;
-    }
-
-    $selected_emblem = $("#emblemPicker option:selected").text();
-    $selected_frame = $("#framePicker option:selected").text();
-    $selected_background = $("#backgroundPicker option:selected").text();
-
-    $selected_emblem_path = $("#emblemPicker")
-      .find(":selected")
-      .attr("data-img-src");
-    $selected_frame_path = $("#framePicker")
-      .find(":selected")
-      .attr("data-img-src");
-    $selected_background_path = $("#backgroundPicker")
-      .find(":selected")
-      .attr("data-img-src");
-
-    if ($("#random_unused").is(":checked")) {
-      $include_random_assets = "1";
-    } else {
-      $include_random_assets = "0";
-    }
-    console.log($include_random_assets);
-
-    console.log("Selected Emblem: " + $selected_emblem);
-    console.log("Selected Frame: " + $selected_frame);
-    console.log("Selected Background: " + $selected_background);
-    console.log("Selected Emblem image path: " + $selected_emblem_path);
-    console.log("Selected Frame image path: " + $selected_frame_path);
-    console.log("Selected Background image path: " + $selected_background_path);
-
-    $("#emblem_preview").attr("src", $selected_emblem_path);
-    $("#frame_preview").attr("src", $selected_frame_path);
-    $("#background_preview").attr("src", $selected_background_path);
-
-    if ($selected_emblem == "no_emblem")
-      $selected_emblem_path = "resources/thumbnails/emblems/none.png";
-
-    if ($selected_frame == "no_frame")
-      $selected_frame_path = "resources/thumbnails/frames/none.png";
-
-    if ($selected_background == "no_background")
-      $selected_background_path = "resources/thumbnails/backgrounds/none.jpg";
-
-    console.log("Sending data...");
-    console.log($selected_emblem_path);
-    console.log($selected_frame_path);
-    console.log($selected_background_path);
-    console.log($bgX);
-    console.log($bgY);
-    console.log($em);
-
-    request = $.ajax({
-      url: "/project_graffiti/generate.php",
-      type: "post",
-      data: {
-        emblem: $selected_emblem_path,
-        frame: $selected_frame_path,
-        background: $selected_background_path,
-        bgX: $bgX,
-        bgY: $bgY,
-        em: $em,
-        unused: $include_random_assets,
-        version: "3"
-      },
-      success: function(msg) {
-        if (msg == "deprecated") {
-          $("#stallusermodal").modal("hide");
-          $("#deprecatedmodal").modal({ backdrop: "static", keyboard: false });
-        }
-        if (msg.indexOf("https://a.uguu.se/") >= 0) {
-          $("#resultpng").attr("src", msg);
-          $("#tempshareURL").val(msg);
-          $("#DLform").attr("action", msg);
-          $("#downloadButtonHelper").attr("href", msg);
-          var resultpng = document.getElementById("resultpng");
-          window.tid = setInterval(waitonimageload, 500);
+        if (type == "backgrounds") {
+          optionEl.setAttribute(
+            "data-img-src",
+            "/" +
+              manifest[
+                "assets/media/image/project_graffiti/thumbnails/" +
+                  type +
+                  "/" +
+                  itemStoreEl.path.substring(0, itemStoreEl.path.length - 3) +
+                  "jpg"
+              ]
+          );
         } else {
-          $("#stallusermodal").modal("hide");
-          $("#errormodal").modal({ backdrop: "static", keyboard: false });
+          optionEl.setAttribute(
+            "data-img-src",
+            "/" + manifest["assets/media/image/project_graffiti/thumbnails/" + type + "/" + itemStoreEl.path]
+          );
         }
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log("Ajax error" + textStatus + " " + errorThrown);
+        optionEl.setAttribute("data-img-path", type + "/" + itemStoreEl.path);
       }
+      optgroupEl.appendChild(optionEl);
     });
+    selectTopEl.appendChild(optgroupEl);
+    // selectTopEl.appendChild(document.createElement("br"));
+  });
+  document.querySelector("#selector_area").appendChild(selectTopEl);
+  document.querySelector("#selector_area").appendChild(document.createElement("hr"));
+  $(selectTopEl).imagepicker();
+}
+
+function getSelection() {
+  var selection = new Object();
+  let baseUrl = "https://static.mirrorsedgearchive.de/prod/graffiti/";
+
+  let frame_selector = document.querySelector("#select-frame");
+  if (frame_selector.selectedIndex == 0) {
+    selection.frame =
+      baseUrl + frame_selector[getRandomBetween(2, frame_selector.length)].getAttribute("data-img-path");
+  } else if (frame_selector.selectedIndex == 1) {
+    selection.frame = baseUrl + "nomask.png";
+  } else {
+    selection.frame = baseUrl + frame_selector[frame_selector.selectedIndex].getAttribute("data-img-path");
+  }
+  console.log("🔧 Selected frame: " + selection.frame);
+
+  let emblem_selector = document.querySelector("#select-emblem");
+  if (emblem_selector.selectedIndex == 0) {
+    let rnd_index = getRandomBetween(2, emblem_selector.length)
+    selection.emblem =
+      baseUrl + emblem_selector[rnd_index].getAttribute("data-img-path");
+    selection.mask = baseUrl + "masks/" + (emblem_selector[rnd_index].getAttribute("data-img-path")).substring(8);
+  } else if (emblem_selector.selectedIndex == 1) {
+    selection.emblem = baseUrl + "notag.png";
+    selection.mask = baseUrl + "notag.png";
+  } else {
+    selection.emblem = baseUrl + emblem_selector[emblem_selector.selectedIndex].getAttribute("data-img-path");
+    selection.mask =
+      baseUrl + "mask" + emblem_selector[emblem_selector.selectedIndex].getAttribute("data-img-path").substring(6);
+  }
+  console.log("🔧 Selected emblem: " + selection.emblem);
+  console.log("🔧 Selected mask: " + selection.mask);
+
+  let background_selector = document.querySelector("#select-background");
+  if (background_selector.selectedIndex == 0) {
+    selection.background =
+      baseUrl + background_selector[getRandomBetween(2, background_selector.length)].getAttribute("data-img-path");
+  } else if (background_selector.selectedIndex == 1) {
+    selection.background = baseUrl + "nomask.png";
+  } else {
+    selection.background = baseUrl + background_selector[background_selector.selectedIndex].getAttribute("data-img-path");
+  }
+  console.log("🔧 Selected background: " + selection.background);
+  return selection;
+}
+
+async function renderImage(frame, emblem, mask, background) {
+  let step1Result = await execute({
+    inputFiles: [await buildInputFile(frame, "frame.png")],
+    commands: ["convert frame.png -alpha extract step1.png"],
   });
 
-  function waitonimageload() {
-    if (resultpng.complete) {
-      adjustBackgroundGradient();
-      $("#collapseGenerator").collapse("hide");
-      $("#collapseResult").collapse("show");
-      $("#print").height($("#print").width());
-      $("#resultpng").css({
-        "max-width": $("#print").width(),
-        "max-height": $("#print").height()
-      });
-      $("#stallusermodal").modal("hide");
-      window.scrollTo(0, 0);
-      abortTimer();
-    }
-  }
-  function abortTimer() {
-    clearInterval(window.tid);
-  }
+  console.log("🔧 Render Step 1 out of 6 completed.");
 
-  function togglePreviewVisibility(visible) {
-    if (visible == true) {
-      if ($vp_sm == false) {
-        $("#floatingPreview").css({ visibility: "visible", opacity: "1" });
-      } else {
-        $("#stacked_col").show();
-      }
-    } else {
-      if ($vp_sm == false) {
-        $("#floatingPreview").css({ visibility: "hidden", opacity: "0" });
-      } else {
-        $("#stacked_col").hide();
-      }
-    }
-  }
+  let step2Result = await execute({
+    inputFiles: [
+      { name: "step1.png", content: step1Result.outputFiles[0].buffer },
+      await buildInputFile(mask, "mask.png"),
+    ],
+    commands: ["composite step1.png mask.png -compose Darken step2.png"],
+  });
+
+  console.log("🔧 Render Step 2 out of 6 completed.");
+
+  let step3Result = await execute({
+    inputFiles: [
+      { name: "step2.png", content: step2Result.outputFiles[0].buffer },
+      await buildInputFile(frame, "frame.png"),
+    ],
+    commands: ["composite step2.png -compose CopyOpacity frame.png step3.png"],
+  });
+
+  console.log("🔧 Render Step 3 out of 6 completed.");
+
+  let step4Result = await execute({
+    inputFiles: [
+      { name: "step3.png", content: step3Result.outputFiles[0].buffer },
+      await buildInputFile(emblem, "emblem.png"),
+    ],
+    commands: ["composite step3.png emblem.png -resize 512 step4.png"],
+  });
+
+  console.log("🔧 Render Step 4 out of 6 completed.");
+
+  let step5prepResult = await execute({
+    inputFiles: [await buildInputFile(background, "background.png")],
+    commands: ["convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png"],
+  });
+
+  console.log("🔧 Render Step 5 out of 6 completed.");
+
+  let step5Result = await execute({
+    inputFiles: [
+      { name: "step4.png", content: step4Result.outputFiles[0].buffer },
+      { name: "step5prep.png", content: step5prepResult.outputFiles[0].buffer },
+      await buildInputFile(background, "background.png"),
+    ],
+    commands: ["composite -gravity center step4.png step5prep.png step5.png"],
+  });
+
+  console.log("🔧 Render Step 6 out of 6 completed.");
+
+  return await step5Result.outputFiles[0].buffer;
+}
+
+async function paintImage(image) {
+  console.log("🔧 Painting result...");
+  let imageBlob = new Blob([image], { type: "image/png" });
+  let blobUrl = window.URL.createObjectURL(imageBlob);
+  document.querySelector("#outputImage").src = blobUrl;
+  console.log("🔧 Result painted.");
+}
+
+// Main Thread
+$.getJSON("/assets/rev-manifest.json", function (manifest) {
+  $.getJSON("./assets.json", function (assetStore) {
+    renderCategoryPicker(assetStore, "emblems", manifest);
+    renderCategoryPicker(assetStore, "frames", manifest);
+    renderCategoryPicker(assetStore, "backgrounds", manifest);
+  });
+});
+
+async function generatePlayerTag() {
+  let selection = getSelection();
+  let imageBuffer = await renderImage(selection.frame, selection.emblem, selection.mask, selection.background);
+  paintImage(imageBuffer);
+}
+
+document.querySelector("#submit").addEventListener("click", function () {
+  generatePlayerTag();
 });

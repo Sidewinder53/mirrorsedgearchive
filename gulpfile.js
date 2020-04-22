@@ -189,7 +189,7 @@ function packVendorJS() {
   return src([
     './node_modules/cocoen/dist/js/cocoen.min.js',
     './node_modules/cocoen/dist/js/cocoen-jquery.min.js',
-    './node_modules/image-picker/image-picker/image-picker.js',
+    './node_modules/image-picker/image-picker/image-picker.min.js',
     './node_modules/nouislider/distribute/nouislider.min.js',
     './node_modules/wnumb/wNumb.min.js'
   ], { base: 'node_modules' })
@@ -219,10 +219,6 @@ function copyVendorDependencies() {
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
     .pipe(dest('./dist/assets/vendor/'))
-    .pipe(tap(function (file) {
-      file.base = file.base.substring(0, file.base.length - 14);
-    }))
-    .pipe(dest('./'))
 }
 
 function packBundleCSS() {
@@ -337,7 +333,7 @@ function optimizeImgToWebp() {
     './src/assets/media/image/**/*.png'
   ], { base: 'src' })
     .pipe(cache(imagemin(
-      [webp()],
+      [webp({quality: 70, alphaQuality: 75})],
       {
         verbose: true
       }

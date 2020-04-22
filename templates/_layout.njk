@@ -33,6 +33,9 @@
   {%- for item in pageInfo.reqScripts %}
   <script src="/{{- manifest[item] }}"></script>
   {%- endfor %}
+  {%- for item in pageInfo.reqModules %}
+  <script type="module" src="/{{- manifest[item] }}"></script>
+  {%- endfor %}
 </body>
 
 </html>
