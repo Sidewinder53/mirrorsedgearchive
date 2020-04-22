@@ -1,30 +1,56 @@
 trigger:
-  - vNext
+- master
+- sandbox
+- master
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: 'ubuntu-latest'
 
 steps:
-  - task: UseNode@1
-    inputs:
-      version: "12.x"
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      switch(${env:BUILD_SOURCEBRANCH}) {
+        'refs/heads/master' {
+          Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+          Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+          }
+        'refs/heads/sandbox' {
+          Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+          Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+          }
+        'refs/heads/vNext' {
+          Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
+          Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
+          }
+      }
+  displayName: 'Set build variables'
 
-  - script: |
-      npm install
-    displayName: "Install NPM"
+- task: UseNode@1
+  inputs:
+    version: $(nodeVersion)
+  displayName: 'Install Node'
 
-  - script: |
-      npm run buildProduction
-    displayName: "Build for Development"
+- task: Npm@1
+  inputs:
+    command: 'install'
+  displayName: 'Install NPM'
 
-  - task: CopyFiles@2
-    inputs:
-      Contents: $(Build.SourcesDirectory)/dist/**
-      targetFolder: $(Build.ArtifactStagingDirectory)
-    displayName: "Copy distributable resources to Artifact Staging Directory"
+- task: gulp@1
+  inputs:
+    targets: '$(buildCommand)'
+    enableCodeCoverage: false
+  displayName: 'Build release using gulp'
 
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: "$(Build.ArtifactStagingDirectory)"
-      artifactName: MEA-vNext-artifact
-    displayName: 'Publish Staged Artifacts to "MEA-vNext-artifact"'
+- task: CopyFiles@2
+  inputs:
+    Contents: '$(Build.SourcesDirectory)/dist/**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy dist to Artifact Staging'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/dist/'
+    artifactName: MEA-artifact
+  displayName: 'Publish Staged Artifacts to "MEA-artifact"'
