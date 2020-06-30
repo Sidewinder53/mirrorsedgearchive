@@ -9,9 +9,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
-- stage: Build Image
+- stage: BuildImage
+  displayName: Build Image
   jobs:
   - job: BuildProjectAndImage
+    displayName: Build Project and Image
     steps:
     - task: PowerShell@2
       inputs:
