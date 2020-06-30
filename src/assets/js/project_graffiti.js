@@ -1,13 +1,23 @@
-import { buildInputFile, execute } from "/assets/vendor/wasm-imagemagick/magickApi.js";
+import {
+  buildInputFile,
+  execute,
+} from "/assets/vendor/wasm-imagemagick/magickApi.js";
 
 function getRandomBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function renderCategoryPicker(storeObject, type, manifest) {
+  let collapseEl = document.createElement("div");
+  collapseEl.classList.add("tab-pane");
+  collapseEl.setAttribute("role", "tabpanel");
+  collapseEl.id = "collapse-" + type;
   let selectTopEl = document.createElement("select");
   selectTopEl.classList.add("image-picker");
-  selectTopEl.setAttribute("id", "select-" + type.substring(0, type.length - 1));
+  selectTopEl.setAttribute(
+    "id",
+    "select-" + type.substring(0, type.length - 1)
+  );
   storeObject[type].content.forEach((categoryStoreEl) => {
     let optgroupEl = document.createElement("optgroup");
     let optgroupId = categoryStoreEl.label.substring(0, 4).toLowerCase();
@@ -43,7 +53,13 @@ function renderCategoryPicker(storeObject, type, manifest) {
         } else {
           optionEl.setAttribute(
             "data-img-src",
-            "/" + manifest["assets/media/image/project_graffiti/thumbnails/" + type + "/" + itemStoreEl.path]
+            "/" +
+              manifest[
+                "assets/media/image/project_graffiti/thumbnails/" +
+                  type +
+                  "/" +
+                  itemStoreEl.path
+              ]
           );
         }
         optionEl.setAttribute("data-img-path", type + "/" + itemStoreEl.path);
@@ -51,10 +67,10 @@ function renderCategoryPicker(storeObject, type, manifest) {
       optgroupEl.appendChild(optionEl);
     });
     selectTopEl.appendChild(optgroupEl);
+    collapseEl.appendChild(selectTopEl);
     // selectTopEl.appendChild(document.createElement("br"));
   });
-  document.querySelector("#selector_area").appendChild(selectTopEl);
-  document.querySelector("#selector_area").appendChild(document.createElement("hr"));
+  document.querySelector("#selector_area").appendChild(collapseEl);
   $(selectTopEl).imagepicker();
 }
 
@@ -65,27 +81,45 @@ function getSelection() {
   let frame_selector = document.querySelector("#select-frame");
   if (frame_selector.selectedIndex == 0) {
     selection.frame =
-      baseUrl + frame_selector[getRandomBetween(2, frame_selector.length)].getAttribute("data-img-path");
+      baseUrl +
+      frame_selector[getRandomBetween(2, frame_selector.length)].getAttribute(
+        "data-img-path"
+      );
   } else if (frame_selector.selectedIndex == 1) {
     selection.frame = baseUrl + "nomask.png";
   } else {
-    selection.frame = baseUrl + frame_selector[frame_selector.selectedIndex].getAttribute("data-img-path");
+    selection.frame =
+      baseUrl +
+      frame_selector[frame_selector.selectedIndex].getAttribute(
+        "data-img-path"
+      );
   }
   console.log("🔧 Selected frame: " + selection.frame);
 
   let emblem_selector = document.querySelector("#select-emblem");
   if (emblem_selector.selectedIndex == 0) {
-    let rnd_index = getRandomBetween(2, emblem_selector.length)
+    let rnd_index = getRandomBetween(2, emblem_selector.length);
     selection.emblem =
       baseUrl + emblem_selector[rnd_index].getAttribute("data-img-path");
-    selection.mask = baseUrl + "masks/" + (emblem_selector[rnd_index].getAttribute("data-img-path")).substring(8);
+    selection.mask =
+      baseUrl +
+      "masks/" +
+      emblem_selector[rnd_index].getAttribute("data-img-path").substring(8);
   } else if (emblem_selector.selectedIndex == 1) {
     selection.emblem = baseUrl + "notag.png";
     selection.mask = baseUrl + "notag.png";
   } else {
-    selection.emblem = baseUrl + emblem_selector[emblem_selector.selectedIndex].getAttribute("data-img-path");
+    selection.emblem =
+      baseUrl +
+      emblem_selector[emblem_selector.selectedIndex].getAttribute(
+        "data-img-path"
+      );
     selection.mask =
-      baseUrl + "mask" + emblem_selector[emblem_selector.selectedIndex].getAttribute("data-img-path").substring(6);
+      baseUrl +
+      "mask" +
+      emblem_selector[emblem_selector.selectedIndex]
+        .getAttribute("data-img-path")
+        .substring(6);
   }
   console.log("🔧 Selected emblem: " + selection.emblem);
   console.log("🔧 Selected mask: " + selection.mask);
@@ -93,11 +127,18 @@ function getSelection() {
   let background_selector = document.querySelector("#select-background");
   if (background_selector.selectedIndex == 0) {
     selection.background =
-      baseUrl + background_selector[getRandomBetween(2, background_selector.length)].getAttribute("data-img-path");
+      baseUrl +
+      background_selector[
+        getRandomBetween(2, background_selector.length)
+      ].getAttribute("data-img-path");
   } else if (background_selector.selectedIndex == 1) {
     selection.background = baseUrl + "nomask.png";
   } else {
-    selection.background = baseUrl + background_selector[background_selector.selectedIndex].getAttribute("data-img-path");
+    selection.background =
+      baseUrl +
+      background_selector[background_selector.selectedIndex].getAttribute(
+        "data-img-path"
+      );
   }
   console.log("🔧 Selected background: " + selection.background);
   return selection;
@@ -143,7 +184,9 @@ async function renderImage(frame, emblem, mask, background) {
 
   let step5prepResult = await execute({
     inputFiles: [await buildInputFile(background, "background.png")],
-    commands: ["convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png"],
+    commands: [
+      "convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png",
+    ],
   });
 
   console.log("🔧 Render Step 5 out of 6 completed.");
@@ -171,18 +214,63 @@ async function paintImage(image) {
 }
 
 // Main Thread
+setTimeout(() => {
+  document
+    .querySelector("#load-progress-bar")
+    .parentElement.parentElement.classList.remove("box-content-hide", "box-content-inviz");
+}, 2000);
+
 $.getJSON("/assets/rev-manifest.json", function (manifest) {
   $.getJSON("./assets.json", function (assetStore) {
     renderCategoryPicker(assetStore, "emblems", manifest);
     renderCategoryPicker(assetStore, "frames", manifest);
     renderCategoryPicker(assetStore, "backgrounds", manifest);
+
+    let images = Array.from(document.querySelectorAll("#selector_area img"));
+    let counter = 0;
+
+    Promise.all(
+      images
+        .filter((image) => !image.complete)
+        .map(
+          (image) =>
+            new Promise((resolve) => {
+              image.addEventListener("load", () => {
+                counter++;
+                setLoadedPercentage(
+                  Math.floor((90 / images.length) * counter) + 10
+                );
+                resolve();
+              });
+            })
+        )
+    ).then(() => {
+      document.querySelector(".box-load").classList.add("box-content-hide");
+      setTimeout(() => {
+        document.querySelector(".box-load").style.display = "none";
+        document.querySelector(".box-main").classList.add("box-content-show");
+        document
+          .querySelector(".box-main")
+          .classList.remove("box-content-hide");
+      }, 300);
+      $("#collapse-emblems").tab("show");
+    });
   });
 });
 
 async function generatePlayerTag() {
   let selection = getSelection();
-  let imageBuffer = await renderImage(selection.frame, selection.emblem, selection.mask, selection.background);
+  let imageBuffer = await renderImage(
+    selection.frame,
+    selection.emblem,
+    selection.mask,
+    selection.background
+  );
   paintImage(imageBuffer);
+}
+
+function setLoadedPercentage(percentage) {
+  document.querySelector("#load-progress-bar").style.width = percentage + "%";
 }
 
 document.querySelector("#submit").addEventListener("click", function () {
