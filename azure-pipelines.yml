@@ -1,56 +1,51 @@
 trigger:
-- master
-- sandbox
-- master
+  - master
+  - sandbox
+  - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+  pool:
+    vmImage: 'ubuntu-latest'
 
-steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      switch(${env:BUILD_SOURCEBRANCH}) {
-        'refs/heads/master' {
-          Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-          Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-          }
-        'refs/heads/sandbox' {
-          Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-          Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-          }
-        'refs/heads/vNext' {
-          Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
-          Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
-          }
-      }
-  displayName: 'Set build variables'
+  steps:
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: |
+        switch(${env:BUILD_SOURCEBRANCH}) {
+          'refs/heads/master' {
+            Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+            Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+            }
+          'refs/heads/sandbox' {
+            Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+            Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+            }
+          'refs/heads/vNext' {
+            Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
+            Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
+            }
+        }
+    displayName: 'Set build variables'
 
-- task: UseNode@1
-  inputs:
-    version: $(nodeVersion)
-  displayName: 'Install Node'
+  - task: UseNode@1
+    inputs:
+      version: $(nodeVersion)
+    displayName: 'Install Node'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-  displayName: 'Install NPM'
+  - task: Npm@1
+    inputs:
+      command: 'install'
+    displayName: 'Install NPM'
 
-- task: gulp@1
-  inputs:
-    targets: '$(buildCommand)'
-    enableCodeCoverage: false
-  displayName: 'Build release using gulp'
+  - task: gulp@1
+    inputs:
+      targets: '$(buildCommand)'
+      enableCodeCoverage: false
+    displayName: 'Build release using gulp'
 
-- task: CopyFiles@2
-  inputs:
-    Contents: '$(Build.SourcesDirectory)/dist/**'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy dist to Artifact Staging'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)/dist/'
-    artifactName: MEA-artifact
-  displayName: 'Publish Staged Artifacts to "MEA-artifact"'
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'sidewinder53@hub.docker.com'
+      repository: 'mea'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
