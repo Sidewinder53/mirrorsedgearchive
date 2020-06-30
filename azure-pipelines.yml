@@ -1,51 +1,57 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
   - master
   - sandbox
   - master
 
-  pool:
-    vmImage: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
-  steps:
-  - task: PowerShell@2
-    inputs:
-      targetType: 'inline'
-      script: |
-        switch(${env:BUILD_SOURCEBRANCH}) {
-          'refs/heads/master' {
-            Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-            Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-            }
-          'refs/heads/sandbox' {
-            Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-            Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-            }
-          'refs/heads/vNext' {
-            Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
-            Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
-            }
-        }
-    displayName: 'Set build variables'
+stages:
+- stage: Build Image
+  jobs:
+  - job: BuildProjectAndImage
+    steps:
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          switch(${env:BUILD_SOURCEBRANCH}) {
+            'refs/heads/master' {
+              Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+              Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+              }
+            'refs/heads/sandbox' {
+              Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
+              Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
+              }
+            'refs/heads/vNext' {
+              Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
+              Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
+              }
+          }
+      displayName: 'Set build variables'
 
-  - task: UseNode@1
-    inputs:
-      version: $(nodeVersion)
-    displayName: 'Install Node'
+    - task: UseNode@1
+      inputs:
+        version: $(nodeVersion)
+      displayName: 'Install Node'
 
-  - task: Npm@1
-    inputs:
-      command: 'install'
-    displayName: 'Install NPM'
+    - task: Npm@1
+      inputs:
+        command: 'install'
+      displayName: 'Install NPM'
 
-  - task: gulp@1
-    inputs:
-      targets: '$(buildCommand)'
-      enableCodeCoverage: false
-    displayName: 'Build release using gulp'
+    - task: gulp@1
+      inputs:
+        targets: '$(buildCommand)'
+        enableCodeCoverage: false
+      displayName: 'Build release using gulp'
 
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'sidewinder53@hub.docker.com'
-      repository: 'mea'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'sidewinder53@hub.docker.com'
+        repository: 'mea'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
