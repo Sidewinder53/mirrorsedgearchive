@@ -57,4 +57,4 @@ stages:
         repository: 'sidewinder53/mea'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'vNext-$(Date:yyyyMMdd)$(Rev:.r)'
+        tags: '$(Date:yyyyMMdd)$(Rev:.r)'
