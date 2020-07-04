@@ -54,6 +54,6 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'sidewinder53@hub.docker.com'
-        repository: 'mea'
+        repository: 'sidewinder53/mea'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
