@@ -71,8 +71,9 @@ stages:
 - stage: Deploy
   jobs:
   - deployment: DeployApp
-    displayName: Deploy MEA
-    environment: 'vNext-Staging'
+    environment:
+      name: 'vNext-Staging'
+      resourceType: 'virtualMachine'
     strategy:
       runOnce:
         deploy:
