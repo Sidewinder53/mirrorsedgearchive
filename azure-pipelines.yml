@@ -5,15 +5,12 @@ trigger:
   - sandbox
   - vNext
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 stages:
-- stage: BuildImage
-  displayName: Build Image
+- stage: Build
   jobs:
-  - job: BuildProjectAndImage
-    displayName: Build Project and Image
+  - job: BuildJob
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - task: PowerShell@2
       inputs:
@@ -51,6 +48,18 @@ stages:
         enableCodeCoverage: false
       displayName: 'Build release using gulp'
 
+    - task: CopyFiles@2
+      inputs:
+        Contents: '$(Build.SourcesDirectory)/dist/**'
+        targetFolder: $(Build.ArtifactStagingDirectory)
+      displayName: 'Copy dist to Artifact Staging'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)/dist/'
+        artifactName: MEA-artifact
+      displayName: 'Publish Staged Artifacts to "MEA-artifact"'
+
     - task: Docker@2
       inputs:
         containerRegistry: 'sidewinder53@hub.docker.com'
@@ -58,3 +67,27 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: 'vnext-$(Build.BuildId)'
+
+- stage: Deploy
+  jobs:
+  - deployment: DeployApp
+    displayName: Deploy MEA
+    environment: 'vNext-Staging'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'specific'
+              project: '70dbfa67-3af7-4823-97b8-a474e59f0749'
+              pipeline: '8'
+              buildVersionToDownload: 'latest'
+              downloadType: 'single'
+              artifactName: 'cfgpkg'
+              downloadPath: '$(System.ArtifactsDirectory)'
+
+          # - script: |
+          #     cd /var/container/mea/vNext
+          #     cp $(System.ArtifactsDirectory)\MirrorsEdgeArchive.HostConfiguration\cfgpkg\cherry\vnext\docker-compose.yml .
+          #     docker-compose up -d --force-recreate
