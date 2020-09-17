@@ -9,6 +9,7 @@ stages:
 - stage: Build
   jobs:
   - job: BuildJob
+    displayName: Build & Publish to Docker
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -71,6 +72,7 @@ stages:
 - stage: Deploy
   jobs:
   - deployment: DeployApp
+    displayName: Deploy to Environment
     environment:
       name: 'vNext-Staging'
       resourceType: 'virtualMachine'
@@ -88,7 +90,7 @@ stages:
               artifactName: 'cfgpkg'
               downloadPath: '$(System.ArtifactsDirectory)'
 
-          # - script: |
-          #     cd /var/container/mea/vNext
-          #     cp $(System.ArtifactsDirectory)\MirrorsEdgeArchive.HostConfiguration\cfgpkg\cherry\vnext\docker-compose.yml .
-          #     docker-compose up -d --force-recreate
+          - script: |
+              cd /var/container/mea/vNext
+              cp -f $(System.ArtifactsDirectory)\cfgpkg\cherry\vnext\docker-compose.yml .
+              docker-compose up -d --force-recreate
