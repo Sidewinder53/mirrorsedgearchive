@@ -93,5 +93,6 @@ stages:
           - script: |
               cd /var/container/mea/vNext
               cp -f $(System.ArtifactsDirectory)/cfgpkg/cherry/vNext/docker-compose.yml .
+              sed -i 's|sidewinder53/mea:vnext-|sidewinder53/mea:vnext-$(Build.BuildId)|g' docker-compose.yml
               docker-compose up -d --force-recreate
             displayName: Deploy Container
