@@ -92,5 +92,6 @@ stages:
 
           - script: |
               cd /var/container/mea/vNext
-              cp -f $(System.ArtifactsDirectory)/cfgpkg/cherry/vnext/docker-compose.yml .
+              cp -f $(System.ArtifactsDirectory)/cfgpkg/cherry/vNext/docker-compose.yml .
               docker-compose up -d --force-recreate
+            displayName: Deploy Container
