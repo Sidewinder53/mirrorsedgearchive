@@ -10,12 +10,12 @@
     "type": "git",
     "url": "https://github.com/Sidewinder53/mirrorsedgearchive.git"
   },
-  "author": "The Mirror's Edge Archive team (team at mirrorsedgearchive dot de)",
+  "author": "The Mirror's Edge Archive team (team at mirrorsedgearchive dot org)",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.12",
     "del": "^5.1.0",
-    "git-rev-sync": "^2.0.0",
+    "git-rev-sync": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-cache": "^1.1.3",
     "gulp-clean-css": "^4.3.0",
@@ -29,25 +29,25 @@
     "gulp-replace": "^1.0.0",
     "gulp-tap": "^2.0.0",
     "image-picker": "^0.3.1",
-    "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-pngquant": "^8.0.0",
-    "imagemin-svgo": "^7.1.0",
-    "imagemin-webp": "^5.1.0",
-    "nouislider": "^14.2.0"
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "imagemin-svgo": "^8.0.0",
+    "imagemin-webp": "^6.0.0",
+    "nouislider": "^14.6.1"
   },
   "dependencies": {
-    "@mdi/font": "^5.0.45",
-    "bootstrap": "^4.5.0",
+    "@mdi/font": "^5.5.55",
+    "bootstrap": "^4.5.2",
     "cocoen": "^2.0.5",
     "gulp-rev": "^9.0.0",
     "img-slider": "^2.2.0",
-    "jquery": "^3.5.0",
+    "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
     "natives": "^1.1.6",
     "popper.js": "^1.16.1",
     "secure-string": "^1.2.1",
-    "shaka-player": "^2.5.10",
-    "wasm-imagemagick": "^1.2.7",
+    "shaka-player": "^2.5.16",
+    "wasm-imagemagick": "^1.2.8",
     "wnumb": "^1.2.0"
   }
 }
