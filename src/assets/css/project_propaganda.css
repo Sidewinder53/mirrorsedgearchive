@@ -249,6 +249,12 @@
   padding-right: 0.25rem;
 }
 
+.list-group-flush > .video:last-child {
+  border-bottom-color:rgba(0, 0, 0, 0.125);
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+}
+
 @media only screen and (max-width: 1800px) {
   #vidNav {
     width: 230px;

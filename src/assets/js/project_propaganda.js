@@ -21,6 +21,8 @@ var protectedPlaybackAvailable = false;
 document.addEventListener("DOMContentLoaded", initApp);
 
 function initApp() {
+  console.log("%cVideos on this page are the intellectual property of EA Digital Illusions CE", "font-size: 20px; font-weight: bold;");
+  console.log("%cYou may not redistribute them without obtaining permission from the copyright holder.", "font-size: 20px; color: red;");
   // Fetch database
   $.get("./videoData.json", function(fetchedDatabase) {
     database = fetchedDatabase;
@@ -36,7 +38,7 @@ function initApp() {
         category.categoryName +
         '">' +
         category.categoryLabel +
-        '</p><div class="collapse" id="col-' +
+        '</p><div class="collapse list-group-flush" id="col-' +
         category.categoryName +
         '">';
 
@@ -350,10 +352,10 @@ function hookBindings() {
       _paq.push(["trackEvent", "Scene", "Ended", previousVideo.id]);
     }
     if ($("#apCheck").prop("checked")) {
-      console.log("[PropP-DEBUG] [Autoplay] Detected autoplay intent.");
+      // console.log("[PropP-DEBUG] [Autoplay] Detected autoplay intent.");
       if (jumpCategory) {
         console.log(
-          "[PropP-DEBUG] [Autoplay] Next video in subsequent category, collapsing current category and jumping to next video."
+          // "[PropP-DEBUG] [Autoplay] Next video in subsequent category, collapsing current category and jumping to next video."
         );
         $(previousVideo)
           .parent()

@@ -4,6 +4,8 @@ var previousVideoId = null;
 var isNextVideoNextChapter = null;
 
 $(function() {
+  console.log("%cVideos on this page are the intellectual property of EA Digital Illusions CE", "font-size: 20px; font-weight: bold;");
+  console.log("%cYou may not redistribute them without obtaining permission from the copyright holder.", "font-size: 20px; color: red;");
   if (document.addEventListener) {
     // IE >= 9; other browsers
     $('#vidPlayer')
@@ -39,7 +41,7 @@ $(function() {
         category.categoryName +
         '">' +
         category.categoryLabel +
-        '</p><div class="collapse" id="col-' +
+        '</p><div class="collapse list-group-flush" id="col-' +
         category.categoryName +
         '">';
       $.each(category['videos'], function(j, video) {

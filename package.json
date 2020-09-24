@@ -33,10 +33,10 @@
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
     "imagemin-webp": "^6.0.0",
-    "nouislider": "^14.6.1"
+    "nouislider": "^14.6.2"
   },
   "dependencies": {
-    "@mdi/font": "^5.5.55",
+    "@mdi/font": "^5.6.55",
     "bootstrap": "^4.5.2",
     "cocoen": "^2.0.5",
     "gulp-rev": "^9.0.0",
@@ -46,7 +46,7 @@
     "natives": "^1.1.6",
     "popper.js": "^1.16.1",
     "secure-string": "^1.2.1",
-    "shaka-player": "^2.5.16",
+    "shaka-player": "^3.0.4",
     "wasm-imagemagick": "^1.2.8",
     "wnumb": "^1.2.0"
   }

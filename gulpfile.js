@@ -191,6 +191,7 @@ function packVendorJS() {
     './node_modules/cocoen/dist/js/cocoen-jquery.min.js',
     './node_modules/image-picker/image-picker/image-picker.min.js',
     './node_modules/nouislider/distribute/nouislider.min.js',
+    './node_modules/shaka-player/dist/shaka-player.compiled.js',
     './node_modules/wnumb/wNumb.min.js'
   ], { base: 'node_modules' })
   .pipe(flatten({ includeParents: 1 }))
@@ -215,7 +216,7 @@ function copyVendorDependencies() {
   return src([
     './node_modules/wasm-imagemagick/dist/magick.wasm',
     './node_modules/wasm-imagemagick/dist/magickApi.js',
-    './node_modules/wasm-imagemagick/dist/magick.js'
+    './node_modules/wasm-imagemagick/dist/magick.js',
   ], { base: 'node_modules' })
     .pipe(flatten({ includeParents: 1 }))
     .pipe(dest('./dist/assets/vendor/'))
