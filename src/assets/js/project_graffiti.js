@@ -151,6 +151,7 @@ async function renderImage(frame, emblem, mask, background) {
   });
 
   console.log("🔧 Render Step 1 out of 6 completed.");
+  document.querySelector("#stallusermodalprogress").style.width = "20%";
 
   let step2Result = await execute({
     inputFiles: [
@@ -161,6 +162,7 @@ async function renderImage(frame, emblem, mask, background) {
   });
 
   console.log("🔧 Render Step 2 out of 6 completed.");
+  document.querySelector("#stallusermodalprogress").style.width = "35%";
 
   let step3Result = await execute({
     inputFiles: [
@@ -171,6 +173,7 @@ async function renderImage(frame, emblem, mask, background) {
   });
 
   console.log("🔧 Render Step 3 out of 6 completed.");
+  document.querySelector("#stallusermodalprogress").style.width = "50%"
 
   let step4Result = await execute({
     inputFiles: [
@@ -181,6 +184,7 @@ async function renderImage(frame, emblem, mask, background) {
   });
 
   console.log("🔧 Render Step 4 out of 6 completed.");
+  document.querySelector("#stallusermodalprogress").style.width = "80%";
 
   let step5prepResult = await execute({
     inputFiles: [await buildInputFile(background, "background.png")],
@@ -190,6 +194,7 @@ async function renderImage(frame, emblem, mask, background) {
   });
 
   console.log("🔧 Render Step 5 out of 6 completed.");
+  document.querySelector("#stallusermodalprogress").style.width = "95%"
 
   let step5Result = await execute({
     inputFiles: [
@@ -201,6 +206,7 @@ async function renderImage(frame, emblem, mask, background) {
   });
 
   console.log("🔧 Render Step 6 out of 6 completed.");
+  document.querySelector("#stallusermodalprogress").style.width = "100%"
 
   return await step5Result.outputFiles[0].buffer;
 }
@@ -214,12 +220,6 @@ async function paintImage(image) {
 }
 
 // Main Thread
-setTimeout(() => {
-  document
-    .querySelector("#load-progress-bar")
-    .parentElement.parentElement.classList.remove("box-content-hide", "box-content-inviz");
-}, 2000);
-
 $.getJSON("/assets/rev-manifest.json", function (manifest) {
   $.getJSON("./assets.json", function (assetStore) {
     renderCategoryPicker(assetStore, "emblems", manifest);
@@ -259,6 +259,7 @@ $.getJSON("/assets/rev-manifest.json", function (manifest) {
 });
 
 async function generatePlayerTag() {
+  $('#stallusermodal').modal('show');
   let selection = getSelection();
   let imageBuffer = await renderImage(
     selection.frame,
@@ -267,6 +268,9 @@ async function generatePlayerTag() {
     selection.background
   );
   paintImage(imageBuffer);
+  $('#collapse-generator').collapse('hide');
+  $('#collapse-output').collapse('show');
+  $('#stallusermodal').modal('hide');
 }
 
 function setLoadedPercentage(percentage) {

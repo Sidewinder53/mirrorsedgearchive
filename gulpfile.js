@@ -187,8 +187,8 @@ function packLocalJS() {
 
 function packVendorJS() {
   return src([
-    './node_modules/cocoen/dist/js/cocoen.min.js',
-    './node_modules/cocoen/dist/js/cocoen-jquery.min.js',
+    './node_modules/comparison-slider/dist/comparison-slider.min.js',
+    './node_modules/pagemap/dist/pagemap.min.js',
     './node_modules/image-picker/image-picker/image-picker.min.js',
     './node_modules/nouislider/distribute/nouislider.min.js',
     './node_modules/shaka-player/dist/shaka-player.compiled.js',
@@ -284,7 +284,6 @@ function packLocalCSS() {
 
 function packVendorCSS() {
   return src([
-    './node_modules/cocoen/dist/css/cocoen.min.css',
     './node_modules/image-picker/image-picker/image-picker.css',
     './node_modules/@mdi/font/css/materialdesignicons.min.css',
     './node_modules/nouislider/distribute/nouislider.min.css'

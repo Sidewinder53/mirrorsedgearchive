@@ -17,7 +17,12 @@
         var targetURL = getTargetFromUri("t");
         if (targetURL != null && getUrlValidity(targetURL)) {
           document.querySelector("#main").style.display = "block";
-          getUrlSafebrowsingStatus(targetURL);
+          document.querySelector('#url-info').innerHTML = targetURL;
+          document.querySelector("#continue-button").addEventListener('click', function () {
+            window.location.replace(targetURL)
+          });
+          document.querySelector("#continue-button").removeAttribute("disabled");
+          // getUrlSafebrowsingStatus(targetURL);
         } else {
           window.location.replace("/");
         }

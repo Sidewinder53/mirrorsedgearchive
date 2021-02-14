@@ -1,1 +1,1 @@
-$('.cocoen').cocoen();
+

@@ -3,14 +3,13 @@
   category: 'credits',
   title: 'Credits',
   description: "Credits of Mirror's Edge and Mirror's Edge Catalyst",
-  reqScripts: [ 'assets/js/credits.js' ],
+  reqScripts: [ 'assets/vendor/pagemap/pagemap.min.js', 'assets/js/credits.js' ],
   reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/credits.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
 
 {%- block content %}
-<!-- <body data-spy="scroll" data-target="#navbar-credits" data-offset="57"> -->
   <audio autoplay volume="100%">
     <source src="/{{- manifest['assets/media/audio/credits/hymn.ogg'] }}" type="audio/ogg">
   </audio>
@@ -22,9 +21,6 @@
     <img src="/{{- manifest['assets/media/image/credits/faith_mec.jpg'] }}">
   </div>
   <div class="container px-sm-2 px-1">
-      <div class="alert alert-danger" role="alert">
-          <h4 class="alert-heading">WIP: fix scrollspy lib - do not push to production</h4>
-        </div>
     <nav id="navbar-credits" class="navbar sticky-top navbar-light navbar-expand-lg">
       <div class="container">
         <ul class="nav nav-pills mr-auto">
@@ -99,16 +95,8 @@
       </div>
     </nav>
     <div id="bg">
-      <div class="container px-sm-2 px-0" id="content">
+      <div class="container px-sm-2 px-0 mt-5" id="content">
         <div id="cookie_consent_placeholder"></div>
-        <blockquote id="thank_you" class="blockquote">
-          <p class="mb-0">The Mirror's Edge franchise is the result of truly astonishing work by creative, talented and
-            dedicated developers. We appreciate the time, effort and sweat
-            put into this product and would like to express our gratitude to the creators for their memorable work on
-            behalf of the Mirror's Edge community. Without you, we would
-            <i>never</i> have met Faith.</p>
-          <footer class="blockquote-footer">The Mirror's Edge Archive team</footer>
-        </blockquote>
         <div id="touch_device_notice"></div>
         <h1>Mirror's Edge&nbsp; <small class="text-muted">2008</small></h1>
         <h3>
@@ -814,7 +802,7 @@
         <hr>
         <picture class="art_space">
           <img src="/{{- manifest['assets/media/image/credits/its_my_turn.png'] }}">
-          <p class="text-right" style="color: #8c8c8c;">"It's my turn" by some awesome Chinese Artist</p>
+          <p class="text-right" style="color: #8c8c8c;">"It's my turn" by an unamed Artist from the Mirror's Edge community</p>
         </picture>
         <h1 id="mec_desc">Mirror's Edge Catalyst&nbsp; <small class="text-muted">2016</small>
         </h1>

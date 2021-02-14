@@ -1,118 +1,154 @@
 {% set pageInfo = {
-  name: 'development_vs_release',
-  category: 'projects',
-  title: 'Development vs. Release',
-  description: "A comparison of how Mirror's Edge looked during development vs. today",
-  reqScripts: [ 'assets/vendor/cocoen/cocoen.min.js', 'assets/vendor/cocoen/cocoen-jquery.min.js', 'assets/js/development_vs_release.js' ],
-  reqStylesheets: [ 'assets/vendor/cocoen/cocoen.min.css', 'assets/css/development_vs_release.css' ]
+name: 'development_vs_release',
+category: 'projects',
+title: 'Development vs. Release',
+description: "A comparison of how Mirror's Edge looked during development vs. today",
+reqScripts: [ 'assets/vendor/comparison-slider/comparison-slider.min.js', 'assets/js/development_vs_release.js' ],
+reqStylesheets: [ 'assets/css/development_vs_release.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
 
 {% block content %}
-  <div class="container" id="content">
-    <div id="cookie_consent_placeholder"></div>
-    <div class="card">
-      <div class="card-header">Development vs. Release</div>
-      <div class="card-body">
-        <p class="card-text">
-          Click anywhere in the pictures to drag the slider. The image on the left is from a development blog
-          <a href="/out/?t=http://area.autodesk.com/customer-stories/mirror039s-edge-catalyst-shattering-the-norm">article</a>,
-          while the image on the right is from the final game. Without the
-          <a href="http://waifu2x.udp.jp/">waifu2x project</a> we could not have finished this project, check them out!
-        </p>
-      </div>
+<div class="container" id="content">
+  <div id="cookie_consent_placeholder"></div>
+  <div class="card">
+    <div class="card-header">Development vs. Release</div>
+    <div class="card-body">
+      <p class="card-text">
+        The image on the left is from a development blog <a
+          href="/out/?t=https://area.autodesk.com/customer-stories/mirror039s-edge-catalyst-shattering-the-norm" target="_blank">article</a>
+        (upscaled with <a href="/out/?t=https://waifu2x.udp.jp/" target="_blank">waifu2x</a>).
+        The image on the right is from the final game.
+      </p>
     </div>
-
-    <div class="card">
-      <div class="card-header">
-        Triumvirate Drive #1
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img width="1136" height="631" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_1_old.png'] }}"/>
-          <img width="1136" height="631" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_1.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Triumvirate Drive #2
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img width="1156" height="666" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_2_old.png'] }}"/>
-          <img width="1156" height="666" src="/{{- manifest['assets/media/image/development_vs_release/triumvirate_2.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Concord Plaza/Centurian Yards
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img width="1156" height="646" src="/{{- manifest['assets/media/image/development_vs_release/concord_1_old.png'] }}"/>
-          <img width="1156" height="646" src="/{{- manifest['assets/media/image/development_vs_release/concord_1.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Shimmering Heights
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img width="1136" height="643" src="/{{- manifest['assets/media/image/development_vs_release/shimmering_1_old.png'] }}"/>
-          <img width="1136" height="643" src="/{{- manifest['assets/media/image/development_vs_release/shimmering_1.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Crystal Valley #1
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img width="1158" height="664" src="/{{- manifest['assets/media/image/development_vs_release/crystal_1_old.png'] }}"/>
-          <img width="1158" height="664" src="/{{- manifest['assets/media/image/development_vs_release/crystal_1.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Crystal Valley #2
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img src="/{{- manifest['assets/media/image/development_vs_release/crystal_2_old.png'] }}"/>
-          <img src="/{{- manifest['assets/media/image/development_vs_release/crystal_2.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Regatta Bay #1 (Concept art vs ingame)
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_1_old.png'] }}"/>
-          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_1.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Regatta Bay #2
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_2_old.png'] }}"/>
-          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_2.png'] }}"/>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        Regatta Bay #3
-      </div>
-      <div class="cocoen responsive card-img-top">
-          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_3_old.png'] }}"/>
-          <img src="/{{- manifest['assets/media/image/development_vs_release/regatta_3.png'] }}"/>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <div class="card-header">
+      Triumvirate Drive #1
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 55%;">
+      <div class="ComparisonSlider__Before" width="1136" height="631"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/triumvirate_1_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1136" height="631"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/triumvirate_1.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Triumvirate Drive #2
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 57%;">
+      <div class="ComparisonSlider__Before" width="1156" height="666"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/triumvirate_2_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1156" height="666"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/triumvirate_2.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Concord Plaza/Centurian Yards
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 55.88%;">
+      <div class="ComparisonSlider__Before" width="1156" height="646"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/concord_1_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1156" height="646"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/concord_1.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Shimmering Heights
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 56.6%;">
+      <div class="ComparisonSlider__Before" width="1136" height="643"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/shimmering_1_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1136" height="643"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/shimmering_1.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Crystal Valley #1
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 57.34%;">
+      <div class="ComparisonSlider__Before" width="1158" height="664"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/crystal_1_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1158" height="664"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/crystal_1.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Crystal Valley #2
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 56.41%;">
+      <div class="ComparisonSlider__Before" width="1177" height="664"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/crystal_2_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1177" height="664"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/crystal_2.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Regatta Bay #1 (Concept art vs ingame)
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 49.23%;">
+      <div class="ComparisonSlider__Before" width="1174" height="578"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/regatta_1_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1174" height="578"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/regatta_1.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Regatta Bay #2
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 56.31%;">
+      <div class="ComparisonSlider__Before" width="1156" height="651"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/regatta_2_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1156" height="651"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/regatta_2.png'] }})">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Regatta Bay #3
+    </div>
+    <div class="ComparisonSlider" data-comparison-slider-auto style="padding-top: 52.46%;">
+      <div class="ComparisonSlider__Before" width="1176" height="617"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/regatta_3_old.png'] }})">
+      </div>
+      <div class="ComparisonSlider__After" width="1176" height="617"
+        style="background-image: url(/{{- manifest['assets/media/image/development_vs_release/regatta_3.png'] }})">
+      </div>
+    </div>
+  </div>
+
+</div>
 {% endblock %}

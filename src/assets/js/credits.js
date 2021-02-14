@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  $.getScript('/assets/js/util.js');
+  $('body').scrollspy({
+     target: '#navbar-credits',
+     offset: 57
+    })
 
   if (is_touch_device() == true) {
     $('#touch_device_notice').html(
@@ -47,8 +50,7 @@ $(document).ready(function() {
         scrollTop: that_offset.top - 56
       },
       {
-        duration: speed,
-        easing: 'easeOutCubic'
+        duration: speed
       }
     );
   }

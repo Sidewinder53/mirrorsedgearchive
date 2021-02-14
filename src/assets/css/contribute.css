@@ -10,3 +10,16 @@
 .team-member > .media > .media-body > div {
 	min-height: 90px;
 }
+
+.member-title {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.member-subtitle {
+	margin-bottom: 1rem;
+}
+
+.member-description {
+	margin-top: 1rem;
+}

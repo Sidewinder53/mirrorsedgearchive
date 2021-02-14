@@ -21,12 +21,13 @@
   margin-bottom: 5em;
 }
 #navbar-credits {
-  background-color: rgba(255, 255, 255, 0.9)
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #mec_table,
 .alert {
   margin-top: 2em;
+  z-index: 100;
 }
 .art_space > img {
   width: 100%;
@@ -59,7 +60,7 @@ body {
 tr {
   padding-top: 70px;
   margin-top: -70px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #map {
@@ -69,6 +70,12 @@ tr {
   width: 200px;
   height: calc(100% - 56px);
   z-index: 100;
+}
+
+.table-hover tbody tr:hover {
+  color: #212529;
+  background: rgb(250,196,198);
+  background: linear-gradient(90deg, rgba(250,196,198,0.8) 0%, rgba(250,196,198,0.8) 7%, rgba(255,255,255,1) 12%);
 }
 
 @media (max-width: 1400px) {

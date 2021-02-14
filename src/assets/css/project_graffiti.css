@@ -200,3 +200,7 @@
 .box-load-progress > .progress {
 	margin-bottom: 0.5rem;
 }
+
+.progress-bar {
+  transition: width 2s ease-out;
+}
