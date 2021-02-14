@@ -27,7 +27,7 @@ stages:
               Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
               }
             'refs/heads/vNext' {
-              Write-Host "##vso[task.setvariable variable=nodeVersion]12.x"
+              Write-Host "##vso[task.setvariable variable=nodeVersion]14.x"
               Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
               }
           }
@@ -67,7 +67,9 @@ stages:
         repository: 'sidewinder53/mea'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'vnext-$(Build.BuildId)'
+        tags: |
+          vnext-$(Build.BuildId)
+          vnext-latest
 
 - stage: Deploy
   jobs:
