@@ -70,32 +70,3 @@ stages:
         tags: |
           vnext-$(Build.BuildId)
           vnext-latest
-
-- stage: Deploy
-  jobs:
-  - deployment: DeployApp
-    displayName: Deploy to Environment
-    environment:
-      name: 'vNext-Staging'
-      resourceType: 'virtualMachine'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - download: none
-          - task: DownloadBuildArtifacts@0
-            inputs:
-              buildType: 'specific'
-              project: '70dbfa67-3af7-4823-97b8-a474e59f0749'
-              pipeline: '8'
-              buildVersionToDownload: 'latest'
-              downloadType: 'single'
-              artifactName: 'cfgpkg'
-              downloadPath: '$(System.ArtifactsDirectory)'
-
-          - script: |
-              cd /var/container/mea/vNext
-              cp -f $(System.ArtifactsDirectory)/cfgpkg/cherry/vNext/docker-compose.yml .
-              sed -i 's|sidewinder53/mea:vnext-|sidewinder53/mea:vnext-$(Build.BuildId)|g' docker-compose.yml
-              docker-compose up -d --force-recreate
-            displayName: Deploy Container
