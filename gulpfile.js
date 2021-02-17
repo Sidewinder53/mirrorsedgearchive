@@ -308,8 +308,8 @@ function optimizeImg() {
     './src/assets/media/image/**/*.svg'
   ], { base: 'src' })
     .pipe(cache(imagemin([
-      pngquant({ quality: [0.4, 0.6] }),
-      mozjpeg({ quality: 70 }),
+      pngquant({ quality: [0.65, 0.85] }),
+      mozjpeg({ quality: 85 }),
       svgo()
     ],
       {
@@ -333,7 +333,7 @@ function optimizeImgToWebp() {
     './src/assets/media/image/**/*.png'
   ], { base: 'src' })
     .pipe(cache(imagemin(
-      [webp({quality: 70, alphaQuality: 75})],
+      [webp({quality: 90, alphaQuality: 100})],
       {
         verbose: true
       }
