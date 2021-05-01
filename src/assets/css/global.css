@@ -152,28 +152,33 @@ a:hover svg path {
   }
 }
 
-#unsupported_ie {
+#unsupported_ie,
+#domain-migration-banner {
   min-height: 4rem;
   height: auto;
   padding: 0.5rem;
 }
 
-#unsupported_ie > div > div > div.col-10.col-sm-11 > p:nth-child(1) {
+#unsupported_ie > div > div > div.col-10.col-sm-11 > p:nth-child(1),
+#domain-migration-banner > div > div > div.col-10.col-sm-11 > p:nth-child(1) {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 0;
 }
 
-#unsupported_ie > div > div > div.col {
+#unsupported_ie > div > div > div.col,
+#domain-migration-banner > div > div > div.col {
   padding-right: 0;
 }
 
-#unsupported_ie > div > div > div.col-.pt-2 > svg {
+#unsupported_ie > div > div > div.col-.pt-2 > svg,
+#domain-migration-banner > div > div > div.col-.pt-2 > svg {
   width: 2rem;
   height: 2rem;
 }
 
-#unsupported_ie > div > div > div.col > p > a {
+#unsupported_ie > div > div > div.col > p > a,
+#domain-migration-banner > div > div > div.col > p > a {
   color: #a3cfff;
 }
