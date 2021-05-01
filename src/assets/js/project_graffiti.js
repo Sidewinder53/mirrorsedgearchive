@@ -76,7 +76,7 @@ function renderCategoryPicker(storeObject, type, manifest) {
 
 function getSelection() {
   var selection = new Object();
-  let baseUrl = "https://static.mirrorsedgearchive.de/prod/graffiti/";
+  let baseUrl = "https://static.mirrorsedgearchive.org/prod/graffiti/";
 
   let frame_selector = document.querySelector("#select-frame");
   if (frame_selector.selectedIndex == 0) {

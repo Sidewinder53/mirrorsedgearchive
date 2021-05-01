@@ -448,7 +448,7 @@ function hookBindings() {
             } else {
               $("#vidPlayer").attr(
                 "poster",
-                "https://video-assets.mirrorsedgearchive.de/beta/propaganda/static.jpg"
+                "https://static.mirrorsedgearchive.de/beta/propaganda/static.jpg"
               );
             }
 
@@ -611,7 +611,7 @@ function buildTimestampList(ts) {
   let timesList = "";
   $.each(ts, function(i, timestamp) {
     var image =
-      "https://video-assets.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/newscast_01_/i-1200x600-thumb.jpg";
+      "https://static.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/newscast_01_/i-1200x600-thumb.jpg";
     timesList +=
       "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' " +
       "data-time='" +

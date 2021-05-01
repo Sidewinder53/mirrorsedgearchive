@@ -576,6 +576,6 @@
     ]
   },
   "infrastructure": {
-    "mainAssetServer": "https://video-assets.mirrorsedgearchive.org/prod/billboard"
+    "mainAssetServer": "https://static.mirrorsedgearchive.org/prod/billboard"
   }
 }
