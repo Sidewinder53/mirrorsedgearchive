@@ -145,7 +145,7 @@ $(function() {
                   console.log('vp9 asset is on main asset server.');
                   vp9AssetURL = video.videoURL['vp9'].replace(
                     '$mainAsset$',
-                    atob(globalVideoDatabase['infrastructure'].mainAssetServer)
+                    globalVideoDatabase['infrastructure'].mainAssetServer
                   );
                 } else {
                   console.log('vp9 asset is external.');
@@ -164,7 +164,7 @@ $(function() {
                   console.log('h264 asset is on main asset server.');
                   h264AssetURL = video.videoURL['h264'].replace(
                     '$mainAsset$',
-                    atob(globalVideoDatabase['infrastructure'].mainAssetServer)
+                    globalVideoDatabase['infrastructure'].mainAssetServer
                   );
                 } else {
                   console.log('h264 asset is external.');
@@ -232,7 +232,7 @@ function getThumbnail(video) {
     if (video.thumbnail.indexOf('$mainAsset$') != -1) {
       return video.thumbnail.replace(
         '$mainAsset$',
-        atob(globalVideoDatabase['infrastructure'].mainAssetServer)
+        globalVideoDatabase['infrastructure'].mainAssetServer
       );
     }
   } else {

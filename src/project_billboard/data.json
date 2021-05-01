@@ -576,6 +576,6 @@
     ]
   },
   "infrastructure": {
-    "mainAssetServer": "aHR0cHM6Ly92aWRlby1hc3NldHMubWlycm9yc2VkZ2VhcmNoaXZlLmRlL3Byb2QvYmlsbGJvYXJk"
+    "mainAssetServer": "https://video-assets.mirrorsedgearchive.org/prod/billboard"
   }
 }
