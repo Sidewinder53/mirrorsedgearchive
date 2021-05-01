@@ -45,12 +45,6 @@
       animation: fadeIn 2s;
     }
 
-    small {
-      color: gray;
-      font-size: x-small;
-      font-weight: 100;
-    }
-
     h1 {
       font-size: 400%;
       margin: 0;
@@ -67,6 +61,7 @@
       from {
         opacity: 0;
       }
+
       to {
         opacity: 1;
       }
@@ -76,6 +71,7 @@
       from {
         color: #000000;
       }
+
       to {
         color: #cd2027;
       }
@@ -83,7 +79,7 @@
 
     @media (max-width: 768px) {
       #main {
-        
+
         padding: 1em;
         margin: 0;
         bottom: 0;
@@ -99,12 +95,12 @@
       var c = document.getElementById("arrest");
       var ctx = c.getContext("2d");
       var krugerImg = new Image();
-      krugerImg.src = "https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527794564/mea/younger_kruger_ftb.jpg";
+      krugerImg.src = "https://static.mirrorsedgearchive.org/prod/errorpage/lost_your_way.jpg";
       krugerImg.onload = function () {
         ctx.drawImage(krugerImg, 0, 0);
         c.classList.add('fadeIn');
         var andrewImg = new Image();
-        andrewImg.src = "https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527863895/mea/andrew.jpg";
+        andrewImg.src = "https://static.mirrorsedgearchive.org/prod/errorpage/andrew.jpg";
         andrewImg.onload = function () {
           var i = 0;
           setTimeout(function () {
@@ -126,7 +122,7 @@
 </head>
 
 <body>
-  <audio id="lost" src="https://mirrorsedgearchive.de/assets/media/audio/error/lost.ogg"></audio>
+  <audio id="lost" src="https://static.mirrorsedgearchive.org/prod/errorpage/lost.ogg"></audio>
   <div id="header">
     The Mirror's Edge Archive
   </div>
@@ -134,10 +130,8 @@
   <div id="main">
     <h1>403</h1>
     <h3>Access forbidden.
-      <a href="/">Turn back</a>.</h3>
-    <small>Request ID:
-      <span id="traceback_id">Unknown</span>
-    </small>
+      <a href="/">Turn back</a>.
+    </h3>
   </div>
 </body>
 

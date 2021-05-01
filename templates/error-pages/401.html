@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"></script>
   <title>The Mirror's Edge Archive</title>
   <style>
     body {
@@ -34,12 +37,6 @@
       padding: 2em 2em 0.5em 2em;
     }
 
-    small {
-      color: rgb(139, 139, 139);
-      font-size: x-small;
-      font-weight: 100;
-    }
-
     h1 {
       font-size: 400%;
       margin: 0;
@@ -56,6 +53,7 @@
       from {
         color: #000;
       }
+
       to {
         color: #cd2027;
       }
@@ -63,7 +61,7 @@
 
     @media (max-width: 1200px) {
       #main {
-        
+
         padding: 1em;
         margin: 0;
         top: unset;
@@ -74,7 +72,7 @@
 
     .focuspoint {
       width: 100vw;
-      height: calc( 100vh - 56px);
+      height: calc(100vh - 56px);
       display: none;
       position: relative;
       overflow: hidden;
@@ -94,8 +92,6 @@
       max-width: none;
     }
   </style>
-  <!-- {{lib-js:jQuery}} -->
-  </script>
   <script>
     !function ($) { var t = { reCalcOnWindowResize: !0, throttleDuration: 17 }, n = function (t) { var n = t.find("img").attr("src"); t.data("imageSrc", n), i(n, function (n, i) { t.data({ imageW: i.width, imageH: i.height }), r(t) }) }, i = function (t, n) { $("<img />").one("load", function () { n(null, { width: this.width, height: this.height }) }).attr("src", t) }, a = function (t, n) { var i = !1; return function () { var a = Array.prototype.slice.call(arguments, 0); if (i) return !1; i = !0, setTimeout(function () { i = !1, t.apply(null, a) }, n) } }, o = function (t, n, i, a, o) { var r = Math.floor(n / 2), e = (a + 1) / 2, u = Math.floor(i / t), f = Math.floor(e * u); o && (f = u - f); var c = f - r, s = u - f, h = n - r; return s < h && (c -= h - s), c < 0 && (c = 0), -100 * c / n + "%" }, r = function (t) { var i = t.data("imageW"), a = t.data("imageH"), r = t.data("imageSrc"); if (!i && !a && !r) return n(t); var e = t.width(), u = t.height(), f = parseFloat(t.data("focusX")), c = parseFloat(t.data("focusY")), s = t.find("img").first(), h = 0, d = 0; if (!(e > 0 && u > 0 && i > 0 && a > 0)) return !1; var l = i / e, w = a / u; s.css({ "max-width": "", "max-height": "" }), i > e && a > u && s.css(l > w ? "max-height" : "max-width", "100%"), l > w ? h = o(w, e, i, f) : l < w && (d = o(l, u, a, c, !0)), s.css({ top: d, left: h }) }, e = $(window), u = function (t, n) { var i = n.throttleDuration ? a(function () { r(t) }, n.throttleDuration) : function () { r(t) }, o = !1; return r(t), { adjustFocus: function () { return r(t) }, windowOn: function () { if (!o) return e.on("resize", i), o = !0 }, windowOff: function () { if (o) return e.off("resize", i), o = !1, !0 } } }; $.fn.focusPoint = function (n) { if ("string" == typeof n) return this.each(function () { $(this).data("focusPoint")[n]() }); var i = $.extend({}, t, n); return this.each(function () { var t = $(this), n = u(t, i); t.data("focusPoint") && t.data("focusPoint").windowOff(), t.data("focusPoint", n), i.reCalcOnWindowResize && n.windowOn() }) }, $.fn.adjustFocus = function () { return this.each(function () { r($(this)) }) } }(jQuery);
     $(document).ready(function () {
@@ -116,15 +112,13 @@
     The Mirror's Edge Archive
   </div>
   <div class="focuspoint" data-focus-x="0.19" data-focus-y="0.13" data-image-w="1920" data-image-h="1080">
-    <img src="https://res.cloudinary.com/cloudlark/image/upload/f_auto,q_auto/v1527857267/mea/KSec_Chopper.jpg">
+    <img src="https://static.mirrorsedgearchive.org/prod/errorpage/KSec_Chopper.jpg">
   </div>
   <div id="main">
     <h1>401</h1>
     <h3>Unauthorized!
-      <a href="/">Turn back</a>.</h3>
-    <small>Request ID:
-      <span id="traceback_id">Unknown</span>
-    </small>
+      <a href="/">Turn back</a>.
+    </h3>
   </div>
 </body>
 
