@@ -10,7 +10,11 @@ if (
     });
   }
 } else if (document.referrer.includes('mirrorsedgearchive.de')) {
-  displayDomainMigrationBanner();
+  if (Cookies.get("domain_migration_read") != "true") {
+    displayDomainMigrationBanner();
+    console.log("Domain migration banner triggered");
+    Cookies.set("domain_migration_read", "true", { expires: 30 });
+  }
 }
 
 function displayUnsupportedBrowserBanner() {
