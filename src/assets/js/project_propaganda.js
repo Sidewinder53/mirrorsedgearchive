@@ -348,9 +348,6 @@ function hookBindings() {
 
   // Bind video end to autoplay check
   $("#vidPlayer").bind("ended", function() {
-    if (window.location.hostname != "localhost") {
-      _paq.push(["trackEvent", "Scene", "Ended", previousVideo.id]);
-    }
     if ($("#apCheck").prop("checked")) {
       // console.log("[PropP-DEBUG] [Autoplay] Detected autoplay intent.");
       if (jumpCategory) {
@@ -387,9 +384,6 @@ function hookBindings() {
     $("#vidNav").hide();
 
     history.pushState(null, null, "?v=" + this.id);
-    if (window.location.hostname != "localhost") {
-      _paq.push(["trackEvent", "Scene", "Play", this.id]);
-    }
     $("#vidPlayer, #vidFooter, #vidMeta").css("display", "block");
     $("#vidIntro").css("display", "none");
     $("#vidContainer")
@@ -448,7 +442,7 @@ function hookBindings() {
             } else {
               $("#vidPlayer").attr(
                 "poster",
-                "https://static.mirrorsedgearchive.de/beta/propaganda/static.jpg"
+                "https://static.mirrorsedgearchive.org/beta/propaganda/static.jpg"
               );
             }
 
@@ -611,7 +605,7 @@ function buildTimestampList(ts) {
   let timesList = "";
   $.each(ts, function(i, timestamp) {
     var image =
-      "https://static.mirrorsedgearchive.de/beta/propaganda/mpeg-dash/newscast_01_/i-1200x600-thumb.jpg";
+      "https://static.mirrorsedgearchive.org/beta/propaganda/mpeg-dash/newscast_01_/i-1200x600-thumb.jpg";
     timesList +=
       "<a href='#' class='list-group-item list-group-item-action flex-column align-items-start timestamps' " +
       "data-time='" +
