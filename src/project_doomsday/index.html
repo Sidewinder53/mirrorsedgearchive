@@ -4,123 +4,140 @@
   title: 'Project Doomsday',
   description: "EA took down the Mirror's Edge Catalyst forums in September 2017, and followed up with the entire website in March 2019. You can now browse a mirror of both sites, right here.",
   reqScripts: [ 'assets/js/project_doomsday.js' ],
-  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css',  'assets/css/project_doomsday.css' ]
+  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/project_doomsday.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
 
 {%- block content %}
-    <div class="container" id="cookie_consent_placeholder"></div>
-    <div class="container">
-      <div class="alert alert-info d-lg-none" role="alert">
-          Unfortunately, these mirrors are not optimized for mobile devices. We recommend viewing these pages on a larger screen.
-      </div>
-      <div id="main" class="row">
-        <div class="col-md-6 col-sm-12">
-          <div class="card shadow" id="forums">
-            <div class="card-header justify-content-between d-flex">
-              <div>
-                <h5>
-                  <span class="mdi mdi-forum"></span>&nbsp;Mirror's Edge Official Forums
-                </h5>
-              </div>
-              <div>
-                <h5>
-                  <span class="badge badge-primary">Mirror</span>
-                </h5>
-              </div>
+<div class="container" id="cookie_consent_placeholder"></div>
+<div class="container">
+  <div class="alert alert-info d-lg-none" role="alert">
+    Unfortunately, these mirrors are not optimized for mobile devices. We recommend viewing these pages on a larger
+    screen.
+  </div>
+  <div id="main">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="card shadow" id="forums">
+          <div class="card-header justify-content-between d-flex">
+            <div>
+              <h5>
+                <span class="mdi mdi-forum"></span>&nbsp;Mirror's Edge Official Forums
+              </h5>
             </div>
-            <div class="image-wrapper card-img-top">
-              <img src="/{{- manifest['assets/media/image/project_doomsday/forums_mockup.png'] }}" alt="Card image cap">
+            <div>
+              <h5>
+                <span class="badge badge-primary">Archived version</span>
+              </h5>
             </div>
-            <div class="card-footer justify-content-center d-flex">
-              <div class="card-footer-btn-center">
-                <a href="https://forums.mirrorsedgearchive.de/forums.mirrorsedge.com/"
-                  class="btn btn-primary btn-lg btn-dl btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
-                <a href="https://forums.mirrorsedgearchive.de/full_backup.7z"
-                  class="btn btn-primary btn-sm btn-dl btn-secondary mdi mdi-download" role="button"
-                  data-toggle="tooltip" data-placement="right" title=".7z-file - 31,0 MB">&nbsp;Download</a>
-              </div>
+          </div>
+          <div class="image-wrapper card-img-top">
+            <img src="/{{- manifest['assets/media/image/project_doomsday/forums_mockup.png'] }}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <p class="card-text">In July 2017 EA announced that the forums would be closed one month later. They were
+              available for a few more days, but eventually all visitors would be redirected to the EA Answers
+              community. The archived version contains most publicly available pages, however any interactive
+              functionality (Search, Login, etc.) is unavailable.</p>
+            <p class="card-text"><small class="text-muted">Archived in August 2017 &bullet; from forums.mirrorsedge.com</small></p>
+          </div>
+          <div class="card-footer justify-content-center d-flex">
+            <div class="card-footer-btn-center">
+              <a href="https://forums.mirrorsedgearchive.org/forums.mirrorsedge.com/"
+                class="btn btn-primary btn-lg btn-dl btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
+              <a href="https://forums.mirrorsedgearchive.org/full_backup.7z"
+                class="btn btn-primary btn-sm btn-dl btn-secondary mdi mdi-download" role="button" data-toggle="tooltip"
+                data-placement="right" title=".7z-file - 31,0 MB">&nbsp;Download</a>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="card shadow" id="forums">
-            <div class="card-header justify-content-between d-flex">
-              <div>
-                <h5>
-                  <span class="mdi mdi-earth"></span>&nbsp;Mirror's Edge Official Website
-                </h5>
-              </div>
-              <div>
-                <h5>
-                  <span class="badge badge-primary">Mirror</span>
-                </h5>
-              </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="card shadow" id="forums">
+          <div class="card-header justify-content-between d-flex">
+            <div>
+              <h5>
+                <span class="mdi mdi-earth"></span>&nbsp;Mirror's Edge Official Website
+              </h5>
             </div>
-            <div class="image-wrapper card-img-top">
-              <img src="/{{- manifest['assets/media/image/project_doomsday/website_mockup.png'] }}" alt="Card image cap">
+            <div>
+              <h5>
+                <span class="badge badge-primary">Archived version</span>
+              </h5>
             </div>
-            <div class="card-footer d-flex justify-content-center">
-              <div class="card-footer-btn-center">
-                <a href="#website-view-modal" data-toggle="modal" data-target="#website-view-modal"
-                  class="btn btn-primary btn-lg btn-dl btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
-                <a href="#website-dl-modal" data-toggle="modal" data-target="#website-dl-modal"
-                  class="btn btn-primary btn-sm btn-dl btn-secondary mdi mdi-download" role="button">&nbsp;Download</a>
-              </div>
+          </div>
+          <div class="image-wrapper card-img-top">
+            <img src="/{{- manifest['assets/media/image/project_doomsday/website_mockup.png'] }}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <p class="card-text">In March 2019, the main Mirror's Edge website was shut down and visitors would be
+              redirected to a generic overview page on ea.com. With this in mind, we had already archived the full page
+              in 2018. Due to the complex nature of the page, it is only available as a
+              <a href="https://en.wikipedia.org/wiki/Web_ARChive" target="_blank">WARC</a>, but can be browsed freely trough
+              Conifer.</p>
+            <p class="card-text"><small class="text-muted">Archived in April 2018 &bullet; from www.mirrorsedge.com</small></p>
+          </div>
+          <div class="card-footer d-flex justify-content-center">
+            <div class="card-footer-btn-center">
+              <a href="#website-view-modal" data-toggle="modal" data-target="#website-view-modal"
+                class="btn btn-primary btn-lg btn-dl btn-success mdi mdi-eye" role="button">&nbsp;View online</a>
+              <a href="#website-dl-modal" data-toggle="modal" data-target="#website-dl-modal"
+                class="btn btn-primary btn-sm btn-dl btn-secondary mdi mdi-download" role="button">&nbsp;Download</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="modal fade" id="website-dl-modal" tabindex="-1" role="dialog" aria-labelledby="website-dl-modal-label"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="website-dl-modal-label">Download information</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            This is currently unavailable. Please reach out to the archive team for more information.
-          </div>
-        </div>
+<div class="modal fade" id="website-dl-modal" tabindex="-1" role="dialog" aria-labelledby="website-dl-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="website-dl-modal-label">Download information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This is currently unavailable. Please reach out to the archive team for more information.
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="modal fade" id="website-view-modal" tabindex="-1" role="dialog"
-      aria-labelledby="website-view-modal-label" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="website-view-modal-label">Streaming information</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Please take a few seconds to read how this mirror works:
-            <br><br>
-            <ul>
-              <li>You will not be able to share, link or bookmark specific sub-sites, as visitors will always be
-                redirected
-                to the homepage.</li>
-              <li>Some links to sub-pages or media might not work. We did our best to ensure that all content is
-                captured, but cannot guarantee that <i>your</i> browser works as ours.</li>
-              <li>Videos, images and embedded content will only work properly if viewed on a 1080p screen. Please
-                resize your browser window accordingly.</li>
-            </ul>
-            <p>This mirror was made with, and is hosted on webrecorder.io.</p>
-          </div>
-          <div class="modal-footer">
-            <a target="_blank"
-              href="https://conifer.rhizome.org/_embed/mirrorsedgefan/mirrorsedge/20180401174349/http://www.mirrorsedge.com/"
-              class="btn btn-primary btn btn-success" role="button">Continue</a>
-          </div>
-        </div>
+<div class="modal fade" id="website-view-modal" tabindex="-1" role="dialog" aria-labelledby="website-view-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="website-view-modal-label">Streaming information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please take a few seconds to read how this copy works:
+        <br><br>
+        <ul>
+          <li>You will not be able to share, link or bookmark specific sub-sites, as visitors will always be
+            redirected to the homepage.</li>
+          <li>Some links to sub-pages or media might not work. We did our best to ensure that all content is
+            captured, but cannot guarantee that <i>your</i> browser works as ours.</li>
+          <li>Videos, images and embedded content will only work properly if viewed on a 1080p screen. Please
+            resize your browser window accordingly.</li>
+        </ul>
+        <p>This copy was made with, and is hosted on webrecorder.io / Conifer.</p>
+      </div>
+      <div class="modal-footer">
+        <a target="_blank"
+          href="https://conifer.rhizome.org/_embed/mirrorsedgefan/mirrorsedge/20180401174349/http://www.mirrorsedge.com/"
+          class="btn btn-primary btn btn-success" role="button">Continue to archived version of mirrorsedge.com</a>
       </div>
     </div>
+  </div>
+</div>
 {% endblock %}

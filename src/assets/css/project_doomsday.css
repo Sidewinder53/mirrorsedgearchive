@@ -3,7 +3,7 @@
 }
 
 #main{
-	margin-top: 8em;
+	margin-top: 1em;
 }
 
 .btn-dl {
@@ -14,8 +14,16 @@
 	width: 100%;
 }
 
+.card-img-top {
+	border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
 .card-footer-btn-center {
 	width: 285px;
+}
+
+.card {
+	margin-top: 1em;
 }
 
 .mdi:before {
