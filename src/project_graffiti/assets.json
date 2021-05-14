@@ -9,11 +9,6 @@
             "id": "random_emblem",
             "label": "Random",
             "path": "random.png"
-          },
-          {
-            "id": "no_emblem",
-            "label": "None",
-            "path": "none.png"
           }
         ]
       },
@@ -469,11 +464,6 @@
             "id": "random_frame",
             "label": "Random",
             "path": "random.png"
-          },
-          {
-            "id": "no_frame",
-            "label": "None",
-            "path": "none.png"
           }
         ]
       },
@@ -699,11 +689,6 @@
             "id": "random_background",
             "label": "Random",
             "path": "random.png"
-          },
-          {
-            "id": "no_background",
-            "label": "None",
-            "path": "none.png"
           }
         ]
       },
