@@ -145,70 +145,74 @@ function getSelection() {
 }
 
 async function renderImage(frame, emblem, mask, background) {
-  let step1Result = await execute({
-    inputFiles: [await buildInputFile(frame, "frame.png")],
-    commands: ["convert frame.png -alpha extract step1.png"],
-  });
+  try {
+    let step1Result = await execute({
+      inputFiles: [await buildInputFile(frame, "frame.png")],
+      commands: ["convert frame.png -alpha extract step1.png"],
+    });
 
-  console.log("🔧 Render Step 1 out of 6 completed.");
-  document.querySelector("#stallusermodalprogress").style.width = "20%";
+    console.log("🔧 Render Step 1 out of 6 completed.");
+    document.querySelector("#stallusermodalprogress").style.width = "20%";
 
-  let step2Result = await execute({
-    inputFiles: [
-      { name: "step1.png", content: step1Result.outputFiles[0].buffer },
-      await buildInputFile(mask, "mask.png"),
-    ],
-    commands: ["composite step1.png mask.png -compose Darken step2.png"],
-  });
+    let step2Result = await execute({
+      inputFiles: [
+        { name: "step1.png", content: step1Result.outputFiles[0].buffer },
+        await buildInputFile(mask, "mask.png"),
+      ],
+      commands: ["composite step1.png mask.png -compose Darken step2.png"],
+    });
 
-  console.log("🔧 Render Step 2 out of 6 completed.");
-  document.querySelector("#stallusermodalprogress").style.width = "35%";
+    console.log("🔧 Render Step 2 out of 6 completed.");
+    document.querySelector("#stallusermodalprogress").style.width = "35%";
 
-  let step3Result = await execute({
-    inputFiles: [
-      { name: "step2.png", content: step2Result.outputFiles[0].buffer },
-      await buildInputFile(frame, "frame.png"),
-    ],
-    commands: ["composite step2.png -compose CopyOpacity frame.png step3.png"],
-  });
+    let step3Result = await execute({
+      inputFiles: [
+        { name: "step2.png", content: step2Result.outputFiles[0].buffer },
+        await buildInputFile(frame, "frame.png"),
+      ],
+      commands: ["composite step2.png -compose CopyOpacity frame.png step3.png"],
+    });
 
-  console.log("🔧 Render Step 3 out of 6 completed.");
-  document.querySelector("#stallusermodalprogress").style.width = "50%"
+    console.log("🔧 Render Step 3 out of 6 completed.");
+    document.querySelector("#stallusermodalprogress").style.width = "50%";
 
-  let step4Result = await execute({
-    inputFiles: [
-      { name: "step3.png", content: step3Result.outputFiles[0].buffer },
-      await buildInputFile(emblem, "emblem.png"),
-    ],
-    commands: ["composite step3.png emblem.png -resize 512 step4.png"],
-  });
+    let step4Result = await execute({
+      inputFiles: [
+        { name: "step3.png", content: step3Result.outputFiles[0].buffer },
+        await buildInputFile(emblem, "emblem.png"),
+      ],
+      commands: ["composite step3.png emblem.png -resize 512 step4.png"],
+    });
 
-  console.log("🔧 Render Step 4 out of 6 completed.");
-  document.querySelector("#stallusermodalprogress").style.width = "80%";
+    console.log("🔧 Render Step 4 out of 6 completed.");
+    document.querySelector("#stallusermodalprogress").style.width = "80%";
 
-  let step5prepResult = await execute({
-    inputFiles: [await buildInputFile(background, "background.png")],
-    commands: [
-      "convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png",
-    ],
-  });
+    let step5prepResult = await execute({
+      inputFiles: [await buildInputFile(background, "background.png")],
+      commands: [
+        "convert background.png -gravity center -resize 1024x1024 -extent 1024x1024 step5prepare.png",
+      ],
+    });
 
-  console.log("🔧 Render Step 5 out of 6 completed.");
-  document.querySelector("#stallusermodalprogress").style.width = "95%"
+    console.log("🔧 Render Step 5 out of 6 completed.");
+    document.querySelector("#stallusermodalprogress").style.width = "95%";
 
-  let step5Result = await execute({
-    inputFiles: [
-      { name: "step4.png", content: step4Result.outputFiles[0].buffer },
-      { name: "step5prep.png", content: step5prepResult.outputFiles[0].buffer },
-      await buildInputFile(background, "background.png"),
-    ],
-    commands: ["composite -gravity center step4.png step5prep.png step5.png"],
-  });
+    let step5Result = await execute({
+      inputFiles: [
+        { name: "step4.png", content: step4Result.outputFiles[0].buffer },
+        { name: "step5prep.png", content: step5prepResult.outputFiles[0].buffer },
+        await buildInputFile(background, "background.png"),
+      ],
+      commands: ["composite -gravity center step4.png step5prep.png step5.png"],
+    });
 
-  console.log("🔧 Render Step 6 out of 6 completed.");
-  document.querySelector("#stallusermodalprogress").style.width = "100%"
+    console.log("🔧 Render Step 6 out of 6 completed.");
+    document.querySelector("#stallusermodalprogress").style.width = "100%";
 
-  return await step5Result.outputFiles[0].buffer;
+    return await step5Result.outputFiles[0].buffer;
+  } catch (error) {
+    alert('Something went wrong. Please reload the page and try again. If the issue persists, please let us know at team@mirrorsedgearchive.org. Thank you!');
+  }
 }
 
 async function paintImage(image) {
@@ -220,6 +224,7 @@ async function paintImage(image) {
 }
 
 // Main Thread
+if (getWasmSupport() == true) {
 $.getJSON("/assets/rev-manifest.json", function (manifest) {
   $.getJSON("./assets.json", function (assetStore) {
     renderCategoryPicker(assetStore, "emblems", manifest);
@@ -257,9 +262,12 @@ $.getJSON("/assets/rev-manifest.json", function (manifest) {
     });
   });
 });
+} else {
+  alert('Your browser does not support the WebAssembly feature. Please switch to a modern browser to use this page.');
+}
 
 async function generatePlayerTag() {
-  $('#stallusermodal').modal('show');
+  $("#stallusermodal").modal("show");
   let selection = getSelection();
   let imageBuffer = await renderImage(
     selection.frame,
@@ -268,15 +276,47 @@ async function generatePlayerTag() {
     selection.background
   );
   paintImage(imageBuffer);
-  $('#collapse-generator').collapse('hide');
-  $('#collapse-output').collapse('show');
-  $('#stallusermodal').modal('hide');
+  document
+    .querySelector("#btn-result-dl")
+    .setAttribute("download", "playertag.png");
+  document
+    .querySelector("#btn-result-dl")
+    .setAttribute("href", document.querySelector("#outputImage").src);
+  $("#collapse-generator").collapse("hide");
+  $("#collapse-output").collapse("show");
+  $("#stallusermodal").modal("hide");
 }
 
 function setLoadedPercentage(percentage) {
   document.querySelector("#load-progress-bar").style.width = percentage + "%";
 }
 
+function getWasmSupport() {
+  try {
+    if (
+      typeof WebAssembly === "object" &&
+      typeof WebAssembly.instantiate === "function"
+    ) {
+      const module = new WebAssembly.Module(
+        Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00)
+      );
+      if (module instanceof WebAssembly.Module)
+        return new WebAssembly.Instance(module) instanceof WebAssembly.Instance;
+    }
+  } catch (e) {
+    return false;
+  }
+}
+
 document.querySelector("#submit").addEventListener("click", function () {
   generatePlayerTag();
 });
+
+document
+  .querySelector("#btn-result-back")
+  .addEventListener("click", function () {
+    $("#collapse-generator").collapse("show");
+    $("#collapse-output").collapse("hide");
+    $("#stallusermodal").modal("hide");
+    document.querySelector("#stallusermodalprogress").style.width = "5%";
+  });

@@ -1,11 +1,13 @@
 {% set pageInfo = {
-  name: 'project_graffiti',
-  category: 'projects',
-  title: 'Player Tag Generator',
-  description: "Interactive Player Tage Generator",
-  reqScripts: [ 'assets/vendor/image-picker/image-picker.min.js', 'assets/vendor/nouislider/nouislider.min.js', 'assets/vendor/wnumb/wNumb.min.js' ],
-  reqModules: [ 'assets/js/project_graffiti.js' ],
-  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/project_graffiti.css', 'assets/vendor/image-picker/image-picker.css', 'assets/vendor/nouislider/nouislider.min.css' ]
+name: 'project_graffiti',
+category: 'projects',
+title: 'Player Tag Generator',
+description: "Interactive Player Tage Generator",
+reqScripts: [ 'assets/vendor/image-picker/image-picker.min.js', 'assets/vendor/nouislider/nouislider.min.js',
+'assets/vendor/wnumb/wNumb.min.js' ],
+reqModules: [ 'assets/js/project_graffiti.js' ],
+reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/project_graffiti.css',
+'assets/vendor/image-picker/image-picker.css', 'assets/vendor/nouislider/nouislider.min.css' ]
 }
 %}
 
@@ -31,31 +33,52 @@
       </div>
     </div>
   </div>
-  <div class="box-main box-content-hide">
-    <div class="collapse show" id="collapse-generator">
-      <ul class="nav nav-pills mx-auto">
-        <li class="nav-item">
-          <a class="nav-link mdi mdi-shape active" id="emblem-tab" role="tab" aria-expanded="true" aria-selected="true"
-            data-toggle="tab" data-target="#collapse-emblems">&nbsp;Emblem</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mdi mdi-image-filter-frames" id="frame-tab" role="tab" aria-selected="false"
-            data-toggle="tab" data-target="#collapse-frames">&nbsp;Frame</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mdi mdi-image" id="background-tab" role="tab" aria-selected="false" data-toggle="tab"
-            data-target="#collapse-backgrounds">&nbsp;Background</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mdi mdi-auto-fix" id="jumpToGeneratorButton" href="#">&nbsp;Finish your tag!</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="selector_area"></div>
-      <button id="submit">Render image</button>
+</div>
+<div class="box-main box-content-hide">
+  <div class="collapse show" id="collapse-generator">
+    <div class="sticky-top p-2 bg-light">
+      <div class="container d-flex flex-row justify-content-between">
+        <ul class="nav nav-pills d-inline-flex">
+          <li class="nav-item">
+            <a class="nav-link mdi mdi-shape active" id="emblem-tab" role="tab" aria-expanded="true"
+              aria-selected="true" data-toggle="tab" data-target="#collapse-emblems" href="#">&nbsp;1. Emblem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mdi mdi-image-filter-frames" id="frame-tab" role="tab" aria-selected="false"
+              data-toggle="tab" data-target="#collapse-frames" href="#">&nbsp;2. Frame</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mdi mdi-image" id="background-tab" role="tab" aria-selected="false" data-toggle="tab"
+              data-target="#collapse-backgrounds" href="#">&nbsp;3. Background</a>
+          </li>
+        </ul>
+        <button id="submit" type="button" class="btn btn-primary mdi mdi-auto-fix">&nbsp;4. Finish your
+          tag!</button>
+      </div>
     </div>
-    <div class="collapse" id="collapse-output">
-      <img id="outputImage"
-        style="background-color: black; border: solid 1px red; min-width: 514px; min-height: 514px;">
+    <div class="container">
+      <div class="tab-content" id="selector_area"></div>
+    </div>
+  </div>
+  <div class="collapse mt-3" id="collapse-output">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          Your personal player tag
+        </div>
+        <img id="outputImage">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 my-1">
+              <a id="btn-result-dl" type="button" class="btn btn-primary btn-block" role="button">Download</a>
+            </div>
+            <div class="col-md-6 my-1">
+              <button id="btn-result-back" type="button" class="btn btn-secondary btn-block">Back to the drawing
+                board</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -80,8 +103,8 @@
           <i class="mdi mdi-creation"></i>
         </h3>
         <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" id="stallusermodalprogress" role="progressbar" aria-valuenow="5"
-            aria-valuemin="0" aria-valuemax="100" style="width: 5%"></div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" id="stallusermodalprogress"
+            role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%"></div>
         </div>
       </div>
     </div>

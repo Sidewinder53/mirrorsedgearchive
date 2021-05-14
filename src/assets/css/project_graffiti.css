@@ -185,7 +185,11 @@
 }
 
 .box-outer {
-	margin-top: 3rem;
+	/* margin-top: 3rem; */
+}
+
+#home {
+  background-color: #f8f9fa!important;
 }
 
 .box-content-inviz {
