@@ -21,8 +21,6 @@ stages:
     - task: Cache@2
       inputs:
         key: 'npm | "$(Agent.OS)" | package-lock.json'
-        restoreKeys: |
-           npm | "$(Agent.OS)"
         path: $(npm_config_cache)
         cacheHitVar: npm_cache_restored
       displayName: Cache npm
