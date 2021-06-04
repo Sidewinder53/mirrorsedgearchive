@@ -7,10 +7,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
-- stage: Build and Publish
+- stage: BuildAndPublish
+  displayName: 'Build & Publish to Docker'
   jobs:
-  - job: BuildJob
-    displayName: Build & Publish to Docker
+  - job: PhaseOne
+    displayName: 'Phase One'
     steps:
     - task: UseNode@1
       inputs:
