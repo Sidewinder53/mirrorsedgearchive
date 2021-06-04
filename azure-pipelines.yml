@@ -51,6 +51,7 @@ stages:
         artifactName: MEA-artifact
       displayName: 'Publish Staged Artifacts to "MEA-artifact"'
 
+    # Run this only when it's not a PR validation build and source branch is 'main' or 'sandbox'
     - task: Docker@2
       inputs:
         containerRegistry: 'sidewinder53@hub.docker.com'
@@ -61,4 +62,4 @@ stages:
           $(Build.SourceBranchName)-$(Build.BuildId)
           $(Build.SourceBranchName)-latest
           $(Build.SourceBranchName)
-      condition: and(succeeded(), in(variables['Build.SourceBranchName'], 'main', 'sandbox'))
+      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), in(variables['Build.SourceBranchName'], 'main', 'sandbox'))
