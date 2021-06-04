@@ -31,6 +31,12 @@ stages:
       displayName: 'Install NPM'
       condition: ne(variables.npm_cache_restored, 'true')
 
+    - task: Cache@2
+      inputs:
+        key: 'gulpImgOptimization'
+        path: "/tmp/gulp-cache"
+      displayName: Cache Image Optimization results
+
     - task: gulp@1
       inputs:
         targets: 'buildProduction'
