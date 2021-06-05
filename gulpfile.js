@@ -71,7 +71,6 @@ function processTemplateDev() {
     './src/project_doomsday/index.html',
     './src/project_graffiti/index.html',
     './src/archive/index.html',
-    './src/archive/integrated.html',
     './src/contribute/index.html',
     './src/credits/index.html',
     './src/legal/*.html'

@@ -1,51 +1,45 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 
-trigger:
-  - master
-  - sandbox
-  - vNext
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+pool:
+  vmImage: 'ubuntu-latest'
 
 stages:
-- stage: Build
+- stage: BuildAndPublish
+  displayName: 'Build & Publish to Docker'
   jobs:
-  - job: BuildJob
-    displayName: Build & Publish to Docker
-    pool:
-      vmImage: 'ubuntu-latest'
+  - job: PhaseOne
+    displayName: 'Phase One'
     steps:
-    - task: PowerShell@2
-      inputs:
-        targetType: 'inline'
-        script: |
-          switch(${env:BUILD_SOURCEBRANCH}) {
-            'refs/heads/master' {
-              Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-              Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-              }
-            'refs/heads/sandbox' {
-              Write-Host "##vso[task.setvariable variable=nodeVersion]10.x"
-              Write-Host "##vso[task.setvariable variable=buildCommand]build-prod"
-              }
-            'refs/heads/vNext' {
-              Write-Host "##vso[task.setvariable variable=nodeVersion]14.x"
-              Write-Host "##vso[task.setvariable variable=buildCommand]buildProduction"
-              }
-          }
-      displayName: 'Set build variables'
-
     - task: UseNode@1
       inputs:
-        version: $(nodeVersion)
+        version: '14.x'
       displayName: 'Install Node'
+
+    - task: Cache@2
+      inputs:
+        key: 'npm | "$(Agent.OS)" | package-lock.json'
+        path: $(npm_config_cache)
+        cacheHitVar: npm_cache_restored
+      displayName: Cache npm
 
     - task: Npm@1
       inputs:
         command: 'install'
       displayName: 'Install NPM'
+      condition: ne(variables.npm_cache_restored, 'true')
+
+    - task: Cache@2
+      inputs:
+        key: 'gulpImgOptimization'
+        path: "/tmp/gulp-cache"
+      displayName: Cache Image Optimization results
 
     - task: gulp@1
       inputs:
-        targets: '$(buildCommand)'
+        targets: 'buildProduction'
         enableCodeCoverage: false
       displayName: 'Build release using gulp'
 
@@ -61,6 +55,7 @@ stages:
         artifactName: MEA-artifact
       displayName: 'Publish Staged Artifacts to "MEA-artifact"'
 
+    # Run this only when it's not a PR validation build and source branch is 'main' or 'sandbox'
     - task: Docker@2
       inputs:
         containerRegistry: 'sidewinder53@hub.docker.com'
@@ -68,5 +63,7 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: |
-          vnext-$(Build.BuildId)
-          vnext-latest
+          $(Build.SourceBranchName)-$(Build.BuildId)
+          $(Build.SourceBranchName)-latest
+          $(Build.SourceBranchName)
+      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), in(variables['Build.SourceBranchName'], 'main', 'sandbox'))
