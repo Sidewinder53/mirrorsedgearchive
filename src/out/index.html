@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="/{{- manifest['assets/css/out.css'] }}">
   <script>
     window.onload = function () {
-      if (document.referrer.match(/^https?:\/\/([^\/]+\.)?mirrorsedgearchive\.de(\/|$)/i) || window.location.hostname == 'localhost') {
+      if (document.referrer.match(/^https?:\/\/([^\/]+\.)?mirrorsedgearchive\.org(\/|$)/i) || window.location.hostname == 'localhost') {
         var targetURL = getTargetFromUri("t");
         if (targetURL != null && getUrlValidity(targetURL)) {
           document.querySelector("#main").style.display = "block";
