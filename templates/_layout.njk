@@ -7,12 +7,14 @@
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="{% if pageInfo.description %}{{pageInfo.description}}{% else %}The most extensive collection of high-quality Mirror's Edge resources including concept art, interactive fan projects, developer presentations and much more!{% endif %}">
+  <meta property="og:title" content="{{ pageInfo.title }} - The Mirror's Edge Archive &#x1F4C2;">
+  <meta property="og:image" content="https://mirrorsedgearchive.org/{% if pageInfo.thumbnail %}{{- manifest[pageInfo.thumbnail] }}{% else %}{{- manifest['assets/media/image/og/generic.jpg'] }}{% endif %}">
+  <meta property="og:description" content="{% if pageInfo.description %}{{ pageInfo.description }}{% else %}The most extensive collection of high-quality Mirror's Edge resources including concept art, interactive fan projects, developer presentations and much more!{% endif %}">
   <link rel="license" href="https://github.com/Sidewinder53/mirrorsedgearchive/blob/master/LICENSE">
-  <meta property="og:title" content="{{ title }} - The Mirror's Edge Archive &#x1F4C2;">
-  <meta property="og:image" content="{% if pageInfo.thumbnail %}{{pageInfo.thumbnail}}{% else %}https://mirrorsedgearchive.de/assets/media/image/og/generic.jpg{% endif %}">
-  <meta property="og:description" content="{% if pageInfo.description %} {{ pageInfo.description }} {% else %}The most extensive collection of high-quality Mirror's Edge resources including concept art, interactive fan projects, developer presentations and much more!{% endif %}">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" type="text/css" href="/{{- manifest['assets/vendor/bundles/baseBundle.css'] }}">
   {%- for item in pageInfo.reqStylesheets %}
   <link rel="stylesheet" type="text/css" href="/{{- manifest[item] }}">

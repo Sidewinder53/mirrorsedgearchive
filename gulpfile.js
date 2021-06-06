@@ -1,6 +1,7 @@
 // Global Imports
 
 const { src, dest, series, parallel, watch } = require('gulp');
+const fs = require('fs');
 
 // Gulp tools
 const del = require('del');
@@ -27,7 +28,7 @@ const browserSync = require('browser-sync').create();
 
 // BrowserSync instance creation
 function serve(done) {
-  browserSync.init({
+  var browserSyncConfig = {
     server: {
       baseDir: "./dist/"
     },
@@ -35,7 +36,12 @@ function serve(done) {
     online: false,
     open: false,
     notify: false
-  });
+  }
+  if (fs.existsSync('./.vscode/browsersync-local.json')) {
+    console.log('Detected local Browsersync configuration.')
+    browserSyncConfig = JSON.parse(fs.readFileSync('./.vscode/browsersync-local.json'));
+  }
+  browserSync.init(browserSyncConfig);
   done();
 };
 
@@ -357,7 +363,12 @@ function copyFonts() {
 
 function copyStatic() {
   return src([
-    'src/favicon.*',
+    'src/favicon.ico',
+    'src/icon-192.png',
+    'src/icon-512.png',
+    'src/icon.svg',
+    'src/apple-touch-icon.png',
+    'src/manifest.webmanifest',
     'src/.well-known/*'
   ], { base: 'src' })
     .pipe(dest('dist/'));
