@@ -363,7 +363,12 @@ function copyFonts() {
 
 function copyStatic() {
   return src([
-    'src/favicon.*',
+    'src/favicon.ico',
+    'src/icon-192.png',
+    'src/icon-512.png',
+    'src/icon.svg',
+    'src/apple-touch-icon.png',
+    'src/manifest.webmanifest',
     'src/.well-known/*'
   ], { base: 'src' })
     .pipe(dest('dist/'));
