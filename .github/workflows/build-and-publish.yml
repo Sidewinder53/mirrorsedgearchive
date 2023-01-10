@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build and Publish image
 
 on:
   push:
@@ -24,6 +24,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
+    - uses: actions/cache@v3
+      id: gulp-cache
+      with:
+        path: /tmp/gulp-cache
+        key: ${{ runner.os }}-gulp-cache
     - name: Build Frontend
       run: |
         npm install
@@ -40,6 +45,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ github.run_id }}
-            ghcr.io/${{ github.repository }}:${{ github.ref_name }}-latest
-            ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}:${{ github.run_id }}
+          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ github.run_id }}
+          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}-latest
+          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}
