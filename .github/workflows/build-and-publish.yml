@@ -45,7 +45,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:${{ github.run_id }}
+            ghcr.io/sidewinder53/mirrorsedgearchive:${{ github.run_id }}
           # ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ github.run_id }}
           # ghcr.io/${{ github.repository }}:${{ github.ref_name }}-latest
           # ghcr.io/${{ github.repository }}:${{ github.ref_name }}
