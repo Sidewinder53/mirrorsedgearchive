@@ -1,0 +1,45 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+    - main
+    - sandbox
+    - chore/2023-01-dependencies
+  pull_request:
+    branches:
+    - main
+    - sandbox
+
+jobs:
+  buildAndPushImage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Build Frontend
+      run: |
+        npm install
+        gulp buildProduction
+    - name: Log in to container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and push images
+      uses: docker/build-push-action@v3.2.0
+      with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ GITHUB_REF_NAME }}-${{ GITHUB_RUN_ID }}
+            ghcr.io/${{ github.repository }}:${{ GITHUB_REF_NAME }}-latest
+            ghcr.io/mirrorsedgearchive:${{ GITHUB_REF_NAME }}
