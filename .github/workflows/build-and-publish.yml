@@ -40,6 +40,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:${{ GITHUB_REF_NAME }}-${{ GITHUB_RUN_ID }}
-            ghcr.io/${{ github.repository }}:${{ GITHUB_REF_NAME }}-latest
-            ghcr.io/mirrorsedgearchive:${{ GITHUB_REF_NAME }}
+            ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ github.run_id }}
+            ghcr.io/${{ github.repository }}:${{ github.ref_name }}-latest
+            ghcr.io/${{ github.repository }}:${{ github.ref_name }}
