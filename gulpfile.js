@@ -307,6 +307,7 @@ function packVendorCSS() {
 }
 
 function optimizeImg() {
+  console.log(`Caching optimized images in ${require('os').tmpdir()}`)
   return src([
     './src/assets/media/image/**/*.jpg',
     './src/assets/media/image/**/*.png',
@@ -333,6 +334,7 @@ function optimizeImg() {
 }
 
 function optimizeImgToWebp() {
+  console.log(`Caching optimized images in ${require('os').tmpdir()}`)
   return src([
     './src/assets/media/image/**/*.jpg',
     './src/assets/media/image/**/*.png'

@@ -44,6 +44,13 @@ jobs:
         id: image-metadata
         with:
           images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,priority=1000,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+            type=raw,priority=1000,value=sandbox,enable=${{ github.ref == format('refs/heads/{0}', 'sandbox') }}
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+            type=raw,value=${{ github.run_id }}
       - name: Build and push images
         uses: docker/build-push-action@v3.2.0
         with:
