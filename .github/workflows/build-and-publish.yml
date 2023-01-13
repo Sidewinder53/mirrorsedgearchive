@@ -74,4 +74,5 @@ jobs:
         with:
           package-name: mirrorsedgearchive
           package-type: container
-          min-versions-to-keep: 3
+          ignore-versions: '^(latest|sandbox)$'
+          min-versions-to-keep: 5
