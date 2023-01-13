@@ -1,0 +1,78 @@
+name: Build and Publish image
+
+on:
+  push:
+    branches:
+      - main
+      - sandbox
+  pull_request:
+    branches:
+      - main
+      - sandbox
+  schedule:
+    - cron: '35 2 * * 1'
+
+jobs:
+  buildAndPushImage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: actions/cache@v3
+        if: github.ref_name != 'main'
+        with:
+          path: /tmp/gulp-cache
+          key: ${{ runner.os }}-gulp-cache
+      - name: Build Frontend (Production)
+        if: github.ref_name == 'main'
+        run: |
+          npm install
+          gulp buildProduction
+      - name: Build Frontend
+        if: github.ref_name != 'main'
+        run: |
+          npm install
+          gulp build
+      - name: Log in to container registry
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Collect image metadata
+        uses: docker/metadata-action@v4
+        id: image-metadata
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,priority=1000,value=latest,enable=${{ github.ref_name == 'main' }}
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+            type=raw,value=${{ github.run_id }}
+      - name: Build and push images
+        uses: docker/build-push-action@v3.2.0
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.image-metadata.outputs.tags }}
+          labels: ${{ steps.image-metadata.outputs.labels }}
+  cleanup:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: mirrorsedgearchive
+          package-type: container
+          ignore-versions: '^(latest|sandbox)$'
+          min-versions-to-keep: 5
