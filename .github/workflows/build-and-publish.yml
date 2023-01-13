@@ -3,13 +3,13 @@ name: Build and Publish image
 on:
   push:
     branches:
-    - main
-    - sandbox
-    - chore/2023-01-dependencies
+      - main
+      - sandbox
+      - chore/2023-01-dependencies
   pull_request:
     branches:
-    - main
-    - sandbox
+      - main
+      - sandbox
 
 jobs:
   buildAndPushImage:
@@ -18,34 +18,46 @@ jobs:
       contents: read
       packages: write
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Set up Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - uses: actions/cache@v3
-      id: gulp-cache
-      with:
-        path: /tmp/gulp-cache
-        key: ${{ runner.os }}-gulp-cache
-    - name: Build Frontend
-      run: |
-        npm install
-        gulp buildProduction
-    - name: Log in to container registry
-      uses: docker/login-action@v2.1.0
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build and push images
-      uses: docker/build-push-action@v3.2.0
-      with:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: actions/cache@v3
+        id: gulp-cache
+        with:
+          path: /tmp/gulp-cache
+          key: ${{ runner.os }}-gulp-cache
+      - name: Build Frontend
+        run: |
+          npm install
+          gulp buildProduction
+      - name: Log in to container registry
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Collect image metadata
+        uses: docker/metadata-action@v4
+        id: image-metadata
+        with:
+          images: ghcr.io/${{ github.repository }}
+      - name: Build and push images
+        uses: docker/build-push-action@v3.2.0
+        with:
           context: .
-          push: true
-          tags: |
-            ghcr.io/sidewinder53/mirrorsedgearchive:${{ github.run_id }}
-          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ github.run_id }}
-          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}-latest
-          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.image-metadata.outputs.tags }}
+          labels: ${{ steps.image-metadata.outputs.labels }}
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: mirrorsedgearchive
+          package-type: container
+          min-versions-to-keep: 3
