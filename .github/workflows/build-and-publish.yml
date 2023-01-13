@@ -66,6 +66,7 @@ jobs:
           labels: ${{ steps.image-metadata.outputs.labels }}
   cleanup:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
     permissions:
       packages: write
     steps:
