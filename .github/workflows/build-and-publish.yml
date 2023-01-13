@@ -25,14 +25,20 @@ jobs:
         with:
           node-version: 18
       - uses: actions/cache@v3
-        id: gulp-cache
+        if: github.ref_name != 'main'
         with:
           path: /tmp/gulp-cache
           key: ${{ runner.os }}-gulp-cache
-      - name: Build Frontend
+      - name: Build Frontend (Production)
+        if: github.ref_name == 'main'
         run: |
           npm install
           gulp buildProduction
+      - name: Build Frontend
+        if: github.ref_name != 'main'
+        run: |
+          npm install
+          gulp build
       - name: Log in to container registry
         uses: docker/login-action@v2.1.0
         with:
@@ -45,8 +51,7 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
-            type=raw,priority=1000,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-            type=raw,priority=1000,value=sandbox,enable=${{ github.ref == format('refs/heads/{0}', 'sandbox') }}
+            type=raw,priority=1000,value=latest,enable=${{ github.ref_name == 'main' }}
             type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
