@@ -1,0 +1,23 @@
+{% set pageInfo = {
+  name: 'project_doomsday',
+  category: 'archives',
+  title: 'Project Doomsday - Mirror\'s Edge 2D',
+  description: 'Mirror\'s Edge 2D is a flash game created to promote Mirror\'s Edge.'
+}%}
+
+{%- extends "templates/_layout.njk" %}
+
+{%- block content %}
+<div class="container" id="cookie_consent_placeholder"></div>
+<div class="container mt-4">
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <div id='unsupported_ie' class='bg-dark text-white d-flex align-items-center'>
+    <div class='container'>
+      This is the original Mirror's Edge 2D flash game, emulated with <a href="https://ruffle.rs/">Ruffle</a>.
+    </div>
+  </div>
+  <object>
+    <embed src="ea.comm.swf" style="width: 100%; height: 100%; aspect-ratio: 6 / 4;" />
+  </object>
+</div>
+{% endblock %}

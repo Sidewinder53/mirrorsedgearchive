@@ -75,6 +75,7 @@ function processTemplateDev() {
     './src/project_billboard/index.html',
     './src/project_propaganda/index.html',
     './src/project_doomsday/index.html',
+    './src/project_doomsday/2d-game/index.html',
     './src/project_graffiti/index.html',
     './src/archive/index.html',
     './src/contribute/index.html',
@@ -110,6 +111,7 @@ function processTemplateProd() {
     './src/project_billboard/index.html',
     './src/project_propaganda/index.html',
     './src/project_doomsday/index.html',
+    './src/project_doomsday/2d-game/index.html',
     './src/project_graffiti/index.html',
     './src/archive/index.html',
     './src/contribute/index.html',
@@ -307,6 +309,7 @@ function packVendorCSS() {
 }
 
 function optimizeImg() {
+  console.log(`Caching optimized images in ${require('os').tmpdir()}`)
   return src([
     './src/assets/media/image/**/*.jpg',
     './src/assets/media/image/**/*.png',
@@ -333,6 +336,7 @@ function optimizeImg() {
 }
 
 function optimizeImgToWebp() {
+  console.log(`Caching optimized images in ${require('os').tmpdir()}`)
   return src([
     './src/assets/media/image/**/*.jpg',
     './src/assets/media/image/**/*.png'
@@ -369,7 +373,8 @@ function copyStatic() {
     'src/icon.svg',
     'src/apple-touch-icon.png',
     'src/manifest.webmanifest',
-    'src/.well-known/*'
+    'src/.well-known/*',
+    'src/project_doomsday/2d-game/ea.comm.swf'
   ], { base: 'src' })
     .pipe(dest('dist/'));
 }
