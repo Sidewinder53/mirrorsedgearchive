@@ -85,8 +85,6 @@ function getSelection() {
       frame_selector[getRandomBetween(2, frame_selector.length)].getAttribute(
         "data-img-path"
       );
-  } else if (frame_selector.selectedIndex == 1) {
-    selection.frame = baseUrl + "nomask.png";
   } else {
     selection.frame =
       baseUrl +
@@ -105,9 +103,6 @@ function getSelection() {
       baseUrl +
       "masks/" +
       emblem_selector[rnd_index].getAttribute("data-img-path").substring(8);
-  } else if (emblem_selector.selectedIndex == 1) {
-    selection.emblem = baseUrl + "notag.png";
-    selection.mask = baseUrl + "notag.png";
   } else {
     selection.emblem =
       baseUrl +
@@ -131,8 +126,6 @@ function getSelection() {
       background_selector[
         getRandomBetween(2, background_selector.length)
       ].getAttribute("data-img-path");
-  } else if (background_selector.selectedIndex == 1) {
-    selection.background = baseUrl + "nomask.png";
   } else {
     selection.background =
       baseUrl +
