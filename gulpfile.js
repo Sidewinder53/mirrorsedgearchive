@@ -22,6 +22,7 @@ const nunjucks = require('gulp-nunjucks-render');
 const imagemin = require('gulp-imagemin');
 const svgo = require('imagemin-svgo');
 const webp = require('imagemin-webp');
+const avif = require("imagemin-avif");
 const mozjpeg = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
 const browserSync = require('browser-sync').create();
@@ -352,6 +353,31 @@ function optimizeImgToWebp() {
       }
     ))
     .pipe(rename({ extname: '.webp' }))
+    .pipe(rev())
+    .pipe(dest('./dist'))
+    .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
+      merge: true
+    }))
+    .pipe(dest('./'));
+}
+
+function optimizeImgToAvif() {
+  console.log(`Caching optimized images in ${require('os').tmpdir()}`)
+  return src([
+    './src/assets/media/image/**/*.jpg',
+    './src/assets/media/image/**/*.png'
+  ], { base: 'src' })
+    .pipe(cache(imagemin(
+      [avif({quality: 90})],
+      {
+        verbose: true
+      }
+    ),
+      {
+        name: "avif"
+      }
+    ))
+    .pipe(rename({ extname: '.avif' }))
     .pipe(rev())
     .pipe(dest('./dist'))
     .pipe(rev.manifest('./dist/assets/rev-manifest.json', {
