@@ -1,10 +1,10 @@
 {% set pageInfo = {
-  name: 'project_propaganda',
-  category: 'projects',
-  title: 'News broadcasts',
-  description: "Newscasts and announcements by KrugerSec & Black November from Mirror's Edge Catalyst",
-  reqScripts: [ 'assets/vendor/shaka-player/shaka-player.compiled.js', 'assets/js/project_propaganda.js' ],
-  reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/project_propaganda.css' ]
+name: 'project_propaganda',
+category: 'projects',
+title: 'News broadcasts',
+description: "Newscasts and announcements by KrugerSec & Black November from Mirror's Edge Catalyst",
+reqScripts: [ 'assets/vendor/shaka-player/shaka-player.compiled.js', 'assets/js/project_propaganda.js' ],
+reqStylesheets: [ 'assets/vendor/@mdi/materialdesignicons.min.css', 'assets/css/project_propaganda.css' ]
 }%}
 
 {%- extends "templates/_layout.njk" %}
@@ -141,31 +141,27 @@
         </div>
       </div>
       <div class="modal-body">
-        <p>Media on this page is protected and can thus only be played in supported, modern webbrowsers, such as <a
-            href="https://www.mozilla.org/de/firefox/new" target="_blank">Mozilla Firefox</a> or <a
-            href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>. Some browsers may not support this
-          technology and will show a a low-quality fallback instead. Continue reading below to learn more about why we chose
-          to do this.</p>
+        <p>Media on this page is protected and can thus only be played in supported, modern web browsers, such as
+          Mozilla Firefox, Google Chrome or Microsoft Edge. Some browsers may not support this technology and will show
+          a low-quality fallback instead. Continue reading below to learn more about why we chose to do this.</p>
         <hr>
         <p class="font-weight-bold mdi mdi-information">Why is media on this page protected/encrypted?</p>
         <p>When we started this project, we weighed up the pros and cons of protecting content and concluded that it is
-          our duty to protect media on this site from unauthorized
-          redistribution. We understand that not everyone is content with this decision, so please <a
-            href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new" target="_blank">provide your
-            feedback</a> if you think we should have made a different decision.</p>
+          our duty to protect media on this site from unauthorized redistribution. We understand that not everyone is
+          content with this decision, so please <a href="https://github.com/Sidewinder53/mirrorsedgearchive/issues/new"
+            target="_blank">provide your feedback</a> if you think we should have made a different decision.</p>
         <p class="font-weight-bold mdi mdi-file-document-box-search">What are the technical implications of this?</p>
-        <p>Content on this page is served trough <abbr title="Media Source Extensions" class="initialism">MSE</abbr> and
-          <abbr title="Encrypted Media Extensions" class="initialism">EME</abbr> using a ClearKey implementation. Even
-          though support for this feature is required by the <a href="https://www.w3.org/TR/encrypted-media/"
-            target="_blank">W3C standard</a>, some browsers such as Microsoft Edge or Apple Safari on iOS provide
-          limited or no
-          support. Such browsers will show a fallback in inferior quality, which is currently 300p instead of the
-          maximum 720p. We may lift this limitation in the future if we
-          notice that the original videos circulate online.</p>
+        <p>Content on this page is served through <abbr title="Media Source Extensions" class="initialism">MSE</abbr>
+          and <abbr title="Encrypted Media Extensions" class="initialism">EME</abbr> using a ClearKey implementation.
+          Even though support for this feature is required by the <a href="https://www.w3.org/TR/encrypted-media/"
+            target="_blank">W3C standard</a>, some browsers such as Apple Safari on iOS provide limited or no support.
+          Such browsers will show a fallback in inferior quality, which is currently 300p instead of the maximum 720p.
+          We may lift this limitation in the future if we notice that the original videos circulate online.
+        </p>
         <p class="font-weight-bold mdi mdi-message-alert">You some kind of Netflix? 🤨</p>
         <p>No, we are not. We do not use any proprietary <abbr title="Digital Rights Management"
-            class="initialism">DRM</abbr> solutions, such as Google Widevine or Microsoft
-          PlayReady. MPEG-CENC is a completely open, standardized container format requiring no proprietary code.</p>
+            class="initialism">DRM</abbr> solutions, such as Google Widevine or Microsoft PlayReady. MPEG-CENC is a
+          completely open, standardized container format requiring no proprietary code.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
