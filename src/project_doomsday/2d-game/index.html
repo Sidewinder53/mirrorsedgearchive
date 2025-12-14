@@ -1,8 +1,8 @@
 {% set pageInfo = {
-  name: 'project_doomsday',
-  category: 'archives',
-  title: 'Project Doomsday - Mirror\'s Edge 2D',
-  description: 'Mirror\'s Edge 2D is a flash game created to promote Mirror\'s Edge.'
+name: 'project_doomsday',
+category: 'archives',
+title: 'Project Doomsday - Mirror\'s Edge 2D',
+description: 'Mirror\'s Edge 2D is a flash game created to promote Mirror\'s Edge.'
 }%}
 
 {%- extends "templates/_layout.njk" %}
@@ -10,14 +10,49 @@
 {%- block content %}
 <div class="container" id="cookie_consent_placeholder"></div>
 <div class="container mt-4">
+  <script>
+    (function (originalFetch) {
+      const changeUrl = function (url) {
+        if (url == "http://me2d.cachefly.net/flash/ME_soundtrack.mp3") {
+          return "ME_soundtrack.mp3";
+        }
+        return url;
+      };
+      window.fetch = function () {
+        let a = Array.from(arguments);
+        if (typeof (a[0]) === "string") {
+          a[0] = changeUrl(a[0]);
+        } else if (a[0] && typeof (a[0].url) === "string") {
+          const changedUrl = changeUrl(a[0].url);
+          if (changedUrl !== a[0].url) {
+            a[0] = changedUrl;
+          }
+        }
+        return originalFetch.apply(window, a);
+      };
+    })(window.fetch);
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", (event) => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      player.ruffle().config = {
+        contextMenu: "off"
+      };
+      const container = document.getElementById("game");
+      player.style.width = "100%";
+      player.style.height = "100%";
+      player.style.aspectRatio = "6/4";
+      container.appendChild(player);
+      player.ruffle().load("ea.comm.swf");
+    });
+  </script>
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   <div id='unsupported_ie' class='bg-dark text-white d-flex align-items-center'>
     <div class='container'>
       This is the original Mirror's Edge 2D flash game, emulated with <a href="https://ruffle.rs/">Ruffle</a>.
     </div>
   </div>
-  <object>
-    <embed src="ea.comm.swf" style="width: 100%; height: 100%; aspect-ratio: 6 / 4;" />
+  <object id="game">
   </object>
 </div>
 {% endblock %}

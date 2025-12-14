@@ -41,6 +41,7 @@ body {
 
 #legal_footer > div > .media {
   align-items: flex-end;
+  gap: 0.5rem;
 }
 
 #legal_footer > div > div > .media-body {
@@ -115,7 +116,7 @@ a:hover svg path {
 
 @media (min-width: 576px) {
   #legal_footer {
-    height: 160px;
+    height: auto;
   }
   body {
     margin-bottom: 180px;
@@ -130,7 +131,7 @@ a:hover svg path {
     margin-bottom: 150px;
   }
   #legal_footer {
-    height: 130px;
+    height: auto;
   }
 }
 
@@ -139,7 +140,7 @@ a:hover svg path {
     margin-bottom: 130px;
   }
   #legal_footer {
-    height: 110px;
+    height: auto;
   }
 }
 
@@ -148,7 +149,7 @@ a:hover svg path {
     margin-bottom: 120px;
   }
   #legal_footer {
-    height: 100px;
+    height: auto;
   }
 }
 
