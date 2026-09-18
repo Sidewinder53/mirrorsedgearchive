@@ -80,6 +80,8 @@ function initApp() {
   let comp_eme = false;
   let comp_emeVP9 = false;
   let comp_emeH264 = false;
+  let comp_isSafari =
+    Bowser.getParser(navigator.userAgent).getBrowserName() == "Safari";
 
   console.log("🛂 Checking browser compatibility...");
 
@@ -97,7 +99,11 @@ function initApp() {
     console.log("❌ Media Source Extensions");
   }
 
-  if (window.MediaKeys) {
+  if (
+    !comp_isSafari &&
+    window.MediaKeys &&
+    navigator.requestMediaKeySystemAccess
+  ) {
     console.log("✔️ Encrypted Media Extensions");
     comp_eme = true;
     var comp_promH264 = navigator
@@ -259,7 +265,7 @@ function loadManifest(manifestUri) {
       tracks.forEach(function(element, index) {
         if (!qualityHeights[element.height]) {
           qualityHeights[element.height] = true;
-        options.push([element.height, index]);
+          options.push([element.height, index]);
         }
       });
       options.sort(sortQualities);

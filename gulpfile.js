@@ -199,6 +199,7 @@ function packVendorJS() {
     './node_modules/pagemap/dist/pagemap.min.js',
     './node_modules/image-picker/image-picker/image-picker.min.js',
     './node_modules/nouislider/distribute/nouislider.min.js',
+    './node_modules/bowser/es5.js',
     './node_modules/shaka-player/dist/shaka-player.compiled.js',
     './node_modules/wnumb/wNumb.min.js'
   ], { base: 'node_modules' })
