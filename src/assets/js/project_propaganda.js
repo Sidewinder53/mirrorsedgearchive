@@ -80,6 +80,8 @@ function initApp() {
   let comp_eme = false;
   let comp_emeVP9 = false;
   let comp_emeH264 = false;
+  let comp_isSafari =
+    Bowser.getParser(navigator.userAgent).getBrowserName() == "Safari";
 
   console.log("🛂 Checking browser compatibility...");
 
@@ -97,7 +99,11 @@ function initApp() {
     console.log("❌ Media Source Extensions");
   }
 
-  if (window.MediaKeys) {
+  if (
+    !comp_isSafari &&
+    window.MediaKeys &&
+    navigator.requestMediaKeySystemAccess
+  ) {
     console.log("✔️ Encrypted Media Extensions");
     comp_eme = true;
     var comp_promH264 = navigator
@@ -134,6 +140,9 @@ function initApp() {
         console.log("❌ MPEG-CENC with ClearKey (VP9)");
       });
   } else {
+    if (comp_isSafari) {
+      console.log("❌ ClearKey is not supported in Safari");
+    }
     console.log("❌ Encrypted Media Extensions");
   }
 
@@ -183,7 +192,7 @@ function initApp() {
 
 function initPlayer() {
   var video = document.querySelector("#vidPlayer");
-  var player = new shaka.Player(video);
+  var player = new shaka.Player();
   var bandwidth = getBandwidthCookie();
   window.abrEnabled = getAbrCookie();
   console.log(
@@ -209,6 +218,7 @@ function initPlayer() {
   });
   window.player = player;
   player.addEventListener("error", onErrorEvent);
+  window.playerReady = player.attach(video);
 
   $("#shareBtn").on("click", function() {
     if (navigator.share) {
@@ -238,8 +248,10 @@ function initPlayer() {
 }
 
 function loadManifest(manifestUri) {
-  player
-    .load(manifestUri)
+  Promise.resolve(window.playerReady)
+    .then(function() {
+      return player.load(manifestUri);
+    })
     .then(function() {
       console.log("[PropP] New manifest loaded.");
       window.tracks = player.getVariantTracks();
@@ -248,9 +260,13 @@ function loadManifest(manifestUri) {
       // Populate quality select menu
       let options = [];
       let trackOverrideIndex;
+      let qualityHeights = Object.create(null);
       $("#qualitySelect").html("");
       tracks.forEach(function(element, index) {
-        options.push([element.height, index]);
+        if (!qualityHeights[element.height]) {
+          qualityHeights[element.height] = true;
+          options.push([element.height, index]);
+        }
       });
       options.sort(sortQualities);
       $("#qualitySelect").append(new Option("Auto", "auto"));
@@ -271,16 +287,13 @@ function loadManifest(manifestUri) {
       } else {
       }
 
-      // Restore subtitle status
-      if (
-        Cookies.get("subtitles") == "true" &&
-        $("#subCheck").get(0).checked == false
-      ) {
-        console.log("[PropP] Subtitle state restored, subtitles enabled.");
-        $("#subCheck").click();
-      } else if (Cookies.get("subtitles") == undefined) {
-        console.log("[PropP] Subtitles state undefined > Subtitles enabled.");
-        $("#subCheck").click();
+      // Restore subtitle status and keep the player in sync with the checkbox.
+      let subtitlesEnabled = Cookies.get("subtitles") != "false";
+      $("#subCheck").prop("checked", subtitlesEnabled);
+      if (subtitlesEnabled) {
+        player.selectTextTrack(player.getTextTracks()[0] || null);
+      } else {
+        player.selectTextTrack(null);
       }
     })
     .catch(onError);
@@ -566,10 +579,10 @@ function hookDashBindings() {
   // Bind checkbox toggle to subtitle state update
   $("#subCheck").change(function() {
     if (this.checked) {
-      player.setTextTrackVisibility(1);
+      player.selectTextTrack(player.getTextTracks()[0] || null);
       Cookies.set("subtitles", true, { path: "/project_propaganda" });
     } else {
-      player.setTextTrackVisibility(0);
+      player.selectTextTrack(null);
       Cookies.set("subtitles", false, { path: "/project_propaganda" });
     }
   });
@@ -637,18 +650,18 @@ function playFallback(video) {
   track.kind = "Subtitles";
   track.label = "English";
   track.srclang = "en";
-  track.default = true;
+  track.default = false;
   track.src = video.track.replace(
     "$(main)",
     database["infrastructure"].mainAssetServer
   );
   track.addEventListener("load", function() {
-    this.mode = "showing";
-    video.textTracks[0].mode = "showing"; // thanks Firefox
+    this.mode = $("#subCheck").prop("checked") ? "showing" : "hidden";
   });
   $("#vidPlayer")
     .get(0)
     .appendChild(track);
+  track.mode = $("#subCheck").prop("checked") ? "showing" : "hidden";
   $("#vidPlayer")
     .get(0)
     .load();
