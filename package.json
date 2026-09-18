@@ -38,6 +38,7 @@
   "dependencies": {
     "@mdi/font": "^5.9.55",
     "bootstrap": "^4.6.2",
+    "bowser": "^2.14.1",
     "comparison-slider": "^1.1.0",
     "gulp-rev": "^9.0.0",
     "imagemin-pngquant": "^9.0.2",
@@ -47,7 +48,7 @@
     "nouislider": "^14.7.0",
     "pagemap": "^1.4.1",
     "popper.js": "^1.16.1",
-    "shaka-player": "^3.3.19",
+    "shaka-player": "^5.2.9",
     "wasm-imagemagick": "^1.2.8",
     "wnumb": "^1.2.0"
   }
