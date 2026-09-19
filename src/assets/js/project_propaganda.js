@@ -81,7 +81,7 @@ function initApp() {
   let comp_emeVP9 = false;
   let comp_emeH264 = false;
   let comp_isSafari =
-    Bowser.getParser(navigator.userAgent).getBrowserName() == "Safari";
+    bowser.getParser(navigator.userAgent).getBrowserName() == "Safari";
 
   console.log("🛂 Checking browser compatibility...");
 
