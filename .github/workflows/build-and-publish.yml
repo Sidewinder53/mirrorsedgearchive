@@ -35,12 +35,12 @@ jobs:
         if: github.ref_name == 'main'
         run: |
           npm install
-          gulp buildProduction
+          npx gulp buildProduction
       - name: Build Frontend
         if: github.ref_name != 'main'
         run: |
           npm install
-          gulp build
+          npx gulp build
       - name: Log in to container registry
         uses: docker/login-action@v3
         with:
